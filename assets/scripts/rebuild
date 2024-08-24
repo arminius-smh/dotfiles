@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+Help()
+{
+    echo "rebuild nixos-systems"
+    echo
+    echo "syntax: rebuild [-h|a|u]"
+    echo "options:"
+    echo "h     print this help"
+    echo "u     update nix flake"
+    echo
+}
+
+while getopts ":hu" option; do
+    case $option in
+        h)
+            Help
+            exit ;;
+        u)
+            update=true ;;
+        \?)
+            echo "Error: invalid option"
+            exit ;;
+    esac
+done
+
+pushd "$DOTFILES_PATH" || exit
+git pull
+git submodule update --recursive
+
+if [[ "$update" == true ]]; then
+    nix flake update
+fi
+
+alejandra -e ./systems/discovery/nixos-apple-silicon .
+echo "NixOS Rebuilding..."
+hostname=$(hostname)
+
+git add --all
+if [[ "$hostname" == "phoenix" ]]; then
+    if ! sudo nixos-rebuild switch --flake "$HOME/dotfiles?submodules=1#phoenix"; then
+        echo "NixOS rebuild failed"
+        exit
+    fi
+elif [[ "$hostname" == "discovery" ]]; then
+    if ! sudo nixos-rebuild switch --flake "$HOME/dotfiles?submodules=1#discovery" --impure; then
+        echo "NixOS rebuild failed"
+        exit
+    fi
+elif [[ "$hostname" == "excelsior" ]]; then
+    if ! sudo nixos-rebuild switch --flake "$HOME/dotfiles?submodules=1#excelsior"; then
+        echo "NixOS rebuild failed"
+        exit
+    fi
+fi
+gen=$(nixos-rebuild list-generations | grep current)
+commit="$hostname: $gen"
+git commit -m "$commit"
+git push
+popd || exit

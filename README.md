@@ -1,0 +1,64 @@
+# dotfiles
+
+## update flake
+
+```bash
+# update all flake inputs
+nix flake update
+# update only specific flake inputs
+nix flake lock --update-input [input]
+```
+
+## use template
+
+```bash
+nix flake init -t "path:$HOME/dotfiles/assets/devenvs#[language]"
+```
+
+## load configurations
+
+```bash
+# rebuilds nixos and home-manager
+./assets/scripts/rebuild
+
+# alternative
+sudo nixos-rebuild switch --flake "$HOME/dotfiles#phoenix" --max-jobs 1 # limit number of derivations to be built at the same time
+sudo nixos-rebuild switch --flake "$HOME/dotfiles#excelsior"
+```
+
+## tips
+
+### override package source
+
+```bash
+
+{pkgs, ...}: let
+  PKG-git = pkgs.PKG.overrideAttrs (prev: {
+    version = "git";
+    src = pkgs.fetchFromGitHub {
+      owner = "PKG";
+      repo = "PKG";
+      rev = ""; # latest commit
+      sha256 = pkgs.lib.fakeSha256; # rebuild first, then exchange with real hash
+    };
+  });
+in {
+  programs = {
+    PKG = {
+      enable = true;
+      package = PKG-git;
+    };
+  };
+}
+```
+
+### submodules
+
+```bash
+git submodule init && git submodule update
+```
+
+## other
+
+- `$DOTFILES_PATH` is required to be set
+- private zsh functions etc. in $HOME/.config/zsh/.priv.zsh

@@ -34,7 +34,7 @@
               font-size: 16px;
           }
 
-          #workspaces button.focused {
+          #workspaces button.focused, #workspaces button.active {
               color: @sky;
           }
 

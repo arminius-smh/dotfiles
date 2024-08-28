@@ -39,9 +39,6 @@ M.config = function()
                     default_workspace = "notes",
                 },
             },
-            -- WAIT: somethgin wrong with image.nvim build process
-            -- ["core.latex.renderer"] = {},
-            -- ["core.integrations.image"] = {},
             ["core.journal"] = {
                 config = {
                     journal_folder = "diary",

@@ -6,16 +6,16 @@
       url = "github:nixos/nixpkgs/nixos-unstable";
       #url = "git+file:///home/armin/Projects/Coding/nix/nixpkgs?shallow=1";
     };
-    nixpkgs-stable = {
-      url = "github:nixos/nixpkgs/nixos-23.11";
-    };
     home-manager = {
       # url = "github:nix-community/home-manager";
       url = "git+file:///home/armin/Projects/Coding/nix/home-manager"; # WAIT: my hyprcursor pr
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpkgs-stable = {
+      url = "github:nixos/nixpkgs/nixos-24.05";
+    };
     home-manager-stable = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
     mypkgs = {

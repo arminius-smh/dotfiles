@@ -1,6 +1,8 @@
 {config, ...}: {
   imports = [
     ../../programs
+    ../../assets/modules/secrets.nix
+    ../../secrets/secrets.nix
   ];
 
   home = {

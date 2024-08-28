@@ -7,6 +7,12 @@
     ./hardware-configuration.nix
   ];
 
+  fileSystems = {
+    "/" = {
+      options = ["noatime" "nodiratime" "discard"];
+    };
+  };
+
   # Bootloader.
   boot = {
     loader = {
@@ -124,8 +130,10 @@
       };
     };
     xserver = {
-      layout = "de";
-      xkbVariant = "";
+      xkb = {
+        layout = "de";
+        variant = "";
+      };
     };
   };
 

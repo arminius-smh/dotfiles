@@ -27,6 +27,7 @@
   virtualisation = {
     docker = {
       enable = true;
+      enableOnBoot = false;
     };
   };
 
@@ -112,7 +113,8 @@
         pools = [
           "tank"
         ];
-        interval = "Mon, 04:00";
+        interval = "monthly";
+        randomizedDelaySec = "6h";
       };
     };
     openssh = {

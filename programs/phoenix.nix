@@ -40,6 +40,8 @@
     ./spicetify # spotify enhancement
     ./texlive # latex
     ./spotify-player # spotify streaming
+    ./imv # image viewer
+    ./bat # cat alternative
   ];
 
   home = {
@@ -69,7 +71,7 @@
       tree-sitter # parsing system for programming tools
       obsidian # markdown notes
 
-      # video game manager
+      # videogame manager
       heroic
       lutris
 
@@ -103,7 +105,6 @@
       OVMF # UEFI support for qemu
       xdg-ninja # check $HOME for unwanted stuff
       zotero # citation manager
-      imv # image viewer
       arduino # arduino ide
       nwg-displays # output management utility
       anki # flashcard
@@ -111,7 +112,6 @@
       xdg-utils # open files with default application
       xorg.xeyes # detect x-11 window
       xclip # only needed for wine paste
-      bat # cat alternative
       gimp # image manipulation
       subtitleedit # subtitle editor
       update-nix-fetchgit # automatically fill hashes for nix expressions

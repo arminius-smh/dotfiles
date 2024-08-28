@@ -63,6 +63,9 @@
               wl-copy "![$NAME](../../../attachments/$IMG_PATH)"
           }
 
+          # color --help with bat
+          alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+
           # Source private stuff
           if [ -f $HOME/.config/zsh/.priv.zsh ]; then
               source $HOME/.config/zsh/.priv.zsh
@@ -125,8 +128,10 @@
         svim = "sudo -E -s nvim";
         yarn = "yarn --use-yarnrc ${config.xdg.configHome}/yarn/config";
         nix-shell = "HISTFILE='${config.xdg.dataHome}/bash/history' nix-shell";
-        cat = "bat -pp";
+        cat = "bat --paging=never";
+        fzf = ''fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'';
         rt = "trashy put";
+        man = "batman";
       };
       oh-my-zsh = {
         enable = true;

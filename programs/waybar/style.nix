@@ -1,10 +1,12 @@
-{config, ...}: {
+{...}: {
+  imports = [
+    ./mocha.nix
+  ];
   programs = {
     waybar = {
       style =
         # css
         ''
-          @import "${config.home.sessionVariables.DOTFILES_PATH}/programs/waybar/mocha.css";
           * {
               border: none;
               border-radius: 0;

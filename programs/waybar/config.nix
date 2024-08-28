@@ -119,13 +119,14 @@
             spacing = 5;
           };
 
+          # NOTE: no pipewire sound module available
           pulseaudio = {
             format = "{icon} {volume}%";
             format-muted = "󰝟";
             format-icons = {
               default = ["󰕿" "󰖀" "󰕾"];
             };
-            on-click-right = "pavucontrol";
+            on-click-right = "pwvucontrol";
           };
         };
       };

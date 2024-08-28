@@ -96,7 +96,7 @@
       jetbrains.idea-community-bin
 
       pamixer # audio mixer
-      pavucontrol # pulseaudio volume control
+      pwvucontrol # pipewire volume control
       oxipng # lossless png compression optimizer
       ranger # file manager
 

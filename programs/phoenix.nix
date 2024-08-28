@@ -117,7 +117,7 @@
       update-nix-fetchgit # automatically fill hashes for nix expressions
       killall # kill processes by name
       dig # dns lookup
-      pavucontrol # pulseaudio volume control
+      pwvucontrol # pipewire volume control
       pfetch-rs # sytem info
       tradingview # stock tracker
 

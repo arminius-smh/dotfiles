@@ -34,12 +34,23 @@ in {
       inputs.rust-overlay.overlays.default
       inputs.nil.overlays.default
       inputs.nur.overlay
+      # NOTE: dev didn't want the feature
       (final: prev: {
         timer = prev.timer.overrideAttrs (o: {
           patches =
             (o.patches or [])
             ++ [
               ../../assets/patches/timer/pause.diff
+            ];
+        });
+      })
+      # WAIT: new release of pwvucontrol
+      (final: prev: {
+        pwvucontrol = prev.pwvucontrol.overrideAttrs (o: {
+          patches =
+            (o.patches or [])
+            ++ [
+              ../../assets/patches/pwvucontrol/unknown.diff
             ];
         });
       })

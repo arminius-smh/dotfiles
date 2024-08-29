@@ -91,6 +91,9 @@
         "image/png" = ["imv.desktop"];
         "text/plain" = ["nvim.desktop"];
         "video/x-matroska" = ["mpv.desktop"];
+        "text/html" = ["firefox.desktop"];
+        "x-scheme-handler/http" = ["firefox.desktop"];
+        "x-scheme-handler/https" = ["firefox.desktop"];
       };
     };
   };

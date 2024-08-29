@@ -17,6 +17,7 @@
 in {
   imports = [
     ./hardware-configuration.nix
+    inputs.catppuccin.nixosModules.catppuccin
   ];
 
   fileSystems = {
@@ -185,8 +186,13 @@ in {
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = ["module_blacklist=i915"];
     loader = {
-      systemd-boot = {
+      grub = {
         enable = true;
+        catppuccin = {
+          enable = true;
+        };
+        efiSupport = true;
+        device = "nodev";
       };
       efi = {
         canTouchEfiVariables = true;
@@ -384,6 +390,9 @@ in {
 
   console = {
     keyMap = "de";
+    catppuccin = {
+      enable = true;
+    };
   };
 
   users = {

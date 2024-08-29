@@ -43,6 +43,7 @@ M.config = function()
             css = { "prettierd" },
             json = { "prettierd" },
             yaml = { "prettierd" },
+            typst = { "typstyle" },
         },
 
         formatters = {

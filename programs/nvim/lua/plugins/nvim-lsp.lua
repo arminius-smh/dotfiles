@@ -153,6 +153,11 @@ M.config = function()
     require 'lspconfig'.svelte.setup {
         capabilities = capabilities,
     }
+
+    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#typst_lsp
+    require 'lspconfig'.typst_lsp.setup {
+        capabilities = capabilities,
+    }
 end
 
 return M

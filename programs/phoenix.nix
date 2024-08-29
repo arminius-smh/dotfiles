@@ -121,6 +121,8 @@
       pfetch-rs # sytem info
       tradingview # stock tracker
 
+      typst # typst
+
       # python3
       python3
       python3Packages.pylint
@@ -194,6 +196,8 @@
       rust-analyzer # language server rust
       vala-language-server # language server vala
       mesonlsp # language server meson
+      typst-lsp # language server typst
+      typstyle # formatter typst
 
       # formatter + linter
       alejandra # formatter nix

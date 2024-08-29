@@ -9,6 +9,15 @@
   programs = {
     zsh = {
       enable = true;
+      syntaxHighlighting = {
+        enable = true;
+        catppuccin = {
+          enable = true;
+        };
+      };
+      autosuggestion = {
+        enable = true;
+      };
       dotDir = ".config/zsh";
       history = {
         path = "${config.xdg.dataHome}/zsh/history";
@@ -139,13 +148,6 @@
           "git"
         ];
         theme = "lukerandall";
-      };
-      antidote = {
-        enable = true;
-        plugins = [
-          "zsh-users/zsh-syntax-highlighting"
-          "zsh-users/zsh-autosuggestions"
-        ];
       };
     };
   };

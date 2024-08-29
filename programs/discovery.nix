@@ -56,7 +56,6 @@
       nwg-displays # output management utility
       imv # image viewer
       bat # cat alternative
-      delta # diff viewer
       tree # directory tree
       imagemagick # image manipulation
       xdg-utils # open files with default application

@@ -1,7 +1,4 @@
 {...}: {
-  imports = [
-    ./mocha.nix
-  ];
   programs = {
     waybar = {
       style =

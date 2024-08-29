@@ -2,6 +2,9 @@
   programs = {
     mpv = {
       enable = true;
+      catppuccin = {
+        enable = true;
+      };
       config = {
         screenshot-format = "png";
         # Save screenshots in the pattern of 'filename-timestamp.png'

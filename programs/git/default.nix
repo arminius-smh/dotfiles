@@ -6,6 +6,12 @@
   programs = {
     git = {
       enable = true;
+      delta = {
+        enable = true;
+        catppuccin = {
+          enable = true;
+        };
+      };
       extraConfig = {
         user = {
           email = config.secrets.mail.personal;

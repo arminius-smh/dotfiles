@@ -21,7 +21,6 @@
       jq # json parser
       fd # find tool
       pyrosimple # torrent library
-      delta # diff viewer
       alejandra # formatter nix
 
       # file compression

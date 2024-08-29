@@ -2,13 +2,23 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }: {
   imports = [
+    inputs.catppuccin.homeManagerModules.catppuccin
     ../../programs
     ../../assets/modules/secrets.nix
     ../../secrets/secrets.nix
   ];
+  catppuccin = {
+    flavor = "mocha";
+    accent = "mauve";
+    pointerCursor = {
+      enable = true;
+      flavor = "latte";
+    };
+  };
 
   home = {
     username = "armin";
@@ -16,8 +26,6 @@
     stateVersion = "23.05"; # Don't touch this! - Unless..
 
     pointerCursor = {
-      name = "catppuccin-latte-mauve-cursors";
-      package = pkgs.catppuccin-cursors.latteMauve;
       size = 24;
       gtk = {
         enable = true;
@@ -89,6 +97,16 @@
 
   qt = {
     enable = true;
+    platformTheme = {
+      name = "kvantum";
+    };
+    style = {
+      name = "kvantum";
+      catppuccin = {
+        enable = true;
+        apply = true;
+      };
+    };
   };
 
   gtk = {

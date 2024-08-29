@@ -25,7 +25,6 @@
       neovim # text editor
       fastfetch # system info
       yt-dlp # video downloader
-      delta # diff viewer
       tree # directory tree
       wget # website curler
       bat # cp replacement

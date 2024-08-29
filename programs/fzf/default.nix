@@ -1,6 +1,6 @@
 {...}: {
   programs = {
-    imv = {
+    fzf = {
       enable = true;
       catppuccin = {
         enable = true;

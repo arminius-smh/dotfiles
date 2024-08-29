@@ -17,6 +17,10 @@ in {
   programs = {
     waybar = {
       enable = true;
+      catppuccin = {
+        enable = true;
+        mode = "prependImport";
+      };
       package = waybar-git;
       systemd = {
         enable = true;

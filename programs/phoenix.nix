@@ -128,7 +128,6 @@
       ueberzugpp # draw images on terminals
 
       yt-dlp # video downloader
-      delta # diff viewer
       tree # directory tree
       wget # website curler
 

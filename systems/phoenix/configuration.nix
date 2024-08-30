@@ -20,6 +20,11 @@ in {
     inputs.catppuccin.nixosModules.catppuccin
   ];
 
+  catppuccin = {
+    flavor = "mocha";
+    accent = "mauve";
+  };
+
   fileSystems = {
     # NOTE: improve SSD performance
     "/" = {

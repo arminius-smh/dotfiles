@@ -2,20 +2,29 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }: {
   imports = [
+    inputs.catppuccin.homeManagerModules.catppuccin
     ../../programs
     ../../assets/modules/secrets.nix
     ../../secrets/secrets.nix
   ];
+  catppuccin = {
+    flavor = "mocha";
+    accent = "mauve";
+    pointerCursor = {
+      enable = true;
+      flavor = "latte";
+    };
+  };
+
   home = {
     username = "armin";
     homeDirectory = "/home/armin";
 
     pointerCursor = {
-      name = "catppuccin-latte-mauve-cursors";
-      package = pkgs.catppuccin-cursors.latteMauve;
       size = 24;
       gtk = {
         enable = true;
@@ -55,8 +64,19 @@
       '';
     };
   };
+
   qt = {
     enable = true;
+    platformTheme = {
+      name = "kvantum";
+    };
+    style = {
+      name = "kvantum";
+      catppuccin = {
+        enable = true;
+        apply = true;
+      };
+    };
   };
 
   gtk = {
@@ -70,10 +90,6 @@
     iconTheme = {
       name = "kora";
       package = pkgs.kora-icon-theme;
-    };
-    cursorTheme = {
-      name = "Catppuccin-Mocha-Mauve";
-      package = pkgs.catppuccin-cursors.mochaMauve;
     };
     gtk2 = {
       configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";

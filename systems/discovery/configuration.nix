@@ -5,14 +5,33 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    inputs.catppuccin.nixosModules.catppuccin
     # NOTE: Include the necessary packages and configuration for Apple Silicon support
     inputs.nixos-apple-silicon.nixosModules.default
   ];
-  environment = {
-    systemPackages = with pkgs; [
-      catppuccin-sddm-corners
-    ];
+
+  catppuccin = {
+    flavor = "mocha";
+    accent = "mauve";
   };
+
+  system = {
+    activationScripts = {
+      script = {
+        text = ''
+          #!/usr/bin/env bash
+          if [ ! -f "/var/lib/AccountsService/icons/armin.face.icon" ]; then
+            cp /home/armin/dotfiles/assets/pics/armin.face.icon /var/lib/AccountsService/icons/armin.face.icon
+          fi
+        '';
+      };
+    };
+  };
+
+  environment = {
+    systemPackages = with pkgs; [catppuccin-sddm-corners];
+  };
+
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -88,8 +107,12 @@
   };
   boot = {
     loader = {
-      systemd-boot = {
+      grub = {
         enable = true;
+        catppuccin = {
+          enable = true;
+        };
+        device = "nodev";
       };
       efi = {
         canTouchEfiVariables = false;
@@ -230,13 +253,15 @@
       defaultSession = "hyprland"; # sway
       sddm = {
         enable = true;
+        theme = "catppuccin-sddm-corners";
+        settings = {
+          Theme = {
+            FacesDir = "/var/lib/AccountsService/icons/";
+          };
+        };
         wayland = {
           enable = true;
         };
-        extraPackages = with pkgs; [
-          libsForQt5.qt5.qtgraphicaleffects
-        ];
-        theme = "catppuccin-sddm-corners";
         enableHidpi = true;
       };
     };
@@ -258,6 +283,9 @@
 
   console = {
     keyMap = "de";
+    catppuccin = {
+      enable = true;
+    };
   };
 
   users = {

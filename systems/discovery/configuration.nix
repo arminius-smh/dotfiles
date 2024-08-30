@@ -38,7 +38,6 @@
     };
     overlays = [
       inputs.nil.overlays.default
-      inputs.nur.overlay
       (import ../../assets/overlays/widevine-overlay-asahi.nix) # WAIT: currently not working for firefox
 
       (self: super: (let

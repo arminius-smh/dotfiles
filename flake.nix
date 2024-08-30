@@ -40,8 +40,9 @@
     nixgl = {
       url = "github:nix-community/nixGL";
     };
-    nur = {
-      url = "github:nix-community/nur";
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify = {
       url = "github:Gerg-L/spicetify-nix";

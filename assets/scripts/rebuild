@@ -35,7 +35,7 @@ alejandra .
 echo "NixOS Rebuilding..."
 hostname=$(hostname)
 
-git add --all
+git add --all # add all files for the rebuild
 if [[ "$hostname" == "phoenix" ]]; then
     if ! sudo nixos-rebuild switch --flake "$HOME/dotfiles?submodules=1#phoenix"; then
         echo "NixOS rebuild failed"
@@ -52,6 +52,7 @@ elif [[ "$hostname" == "excelsior" ]]; then
         exit
     fi
 fi
+git add --all # in case flake.lock changes
 
 gen_commit(){
     gen=$(nixos-rebuild list-generations | grep current)

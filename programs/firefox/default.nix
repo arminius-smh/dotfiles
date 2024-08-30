@@ -1,13 +1,18 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   programs = {
     firefox = {
       enable = true;
       profiles = {
         armin = {
           isDefault = true;
-          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
             # bypass-paywalls-clean
             bitwarden
+            catppuccin-gh-file-explorer
             return-youtube-dislikes
             seventv
             simple-translate
@@ -33,10 +38,6 @@
                 {
                   name = "Syncthing";
                   url = "http://localhost:8384/";
-                }
-                {
-                  name = "Gaming Releases";
-                  url = "https://www.releases.com/hot/games_pc";
                 }
               ];
             }

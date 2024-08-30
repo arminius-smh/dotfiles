@@ -39,7 +39,6 @@ in {
       # inputs.neovim-nightly-overlay.overlay # NOTE: breaks too often
       inputs.rust-overlay.overlays.default
       inputs.nil.overlays.default
-      inputs.nur.overlay
       # NOTE: dev didn't want the feature
       (final: prev: {
         timer = prev.timer.overrideAttrs (o: {

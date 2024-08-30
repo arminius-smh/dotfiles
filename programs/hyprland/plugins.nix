@@ -4,13 +4,11 @@
   lib,
   systemName,
   ...
-}: let
-  inherit (lib) mkIf;
-in {
+}: {
   wayland = {
     windowManager = {
       hyprland = {
-        plugins = mkIf (systemName == "phoenix") [
+        plugins = lib.mkIf (systemName == "phoenix") [
           inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
         ];
         settings = {

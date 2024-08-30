@@ -3,9 +3,7 @@
   lib,
   config,
   ...
-}: let
-  inherit (lib) mkIf;
-in {
+}: {
   wayland = {
     windowManager = {
       sway = {
@@ -33,7 +31,7 @@ in {
             "type:keyboard" = {xkb_layout = "de";};
             "type:touchpad" = {natural_scroll = "enabled";};
           };
-          output = mkIf (systemName == "phoenix") {
+          output = lib.mkIf (systemName == "phoenix") {
             "HDMI-A-1" = {
               pos = "0 0";
             };
@@ -121,7 +119,7 @@ in {
             "${configSway.modifier}+r" = "mode resize";
           };
 
-          workspaceOutputAssign = mkIf (systemName == "phoenix") [
+          workspaceOutputAssign = lib.mkIf (systemName == "phoenix") [
             {
               output = "DP-1";
               workspace = "1";

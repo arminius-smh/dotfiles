@@ -3,9 +3,7 @@
   config,
   systemName,
   ...
-}: let
-  inherit (lib) mkIf mkMerge;
-in {
+}: {
   wayland = {
     windowManager = {
       hyprland = {
@@ -85,13 +83,13 @@ in {
             "${config.xdg.configHome}/hypr/workspaces.conf"
           ];
 
-          exec-once = mkMerge [
-            (mkIf true [
+          exec-once = lib.mkMerge [
+            (lib.mkIf true [
               "fcitx5"
               "vesktop --start-minimized"
               "${config.home.sessionVariables.DOTFILES_PATH}/programs/hyprland/scripts/wallpaper.sh ${systemName}"
             ])
-            (mkIf (systemName == "phoenix") [
+            (lib.mkIf (systemName == "phoenix") [
               "heroic"
               # "[workspace 7 silent] tradingview"
               "[workspace 9 silent] thunderbird"
@@ -99,7 +97,7 @@ in {
               # "[workspace 8 silent] kitty --class 'spotify_player' spotify_player"
               "hyprctl dispatch focusmonitor DP-1"
             ])
-            (mkIf (systemName == "discovery") [
+            (lib.mkIf (systemName == "discovery") [
               "libinput-gestures"
             ])
           ];

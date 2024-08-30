@@ -77,7 +77,7 @@
 
       r2modman # game mod manager
       gamescope # steamOS session compositing window manager
-      (prismlauncher.override {jdks = [jdk8 jdk17 jdk22];}) # minecraft launcher
+      (prismlauncher.override {jdks = [temurin-jre-bin-8 temurin-jre-bin-17 temurin-jre-bin-21];}) # minecraft launcher
 
       # emulation
       cemu # wiiu

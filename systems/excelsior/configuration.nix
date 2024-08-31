@@ -1,10 +1,12 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
+    inputs.catppuccin.nixosModules.catppuccin
   ];
 
   fileSystems = {
@@ -68,10 +70,6 @@
     };
   };
 
-  console = {
-    keyMap = "de";
-  };
-
   users = {
     defaultUserShell = pkgs.zsh;
     users = {
@@ -83,57 +81,9 @@
     };
   };
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
-
   nix = {
     settings = {
       experimental-features = ["nix-command" "flakes"];
-    };
-  };
-
-  environment = {
-    systemPackages = with pkgs; [
-      zfs
-      git
-    ];
-  };
-
-  programs = {
-    zsh = {
-      enable = true;
-    };
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
-  };
-
-  services = {
-    zfs = {
-      autoScrub = {
-        enable = true;
-        pools = [
-          "tank"
-        ];
-        interval = "monthly";
-        randomizedDelaySec = "6h";
-      };
-    };
-    openssh = {
-      enable = true;
-      settings = {
-        PermitRootLogin = "no";
-      };
-    };
-    xserver = {
-      xkb = {
-        layout = "de";
-        variant = "";
-      };
     };
   };
 

@@ -1,0 +1,7 @@
+{...}: {
+  services = {
+    activemq = {
+      enable = true;
+    };
+  };
+}

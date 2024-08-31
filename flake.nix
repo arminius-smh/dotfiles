@@ -34,9 +34,6 @@
     nil = {
       url = "github:oxalica/nil";
     };
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-    };
     nixgl = {
       url = "github:nix-community/nixGL";
     };
@@ -77,7 +74,10 @@
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       "phoenix" = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          systemName = "phoenix";
+        };
         modules = [
           # > Our main nixos configuration file <
           ./systems/phoenix/configuration.nix
@@ -98,7 +98,10 @@
         ];
       };
       "excelsior" = nixpkgs-stable.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          systemName = "excelsior";
+        };
         modules = [
           ./systems/excelsior/configuration.nix
           home-manager-stable.nixosModules.home-manager
@@ -118,7 +121,10 @@
         ];
       };
       "discovery" = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          systemName = "discovery";
+        };
         modules = [
           ./systems/discovery/configuration.nix
           home-manager.nixosModules.home-manager

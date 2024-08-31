@@ -42,6 +42,7 @@
     ./spotify-player # spotify streaming
     ./imv # image viewer
     ./bat # cat alternative
+    ./obs-studio # video recording
   ];
 
   home = {
@@ -108,7 +109,6 @@
       arduino # arduino ide
       nwg-displays # output management utility
       anki # flashcard
-      obs-studio # video recording
       xdg-utils # open files with default application
       xorg.xeyes # detect x-11 window
       xclip # only needed for wine paste

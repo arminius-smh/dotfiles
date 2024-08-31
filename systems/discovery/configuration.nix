@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ../../settings
     inputs.catppuccin.nixosModules.catppuccin
     # NOTE: Include the necessary packages and configuration for Apple Silicon support
     inputs.nixos-apple-silicon.nixosModules.default
@@ -13,64 +14,6 @@
   catppuccin = {
     flavor = "mocha";
     accent = "mauve";
-  };
-
-  system = {
-    activationScripts = {
-      script = {
-        text = ''
-          #!/usr/bin/env bash
-          if [ ! -f "/var/lib/AccountsService/icons/armin.face.icon" ]; then
-            cp /home/armin/dotfiles/assets/pics/armin.face.icon /var/lib/AccountsService/icons/armin.face.icon
-          fi
-        '';
-      };
-    };
-  };
-
-  environment = {
-    systemPackages = with pkgs; [catppuccin-sddm-corners];
-  };
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-    overlays = [
-      inputs.nil.overlays.default
-      (import ../../assets/overlays/widevine-overlay-asahi.nix) # WAIT: currently not working for firefox
-
-      (self: super: (let
-        mypkgs = import inputs.mypkgs {
-          inherit (self) system;
-        };
-      in {
-        # NOTE: add self patched packages here
-        # e.g. fcxitx5-mozc = mypkgs.fcitx5-mozc
-
-        # WAIT: https://github.com/NixOS/nixpkgs/pull/251706
-        fcitx5-mozc = mypkgs.fcitx5-mozc;
-      }))
-    ];
-  };
-
-  programs = {
-    sway = {
-      enable = true;
-    };
-    hyprland = {
-      enable = true;
-      xwayland = {
-        enable = true;
-      };
-    };
-    zsh = {
-      enable = true;
-    };
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
   };
 
   security = {
@@ -181,42 +124,6 @@
       LC_TELEPHONE = "de_DE.UTF-8";
       LC_TIME = "de_DE.UTF-8";
     };
-
-    inputMethod = {
-      enable = true;
-      type = "fcitx5";
-      fcitx5 = {
-        waylandFrontend = true;
-        addons = with pkgs; [
-          fcitx5-mozc
-          fcitx5-configtool
-          fcitx5-gtk
-
-          catppuccin-fcitx5
-        ];
-        settings = {
-          inputMethod = {
-            "Groups/0" = {
-              Name = "Default";
-              "Default Layout" = "keyboard-de-deadtilde";
-              DefaultIM = "mozc";
-            };
-            "Groups/0/Items/0" = {
-              Name = "keyboard-de-deadtilde";
-              Layout = "";
-            };
-            "Groups/0/Items/1" = {
-              Name = "mozc";
-              Layout = "";
-            };
-
-            "GroupOrder" = {
-              "0" = "Default";
-            };
-          };
-        };
-      };
-    };
   };
 
   nix = {
@@ -239,53 +146,6 @@
       warn-dirty = false
     '';
   };
-  services = {
-    activemq = {
-      enable = true; # java message broker
-    };
-    xserver = {
-      xkb = {
-        layout = "de";
-      };
-    };
-    displayManager = {
-      defaultSession = "hyprland"; # sway
-      sddm = {
-        enable = true;
-        theme = "catppuccin-sddm-corners";
-        settings = {
-          Theme = {
-            FacesDir = "/var/lib/AccountsService/icons/";
-          };
-        };
-        wayland = {
-          enable = true;
-        };
-        enableHidpi = true;
-      };
-    };
-    blueman = {
-      enable = true;
-    };
-
-    pipewire = {
-      enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-      pulse = {
-        enable = true;
-      };
-    };
-  };
-
-  console = {
-    keyMap = "de";
-    catppuccin = {
-      enable = true;
-    };
-  };
 
   users = {
     defaultUserShell = pkgs.zsh;
@@ -295,25 +155,6 @@
         extraGroups = ["wheel" "audio" "video" "networkmanager" "eduroam" "input"];
       };
     };
-  };
-
-  fonts = {
-    fontconfig = {
-      enable = true;
-    };
-    fontDir = {
-      enable = true;
-    };
-    packages = with pkgs; [
-      hanazono
-      ipaexfont
-      ipafont
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      noto-fonts-emoji
-      (nerdfonts.override {fonts = ["JetBrainsMono" "VictorMono"];})
-    ];
   };
 
   swapDevices = [

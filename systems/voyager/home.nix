@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    ../../programs
+    ../../home-manager
   ];
 
   home = {
@@ -14,19 +14,6 @@
     homeDirectory = "/Users/armin";
     sessionVariables = {
       DOTFILES_PATH = "${config.home.homeDirectory}/dotfiles";
-    };
-  };
-
-  # XDG Base Directories
-  xdg = {
-    enable = true;
-    cacheHome = "${config.home.homeDirectory}/.cache";
-    configHome = "${config.home.homeDirectory}/.config";
-    dataHome = "${config.home.homeDirectory}/.local/share";
-    stateHome = "${config.home.homeDirectory}/.local/state";
-    userDirs = {
-      enable = true;
-      createDirectories = true;
     };
   };
 

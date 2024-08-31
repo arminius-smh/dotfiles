@@ -21,8 +21,8 @@
         "r" = "cycle_values video-rotate 90 180 270 0";
       };
       scripts = [
-        (pkgs.callPackage ../../assets/packages/mpv-scripts/subs_to_clipboard {})
-        (pkgs.callPackage ../../assets/packages/mpv-scripts/bookmarker-menu {})
+        (pkgs.callPackage ../../../assets/packages/mpv-scripts/subs_to_clipboard {})
+        (pkgs.callPackage ../../../assets/packages/mpv-scripts/bookmarker-menu {})
       ];
     };
   };

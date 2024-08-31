@@ -6,7 +6,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../settings
+    ../../nixos
     inputs.catppuccin.nixosModules.catppuccin
   ];
 

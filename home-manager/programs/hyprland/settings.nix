@@ -87,7 +87,7 @@
             (lib.mkIf true [
               "fcitx5"
               "vesktop --start-minimized"
-              "${config.home.sessionVariables.DOTFILES_PATH}/programs/hyprland/scripts/wallpaper.sh ${systemName}"
+              "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/wallpaper.sh ${systemName}"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "heroic"

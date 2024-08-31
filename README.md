@@ -20,10 +20,6 @@ nix flake init -t "path:$HOME/dotfiles/assets/devenvs#[language]"
 ```bash
 # rebuilds nixos and home-manager
 ./assets/scripts/rebuild
-
-# alternative
-sudo nixos-rebuild switch --flake "$HOME/dotfiles#phoenix" --max-jobs 1 # limit number of derivations to be built at the same time
-sudo nixos-rebuild switch --flake "$HOME/dotfiles#excelsior"
 ```
 
 ## tips

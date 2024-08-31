@@ -7,7 +7,7 @@
 }: {
   imports = [
     inputs.catppuccin.homeManagerModules.catppuccin
-    ../../programs
+    ../../home-manager
     ../../assets/modules/secrets.nix
     ../../secrets/secrets.nix
   ];
@@ -28,9 +28,6 @@
       size = 24;
       gtk = {
         enable = true;
-      };
-      hyprcursor = {
-        enable = true; # only available in own home manager
       };
     };
 
@@ -65,44 +62,6 @@
     };
   };
 
-  qt = {
-    enable = true;
-    platformTheme = {
-      name = "kvantum";
-    };
-    style = {
-      name = "kvantum";
-      catppuccin = {
-        enable = true;
-        apply = true;
-      };
-    };
-  };
-
-  gtk = {
-    enable = true;
-    theme = {
-      # name = "Tokyonight-Storm-B";
-      # package = pkgs.tokyonight-gtk-theme;
-      name = "Kanagawa-B";
-      package = pkgs.kanagawa-gtk-theme;
-    };
-    iconTheme = {
-      name = "kora";
-      package = pkgs.kora-icon-theme;
-    };
-    gtk2 = {
-      configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-    };
-  };
-
-  xdg = {
-    enable = true;
-    cacheHome = "${config.home.homeDirectory}/.cache";
-    configHome = "${config.home.homeDirectory}/.config";
-    dataHome = "${config.home.homeDirectory}/.local/share";
-    stateHome = "${config.home.homeDirectory}/.local/state";
-  };
   systemd = {
     user = {
       startServices = "sd-switch";

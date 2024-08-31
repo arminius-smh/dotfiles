@@ -53,14 +53,4 @@ elif [[ "$hostname" == "excelsior" ]]; then
     fi
 fi
 git add --all # in case flake.lock changes
-
-gen_commit(){
-    gen=$(nixos-rebuild list-generations | grep current)
-    commit="$hostname: $gen"
-    git commit -m "$commit"
-}
-
-commit
-
-git push
 popd || exit

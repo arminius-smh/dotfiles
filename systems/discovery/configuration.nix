@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../settings
+    ../../nixos
     inputs.catppuccin.nixosModules.catppuccin
     # NOTE: Include the necessary packages and configuration for Apple Silicon support
     inputs.nixos-apple-silicon.nixosModules.default

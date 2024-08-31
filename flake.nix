@@ -4,11 +4,9 @@
   inputs = {
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
-      #url = "git+file:///home/armin/Projects/Coding/nix/nixpkgs?shallow=1";
     };
     home-manager = {
-      # url = "github:nix-community/home-manager";
-      url = "git+file:///home/armin/Projects/Coding/nix/home-manager"; # WAIT: my hyprcursor pr
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs-stable = {

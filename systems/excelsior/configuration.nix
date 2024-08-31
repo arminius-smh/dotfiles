@@ -7,6 +7,7 @@
   imports = [
     ./hardware-configuration.nix
     inputs.catppuccin.nixosModules.catppuccin
+    ../../nixos
   ];
 
   fileSystems = {

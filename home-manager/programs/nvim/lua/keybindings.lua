@@ -22,3 +22,5 @@ map("i", "<C-k>", "<Up>")
 -- UNMAP KEYS
 map("v", "<S-Up>", "<Nop>")
 map("v", "<S-Down>", "<Nop>")
+
+map("v", "p", "P")

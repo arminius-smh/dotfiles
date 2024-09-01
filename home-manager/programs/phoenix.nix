@@ -178,6 +178,8 @@
       timer # a sleep with progress
       lolcat # rainbow text
       pamixer # audio mixer
+      qbittorrent # bittorrent client
+      hyprpicker # wayland color picker
 
       # lsp-config
       nil # language server nix
@@ -217,11 +219,6 @@
     file = {
       ".config/nvim" = {
         source = ./nvim;
-        recursive = true;
-      };
-
-      ".config/fcitx5" = {
-        source = ./fcitx5;
         recursive = true;
       };
 

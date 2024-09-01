@@ -28,15 +28,16 @@ nix flake init -t "path:$HOME/dotfiles/assets/devenvs#[language]"
 
 ```bash
 
+# ,+ü in neovim for sha autofill
 {pkgs, ...}: let
   PKG-git = pkgs.PKG.overrideAttrs (prev: {
     version = "git";
     src = pkgs.fetchFromGitHub {
       owner = "PKG";
       repo = "PKG";
-      rev = ""; # latest commit
-      sha256 = pkgs.lib.fakeSha256; # rebuild first, then exchange with real hash
-    };
+      rev = "";
+      sha256 = pkgs.lib.fakeSha256;  
+};
   });
 in {
   programs = {

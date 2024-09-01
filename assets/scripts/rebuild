@@ -7,16 +7,30 @@ Help()
     echo "options:"
     echo "h     print this help"
     echo "u     update nix flake"
+    echo "t     test(no boot entry) new config"
+    echo "s     switch to new config"
+    echo "b     only boot-entry for new config"
+    echo "B     only build new config"
     echo
 }
+COMMAND=""
+OPTIONS=""
 
-while getopts ":hu" option; do
+while getopts ":hutsbB" option; do
     case $option in
         h)
             Help
             exit ;;
         u)
             update=true ;;
+        t)
+            COMMAND_OVERRIDE="test" ;;
+        s)
+            COMMAND_OVERRIDE="switch" ;;
+        b)
+            COMMAND_OVERRIDE="boot" ;;
+        B)
+            COMMAND_OVERRIDE="build" ;;
         \?)
             echo "Error: invalid option"
             exit ;;
@@ -27,30 +41,37 @@ pushd "$DOTFILES_PATH" || exit
 git pull
 git submodule update --recursive
 
-if [[ "$update" == true ]]; then
-    nix flake update
-fi
-
 alejandra .
 echo "NixOS Rebuilding..."
 hostname=$(hostname)
 
 git add --all # add all files for the rebuild
+
 if [[ "$hostname" == "phoenix" ]]; then
-    if ! sudo nixos-rebuild switch --flake "$HOME/dotfiles?submodules=1#phoenix"; then
-        echo "NixOS rebuild failed"
-        exit
-    fi
+    COMMAND="switch"
+    OPTIONS=""
 elif [[ "$hostname" == "discovery" ]]; then
-    if ! sudo nixos-rebuild switch --flake "$HOME/dotfiles?submodules=1#discovery" --impure; then
-        echo "NixOS rebuild failed"
-        exit
-    fi
+    COMMAND="switch"
+    OPTIONS="-- --impure"
 elif [[ "$hostname" == "excelsior" ]]; then
-    if ! sudo nixos-rebuild boot --flake "$HOME/dotfiles?submodules=1#excelsior"; then
-        echo "NixOS rebuild failed"
-        exit
-    fi
+    COMMAND="boot"
+    OPTIONS=""
 fi
+
+if [[ -v COMMAND_OVERRIDE ]]; then
+    COMMAND=$COMMAND_OVERRIDE
+fi
+
+if [[ "$update" == true ]]; then
+    COMMAND+=" --update"
+fi
+
+echo "COMMAND: $COMMAND"
+
+if ! nh os "$COMMAND" -H "$hostname" '.?submodules=1' $OPTIONS; then
+    echo "NixOS rebuild failed"
+    exit
+fi
+
 git add --all # in case flake.lock changes
 popd || exit

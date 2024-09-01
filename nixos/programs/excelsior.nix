@@ -1,10 +1,12 @@
 {pkgs, ...}: {
   imports = [
-    ./zsh
+    ./avahi
     ./neovim
-    ./xserver
     ./openssh
+    ./xserver
+    ./nh
     ./zfs
+    ./zsh
   ];
 
   environment = {

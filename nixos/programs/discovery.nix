@@ -1,14 +1,16 @@
 {pkgs, ...}: {
   imports = [
-    ./zsh
-    ./neovim
-    ./sway
-    ./hyprland
-    ./displayManager
     # ./activemq # java message broker
-    ./pipewire
+    ./avahi
     ./blueman
+    ./displayManager
+    ./hyprland
+    ./neovim
+    ./pipewire
+    ./nh
+    ./sway
     ./xserver
+    ./zsh
   ];
 
   environment = {

@@ -7,6 +7,8 @@
       enable = true;
     };
     packages = with pkgs; [
+      material-symbols
+
       hanazono
       ipaexfont
       ipafont

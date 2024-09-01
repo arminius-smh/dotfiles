@@ -1,9 +1,14 @@
 {...}: {
   imports = [
-    ./fcitx5 # input method
+    ./console
+    ./xdg
+    ./time
+    ./i18n
+    ./users
+    ./fonts
+    ./networking
+    ./nix
     ./nixpkgs
     ./programs
-    ./fonts
-    ./console
   ];
 }

@@ -1,23 +1,28 @@
 {pkgs, ...}: {
   imports = [
-    ./zsh
-    ./neovim
-    ./gnupg
-    ./steam
-    ./nix-ld
-    ./dconf
     # ./activemq  # java message broker
-    ./pipewire
-    ./blueman
-    ./xserver
-    ./openssh
-    ./mysql
-    ./gvfs
     # ./kubo # Interplanetary File System
+    ./avahi
+    ./blueman
     ./dbus
-    ./udisks2
-    ./udev
+    ./gamemode
+    ./gamescope
+    ./dconf
+    ./fwupd
     ./getty
+    ./gnupg
+    ./gvfs
+    ./mysql
+    ./neovim
+    ./nix-ld
+    ./nh
+    ./openssh
+    ./pipewire
+    ./steam
+    ./udev
+    ./udisks2
+    ./xserver
+    ./zsh
   ];
 
   environment = {

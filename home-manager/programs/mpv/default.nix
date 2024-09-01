@@ -6,11 +6,23 @@
         enable = true;
       };
       config = {
+        profile = "high-quality";
+        alang = "ja,jp,jpn,en,eng,de,deu,ger";
+        slang = "en,eng,de,deu,ger";
+        sub-auto = "fuzzy";
+        blend-subtitles = "yes";
+        audio-file-auto = "fuzzy";
+        dither-depth = "auto";
+        fullscreen = "yes";
         screenshot-format = "png";
-        # Save screenshots in the pattern of 'filename-timestamp.png'
         screenshot-template = "%F-%p";
-        # Deactivate debanding
-        "--deband" = "no";
+        screenshot-png-compression = 3;
+        deband = "yes";
+        deband-iterations = 4;
+        deband-threshold = 48;
+        deband-range = 24;
+        vo = "gpu-next";
+        gpu-api = "vulkan";
       };
       bindings = {
         "ctrl+t" = "script-binding toggle-subs-to-clipboard";
@@ -20,7 +32,9 @@
         "ctrl+b" = "script_message bookmarker-quick-load";
         "r" = "cycle_values video-rotate 90 180 270 0";
       };
-      scripts = [
+      scripts = with pkgs; [
+        mpvScripts.modernx-zydezu
+        mpvScripts.thumbfast
         (pkgs.callPackage ../../../assets/packages/mpv-scripts/subs_to_clipboard {})
         (pkgs.callPackage ../../../assets/packages/mpv-scripts/bookmarker-menu {})
       ];

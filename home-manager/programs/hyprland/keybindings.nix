@@ -42,7 +42,7 @@
 
             # Exec
             "$mainMod, RETURN, exec, kitty"
-            "$mainMod SHIFT, P, exec, alacritty --class 'pomodoro' -e '$DOTFILES_PATH/programs/hyprland/scripts/pomodoro.zsh'"
+            "$mainMod SHIFT, P, exec, alacritty --class 'pomodoro' -e '$DOTFILES_PATH/home-manager/programs/hyprland/scripts/pomodoro.zsh'"
             "$mainMod SHIFT, F, exec, firefox"
             "$mainMod SHIFT, A, exec, pcmanfm"
             "$mainMod CONTROL, Q, killactive"

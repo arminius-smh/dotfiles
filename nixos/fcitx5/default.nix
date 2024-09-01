@@ -22,27 +22,27 @@ in {
 
           catppuccin-fcitx5-git
         ];
-        # settings = {
-        #   inputMethod = {
-        #     "Groups/0" = {
-        #       Name = "Default";
-        #       "Default Layout" = "keyboard-de-deadtilde";
-        #       DefaultIM = "mozc";
-        #     };
-        #     "Groups/0/Items/0" = {
-        #       Name = "keyboard-de-deadtilde";
-        #       Layout = "";
-        #     };
-        #     "Groups/0/Items/1" = {
-        #       Name = "mozc";
-        #       Layout = "";
-        #     };
-        #
-        #     "GroupOrder" = {
-        #       "0" = "Default";
-        #     };
-        #   };
-        # };
+        settings = {
+          inputMethod = {
+            "Groups/0" = {
+              Name = "Default";
+              "Default Layout" = "keyboard-de-deadtilde";
+              DefaultIM = "mozc";
+            };
+            "Groups/0/Items/0" = {
+              Name = "keyboard-de-deadtilde";
+              Layout = "";
+            };
+            "Groups/0/Items/1" = {
+              Name = "mozc";
+              Layout = "";
+            };
+
+            "GroupOrder" = {
+              "0" = "Default";
+            };
+          };
+        };
       };
     };
   };

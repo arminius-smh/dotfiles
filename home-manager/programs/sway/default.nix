@@ -25,7 +25,7 @@
           };
           startup = [
             # {command = "swayidle -w timeout 300 'swaylock'";}
-            {command = "${config.home.sessionVariables.DOTFILES_PATH}/programs/hyprland/scripts/wallpaper.sh ${systemName}";}
+            {command = "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/wallpaper.sh ${systemName}";}
           ];
           input = {
             "type:keyboard" = {xkb_layout = "de";};

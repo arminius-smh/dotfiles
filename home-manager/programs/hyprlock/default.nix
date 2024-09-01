@@ -3,7 +3,7 @@
     hyprlock = {
       enable = true;
       settings = {
-        source = "${config.home.sessionVariables.DOTFILES_PATH}/programs/hyprlock/mocha.conf";
+        source = "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprlock/mocha.conf";
         "$accent" = "$mauve";
         "$accentAlpha" = "$mauveAlpha";
         "$font" = "JetBrainsMono Nerd Font";

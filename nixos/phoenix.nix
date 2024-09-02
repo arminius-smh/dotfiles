@@ -1,7 +1,6 @@
 {...}: {
   imports = [
     ./console
-    ./xdg
     ./time
     ./users
     ./i18n

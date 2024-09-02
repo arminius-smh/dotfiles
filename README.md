@@ -59,3 +59,7 @@ git submodule init && git submodule update
 
 - `$DOTFILES_PATH` is required to be set
 - private zsh functions etc. in $HOME/.config/zsh/.priv.zsh
+
+## Inspiration
+
+- [fufexan](https://github.com/fufexan/dotfiles)

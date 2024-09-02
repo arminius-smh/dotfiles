@@ -43,6 +43,7 @@
     ./imv # image viewer
     ./bat # cat alternative
     ./obs-studio # video recording
+    ./yazi # terminal file manager
   ];
 
   home = {

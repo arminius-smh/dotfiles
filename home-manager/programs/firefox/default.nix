@@ -7,7 +7,6 @@
     firefox = {
       enable = true;
       policies = {
-        DisablePrivateBrowsing = true;
         DisablePocket = true;
         DisableFirefoxAccounts = true;
         DontCheckDefaultBrowser = true;

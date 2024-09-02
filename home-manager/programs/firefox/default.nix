@@ -6,6 +6,19 @@
   programs = {
     firefox = {
       enable = true;
+      policies = {
+        DisablePrivateBrowsing = true;
+        DisablePocket = true;
+        DisableFirefoxAccounts = true;
+        DontCheckDefaultBrowser = true;
+        PasswordManagerEnabled = false;
+        ExtensionSettings = {
+          "{76aabc99-c1a8-4c1e-832b-d4f2941d5a7a}" = {
+            install_url = "https://github.com/catppuccin/firefox/releases/download/old/catppuccin_mocha_mauve.xpi";
+            installation_mode = "force_installed";
+          };
+        };
+      };
       profiles = {
         armin = {
           isDefault = true;
@@ -43,15 +56,36 @@
             }
           ];
           settings = {
-            "app.normandy.first_run" = false;
-            "browser.aboutConfig.showWarning" = false;
-            "signon.rememberSignons" = false;
-            "browser.startup.page" = 3;
-            "browser.startup.homepage" = "http://192.168.16.10:3002";
-            "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-            "extensions.update.enabled" = false;
-            "browser.newtabpage.activity-stream.feeds.topsites" = false;
-            # NOTE: browser.uiCustomization.state includes import-bookmark from the toolbar, however changing it barely doable (with external script)
+            browser = {
+              aboutConfig = {
+                showWarning = false;
+              };
+              startup = {
+                page = 3;
+                homepage = "http://192.168.16.10:3002";
+              };
+              newtabpage = {
+                activity-stream = {
+                  showSponsoredTopSites = false;
+                  feeds = {
+                    topsites = false;
+                  };
+                };
+              };
+            };
+            app = {
+              normandy = {
+                first_run = false;
+              };
+            };
+            signon = {
+              rememberSignons = false;
+            };
+            extensions = {
+              update = {
+                enabled = false;
+              };
+            };
           };
         };
       };

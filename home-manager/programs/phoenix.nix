@@ -55,6 +55,7 @@
       emacs # operating system
       zoom-us # video conference
       catppuccin-whiskers # catppuccin templating tool
+      catppuccin-catwalk # catppuccin image generator
       # spotify # spotify streaming
       # megasync # mega cloud storage
       vesktop # discord enhancement

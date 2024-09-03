@@ -26,7 +26,7 @@ nix flake init -t "path:$HOME/dotfiles/assets/devenvs#[language]"
 
 ### override package source
 
-```bash
+```nix
 
 # ,+ü in neovim for sha autofill
 {pkgs, ...}: let
@@ -59,6 +59,7 @@ git submodule init && git submodule update
 
 - `$DOTFILES_PATH` is required to be set
 - private zsh functions etc. in $HOME/.config/zsh/.priv.zsh
+- stylus catppuccin themes: [catppuccin](https://ctp-aui.uncenter.dev)
 
 ## Inspiration
 

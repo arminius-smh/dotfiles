@@ -4,7 +4,6 @@
   ...
 }: {
   networking = {
-    nameservers = ["9.9.9.9#dns.quad9.net"];
     firewall = {
       enable =
         if (systemName == "discovery")
@@ -21,6 +20,7 @@
     hostId = lib.mkIf (systemName == "excelsior") "235f276f";
     networkmanager = {
       enable = true;
+      insertNameservers = ["9.9.9.9 #quad9.net"];
       wifi = {
         backend = "wpa_supplicant";
       };

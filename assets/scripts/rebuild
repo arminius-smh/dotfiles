@@ -68,7 +68,8 @@ fi
 
 echo "COMMAND: $COMMAND"
 
-if ! nh os "$COMMAND" -H "$hostname" '.?submodules=1' $OPTIONS; then
+# shellcheck disable=SC2086
+if ! nh os $COMMAND -H "$hostname" '.?submodules=1' $OPTIONS; then
     echo "NixOS rebuild failed"
     exit
 fi

@@ -31,6 +31,8 @@
     ./btop # process viewer
     ./ssh # remote shell
     ./neovim # text editor
+    ./_collections/coding.nix # packages for programming
+
     ./fastfetch # system info
     ./swaync # notification center
     ./blueman-applet # bluetooth applet
@@ -44,12 +46,8 @@
       chromium # browser
       dwl # window manager
       foot # terminal emulator
-      (nerdfonts.override {fonts = ["JetBrainsMono" "VictorMono"];})
-      gcc # c/c++ compiler
-      gnumake # make
       ripgrep # search tool
       brightnessctl # brightness controller
-      luajit # lua compiler
       anki # flashcard
       wl-clipboard # clipboard manager
       gum # shell tool
@@ -84,51 +82,10 @@
       unzip
       p7zip
 
-      # go
-      go
-      gopls
-
-      # java
-      jdk
-      lombok
-      maven
-      jetbrains.idea-community-bin
-
       pamixer # audio mixer
       pwvucontrol # pipewire volume control
       oxipng # lossless png compression optimizer
       ranger # file manager
-
-      # python3
-      python3
-      python3Packages.pylint
-      python3Packages.manga-ocr
-
-      # lsp-config
-      nil # language server nix
-      bash-language-server # language server bash
-      lua-language-server # langugae server lua
-      yaml-language-server # language server yaml
-      lemminx # language server xml
-      emmet-ls # language server html (emmet shortcuts)
-      vscode-langservers-extracted # language server html, css, js
-      nodePackages_latest.typescript-language-server # language server typescript
-      pyright # language server python
-      marksman # language server markdown
-      clang-tools # language server c/c++
-      ccls # language server c/c++
-      rust-analyzer # language server rust
-      #vala-language-server # language server vala
-      mesonlsp # language server meson
-
-      # formatter + linter
-      alejandra # formatter nix
-      beautysh # formatter bash
-      prettierd # formatter various - js, ts, html, css, json, yaml
-      black # formatter python
-      markdownlint-cli # linter markdown
-      shellcheck # linter bash
-      uncrustify # formatter c, c++, c#, objectivec, d, java, pawn, vala
 
       # emulation
       (retroarch.override {
@@ -142,41 +99,5 @@
       retroarch-assets
       retroarch-joypad-autoconfig
     ];
-
-    file = {
-      ".config/nvim" = {
-        source = ./nvim;
-        recursive = true;
-      };
-
-      ".config/fcitx5" = {
-        source = ./fcitx5;
-        recursive = true;
-      };
-
-      ".config/python" = {
-        source = ./files/python;
-        recursive = true;
-      };
-
-      ".config/prettier" = {
-        source = ./files/prettier;
-        recursive = true;
-      };
-
-      ".config/clang-format" = {
-        source = ./files/clang-format;
-        recursive = true;
-      };
-
-      ".config/uncrustify" = {
-        source = ./files/uncrustify;
-        recursive = true;
-      };
-
-      ".config/libinput-gestures.conf" = {
-        source = ./files/libinput-gestures/libinput-gestures.conf;
-      };
-    };
   };
 }

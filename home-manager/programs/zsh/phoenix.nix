@@ -48,7 +48,7 @@
           export CUDA_CACHE_PATH="${config.xdg.cacheHome}/nv"
           export NPM_CONFIG_USERCONFIG="${config.xdg.configHome}/npm/npmrc"
           export NODE_REPL_HISTORY="${config.xdg.dataHome}/node_repl_history"
-          #export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=${config.xdg.configHome}/java"
+          export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=${config.xdg.configHome}/java"
           export WINEPREFIX="${config.xdg.dataHome}/wine"
           export PYTHONSTARTUP="${config.xdg.configHome}/python/pythonrc"
           export SSB_HOME="${config.xdg.dataHome}/zoom"
@@ -60,7 +60,6 @@
           export PLATFORMIO_CORE_DIR="${config.xdg.dataHome}"/platformio
           export RUSTUP_HOME="${config.xdg.dataHome}"/rustup
 
-          # OTHER VARIABLES
           ## mv img from download folder to notes folder
           mvimg() {
               COURSE="$1"_
@@ -70,6 +69,11 @@
               oxipng -o 6 --strip safe --alpha /home/armin/Downloads/*_screenshot.png
               mv ~/Downloads/*_screenshot.png "/home/armin/notes/vault/attachments/$IMG_PATH"
               wl-copy "![$NAME](../../../attachments/$IMG_PATH)"
+          }
+
+          # , alias for nix(nom) shell
+          ,() {
+            nom shell nixpkgs#$1
           }
 
           # color --help with bat
@@ -86,6 +90,14 @@
           # pfetch options
           export PF_INFO="ascii title os de editor kernel uptime memory"
           export PF_FAST_PKG_COUNT=1
+
+          # set prompt to include nix if another shell is entered ('nix shell')
+          # various issues (just entering 'zsh' will edit the RPROMPT), this may get solved better in the future
+          # e.g. https://github.com/NixOS/nix/issues/3862 or https://github.com/NixOS/nix/issues/6677
+          # look into lix solutions
+          if [[ $SHLVL -gt 1 ]]; then
+            export RPROMPT=' nix'
+          fi
           pfetch
         '';
       profileExtra =

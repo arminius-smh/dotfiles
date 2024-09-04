@@ -2,9 +2,10 @@
   pkgs,
   systemName,
   lib,
+  inputs,
   ...
 }: let
-  # WAIT: https://github.com/catppuccin/fcitx5/pull/4 + nix pr
+  # WAIT: nix pr
   catppuccin-fcitx5-git = pkgs.catppuccin-fcitx5.overrideAttrs (prev: {
     version = "unstable-2024-09-01";
     src = pkgs.fetchFromGitHub {
@@ -15,6 +16,12 @@
     };
   });
 in {
+  # WAIT: until this pr is in nixos-unstable: https://github.com/NixOS/nixpkgs/pull/338621
+  disabledModules = ["i18n/input-method/fcitx5.nix"];
+  imports = [
+    "${inputs.nixpkgs-master}/nixos/modules/i18n/input-method/fcitx5.nix"
+  ];
+
   i18n = {
     defaultLocale = "en_US.UTF-8";
     supportedLocales = [
@@ -39,6 +46,7 @@ in {
       type = "fcitx5";
       fcitx5 = {
         waylandFrontend = true;
+        plasma6Support = true;
         addons = with pkgs; [
           fcitx5-mozc
           fcitx5-lua

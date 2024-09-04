@@ -6,4 +6,9 @@
     ./timer.nix
     ./trashy.nix
   ];
+
+  # test/temp overlays
+  nixpkgs = {
+    overlays = [];
+  };
 }

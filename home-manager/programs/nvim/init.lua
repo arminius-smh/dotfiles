@@ -1,20 +1,20 @@
 -- PRE-PLUGIN CONFIG
-vim.g.loaded_netrw = 1 -- disable builtin filexplorer
-vim.g.loaded_netrwPlugin = 1 -- disable builtins filexplorer
-vim.opt.termguicolors = true -- *IMPORTANT* for colorscheme
+vim.g.loaded_netrw = 1 -- disable builtin file explorer
+vim.g.loaded_netrwPlugin = 1 -- disable builtin file explorer
+vim.opt.termguicolors = true -- *IMPORTANT* for color scheme
 vim.opt.timeoutlen = 300 -- for which-key popup time
-vim.opt.splitright = true -- open a new file on the righthand site when vertical split
+vim.opt.splitright = true -- open a new file on the right hand site when vertical split
 vim.opt.conceallevel = 3 -- conceal format text
-vim.opt.number = true -- absolut side numbers
+vim.opt.number = true -- absolute side numbers
 vim.opt.relativenumber = true -- relative side numbers
 vim.opt.clipboard = "unnamedplus" -- clipboard copy
-vim.opt.cmdheight = 2 -- disables "Press ENTER or type command to continue" for large cmds
+vim.opt.cmdheight = 2 -- disables "Press ENTER or type command to continue" for large cmd output
 vim.opt.expandtab = true -- use spaces instead of tabs
 vim.opt.shiftwidth = 4 -- amount of spaces for each indentation
-vim.opt.smartindent = true -- autoindent new lines
+vim.opt.smartindent = true -- auto-indent new lines
 vim.opt.tabstop = 4 -- width of tab
 vim.opt.softtabstop = 4 -- amount of spaces to delete
-vim.opt.swapfile = false -- disable swapfiles
+vim.opt.swapfile = false -- disable swapfile
 vim.opt.ignorecase = true -- ignore case for searches
 vim.opt.smartcase = true --override ignorecase for uppercase characters
 vim.opt.mouse = "a" -- enable mouse support
@@ -26,7 +26,7 @@ vim.opt.list = true -- show symbols for tabs, trailing spaces and non-breakable 
 vim.opt.listchars:append "eol:↴" -- arrow at eol
 vim.opt.listchars:append "tab:| " -- vertical line at tabs
 vim.cmd [[autocmd BufEnter * syntax sync minlines=4000]] -- buffer larger files for syntax highlighting
-vim.loader.enable() -- byte-compiles and caches Lua files
+vim.loader.enable() -- byte-compiles and caches lua files
 ------------
 require('keybindings') -- custom keybindings
 -- bootstrap lazy
@@ -43,7 +43,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins", {
-    lockfile = os.getenv("DOTFILES_PATH") .. "home-manager/programs/nvim/" .. "/lazy-lock.json",
+    lockfile = os.getenv("DOTFILES_PATH") .. "/home-manager/programs/nvim" .. "/lazy-lock.json",
     ui = {
         border = "rounded",
     }

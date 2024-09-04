@@ -12,24 +12,20 @@ M.config = function()
         lineFoldingOnly = true
     }
 
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright
-    -- python
-    require('lspconfig')['pyright'].setup {
-        capabilities = capabilities,
-    }
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
-    -- typescript
-    require('lspconfig')['tsserver'].setup {
-        capabilities = capabilities,
-    }
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#nil_ls
-    -- nix
-    require('lspconfig')['nil_ls'].setup {
-        capabilities = capabilities,
-    }
 
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
-    -- lua
+    local no_config = { 'typst_lsp', 'svelte', 'swift_mesonls', 'vala_ls', 'gopls', 'marksman', 'jsonls', 'html', 'cssls',
+        'ccls', 'yamlls', 'bashls', 'pyright', 'ts_ls', 'nil_ls', 'emmet_ls', 'lemminx' }
+
+    local function lsp_config(server)
+        require('lspconfig')[server].setup {
+            capabilities = capabilities,
+        }
+    end
+
+    for _, server in ipairs(no_config) do
+        lsp_config(server)
+    end
+
     require('lspconfig').lua_ls.setup {
         capabilities = capabilities,
         on_init = function(client)
@@ -55,70 +51,16 @@ M.config = function()
         }
     }
 
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#emmet_ls
-    -- emmet (html abbreviations)
-    require('lspconfig').emmet_ls.setup {
-        capabilities = capabilities,
-    }
-
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lemminx
-    -- xml
-    require('lspconfig').lemminx.setup {
-        capabilities = capabilities,
-    }
-
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
-    -- bash
-    require('lspconfig').bashls.setup {
-        capabilities = capabilities,
-    }
-
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#yamlls
-    -- yaml
-    require('lspconfig').yamlls.setup {
-        capabilities = capabilities,
-    }
-
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#clangd
-    -- c, c++
-    require('lspconfig').ccls.setup {
-        capabilities = capabilities,
-    }
-
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ccsls
-    -- css, scss
-    require('lspconfig').cssls.setup {
-        capabilities = capabilities,
-    }
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint
-    -- javascript/typescript lint
     require('lspconfig').eslint.setup {
         capabilities = capabilities,
-        on_attach = function(client, bufnr)
+        on_attach = function(_, bufnr)
             vim.api.nvim_create_autocmd("BufWritePre", {
                 buffer = bufnr,
                 command = "EslintFixAll",
             })
         end,
     }
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
-    -- ht,ö
-    require('lspconfig').html.setup {
-        capabilities = capabilities,
-    }
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jsonls
-    -- json
-    require('lspconfig').jsonls.setup {
-        capabilities = capabilities,
-    }
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#marksman
-    -- markdown
-    require('lspconfig').marksman.setup {
-        capabilities = capabilities,
-    }
 
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
-    -- rust
     require('lspconfig').rust_analyzer.setup {
         capabilities = capabilities,
         settings = {
@@ -128,35 +70,6 @@ M.config = function()
                 }
             }
         }
-    }
-
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#gopls
-    -- go
-    require('lspconfig').gopls.setup {
-        capabilities = capabilities,
-    }
-
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#vala_ls
-    -- vala
-    require 'lspconfig'.vala_ls.setup {
-        capabilities = capabilities,
-    }
-
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#swift_mesonls
-    -- swift
-    require 'lspconfig'.swift_mesonls.setup {
-        capabilities = capabilities,
-    }
-
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#svelte
-    -- svelte
-    require 'lspconfig'.svelte.setup {
-        capabilities = capabilities,
-    }
-
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#typst_lsp
-    require 'lspconfig'.typst_lsp.setup {
-        capabilities = capabilities,
     }
 end
 

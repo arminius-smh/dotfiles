@@ -51,6 +51,10 @@
                   name = "Syncthing";
                   url = "http://localhost:8384/";
                 }
+                {
+                  name = "Palette";
+                  url = "https://catppuccin.com/palette";
+                }
               ];
             }
           ];

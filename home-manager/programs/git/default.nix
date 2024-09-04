@@ -33,6 +33,9 @@
         commit = {
           gpgSign = true;
         };
+        diff = {
+          ignoreSpaceChange = false;
+        };
       };
       includes = [
         {

@@ -27,7 +27,6 @@ nix flake init -t "path:$HOME/dotfiles/assets/devenvs#[language]"
 ### override package source
 
 ```nix
-
 # ,+ü in neovim for sha autofill
 {pkgs, ...}: let
   PKG-git = pkgs.PKG.overrideAttrs (prev: {
@@ -47,6 +46,38 @@ in {
     };
   };
 }
+```
+
+or overlay:
+
+```nix
+  nixpkgs = {
+    overlays = [
+      (final: prev: {
+        eza = prev.PKG.overrideAttrs (oldAttrs: rec {
+          pname = "PKG";
+          version = "unstable-$DATE";
+
+          src = prev.fetchFromGitHub {
+            owner = "PKG";
+            repo = "PKG";
+            rev = "";
+            sha256 = "";
+          };
+        });
+      })
+    ];
+  };
+```
+
+### replace module
+
+```nix
+  disabledModules = ["/path/to/module.nix"];
+  imports = [
+    ./my-own-module.nix # local import
+    "${inputs.pkgs}/path/to/module.nix" # other input e.g. nixpkgs import
+  ];
 ```
 
 ### submodules

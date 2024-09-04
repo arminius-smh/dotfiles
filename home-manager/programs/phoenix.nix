@@ -32,6 +32,8 @@
     ./btop # process viewer
     ./ssh # remote shell
     ./neovim # text editor
+    ./_collections/coding.nix # packages for programming
+
     ./udiskie # automounter for removable media
     ./fastfetch # system info
     ./firefox # browser
@@ -73,6 +75,7 @@
       oxipng # lossless png compression optimizer
       tree-sitter # parsing system for programming tools
       obsidian # markdown notes
+      nix-output-monitor # output nix info while building
 
       # videogame manager
       heroic
@@ -123,12 +126,6 @@
       pfetch-rs # sytem info
       tradingview # stock tracker
 
-      typst # typst
-
-      # python3
-      python3
-      python3Packages.pylint
-
       ueberzugpp # draw images on terminals
 
       yt-dlp # video downloader
@@ -140,28 +137,7 @@
       unzip
       p7zip
       unrar
-
-      # java
-      jdk
-      lombok
-      maven
-
-      # go
-      go
-      gopls
-
-      # rust
-      rust-bin.stable.latest.default
-
-      # node
-      nodePackages_latest.nodejs
-      yarn
-      typescript
-
       sshfs # mount remote filesystem
-      gcc # c/c++ compiler
-      gnumake # make
-      just # command runner
       imagemagick # image manipulation
       ripgrep # search tool
       fd # find tool
@@ -170,7 +146,6 @@
       mediainfo # media info
       ffmpeg # video converter
       mkvtoolnix # mkv tools
-      luajit # lua compiler
       jq # json parser
       pstree # process tree
       nix-tree # nix dependency viewer
@@ -183,66 +158,9 @@
       qbittorrent # bittorrent client
       hyprpicker # wayland color picker
 
-      # lsp-config
-      nil # language server nix
-      bash-language-server # language server bash
-      svelte-language-server # language server svelte
-      lua-language-server # langugae server lua
-      yaml-language-server # language server yaml
-      lemminx # language server xml
-      emmet-ls # language server html (emmet shortcuts)
-      vscode-langservers-extracted # language server html, css, js
-      nodePackages_latest.typescript-language-server # language server typescript
-      pyright # language server python
-      marksman # language server markdown
-      clang-tools # language server c/c++
-      ccls # language server c/c++
-      rust-analyzer # language server rust
-      vala-language-server # language server vala
-      mesonlsp # language server meson
-      typst-lsp # language server typst
-      typstyle # formatter typst
-
-      # formatter + linter
-      alejandra # formatter nix
-      beautysh # formatter bash
-      prettierd # formatter various - js, ts, html, css, json, yaml
-      djlint # formatter html templates
-      black # formatter python
-      markdownlint-cli # linter markdown
-      shellcheck # linter bash
-      uncrustify # formatter c, c++, c#, objectivec, d, java, pawn, vala
-
       (pkgs.writeShellScriptBin "jelly" ''
         ${pkgs.jellyfin-media-player}/bin/jellyfinmediaplayer --platform xcb # nvidia stuff
       '')
     ];
-
-    file = {
-      ".config/nvim" = {
-        source = ./nvim;
-        recursive = true;
-      };
-
-      ".config/python" = {
-        source = ./files/python;
-        recursive = true;
-      };
-
-      ".config/prettier" = {
-        source = ./files/prettier;
-        recursive = true;
-      };
-
-      ".config/clang-format" = {
-        source = ./files/clang-format;
-        recursive = true;
-      };
-
-      ".config/uncrustify" = {
-        source = ./files/uncrustify;
-        recursive = true;
-      };
-    };
   };
 }

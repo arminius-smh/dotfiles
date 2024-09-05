@@ -4,9 +4,12 @@
       enable = true;
       settings = {
         source = "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprlock/mocha.conf";
-        "$accent" = "$mauve";
-        "$accentAlpha" = "$mauveAlpha";
-        "$font" = "JetBrainsMono Nerd Font";
+
+        extraConfig = ''
+          $accent" = $mauve
+          $accentAlpha" = $mauveAlpha
+          $font=JetBrainsMono Nerd Font
+        '';
 
         general = {
           disable_loading_bar = true;

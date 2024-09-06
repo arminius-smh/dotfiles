@@ -1,7 +1,6 @@
 -- lsp config
 local M = {
     "neovim/nvim-lspconfig",
-    dependencies = { "folke/neodev.nvim" },
 }
 
 M.config = function()
@@ -30,7 +29,7 @@ M.config = function()
         capabilities = capabilities,
         on_init = function(client)
             local path = client.workspace_folders[1].name
-            if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
+            if vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc') then
                 return
             end
 
@@ -41,7 +40,8 @@ M.config = function()
                 workspace = {
                     checkThirdParty = false,
                     library = {
-                        vim.env.VIMRUNTIME
+                        vim.env.VIMRUNTIME,
+                        "${3rd}/luv/library",
                     }
                 }
             })

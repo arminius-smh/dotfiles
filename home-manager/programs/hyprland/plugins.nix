@@ -1,6 +1,4 @@
 {
-  inputs,
-  pkgs,
   lib,
   systemName,
   ...
@@ -9,7 +7,9 @@
     windowManager = {
       hyprland = {
         plugins = lib.mkIf (systemName == "phoenix") [
-          inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+          # NOTE: unforuntately updating the system requires a reboot because plugins
+          # spam an error message that the hyprland version has changed
+          # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
         ];
         settings = {
           plugin = {

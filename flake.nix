@@ -16,9 +16,9 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
-    nixpkgs-master = {
-      url = "github:nixos/nixpkgs/master";
-    };
+    # nixpkgs-master = {
+    #   url = "github:nixos/nixpkgs/master";
+    # };
     mypkgs = {
       url = "github:arminius-smh/nixpkgs/mypkgs";
     };
@@ -31,9 +31,6 @@
     };
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
-    };
-    nil = {
-      url = "github:oxalica/nil";
     };
     nixgl = {
       url = "github:nix-community/nixGL";

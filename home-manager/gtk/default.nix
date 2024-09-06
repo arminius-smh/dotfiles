@@ -6,8 +6,8 @@
   gtk = {
     enable = true;
     theme = {
-      # name = "Tokyonight-Storm-B";
-      # package = pkgs.tokyonight-gtk-theme;
+      # Tokyonight-Storm-B   | Cattppuccin-GTK-Dark
+      # tokyonight-gtk-theme | magnetic-catppuccin-gtk
       name = "Kanagawa-B";
       package = pkgs.kanagawa-gtk-theme;
     };

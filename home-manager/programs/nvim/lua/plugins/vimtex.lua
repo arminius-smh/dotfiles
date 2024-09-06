@@ -1,6 +1,7 @@
 -- latex support
 local M = {
     "lervag/vimtex",
+    ft = "tex",
 }
 
 M.config = function()

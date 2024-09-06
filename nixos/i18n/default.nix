@@ -2,7 +2,6 @@
   pkgs,
   systemName,
   lib,
-  inputs,
   ...
 }: let
   # WAIT: nix pr
@@ -16,12 +15,6 @@
     };
   });
 in {
-  # WAIT: until this pr is in nixos-unstable: https://github.com/NixOS/nixpkgs/pull/338621
-  disabledModules = ["i18n/input-method/fcitx5.nix"];
-  imports = [
-    "${inputs.nixpkgs-master}/nixos/modules/i18n/input-method/fcitx5.nix"
-  ];
-
   i18n = {
     defaultLocale = "en_US.UTF-8";
     supportedLocales = [

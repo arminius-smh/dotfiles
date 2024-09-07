@@ -1,8 +1,9 @@
-{...}: {
+{ ... }:
+{
   programs = {
     neovim = {
       enable = true;
-      extraLuaPackages = ps: [ps.magick];
+      extraLuaPackages = ps: [ ps.magick ];
     };
   };
 }

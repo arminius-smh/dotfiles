@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ../../home-manager
   ];
@@ -24,7 +25,10 @@
   };
 
   nixpkgs = {
-    overlays = [inputs.rust-overlay.overlays.default inputs.nil.overlays.default];
+    overlays = [
+      inputs.rust-overlay.overlays.default
+      inputs.nil.overlays.default
+    ];
     config = {
       allowUnfree = true;
     };

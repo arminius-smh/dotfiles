@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   services = {
     activemq = {
       enable = true;

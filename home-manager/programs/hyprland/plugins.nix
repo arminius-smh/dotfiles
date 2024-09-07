@@ -2,7 +2,8 @@
   lib,
   systemName,
   ...
-}: {
+}:
+{
   wayland = {
     windowManager = {
       hyprland = {

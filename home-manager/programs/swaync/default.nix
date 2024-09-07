@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   services = {
     swaync = {
       enable = true;
@@ -37,7 +38,12 @@
             "app-name" = "spotify_player";
           };
         };
-        widgets = ["title" "dnd" "mpris" "notifications"];
+        widgets = [
+          "title"
+          "dnd"
+          "mpris"
+          "notifications"
+        ];
         "widget-config" = {
           title = {
             text = "Notifications";

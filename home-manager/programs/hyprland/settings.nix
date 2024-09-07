@@ -3,7 +3,8 @@
   config,
   systemName,
   ...
-}: {
+}:
+{
   wayland = {
     windowManager = {
       hyprland = {

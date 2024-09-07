@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   nixpkgs = {
     overlays = [
       # WAIT: new release of trashy
@@ -21,11 +22,13 @@
               --zsh <($out/bin/trashy completions zsh) \
           '';
 
-          cargoDeps = oldAttrs.cargoDeps.overrideAttrs (prev.lib.const {
-            name = "${pname}-vendor.tar.gz";
-            inherit src;
-            outputHash = "sha256-2QITAwh2Gpp+9JtJG77hcXZ5zhxwNztAtdfLmPH4J3Y=";
-          });
+          cargoDeps = oldAttrs.cargoDeps.overrideAttrs (
+            prev.lib.const {
+              name = "${pname}-vendor.tar.gz";
+              inherit src;
+              outputHash = "sha256-2QITAwh2Gpp+9JtJG77hcXZ5zhxwNztAtdfLmPH4J3Y=";
+            }
+          );
         });
       })
     ];

@@ -2,14 +2,15 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   programs = {
     spotify-player = {
       enable = true;
       catppuccin = {
         enable = true;
       };
-      package = pkgs.spotify-player.override {withAudioBackend = "pulseaudio";}; # NOTE: needed cuz some issue with alsa on arm
+      package = pkgs.spotify-player.override { withAudioBackend = "pulseaudio"; }; # NOTE: needed cuz some issue with alsa on arm
       settings = {
         client_id = config.secrets.spotifyId;
         device = {

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home = {
     packages = with pkgs; [
       luajit # lua compiler
@@ -47,7 +48,7 @@
 
       # formatter + linter
       typstyle # formatter typst
-      alejandra # formatter nix
+      nixfmt-rfc-style # formatter nix
       beautysh # formatter bash
       prettierd # formatter various - js, ts, html, css, json, yaml
       djlint # formatter html templates

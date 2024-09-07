@@ -1,4 +1,4 @@
-{stdenvNoCC}:
+{ stdenvNoCC }:
 stdenvNoCC.mkDerivation rec {
   pname = "bookmarker-menu";
   version = "0.1";

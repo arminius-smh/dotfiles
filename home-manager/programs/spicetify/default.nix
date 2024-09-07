@@ -2,11 +2,13 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   spicePkgs = inputs.spicetify.legacyPackages.${pkgs.system};
-in {
+in
+{
   # import the flake's module for your system
-  imports = [inputs.spicetify.homeManagerModules.default];
+  imports = [ inputs.spicetify.homeManagerModules.default ];
 
   # configure spicetify :)
   programs = {

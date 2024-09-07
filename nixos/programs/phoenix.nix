@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     # ./activemq  # java message broker
     # ./kubo # Interplanetary File System

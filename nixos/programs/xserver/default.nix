@@ -2,10 +2,11 @@
   systemName,
   lib,
   ...
-}: {
+}:
+{
   services = {
     xserver = {
-      videoDrivers = lib.mkIf (systemName == "phoenix") ["nvidia"];
+      videoDrivers = lib.mkIf (systemName == "phoenix") [ "nvidia" ];
       xkb = {
         layout = "de";
       };

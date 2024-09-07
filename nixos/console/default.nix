@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   console = {
     keyMap = "de";
     catppuccin = {

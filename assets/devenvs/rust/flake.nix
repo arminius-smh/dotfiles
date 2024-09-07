@@ -1,7 +1,5 @@
 {
-  /*
-  echo "use flake ." > .envrc && direnv allow
-  */
+  # echo "use flake ." > .envrc && direnv allow
 
   description = "rust dev environment";
 
@@ -14,32 +12,45 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    rust-overlay,
-    ...
-  }: let
-    systems = ["x86_64-linux" "x86_64-darwin"];
-    overlays = [(import rust-overlay)];
+  outputs =
+    {
+      nixpkgs,
+      rust-overlay,
+      ...
+    }:
+    let
+      systems = [
+        "x86_64-linux"
+        "x86_64-darwin"
+      ];
+      overlays = [ (import rust-overlay) ];
 
-    forAllSystems = f:
-      nixpkgs.lib.genAttrs systems (system:
-        f {
-          pkgs = import nixpkgs {inherit system overlays;};
-        });
-  in {
-    devShells = forAllSystems ({pkgs}: let
-      rust = pkgs.rust-bin.stable.latest.default;
-    in {
-      default = pkgs.mkShell {
-        buildInputs = with pkgs; [
-          rust
-        ];
+      forAllSystems =
+        f:
+        nixpkgs.lib.genAttrs systems (
+          system:
+          f {
+            pkgs = import nixpkgs { inherit system overlays; };
+          }
+        );
+    in
+    {
+      devShells = forAllSystems (
+        { pkgs }:
+        let
+          rust = pkgs.rust-bin.stable.latest.default;
+        in
+        {
+          default = pkgs.mkShell {
+            buildInputs = with pkgs; [
+              rust
+            ];
 
-        shellHook = ''
-          ${rust}/bin/rustc --version
-        '';
-      };
-    });
-  };
+            shellHook = ''
+              ${rust}/bin/rustc --version
+            '';
+          };
+        }
+      );
+    };
 }

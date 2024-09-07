@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   programs = {
     sway = {
       enable = true;

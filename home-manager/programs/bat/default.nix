@@ -1,11 +1,12 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs = {
     bat = {
       enable = true;
       config = {
         theme = "Catppuccin Mocha";
       };
-      extraPackages = with pkgs.bat-extras; [batman];
+      extraPackages = with pkgs.bat-extras; [ batman ];
       themes = {
         "Catppuccin Mocha" = {
           src = pkgs.fetchFromGitHub {

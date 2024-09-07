@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./home-manager # manage user environment
     ./zsh # shell
@@ -46,6 +47,7 @@
     ./bat # cat alternative
     ./obs-studio # video recording
     ./yazi # terminal file manager
+    ./mangohud # game performance overlay
   ];
 
   home = {
@@ -83,7 +85,13 @@
 
       r2modman # game mod manager
       gamescope # steamOS session compositing window manager
-      (prismlauncher.override {jdks = [temurin-jre-bin-8 temurin-jre-bin-17 temurin-jre-bin-21];}) # minecraft launcher
+      (prismlauncher.override {
+        jdks = [
+          temurin-jre-bin-8
+          temurin-jre-bin-17
+          temurin-jre-bin-21
+        ];
+      }) # minecraft launcher
 
       # emulation
       cemu # wiiu

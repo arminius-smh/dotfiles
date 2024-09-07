@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   services = {
     dbus = {
       implementation = "broker";

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./home-manager # manage user environment
     ./zsh # shell
@@ -73,7 +74,12 @@
       timer # a sleep with progress
       lolcat # rainbow text
 
-      (nerdfonts.override {fonts = ["JetBrainsMono" "VictorMono"];})
+      (nerdfonts.override {
+        fonts = [
+          "JetBrainsMono"
+          "VictorMono"
+        ];
+      })
       # latex
       # texlive.combined.scheme-full
 

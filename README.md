@@ -54,9 +54,9 @@ or overlay:
   nixpkgs = {
     overlays = [
       (final: prev: {
-        eza = prev.PKG.overrideAttrs (oldAttrs: rec {
+        PKG = prev.PKG.overrideAttrs (oldAttrs: rec {
           pname = "PKG";
-          version = "unstable-$DATE";
+          version = "0-unstable-$DATE";
 
           src = prev.fetchFromGitHub {
             owner = "PKG";

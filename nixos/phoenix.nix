@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./console
     ./xdg
@@ -10,5 +11,6 @@
     ./nix
     ./nixpkgs
     ./programs
+    ./zramSwap
   ];
 }

@@ -3,14 +3,16 @@
   pkgs,
   inputs,
   ...
-}: let
-  browser = ["firefox.desktop"];
-  editor = ["nvim.desktop"];
-  imageViewer = ["imv.desktop"];
-  pdfViewer = ["org.pwmt.zathura.desktop"];
-  videoPlayer = ["mpv.desktop"];
-  fileManager = ["pcmanfm.desktop"];
-in {
+}:
+let
+  browser = [ "firefox.desktop" ];
+  editor = [ "nvim.desktop" ];
+  imageViewer = [ "imv.desktop" ];
+  pdfViewer = [ "org.pwmt.zathura.desktop" ];
+  videoPlayer = [ "mpv.desktop" ];
+  fileManager = [ "pcmanfm.desktop" ];
+in
+{
   xdg = {
     portal = {
       enable = true;

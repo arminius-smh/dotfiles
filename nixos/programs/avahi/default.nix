@@ -1,4 +1,5 @@
-{systemName, ...}: {
+{ systemName, ... }:
+{
   services = {
     avahi = {
       enable = true;

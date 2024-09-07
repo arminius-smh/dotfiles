@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./git # version control
     ./zsh # shell
@@ -21,7 +22,7 @@
       jq # json parser
       fd # find tool
       pyrosimple # torrent library
-      alejandra # formatter nix
+      nixfmt-rfc-style # formatter nix
 
       # file compression
       zip

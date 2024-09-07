@@ -3,7 +3,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ../../nixos
@@ -20,7 +21,11 @@
   fileSystems = {
     # NOTE: improve SSD performance
     "/" = {
-      options = ["noatime" "nodiratime" "discard"];
+      options = [
+        "noatime"
+        "nodiratime"
+        "discard"
+      ];
     };
   };
 
@@ -70,7 +75,7 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = ["module_blacklist=i915"];
+    kernelParams = [ "module_blacklist=i915" ];
     loader = {
       grub = {
         enable = true;
@@ -84,7 +89,7 @@
         canTouchEfiVariables = true;
       };
     };
-    supportedFilesystems = ["ntfs"];
+    supportedFilesystems = [ "ntfs" ];
 
     # enable appimage execution
     binfmt = {

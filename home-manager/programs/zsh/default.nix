@@ -1,4 +1,5 @@
-{systemName, ...}: let
+{ systemName, ... }:
+let
   config = {
     phoenix = ./phoenix.nix;
     voyager = ./voyager.nix;
@@ -6,7 +7,8 @@
     discovery = ./discovery.nix;
   };
   zsh = builtins.getAttr systemName config;
-in {
+in
+{
   imports = [
     zsh
   ];

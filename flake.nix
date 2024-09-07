@@ -55,111 +55,114 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixpkgs-stable,
-    home-manager,
-    home-manager-stable,
-    ...
-  } @ inputs: let
-    disableHomeManagerNews = {
-      config = {
-        news.display = "silent";
-        news.json = inputs.nixpkgs.lib.mkForce {};
-        news.entries = inputs.nixpkgs.lib.mkForce [];
-      };
-    };
-  in {
-    # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
-    nixosConfigurations = {
-      "phoenix" = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          systemName = "phoenix";
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-stable,
+      home-manager,
+      home-manager-stable,
+      ...
+    }@inputs:
+    let
+      disableHomeManagerNews = {
+        config = {
+          news.display = "silent";
+          news.json = inputs.nixpkgs.lib.mkForce { };
+          news.entries = inputs.nixpkgs.lib.mkForce [ ];
         };
-        modules = [
-          # > Our main nixos configuration file <
-          ./systems/phoenix/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true; # use global nixpkgs instead of home-manager's own
-              useUserPackages = true; # install packages to /etc/profiles/ instead of $HOME/.nix-profile
-              users = {
-                "armin" = import ./systems/phoenix/home.nix;
-              };
-              extraSpecialArgs = {
-                inherit inputs;
-                systemName = "phoenix";
-              };
-            };
-          }
-        ];
       };
-      "excelsior" = nixpkgs-stable.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          systemName = "excelsior";
+    in
+    {
+      # NixOS configuration entrypoint
+      # Available through 'nixos-rebuild --flake .#your-hostname'
+      nixosConfigurations = {
+        "phoenix" = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            systemName = "phoenix";
+          };
+          modules = [
+            # > Our main nixos configuration file <
+            ./systems/phoenix/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true; # use global nixpkgs instead of home-manager's own
+                useUserPackages = true; # install packages to /etc/profiles/ instead of $HOME/.nix-profile
+                users = {
+                  "armin" = import ./systems/phoenix/home.nix;
+                };
+                extraSpecialArgs = {
+                  inherit inputs;
+                  systemName = "phoenix";
+                };
+              };
+            }
+          ];
         };
-        modules = [
-          ./systems/excelsior/configuration.nix
-          home-manager-stable.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users = {
-                "armin" = import ./systems/excelsior/home.nix;
+        "excelsior" = nixpkgs-stable.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            systemName = "excelsior";
+          };
+          modules = [
+            ./systems/excelsior/configuration.nix
+            home-manager-stable.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users = {
+                  "armin" = import ./systems/excelsior/home.nix;
+                };
+                extraSpecialArgs = {
+                  inherit inputs;
+                  systemName = "excelsior";
+                };
               };
-              extraSpecialArgs = {
-                inherit inputs;
-                systemName = "excelsior";
-              };
-            };
-          }
-        ];
-      };
-      "discovery" = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          systemName = "discovery";
+            }
+          ];
         };
-        modules = [
-          ./systems/discovery/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users = {
-                "armin" = import ./systems/discovery/home.nix;
+        "discovery" = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            systemName = "discovery";
+          };
+          modules = [
+            ./systems/discovery/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users = {
+                  "armin" = import ./systems/discovery/home.nix;
+                };
+                extraSpecialArgs = {
+                  inherit inputs;
+                  systemName = "discovery";
+                };
               };
-              extraSpecialArgs = {
-                inherit inputs;
-                systemName = "discovery";
-              };
-            };
-          }
-        ];
+            }
+          ];
+        };
       };
-    };
 
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      "voyager" = home-manager.lib.homeManagerConfiguration {
-        modules = [
-          ./systems/voyager/home.nix
-          disableHomeManagerNews
-        ];
-        extraSpecialArgs = {
-          inherit inputs;
-          systemName = "voyager";
+      # Standalone home-manager configuration entrypoint
+      # Available through 'home-manager --flake .#your-username@your-hostname'
+      homeConfigurations = {
+        "voyager" = home-manager.lib.homeManagerConfiguration {
+          modules = [
+            ./systems/voyager/home.nix
+            disableHomeManagerNews
+          ];
+          extraSpecialArgs = {
+            inherit inputs;
+            systemName = "voyager";
+          };
+          pkgs = nixpkgs.legacyPackages.x86_64-darwin;
         };
-        pkgs = nixpkgs.legacyPackages.x86_64-darwin;
       };
     };
-  };
 }

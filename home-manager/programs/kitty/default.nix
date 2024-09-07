@@ -1,4 +1,5 @@
-{systemName, ...}: {
+{ systemName, ... }:
+{
   programs = {
     kitty = {
       enable = true;
@@ -11,10 +12,7 @@
       };
       font = {
         name = "JetBrainsMono Nerd Font";
-        size =
-          if (systemName == "discovery")
-          then 11
-          else 13;
+        size = if (systemName == "discovery") then 11 else 13;
       };
       settings = {
         background_opacity = "0.95";

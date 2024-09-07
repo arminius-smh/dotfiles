@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   programs = {
     waybar = {
       settings = {
@@ -12,12 +13,27 @@
           margin-bottom = 0;
           margin-left = 0;
           margin-right = 0;
-          modules-left = ["hyprland/workspaces" "sway/workspaces"];
-          modules-right = ["tray" "custom/notification" "pulseaudio" "backlight" "cpu" "memory" "battery" "clock"];
+          modules-left = [
+            "hyprland/workspaces"
+            "sway/workspaces"
+          ];
+          modules-right = [
+            "tray"
+            "custom/notification"
+            "pulseaudio"
+            "backlight"
+            "cpu"
+            "memory"
+            "battery"
+            "clock"
+          ];
 
           "backlight" = {
             format = "{percent}% {icon}";
-            format-icons = ["" ""];
+            format-icons = [
+              ""
+              ""
+            ];
           };
 
           "battery" = {
@@ -26,7 +42,13 @@
               warning = 30;
             };
             format = "{icon}  {capacity}%";
-            format-icons = ["" "" "" "" ""];
+            format-icons = [
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
             format-charging = "󰂄 {capacity}%";
           };
 
@@ -124,7 +146,11 @@
             format = "{icon} {volume}%";
             format-muted = "󰝟";
             format-icons = {
-              default = ["󰕿" "󰖀" "󰕾"];
+              default = [
+                "󰕿"
+                "󰖀"
+                "󰕾"
+              ];
             };
             on-click-right = "pwvucontrol";
           };

@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   programs = {
     thunderbird = {
       enable = true;
@@ -16,7 +17,7 @@
         ${config.secrets.mail.personal} = {
           thunderbird = {
             enable = true;
-            profiles = ["armin"];
+            profiles = [ "armin" ];
           };
           primary = true;
           realName = config.secrets.fullName;
@@ -34,7 +35,7 @@
         ${config.secrets.mail.university} = {
           thunderbird = {
             enable = true;
-            profiles = ["armin"];
+            profiles = [ "armin" ];
           };
           realName = config.secrets.fullName;
           address = config.secrets.mail.university;

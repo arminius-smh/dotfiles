@@ -2,7 +2,8 @@
   config,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ../../nixos
@@ -13,7 +14,11 @@
 
   fileSystems = {
     "/" = {
-      options = ["noatime" "nodiratime" "discard"];
+      options = [
+        "noatime"
+        "nodiratime"
+        "discard"
+      ];
     };
   };
 
@@ -27,11 +32,11 @@
       };
     };
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-    kernelParams = ["nohibernate"];
-    supportedFilesystems = ["zfs"];
+    kernelParams = [ "nohibernate" ];
+    supportedFilesystems = [ "zfs" ];
     zfs = {
       forceImportRoot = false;
-      extraPools = ["tank"];
+      extraPools = [ "tank" ];
     };
   };
   virtualisation = {

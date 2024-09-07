@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./inputs.nix
     ./mypkgs.nix
@@ -9,6 +10,6 @@
 
   # test/temp overlays
   nixpkgs = {
-    overlays = [];
+    overlays = [ ];
   };
 }

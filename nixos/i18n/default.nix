@@ -3,7 +3,8 @@
   systemName,
   lib,
   ...
-}: let
+}:
+let
   # WAIT: nix pr
   catppuccin-fcitx5-git = pkgs.catppuccin-fcitx5.overrideAttrs (prev: {
     version = "unstable-2024-09-01";
@@ -14,7 +15,8 @@
       sha256 = "1aiv9c2h6qdk78cikknvvd2v05l9gl80pfy03l0ay7263r8pdk9d";
     };
   });
-in {
+in
+{
   i18n = {
     defaultLocale = "en_US.UTF-8";
     supportedLocales = [

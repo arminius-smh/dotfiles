@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   services = {
     displayManager = {
       defaultSession = "hyprland"; # sway

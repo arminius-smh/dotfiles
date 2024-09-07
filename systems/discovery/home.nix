@@ -4,7 +4,8 @@
   lib,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     inputs.catppuccin.homeManagerModules.catppuccin
     ../../home-manager
@@ -39,7 +40,7 @@
     stateVersion = "24.05";
 
     activation = {
-      python-dab = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      python-dab = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
         if [ ! -d "$HOME/Projects/Coding/.virtualenvs/" ]; then
             mkdir -p "$HOME/Projects/Coding/.virtualenvs/" && cd "$_" || exit
             ${pkgs.python3}/bin/python3 -m venv debugpy
@@ -47,7 +48,7 @@
         fi
       '';
 
-      nvim-jdtls = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      nvim-jdtls = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
         # https://github.com/eclipse-jdtls/eclipse.jdt.ls#installation
         if [ ! -d "$HOME/Projects/Coding/.jdtls/" ]; then
             FILENAME="jdt-language-server.tar.gz"

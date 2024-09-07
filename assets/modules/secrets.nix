@@ -1,5 +1,6 @@
-{lib, ...}:
-with lib; {
+{ lib, ... }:
+with lib;
+{
   options = {
     secrets = {
       mail = {
@@ -23,14 +24,14 @@ with lib; {
       };
       minecraft = {
         whitelist = mkOption {
-          type = let
-            minecraftUUID =
-              lib.types.strMatching
-              "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
-              // {
-                description = "Minecraft UUID";
-              };
-          in
+          type =
+            let
+              minecraftUUID =
+                lib.types.strMatching "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+                // {
+                  description = "Minecraft UUID";
+                };
+            in
             lib.types.attrsOf minecraftUUID;
         };
         ops = mkOption {

@@ -4,7 +4,8 @@
   lib,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     inputs.catppuccin.homeManagerModules.catppuccin
     ../../home-manager
@@ -38,7 +39,7 @@
     };
 
     activation = {
-      python-dab = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      python-dab = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
         if [ ! -d "$HOME/Projects/Coding/.virtualenvs/" ]; then
             mkdir -p "$HOME/Projects/Coding/.virtualenvs/" && cd "$_" || exit
             ${pkgs.python3}/bin/python3 -m venv debugpy
@@ -46,7 +47,7 @@
         fi
       '';
 
-      nvim-jdtls = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      nvim-jdtls = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
         # https://github.com/eclipse-jdtls/eclipse.jdt.ls#installation
         if [ ! -d "$HOME/Projects/Coding/.jdtls/" ]; then
             FILENAME="jdt-language-server.tar.gz"
@@ -64,8 +65,8 @@
   dconf = {
     settings = {
       "org/virt-manager/virt-manager/connections" = {
-        autoconnect = ["qemu:///system"];
-        uris = ["qemu:///system"];
+        autoconnect = [ "qemu:///system" ];
+        uris = [ "qemu:///system" ];
       };
     };
   };
@@ -85,7 +86,7 @@
             ExecStart = "${pkgs.bash}/bin/sh -c '${pkgs.coreutils}/bin/rm -rf /home/armin/.local/share/Trash/files/* /home/armin/.local/share/Trash/info/*'";
           };
           Install = {
-            WantedBy = ["timers.target"];
+            WantedBy = [ "timers.target" ];
           };
         };
       };
@@ -100,7 +101,7 @@
             Persistent = true;
           };
           Install = {
-            WantedBy = ["timers.target"];
+            WantedBy = [ "timers.target" ];
           };
         };
       };

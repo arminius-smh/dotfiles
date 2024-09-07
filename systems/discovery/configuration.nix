@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ../../nixos
@@ -45,7 +46,7 @@
             session required pam_unix.so
           '';
         };
-        hyprlock = {};
+        hyprlock = { };
       };
     };
   };

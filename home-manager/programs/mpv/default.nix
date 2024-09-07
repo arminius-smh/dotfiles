@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs = {
     mpv = {
       enable = true;
@@ -35,8 +36,8 @@
       scripts = with pkgs; [
         mpvScripts.modernx-zydezu
         mpvScripts.thumbfast
-        (pkgs.callPackage ../../../assets/packages/mpv-scripts/subs_to_clipboard {})
-        (pkgs.callPackage ../../../assets/packages/mpv-scripts/bookmarker-menu {})
+        (pkgs.callPackage ../../../assets/packages/mpv-scripts/subs_to_clipboard { })
+        (pkgs.callPackage ../../../assets/packages/mpv-scripts/bookmarker-menu { })
       ];
     };
   };

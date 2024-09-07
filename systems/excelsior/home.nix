@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   imports = [
     ../../home-manager
     ../../assets/modules/secrets.nix

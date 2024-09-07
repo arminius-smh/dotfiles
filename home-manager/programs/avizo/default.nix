@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   services = {
     avizo = {
       enable = true;

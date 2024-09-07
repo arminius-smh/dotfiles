@@ -1,24 +1,21 @@
 {
   inputs,
   pkgs,
-  config,
   ...
-}: let
-  importServer = serverFile: import serverFile {inherit pkgs config;};
-in {
-  imports = [inputs.nix-minecraft.nixosModules.minecraft-servers];
+}:
+{
   nixpkgs = {
-    overlays = [inputs.nix-minecraft.overlay];
+    overlays = [ inputs.nix-minecraft.overlay ];
   };
 
+  imports = [
+    inputs.nix-minecraft.nixosModules.minecraft-servers
+    ./vanilla-fabric-server-1_21_1.nix
+  ];
   services = {
     minecraft-servers = {
       enable = true;
       eula = true;
-
-      servers = {
-        vanilla-fabric-server-1_21_1 = importServer ./vanilla-fabric-server-1_21_1.nix;
-      };
     };
   };
 

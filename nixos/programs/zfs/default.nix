@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   services = {
     zfs = {
       autoScrub = {
@@ -10,5 +10,11 @@
         randomizedDelaySec = "6h";
       };
     };
+  };
+
+  environment = {
+    systemPackages = with pkgs; [
+      zfs
+    ];
   };
 }

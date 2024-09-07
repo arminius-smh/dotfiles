@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
     ./avahi
     ./neovim
@@ -8,11 +8,4 @@
     ./zfs
     ./zsh
   ];
-
-  environment = {
-    systemPackages = with pkgs; [
-      zfs
-      git
-    ];
-  };
 }

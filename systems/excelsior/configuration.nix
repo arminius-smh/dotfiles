@@ -5,8 +5,10 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    inputs.catppuccin.nixosModules.catppuccin
     ../../nixos
+    ../../assets/modules/secrets.nix
+    ../../secrets/secrets.nix
+    inputs.catppuccin.nixosModules.catppuccin
   ];
 
   fileSystems = {

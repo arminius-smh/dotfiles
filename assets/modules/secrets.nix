@@ -21,6 +21,25 @@ with lib; {
       spotifyId = mkOption {
         type = types.str;
       };
+      minecraft = {
+        whitelist = mkOption {
+          type = let
+            minecraftUUID =
+              lib.types.strMatching
+              "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+              // {
+                description = "Minecraft UUID";
+              };
+          in
+            lib.types.attrsOf minecraftUUID;
+        };
+        ops = mkOption {
+          type = types.str;
+        };
+        rcon-pw = mkOption {
+          type = types.str;
+        };
+      };
     };
   };
 }

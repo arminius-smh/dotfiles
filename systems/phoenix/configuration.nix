@@ -7,6 +7,8 @@
   imports = [
     ./hardware-configuration.nix
     ../../nixos
+    ../../assets/modules/secrets.nix
+    ../../secrets/secrets.nix
     inputs.catppuccin.nixosModules.catppuccin
   ];
 

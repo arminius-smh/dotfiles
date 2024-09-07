@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   services = {
     displayManager = {
       defaultSession = "hyprland"; # sway
@@ -16,6 +16,12 @@
         enableHidpi = true;
       };
     };
+  };
+
+  environment = {
+    systemPackages = with pkgs; [
+      catppuccin-sddm-corners
+    ];
   };
 
   system = {

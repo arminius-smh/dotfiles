@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
     # ./activemq # java message broker
     ./avahi
@@ -12,10 +12,4 @@
     ./xserver
     ./zsh
   ];
-
-  environment = {
-    systemPackages = with pkgs; [
-      catppuccin-sddm-corners
-    ];
-  };
 }

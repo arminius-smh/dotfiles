@@ -16,6 +16,8 @@
             "fullscreen,class:(thunderbird)"
             "fullscreen,class:(spotify_player)"
             "float,class:(pomodoro)"
+            "float,class:(feh)"
+            "float,class:(imv)"
             "size 650 150,class:(pomodoro)"
             "move onscreen 1200 135,class:(pomodoro)"
             "bordercolor rgba(33ccffee) rgba(00ff99ee),class:(pomodoro)"

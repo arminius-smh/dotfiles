@@ -23,6 +23,7 @@
     ./steam
     ./udev
     ./udisks2
+    ./thunar
     ./xserver
     ./zsh
   ];

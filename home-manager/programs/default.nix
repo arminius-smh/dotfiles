@@ -14,35 +14,39 @@ in
   ];
 
   # just link all files for everyone, can't think of any reason not to
-  home = {
-    file = {
-      ".config/nvim" = {
+  xdg = {
+    configFile = {
+      nvim = {
         source = ./nvim;
         recursive = true;
       };
 
-      ".config/python" = {
+      python = {
         source = ./files/python;
         recursive = true;
       };
 
-      ".config/prettier" = {
+      prettier = {
         source = ./files/prettier;
         recursive = true;
       };
 
-      ".config/clang-format" = {
+      clang-format = {
         source = ./files/clang-format;
         recursive = true;
       };
 
-      ".config/uncrustify" = {
+      uncrustify = {
         source = ./files/uncrustify;
         recursive = true;
       };
 
-      ".config/libinput-gestures.conf" = {
+      "libinput-gestures.conf" = {
         source = ./files/libinput-gestures/libinput-gestures.conf;
+      };
+
+      "Thunar/uca.xml" = {
+        source = ./files/Thunar/uca.xml;
       };
     };
   };

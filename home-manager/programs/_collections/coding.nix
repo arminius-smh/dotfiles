@@ -1,11 +1,16 @@
 { pkgs, ... }:
 {
+  imports = [
+    ../texlive # latex
+  ];
+
   home = {
     packages = with pkgs; [
       luajit # lua compiler
       gcc # c/c++ compiler
       gnumake # make
       just # command runner
+      tree-sitter # parsing system for programming tools
 
       # java
       jdk
@@ -20,6 +25,8 @@
       nodePackages_latest.nodejs
       yarn
       typescript
+
+      stack # haskell build tool
 
       typst # typst
 

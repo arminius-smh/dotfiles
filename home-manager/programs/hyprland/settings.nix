@@ -87,7 +87,7 @@
           exec-once = lib.mkMerge [
             (lib.mkIf true [
               "fcitx5"
-              "vesktop --start-minimized"
+              # "vesktop --start-minimized"
               "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/wallpaper.sh ${systemName}"
             ])
             (lib.mkIf (systemName == "phoenix") [

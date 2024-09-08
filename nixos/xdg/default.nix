@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   inputs,
   ...
@@ -7,10 +6,10 @@
 let
   browser = [ "firefox.desktop" ];
   editor = [ "nvim.desktop" ];
-  imageViewer = [ "imv.desktop" ];
+  imageViewer = [ "feh.desktop" ];
   pdfViewer = [ "org.pwmt.zathura.desktop" ];
   videoPlayer = [ "mpv.desktop" ];
-  fileManager = [ "pcmanfm.desktop" ];
+  fileManager = [ "thunar.desktop" ];
 in
 {
   xdg = {
@@ -33,6 +32,7 @@ in
         "application/pdf" = pdfViewer;
         "image/jpeg" = imageViewer;
         "image/png" = imageViewer;
+        "image/webp" = imageViewer;
         "text/plain" = editor;
         "video/x-matroska" = videoPlayer;
         "text/html" = browser;

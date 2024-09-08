@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   wayland = {
     windowManager = {
@@ -45,7 +45,7 @@
             "$mainMod, RETURN, exec, kitty"
             "$mainMod SHIFT, P, exec, alacritty --class 'pomodoro' -e '$DOTFILES_PATH/home-manager/programs/hyprland/scripts/pomodoro.zsh'"
             "$mainMod SHIFT, F, exec, firefox"
-            "$mainMod SHIFT, A, exec, pcmanfm"
+            "$mainMod SHIFT, A, exec, thunar"
             "$mainMod CONTROL, Q, killactive"
             "$mainMod, M, exec, pkill -USR1 waybar"
             "$mainMod SHIFT, M, exit"
@@ -53,8 +53,7 @@
             "$mainMod, D, exec, rofi -show run"
             "$mainMod SHIFT, J, togglesplit,"
             ''$mainMod SHIFT, D, exec, grimblast --freeze copysave area "$HOME/Downloads/$(date +'%Y-%m-%d_%H-%M-%S_screenshot.png')"''
-            "$mainMod SHIFT, C, exec, hyprctl dispatch dpms off DVI-I-1 && hyprctl dispatch dpms off HDMI-A-1"
-            "$mainMod, C, exec, hyprctl dispatch dpms on DVI-I-1 && hyprctl dispatch dpms on HDMI-A-1"
+            "$mainMod SHIFT, C, exec, ${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/monitor-switch.sh"
             "$mainMod SHIFT, W, exec, pkill -SIGUSR2 waybar"
             "$mainMod SHIFT, N, exec, swaync-client -t -sw"
 

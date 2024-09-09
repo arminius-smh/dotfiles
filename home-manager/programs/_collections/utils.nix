@@ -60,7 +60,6 @@
       pstree # process tree
       nix-tree # nix dependency viewer
       timer # a sleep with progress
-      xfce.tumbler # filemanager thumbnail generator
       webp-pixbuf-loader # webp thumbnail support
       file-roller # archive manager
     ];

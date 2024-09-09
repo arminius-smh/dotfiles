@@ -86,7 +86,6 @@
         script = ''
           ${pkgs.gnutar}/bin/tar -cvp --use-compress-program=${pkgs.gzip}/bin/gzip -f "/tank/users/armin/backups/minecraft/vanilla-fabric-server-1_21_1-$(date +%F_%R).tar.gz" "/srv/minecraft/vanilla-fabric-server-1_21_1/world"
         '';
-        wantedBy = [ "timers.target" ];
         serviceConfig = {
           Type = "oneshot";
         };

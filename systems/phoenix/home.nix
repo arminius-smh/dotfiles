@@ -85,9 +85,6 @@
             Type = "oneshot";
             ExecStart = "${pkgs.bash}/bin/sh -c '${pkgs.coreutils}/bin/rm -rf /home/armin/.local/share/Trash/files/* /home/armin/.local/share/Trash/info/*'";
           };
-          Install = {
-            WantedBy = [ "timers.target" ];
-          };
         };
       };
 

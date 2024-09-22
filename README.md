@@ -6,7 +6,7 @@
 # update all flake inputs
 nix flake update
 # update only specific flake inputs
-nix flake lock --update-input [input]
+nix flake update [input]
 ```
 
 ## use template

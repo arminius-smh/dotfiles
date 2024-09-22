@@ -45,6 +45,7 @@
     };
     catppuccin = {
       url = "github:catppuccin/nix";
+      # url = "git+file:///home/armin/Projects/Coding/nix/nix/";
     };
     nixos-apple-silicon = {
       url = "github:tpwrules/nixos-apple-silicon";

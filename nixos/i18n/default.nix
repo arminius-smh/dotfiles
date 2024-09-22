@@ -4,18 +4,7 @@
   lib,
   ...
 }:
-let
-  # WAIT: nix pr
-  catppuccin-fcitx5-git = pkgs.catppuccin-fcitx5.overrideAttrs (prev: {
-    version = "unstable-2024-09-01";
-    src = pkgs.fetchFromGitHub {
-      owner = "catppuccin";
-      repo = "fcitx5";
-      rev = "6e736a0b1c6707c776c122b752c43842e24b7c75";
-      sha256 = "1aiv9c2h6qdk78cikknvvd2v05l9gl80pfy03l0ay7263r8pdk9d";
-    };
-  });
-in
+
 {
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -46,7 +35,7 @@ in
           fcitx5-mozc
           fcitx5-lua
 
-          catppuccin-fcitx5-git
+          catppuccin-fcitx5
         ];
         settings = {
           inputMethod = {

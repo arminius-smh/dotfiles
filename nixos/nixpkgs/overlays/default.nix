@@ -6,6 +6,7 @@
     ./pwvucontrol.nix
     ./timer.nix
     ./trashy.nix
+    ./jellyfin-media-player.nix
   ];
 
   # test/temp overlays

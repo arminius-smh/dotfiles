@@ -21,6 +21,7 @@
     # };
     mypkgs = {
       url = "github:arminius-smh/nixpkgs/mypkgs";
+      # url = "git+file:///home/armin/Projects/Coding/nix/nixpkgs/";
     };
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";

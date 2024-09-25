@@ -39,6 +39,11 @@
     ];
   };
 
+  fileSystems."/home/armin/Mount/Storage" = {
+    device = "/dev/disk/by-uuid/6727e0b8-960b-4b70-ae2c-f6480d4a34eb";
+    fsType = "ext4";
+  };
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

@@ -69,10 +69,6 @@
       pamixer # audio mixer
       qbittorrent # bittorrent client
       hyprpicker # wayland color picker
-
-      (pkgs.writeShellScriptBin "jelly" ''
-        ${pkgs.jellyfin-media-player}/bin/jellyfinmediaplayer --platform xcb # nvidia stuff
-      '')
     ];
   };
 }

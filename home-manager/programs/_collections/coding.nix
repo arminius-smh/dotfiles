@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ../texlive # latex
+    # ../texlive # latex (but use overleaf or typst instead)
   ];
 
   home = {

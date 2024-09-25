@@ -26,6 +26,7 @@
             # bypass-paywalls-clean
             bitwarden
             catppuccin-gh-file-explorer
+            darkreader
             return-youtube-dislikes
             seventv
             simple-translate

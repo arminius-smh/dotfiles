@@ -26,7 +26,7 @@
     ./thunderbird # mail client
     ./blueman-applet # bluetooth applet
     ./spicetify # spotify enhancement
-    ./spotify-player # spotify streaming
+    # ./spotify-player # spotify streaming
     ./obs-studio # video recording
   ];
 
@@ -60,6 +60,7 @@
       killall # kill processes by name
       pwvucontrol # pipewire volume control
       tradingview # stock tracker
+      autotiling # sway dynamic tiling
 
       mkvtoolnix # mkv tools
       platformio-core # embedded dev environment

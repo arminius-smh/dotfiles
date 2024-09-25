@@ -105,7 +105,7 @@
         # bash
         ''
           if [ "$(tty)" = "/dev/tty1" ]; then
-            DEFAULT="Hyprland"
+            DEFAULT="Hyprland" # Sway, Hyprland
 
             local style ()
             {
@@ -127,17 +127,22 @@
 
             if [ -z "$input" ]; then
                 style "$DEFAULT"
-                exec Hyprland
+                case $DEFAULT in
+                  Hyprland)
+                    exec Hyprland
+                  ;;
+                  Sway)
+                    exec sway --unsupported-gpu
+                    ;;
+                esac
             else
                 TYPE=$(gum choose "Hyprland" "Sway")
+                style "$TYPE"
                 case $TYPE in
                     Hyprland)
-                        style "$TYPE"
                         exec Hyprland
                         ;;
-
                     Sway)
-                        style "$TYPE"
                         exec sway --unsupported-gpu
                         ;;
                 esac

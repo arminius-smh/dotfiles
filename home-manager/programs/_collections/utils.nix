@@ -42,6 +42,7 @@
       tree # directory tree
       wget # website curler
       sshfs # mount remote filesystem
+      playerctl # audio commands
 
       # file compression
       zip

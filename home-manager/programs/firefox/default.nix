@@ -42,7 +42,7 @@
           ];
           bookmarks = [
             {
-              name = "Homepage";
+              name = "toolbar";
               toolbar = true;
               bookmarks = [
                 {
@@ -56,6 +56,19 @@
                 {
                   name = "Palette";
                   url = "https://catppuccin.com/palette";
+                }
+                {
+                  name = "aesthetic";
+                  bookmarks = [
+                    {
+                      name = "lily_chou-chou";
+                      url = "http://lily-chou-chou.jp/holic/bbs/";
+                    }
+                    {
+                      name = "lain";
+                      url = "https://fauux.neocities.org/";
+                    }
+                  ];
                 }
               ];
             }

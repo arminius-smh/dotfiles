@@ -10,6 +10,7 @@
           "audio"
           "dialout"
           "docker"
+          "gamemode"
           "input"
           "libvirtd"
           "networkmanager"

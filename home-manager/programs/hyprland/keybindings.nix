@@ -78,6 +78,11 @@
             ", XF86AudioLowerVolume, exec, volumectl -M $(hyprctl activeworkspace | awk '/monitorID/{print $2}' | head -n 1) -u down 2"
             ", XF86AudioMute, exec, volumectl -M $(hyprctl activeworkspace | awk '/monitorID/{print $2}' | head -n 1) toggle-mute"
 
+            ", XF86AudioNext, exec, playerctl next"
+            ", XF86AudioPause, exec, playerctl play-pause"
+            ", XF86AudioPlay, exec, playerctl play-pause"
+            ", XF86AudioPrev, exec, playerctl previous"
+
             ", XF86MonBrightnessUp, exec, lightctl -M $(hyprctl activeworkspace | awk '/monitorID/{print $2}' | head -n 1) up 5"
             ", XF86MonBrightnessDown, exec, lightctl -M $(hyprctl activeworkspace | awk '/monitorID/{print $2}' | head -n 1) down 5"
           ];

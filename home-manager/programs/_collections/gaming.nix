@@ -10,6 +10,8 @@
       heroic
       lutris
 
+      protonup-qt # manage different proton versions for steam
+
       r2modman # game mod manager
       (prismlauncher.override {
         jdks = [

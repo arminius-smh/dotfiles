@@ -43,6 +43,7 @@
       wget # website curler
       sshfs # mount remote filesystem
       playerctl # audio commands
+      libnotify # send notifications
 
       # file compression
       zip

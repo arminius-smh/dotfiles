@@ -45,8 +45,9 @@
             # however screenshots can only hide the cursors if
             # no_hardware_cursors = false && allow_dump_copy = true
 
-            no_hardware_cursors = true;
-            # allow_dumb_copy = true;
+            # no_hardware_cursors = true;
+            no_hardware_cursors = false;
+            allow_dumb_copy = true;
           };
 
           debug = {

@@ -44,6 +44,7 @@
       sshfs # mount remote filesystem
       playerctl # audio commands
       libnotify # send notifications
+      streamlink # stream videos with local player
 
       # file compression
       zip

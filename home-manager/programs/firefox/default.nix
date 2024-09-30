@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   pkgs,
   ...
 }:
@@ -22,11 +23,20 @@
       profiles = {
         armin = {
           isDefault = true;
+          containersForce = true;
+          containers = {
+            T = {
+              color = "red";
+              icon = "tree";
+              id = 1;
+            };
+          };
           extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
             # bypass-paywalls-clean
             bitwarden
             catppuccin-gh-file-explorer
             darkreader
+            multi-account-containers
             return-youtube-dislikes
             seventv
             simple-translate
@@ -70,6 +80,7 @@
                     }
                   ];
                 }
+                config.secrets.bookmarks.priv
               ];
             }
           ];

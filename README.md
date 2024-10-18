@@ -86,6 +86,52 @@ or overlay:
 git submodule init && git submodule update
 ```
 
+## package dev
+
+source: [here](https://unix.stackexchange.com/questions/717168/how-to-package-my-software-in-nix-or-write-my-own-package-derivation-for-nixpkgs)
+
+derivation.nix
+
+```nix
+{ stdenv }:
+stdenv.mkDerivation rec {
+  name = "program-${version}";
+  version = "1.0";
+
+  src = ./.;
+
+  nativeBuildInputs = [ ];
+  buildInputs = [ ];
+
+  buildPhase = ''
+    gcc program.c -o myprogram
+  '';
+
+  installPhase = ''
+    mkdir -p $out/bin
+    cp myprogram $out/bin
+  '';
+}
+```
+
+default.nix
+
+```nix
+{ pkgs ? import <nixpkgs> {} }:
+pkgs.callPackage ./derivation.nix {}
+```
+
+then run:
+
+```sh
+nix-build
+```
+## check auto-upgrade
+
+```sh
+journalctl -xeu nixos-upgrade.service
+```
+
 ## other
 
 - `$DOTFILES_PATH` is required to be set

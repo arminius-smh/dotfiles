@@ -2,6 +2,7 @@
 {
   nixpkgs = {
     overlays = [
+      (import ../../../assets/packages)
       (
         self: super:
         (

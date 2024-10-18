@@ -5,12 +5,15 @@
   lib,
   ...
 }:
+let
+  serverName = "vanilla-fabric-server-1_21_1";
+in
 {
   services = {
     minecraft-servers = {
       servers = {
-        vanilla-fabric-server-1_21_1 = {
-          enable = true;
+        ${serverName} = {
+          enable = false;
           package = pkgs.fabricServers.fabric-1_21_1;
           serverProperties = {
             white-list = true;
@@ -19,11 +22,8 @@
             "rcon.password" = config.secrets.minecraft.rcon-pw;
           };
           whitelist = config.secrets.minecraft.whitelist;
+          operators = config.secrets.minecraft.operators;
           symlinks = {
-            "ops.json" = pkgs.writeTextFile {
-              name = "ops.json";
-              text = config.secrets.minecraft.ops;
-            };
             mods = pkgs.linkFarmFromDrvs "mods" (
               builtins.attrValues {
                 # https://modrinth.com/mod/sodium
@@ -79,27 +79,30 @@
     };
   };
 
-  systemd = lib.mkIf (systemName == "excelsior") {
-    services = {
-      "minecraft-server-vanilla-fabric-server-1_21_1-backup" = {
-        description = "Backup the Minecraft World of vanilla-faric-server-1_21_1";
-        script = ''
-          ${pkgs.gnutar}/bin/tar -cvp --use-compress-program=${pkgs.gzip}/bin/gzip -f "/tank/users/armin/backups/minecraft/vanilla-fabric-server-1_21_1-$(date +%F_%R).tar.gz" "/srv/minecraft/vanilla-fabric-server-1_21_1/world"
-        '';
-        serviceConfig = {
-          Type = "oneshot";
+  systemd =
+    lib.mkIf
+      (systemName == "excelsior" && config.services.minecraft-servers.servers.${serverName}.enable)
+      {
+        services = {
+          "minecraft-server-${serverName}-backup" = {
+            description = "Backup the Minecraft World of${serverName}";
+            script = ''
+              ${pkgs.gnutar}/bin/tar -cvp --use-compress-program=${pkgs.gzip}/bin/gzip -f "/tank/users/armin/backups/minecraft/${serverName}-$(date +%F_%R).tar.gz" "/srv/minecraft/${serverName}/world"
+            '';
+            serviceConfig = {
+              Type = "oneshot";
+            };
+          };
+        };
+        timers = {
+          "minecraft-server-${serverName}-backup" = {
+            description = "Daily Minecraft World Backup of ${serverName}";
+            timerConfig = {
+              OnCalendar = "daily";
+              Persistent = true;
+            };
+            wantedBy = [ "timers.target" ];
+          };
         };
       };
-    };
-    timers = {
-      "minecraft-server-vanilla-fabric-server-1_21_1-backup" = {
-        description = "Daily Minecraft World Backup of vanilla-fabric-server-1_21_1";
-        timerConfig = {
-          OnCalendar = "daily";
-          Persistent = true;
-        };
-        wantedBy = [ "timers.target" ];
-      };
-    };
-  };
 }

@@ -3,6 +3,9 @@ with lib;
 {
   options = {
     secrets = {
+      webdav-selfhost = mkOption {
+        type = types.str;
+      };
       mail = {
         personal = mkOption {
           type = types.str;
@@ -19,6 +22,11 @@ with lib;
           type = types.str;
         };
       };
+      tokens = {
+        git = mkOption {
+          type = types.str;
+        };
+      };
       spotifyId = mkOption {
         type = types.str;
       };
@@ -26,8 +34,8 @@ with lib;
         whitelist = mkOption {
           type = types.attrs;
         };
-        ops = mkOption {
-          type = types.str;
+        operators = mkOption {
+          type = types.attrs;
         };
         rcon-pw = mkOption {
           type = types.str;
@@ -37,6 +45,9 @@ with lib;
         priv = mkOption {
           type = types.attrs;
         };
+      };
+      homepage = mkOption {
+        type = types.str;
       };
     };
   };

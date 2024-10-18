@@ -85,9 +85,6 @@
               source $HOME/.config/zsh/.priv.zsh
           fi
 
-          export PATH="$HOME/Collections/Applications:$PATH"
-          export PATH="$DOTFILES_PATH/assets/scripts:$PATH"
-
           # pfetch options
           export PF_INFO="ascii title os de editor kernel uptime memory"
           export PF_FAST_PKG_COUNT=1
@@ -104,6 +101,8 @@
       profileExtra =
         # bash
         ''
+          export PATH="$HOME/Collections/Applications:$PATH"
+          export PATH="$DOTFILES_PATH/assets/scripts:$PATH"
           if [ "$(tty)" = "/dev/tty1" ]; then
             DEFAULT="Hyprland" # Sway, Hyprland
 
@@ -157,7 +156,7 @@
         nix-shell = "HISTFILE='${config.xdg.dataHome}/bash/history' nix-shell";
         cat = "bat --paging=never";
         fzf = ''fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'';
-        rt = "trashy put";
+        rm = "trashy put";
         man = "batman";
       };
       oh-my-zsh = {

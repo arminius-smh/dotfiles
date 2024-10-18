@@ -8,5 +8,6 @@
     ./nh
     ./zfs
     ./zsh
+    ./minecraft-server
   ];
 }

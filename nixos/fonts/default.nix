@@ -8,11 +8,6 @@
       enable = true;
     };
     packages = with pkgs; [
-      material-symbols
-
-      hanazono
-      ipaexfont
-      ipafont
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif

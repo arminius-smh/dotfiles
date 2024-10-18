@@ -19,11 +19,15 @@ in
 
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
-        inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+        # NOTE: activate for hyprland-git
+        # inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+        xdg-desktop-portal-hyprland
       ];
       configPackages = with pkgs; [
         xdg-desktop-portal-gtk
-        inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+        # NOTE: activate for hyprland-git
+        # inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+        xdg-desktop-portal-hyprland
       ];
     };
     mime = {

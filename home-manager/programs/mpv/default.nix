@@ -36,8 +36,8 @@
       scripts = with pkgs; [
         mpvScripts.modernx-zydezu
         mpvScripts.thumbfast
-        (pkgs.callPackage ../../../assets/packages/mpv-scripts/subs_to_clipboard { })
-        (pkgs.callPackage ../../../assets/packages/mpv-scripts/bookmarker-menu { })
+        bookmarker-menu
+        subs_to_clipboard
       ];
     };
   };

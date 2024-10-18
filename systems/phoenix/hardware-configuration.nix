@@ -40,7 +40,7 @@
   };
 
   fileSystems."/home/armin/Mount/Storage" = {
-    device = "/dev/disk/by-uuid/6727e0b8-960b-4b70-ae2c-f6480d4a34eb";
+    device = "/dev/disk/by-uuid/9c2ad12b-da06-4ed6-b34f-6589ce3d21a4";
     fsType = "ext4";
   };
 

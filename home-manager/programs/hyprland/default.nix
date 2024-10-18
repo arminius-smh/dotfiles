@@ -17,7 +17,8 @@
         catppuccin = {
           enable = true;
         };
-        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+        # NOTE: activate for hyprland-git
+        # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
         xwayland = {
           enable = true;
         };

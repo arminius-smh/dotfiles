@@ -36,6 +36,7 @@
             bitwarden
             catppuccin-gh-file-explorer
             darkreader
+            refined-github
             multi-account-containers
             return-youtube-dislikes
             seventv
@@ -44,6 +45,7 @@
             sponsorblock
             startpage-private-search
             stylus
+            torrent-control
             ublock-origin
             videospeed
             violentmonkey
@@ -57,7 +59,7 @@
               bookmarks = [
                 {
                   name = "Homepage";
-                  url = "http://192.168.16.10:3002/";
+                  url = config.secrets.homepage;
                 }
                 {
                   name = "Syncthing";
@@ -91,7 +93,7 @@
               };
               startup = {
                 page = 3;
-                homepage = "http://192.168.16.10:3002";
+                homepage = config.secrets.homepage;
               };
               newtabpage = {
                 activity-stream = {
@@ -116,6 +118,15 @@
               };
             };
           };
+        };
+        # only for kiosk twitch chat
+        twitch = {
+          isDefault = false;
+          id = 1;
+          extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+            seventv
+            stylus
+          ];
         };
       };
     };

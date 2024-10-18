@@ -11,6 +11,7 @@
       gnumake # make
       just # command runner
       tree-sitter # parsing system for programming tools
+      gh # github cli
 
       # java
       jdk

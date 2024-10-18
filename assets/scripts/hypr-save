@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+
+CONFIG_DIR="$HOME/.config/hypr-save"
+
+for i in "$@"; do
+    case $i in
+        -s=*|--save=*)
+            SAVE="${i#*=}"
+            shift # past argument=value
+            ;;
+        -a=*|--apply=*)
+            APPLY="${i#*=}"
+            shift # past argument=value
+            ;;
+        *)
+            echo "Unknown option $i"
+            exit 1
+            ;;
+    esac
+done
+
+if [[ ! -d $CONFIG_DIR ]]; then
+    echo "config dir not found at $CONFIG_DIR"
+    mkdir -p "$CONFIG_DIR"
+    echo "created $CONFIG_DIR"
+fi
+
+# save settings
+save(){
+    echo "click on the workspace you want to save"
+    hyprpicker --no-zoom > /dev/null
+    WORKSPACE=$(hyprctl monitors -j | jq '.[] | select(.focused == true) | .activeWorkspace.id')
+    WINDOWS=$(hyprctl clients -j | jq ".[] | select(.workspace.id == $WORKSPACE)")
+
+    echo "$WINDOWS" > "$CONFIG_DIR/$1.json"
+    echo "saved workspace config to $CONFIG_DIR/$1.json"
+}
+
+# apply settings
+apply(){
+    echo "applying config..."
+    jq -c '.' "$CONFIG_DIR/$1.json" | while read -r window; do
+        title=$(echo "$window" | jq -r '.title')
+        at=$(echo "$window" | jq -r '.at')
+        size=$(echo "$window" | jq -r '.size')
+        floating=$(echo "$window" | jq -r '.floating')
+        workspace=$(echo "$window" | jq -r '.workspace.id')
+
+        size0=$(echo "$size" | jq .[0])
+        size1=$(echo "$size" | jq .[1])
+        at0=$(echo "$at" | jq .[0])
+        at1=$(echo "$at" | jq .[1])
+
+        echo "title: $title"
+        echo "size0: $size0"
+        echo "size1: $size1"
+        echo "at0: $at0"
+        echo "at1: $at1"
+        echo "floating: $floating"
+        echo "workspace: $workspace"
+
+        hyprctl dispatch movetoworkspace "$workspace,title:.*($title).*"
+        if [[ $floating == true ]]; then
+            hyprctl dispatch setfloating "title:.*($title).*"
+        fi
+        hyprctl dispatch resizewindowpixel exact "$size0 $size1,title:.*($title).*"
+        hyprctl dispatch movewindowpixel exact "$at0 $at1,title:.*($title).*"
+        echo "--------------"
+    done
+}
+
+if [[ -n $SAVE ]]; then
+    save "$SAVE"
+fi
+
+if [[ -n $APPLY ]]; then
+    apply "$APPLY"
+fi

@@ -23,13 +23,13 @@
       url = "github:arminius-smh/nixpkgs/mypkgs";
       # url = "git+file:///home/armin/Projects/Coding/nix/nixpkgs/";
     };
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland = {
+    #   url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
     };

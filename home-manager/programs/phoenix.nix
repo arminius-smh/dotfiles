@@ -34,7 +34,6 @@
     packages = with pkgs; [
       # browsers
       chromium
-      brave
 
       emacs # operating system
       zoom-us # video conference
@@ -55,14 +54,16 @@
       arduino # arduino ide
       nwg-displays # output management utility
       anki # flashcard
-      gimp # image manipulation
+      krita # image manipulation
       subtitleedit # subtitle editor
       killall # kill processes by name
       pwvucontrol # pipewire volume control
       tradingview # stock tracker
       autotiling # sway dynamic tiling
+      python3Packages.manga-ocr # manga ocr
+      mokuro # manga selectable text
 
-      mkvtoolnix # mkv tools
+      mkvtoolnix-cli # mkv tools
       platformio-core # embedded dev environment
       avrdude # flash embedded devices
       lolcat # rainbow text

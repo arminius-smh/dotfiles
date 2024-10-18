@@ -24,8 +24,8 @@
           general = {
             gaps_in = 5;
             gaps_out = 20;
-            "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-            "col.inactive_border" = "rgba(595959aa)";
+            "col.active_border" = "$teal $accent 135deg";
+            "col.inactive_border" = "$surface0";
             border_size = 2;
             layout = "dwindle";
           };
@@ -38,16 +38,6 @@
 
           render = {
             explicit_sync = 0;
-          };
-
-          cursor = {
-            # gamescope cursor only shows with no_hardware_cursors=true
-            # however screenshots can only hide the cursors if
-            # no_hardware_cursors = false && allow_dump_copy = true
-
-            # no_hardware_cursors = true;
-            no_hardware_cursors = false;
-            allow_dumb_copy = true;
           };
 
           debug = {
@@ -64,7 +54,7 @@
             drop_shadow = true;
             shadow_range = 4;
             shadow_render_power = 3;
-            "col.shadow" = "rgba(1a1a1aee)";
+            "col.shadow" = "$crust";
           };
 
           animations = {
@@ -80,6 +70,14 @@
             ];
           };
 
+          # https://github.com/hyprwm/Hyprland/issues/7931
+          # gamescope cursor only shows with no_hardware_cursors=true
+          # however screenshots can only hide the cursors if
+          # no_hardware_cursors = false && allow_dump_copy = true
+          cursor = {
+            no_hardware_cursors = true;
+          };
+
           misc = {
             disable_hyprland_logo = true;
           };
@@ -92,11 +90,12 @@
           exec-once = lib.mkMerge [
             (lib.mkIf true [
               "fcitx5"
-              # "vesktop --start-minimized"
+              "vesktop --start-minimized"
               "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/wallpaper.sh ${systemName}"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "heroic"
+              "steam -silent -noverifyfiles"
               # "[workspace 7 silent] tradingview"
               "[workspace 9 silent] thunderbird"
               "[workspace 8 silent] spotify"

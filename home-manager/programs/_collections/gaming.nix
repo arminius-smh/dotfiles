@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   imports = [
     ../mangohud # game performance overlay
@@ -22,6 +22,7 @@
       }) # minecraft launcher
 
       # emulation
+      ryujinx # switch
       cemu # wiiu
       dolphin-emu # wii
       wiimms-iso-tools # wbfs tools
@@ -42,5 +43,16 @@
       wineWowPackages.stable
       winetricks
     ];
+  };
+
+  xdg = {
+    configFile = {
+      "Ryujinx/system/prod.keys" = {
+        source = builtins.fetchurl {
+          url = "${config.secrets.webdav-selfhost}/prod.keys";
+          sha256 = "0frmyi2v8dr4q0k0mm2vslfdvf27ybq99pr5fj5dw1hwmjfby460";
+        };
+      };
+    };
   };
 }

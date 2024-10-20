@@ -23,8 +23,9 @@
       enable = true;
       insertNameservers = [ "9.9.9.9 #quad9.net" ];
       wifi = {
-        # backend = "wpa_supplicant";
-        backend = "iwd";
+        backend = "wpa_supplicant";
+        scanRandMacAddress = false;
+        # backend = "iwd";
       };
     };
     interfaces = lib.mkIf (systemName == "phoenix") {

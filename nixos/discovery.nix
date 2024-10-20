@@ -11,5 +11,6 @@
     ./nixpkgs
     ./programs
     ./xdg
+    ./zramSwap
   ];
 }

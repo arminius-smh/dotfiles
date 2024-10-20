@@ -7,7 +7,7 @@
           name = "hyprbar";
           id = "hyprbar";
           position = "top";
-          layer = "top";
+          layer = "bottom";
           height = 44;
           margin-top = 0;
           margin-bottom = 0;
@@ -21,7 +21,7 @@
             "tray"
             "custom/notification"
             "pulseaudio"
-            "backlight"
+            # "backlight"
             "cpu"
             "memory"
             "battery"

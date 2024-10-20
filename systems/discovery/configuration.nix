@@ -63,6 +63,7 @@
         canTouchEfiVariables = false;
       };
     };
+    kernelParams = [ "apple_dcp.show_notch=1" ];
   };
 
   hardware = {
@@ -81,13 +82,6 @@
       enable = true;
     };
   };
-
-  swapDevices = [
-    {
-      device = "/var/lib/swapfile";
-      size = 16 * 1024;
-    }
-  ];
 
   system = {
     stateVersion = "24.05";

@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, systemName, ... }:
 {
   imports = [
     ./inputs.nix
@@ -9,8 +9,11 @@
     ./jellyfin-media-player.nix
   ];
 
-  # test/temp overlays
   nixpkgs = {
-    overlays = [ ];
+    overlays = lib.mkMerge [
+      (lib.mkIf (systemName == "discovery") [
+        (import ./widevine-overlay.nix)
+      ])
+    ];
   };
 }

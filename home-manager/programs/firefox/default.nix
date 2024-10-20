@@ -47,6 +47,7 @@
             stylus
             torrent-control
             ublock-origin
+            user-agent-string-switcher
             videospeed
             violentmonkey
             yomitan

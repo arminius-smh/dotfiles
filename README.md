@@ -126,6 +126,7 @@ then run:
 ```sh
 nix-build
 ```
+
 ## check auto-upgrade
 
 ```sh
@@ -137,6 +138,12 @@ journalctl -xeu nixos-upgrade.service
 - `$DOTFILES_PATH` is required to be set
 - private zsh functions etc. in $HOME/.config/zsh/.priv.zsh
 - stylus catppuccin themes: [catppuccin](https://ctp-aui.uncenter.dev)
+- asahi widevine useragent: `Mozilla/5.0 (X11; CrOS aarch64 15236.80.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5414.125 Safari/537.36`
+
+## issues
+
+- missing spotify client for aarch64-linux: [issue](https://community.spotify.com/t5/Desktop-Linux/spotify-desktop-for-aarch64-linux/td-p/5495487)
+- missing zotero client for aarch64-linux: [issue](https://github.com/zotero/zotero/issues/3515)
 
 ## Inspiration
 

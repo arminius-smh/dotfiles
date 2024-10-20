@@ -66,15 +66,6 @@
       home-manager-stable,
       ...
     }@inputs:
-    let
-      disableHomeManagerNews = {
-        config = {
-          news.display = "silent";
-          news.json = inputs.nixpkgs.lib.mkForce { };
-          news.entries = inputs.nixpkgs.lib.mkForce [ ];
-        };
-      };
-    in
     {
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
@@ -148,22 +139,6 @@
               };
             }
           ];
-        };
-      };
-
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager --flake .#your-username@your-hostname'
-      homeConfigurations = {
-        "voyager" = home-manager.lib.homeManagerConfiguration {
-          modules = [
-            ./systems/voyager/home.nix
-            disableHomeManagerNews
-          ];
-          extraSpecialArgs = {
-            inherit inputs;
-            systemName = "voyager";
-          };
-          pkgs = nixpkgs.legacyPackages.x86_64-darwin;
         };
       };
     };

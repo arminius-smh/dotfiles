@@ -104,6 +104,7 @@
             ])
             (lib.mkIf (systemName == "discovery") [
               "libinput-gestures"
+              "[workspace 8 silent] kitty --class spotify_player -e spotify_player"
             ])
           ];
         };

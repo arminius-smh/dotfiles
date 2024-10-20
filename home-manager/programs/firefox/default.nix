@@ -60,7 +60,7 @@
               bookmarks = [
                 {
                   name = "Homepage";
-                  url = config.secrets.homepage;
+                  url = config.secrets.ip.homepage;
                 }
                 {
                   name = "Syncthing";
@@ -94,7 +94,7 @@
               };
               startup = {
                 page = 3;
-                homepage = config.secrets.homepage;
+                homepage = config.secrets.ip.homepage;
               };
               newtabpage = {
                 activity-stream = {

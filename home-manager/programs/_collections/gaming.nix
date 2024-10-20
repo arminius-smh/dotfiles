@@ -49,7 +49,7 @@
     configFile = {
       "Ryujinx/system/prod.keys" = {
         source = builtins.fetchurl {
-          url = "${config.secrets.webdav-selfhost}/prod.keys";
+          url = "${config.secrets.ip.webdav-selfhost}/prod.keys";
           sha256 = "0frmyi2v8dr4q0k0mm2vslfdvf27ybq99pr5fj5dw1hwmjfby460";
         };
       };

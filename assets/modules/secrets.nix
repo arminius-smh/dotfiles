@@ -3,8 +3,16 @@ with lib;
 {
   options = {
     secrets = {
-      webdav-selfhost = mkOption {
-        type = types.str;
+      ip = {
+        webdav-selfhost = mkOption {
+          type = types.str;
+        };
+        excelsior = mkOption {
+          type = types.str;
+        };
+        homepage = mkOption {
+          type = types.str;
+        };
       };
       mail = {
         personal = mkOption {
@@ -45,9 +53,6 @@ with lib;
         priv = mkOption {
           type = types.attrs;
         };
-      };
-      homepage = mkOption {
-        type = types.str;
       };
     };
   };

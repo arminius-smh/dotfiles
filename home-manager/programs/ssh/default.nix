@@ -19,15 +19,15 @@
           identityFile = "${config.home.homeDirectory}/.ssh/git";
           identitiesOnly = true;
         };
-        "192.168.16.10" = {
-          hostname = "192.168.16.10";
+        "${config.secrets.ip.excelsior}" = {
+          hostname = "${config.secrets.ip.excelsior}";
           user = "git";
           port = 222;
           identityFile = "${config.home.homeDirectory}/.ssh/git";
           identitiesOnly = true;
         };
         "excelsior" = {
-          hostname = "192.168.16.10";
+          hostname = "${config.secrets.ip.excelsior}";
           identityFile = "${config.home.homeDirectory}/.ssh/id_ed25519";
           identitiesOnly = true;
         };

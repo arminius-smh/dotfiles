@@ -25,41 +25,45 @@
       LC_TIME = "de_DE.UTF-8";
     };
 
-    inputMethod = lib.mkIf (systemName == "discovery" || systemName == "phoenix") {
-      enable = true;
-      type = "fcitx5";
-      fcitx5 = {
-        # catppuccin = {
-        #   enable = true;
-        # };
-        waylandFrontend = true;
-        plasma6Support = true;
-        addons = with pkgs; [
-          fcitx5-mozc
-          fcitx5-lua
-        ];
-        settings = {
-          inputMethod = {
-            "Groups/0" = {
-              Name = "Default";
-              "Default Layout" = "keyboard-de-deadtilde";
-              DefaultIM = "mozc";
-            };
-            "Groups/0/Items/0" = {
-              Name = "keyboard-de-deadtilde";
-              Layout = "";
-            };
-            "Groups/0/Items/1" = {
-              Name = "mozc";
-              Layout = "";
-            };
-            "GroupOrder" = {
-              "0" = "Default";
+    inputMethod =
+      if (systemName == "discovery" || systemName == "phoenix") then
+        {
+          enable = true;
+          type = "fcitx5";
+          fcitx5 = {
+            # catppuccin = {
+            #   enable = true;
+            # };
+            waylandFrontend = true;
+            plasma6Support = true;
+            addons = with pkgs; [
+              fcitx5-mozc
+              fcitx5-lua
+            ];
+            settings = {
+              inputMethod = {
+                "Groups/0" = {
+                  Name = "Default";
+                  "Default Layout" = "keyboard-de-deadtilde";
+                  DefaultIM = "mozc";
+                };
+                "Groups/0/Items/0" = {
+                  Name = "keyboard-de-deadtilde";
+                  Layout = "";
+                };
+                "Groups/0/Items/1" = {
+                  Name = "mozc";
+                  Layout = "";
+                };
+                "GroupOrder" = {
+                  "0" = "Default";
+                };
+              };
             };
           };
-        };
-      };
-    };
+        }
+      else
+        { };
   };
 
   environment = {

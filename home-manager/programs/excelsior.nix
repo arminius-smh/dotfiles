@@ -29,6 +29,8 @@
       unzip
       p7zip
       unrar
+
+      ctop # docker viewer
     ];
   };
 }

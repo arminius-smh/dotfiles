@@ -1,25 +1,19 @@
 { systemName, ... }:
 let
-  config = {
+  options = {
     phoenix = ./phoenix.nix;
     excelsior = ./excelsior.nix;
     discovery = ./discovery.nix;
   };
-  programs = builtins.getAttr systemName config;
+  programs = builtins.getAttr systemName options;
 in
 {
   imports = [
     programs
   ];
 
-  # just link all files for everyone, can't think of any reason not to
   xdg = {
     configFile = {
-      nvim = {
-        source = ./nvim;
-        recursive = true;
-      };
-
       python = {
         source = ./files/python;
         recursive = true;

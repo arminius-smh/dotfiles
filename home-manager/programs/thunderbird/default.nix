@@ -1,8 +1,28 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   programs = {
     thunderbird = {
       enable = true;
+      package = pkgs.thunderbird.override {
+        # https://github.com/nix-community/home-manager/issues/5654
+        extraPolicies = {
+          ExtensionSettings = {
+            "{47f5c9df-1d03-5424-ae9e-0613b69a9d2f}" = {
+              install_url = "https://github.com/arminius-smh/catppuccin-thunderbird/raw/refs/heads/update-theme/themes/mocha/mocha-mauve.xpi";
+              installation_mode = "normal_installed";
+            };
+          };
+        };
+      };
+
+      settings = {
+        mailnews = {
+          start_page = {
+            enabled = false;
+          };
+        };
+      };
+
       profiles = {
         armin = {
           isDefault = true;

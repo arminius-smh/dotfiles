@@ -7,6 +7,7 @@
     ./syncthing # file sync
     ./network-manager-applet # network manager tray + gui
 
+    # ./ags # widgets
     ./hyprland # wayland window manager
     ./sway # wayland window manager
     ./waybar # status bar
@@ -28,6 +29,8 @@
     ./spicetify # spotify enhancement
     # ./spotify-player # spotify streaming
     ./obs-studio # video recording
+    ./vesktop # discord enhancement
+    ./nwg-bar # button bar
   ];
 
   home = {
@@ -41,7 +44,6 @@
       catppuccin-catwalk # catppuccin image generator
       # spotify # spotify streaming
       # megasync # mega cloud storage
-      vesktop # discord enhancement
       vscode # integrated development environment
       jellyfin-media-player # media player
       swaybg # set wallpaper
@@ -55,7 +57,7 @@
       nwg-displays # output management utility
       anki # flashcard
       krita # image manipulation
-      subtitleedit # subtitle editor
+      # subtitleedit # subtitle editor
       killall # kill processes by name
       pwvucontrol # pipewire volume control
       tradingview # stock tracker

@@ -37,7 +37,7 @@
           # };
 
           render = {
-            explicit_sync = 0;
+            explicit_sync = 1;
           };
 
           debug = {
@@ -73,9 +73,10 @@
           # https://github.com/hyprwm/Hyprland/issues/7931
           # gamescope cursor only shows with no_hardware_cursors=true
           # however screenshots can only hide the cursors if
-          # no_hardware_cursors = false && allow_dump_copy = true
+          # no_hardware_cursors = false && allow_dumb_copy = true
           cursor = {
-            no_hardware_cursors = true;
+            no_hardware_cursors = false;
+            allow_dumb_copy = true;
           };
 
           misc = {
@@ -94,7 +95,7 @@
               "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/wallpaper.sh ${systemName}"
             ])
             (lib.mkIf (systemName == "phoenix") [
-              "heroic"
+              # "heroic"
               "steam -silent -noverifyfiles"
               # "[workspace 7 silent] tradingview"
               "[workspace 9 silent] thunderbird"

@@ -14,6 +14,7 @@
           margin-left = 0;
           margin-right = 0;
           modules-left = [
+            "custom/launcher"
             "hyprland/workspaces"
             "sway/workspaces"
           ];
@@ -28,7 +29,7 @@
             "clock"
           ];
 
-          "backlight" = {
+          backlight = {
             format = "{percent}% {icon}";
             format-icons = [
               ""
@@ -36,7 +37,7 @@
             ];
           };
 
-          "battery" = {
+          battery = {
             states = {
               critical = 15;
               warning = 30;
@@ -52,7 +53,7 @@
             format-charging = "󰂄 {capacity}%";
           };
 
-          "clock" = {
+          clock = {
             format = " {:%H:%M}";
             tooltip = true;
             tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
@@ -118,7 +119,7 @@
             };
           };
 
-          "memory" = {
+          memory = {
             format = "󰍛 {}%";
             format-alt = "󰍛 {used}/{total} GiB";
             interval = 5;
@@ -139,6 +140,14 @@
           tray = {
             icon-size = 16;
             spacing = 5;
+          };
+
+          "custom/launcher" = {
+            format = " ";
+            # this could maybe be expanded with ags?
+            # maybe ags widgets can be toggled by some variable I set with on-click here?
+            on-click = "nwg-bar";
+            tooltip = false;
           };
 
           # NOTE: no pipewire sound module available

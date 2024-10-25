@@ -27,7 +27,6 @@
       };
       bindings = {
         "ctrl+t" = "script-binding toggle-subs-to-clipboard";
-
         "B" = "script_message bookmarker-menu";
         "b" = "script_message bookmarker-quick-save";
         "ctrl+b" = "script_message bookmarker-quick-load";

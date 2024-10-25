@@ -33,9 +33,9 @@
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
     };
-    nixgl = {
-      url = "github:nix-community/nixGL";
-    };
+    # nixgl = {
+    #   url = "github:nix-community/nixGL";
+    # };
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -55,6 +55,9 @@
     nix-minecraft = {
       url = "github:Infinidoge/nix-minecraft";
     };
+    # ags = {
+    #   url = "github:Aylur/ags";
+    # };
   };
 
   outputs =

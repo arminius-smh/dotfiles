@@ -86,17 +86,6 @@
             ExecStart = "${pkgs.bash}/bin/sh -c '${pkgs.coreutils}/bin/rm -rf /home/armin/.local/share/Trash/files/* /home/armin/.local/share/Trash/info/*'";
           };
         };
-        "auto-update" = {
-          Unit = {
-            Description = "Automatically Update System and Packages";
-          };
-          Service = {
-            Type = "oneshot";
-            # NOTE: there must be a better way of doing this...
-            # + can't see nixos-rebuild logs
-            ExecStart = "${pkgs.bash}/bin/bash -c 'cd /home/armin/dotfiles && ${pkgs.git}/bin/git add --all && ${pkgs.lix}/bin/nix flake update && /run/wrappers/bin/sudo /run/current-system/sw/bin/nixos-rebuild switch --flake /home/armin/dotfiles?submodules=1#phoenix' && ${pkgs.git}/bin/git add --all";
-          };
-        };
       };
 
       timers = {

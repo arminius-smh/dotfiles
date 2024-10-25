@@ -50,6 +50,7 @@
             user-agent-string-switcher
             videospeed
             violentmonkey
+            watchmarker-for-youtube
             yomitan
             zotero-connector
           ];

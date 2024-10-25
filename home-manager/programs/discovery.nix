@@ -27,6 +27,7 @@
     ./firefox # browser
     ./thunderbird # mail client
     ./spotify-player # spotify streaming
+    ./vesktop # discord enhancement
   ];
 
   home = {
@@ -43,7 +44,6 @@
       pwvucontrol # pipewire volume control
       swaybg # set wallpaper
       swayidle # idle manager
-      vesktop # discord enhancement
       wireguard-tools # vpn wireguard
 
       asahi-bless # switch boot partition on ARM Mac

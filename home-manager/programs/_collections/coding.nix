@@ -22,7 +22,8 @@
       gopls
       # rust
       rust-bin.stable.latest.default
-      # node
+      # js
+      deno
       nodePackages_latest.nodejs
       yarn
       typescript

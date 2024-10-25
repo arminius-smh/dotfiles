@@ -7,7 +7,7 @@ monitors=()
 if [[ "$systemName" == "discovery" ]]; then
     monitors=("eDP-1")
 elif [[ "$systemName" == "phoenix" ]]; then
-    monitors=("DVI-I-1" "DP-1" "HDMI-A-1")
+    monitors=("DP-3" "DP-1" "HDMI-A-1")
 fi
 
 counter=1

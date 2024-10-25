@@ -23,6 +23,7 @@
             "bordercolor rgba(33ccffee) rgba(00ff99ee),class:(pomodoro)"
             "workspace 7, class:(TradingView)"
             "norounding 1,class:(steam_app_*)"
+            "norounding 1,class:(.*\.exe)"
           ];
         };
       };

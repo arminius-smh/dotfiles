@@ -53,7 +53,6 @@
               Name = "mozc";
               Layout = "";
             };
-
             "GroupOrder" = {
               "0" = "Default";
             };
@@ -65,10 +64,6 @@
 
   environment = {
     etc = {
-      "classicui.conf" = {
-        target = "xdg/fcitx5/conf/classicui.conf";
-        text = "Theme=catppuccin-mocha-mauve";
-      };
       "clipboard.conf" = {
         target = "xdg/fcitx5/conf/clipboard.conf";
         text = ''

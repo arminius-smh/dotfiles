@@ -25,6 +25,17 @@
               transition: none;
           }
 
+          #custom-launcher {
+              margin-top: 6px;
+              margin-left: 12px;
+              margin-bottom: 6px;
+              padding-left: 12px;
+              padding-right: 12px;
+              background-color: @mauve;
+              color: @surface0;
+              border-radius: 10px;
+          }
+
           #workspaces button {
               transition: none;
               color: @rosewater;

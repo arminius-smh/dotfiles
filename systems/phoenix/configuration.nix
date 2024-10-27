@@ -79,7 +79,7 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_6_10;
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ "module_blacklist=i915" ];
     loader = {
       grub = {
@@ -158,6 +158,7 @@
           libnotify
           nettools
           sudo
+          lix
         ];
         wants = [
           "network-online.target" # for nix update

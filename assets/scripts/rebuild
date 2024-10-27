@@ -63,12 +63,12 @@ if [[ "$interactive" == true ]]; then
     if ! /run/current-system/sw/bin/nixos-rebuild boot --flake "/home/armin/dotfiles?submodules=1#$hostname" &> /tmp/auto-update.log ; then
         echo "[$DATE] nixos-rebuild failed"
         sudo -u armin DBUS_SESSION_BUS_ADDRESS="$BUS_ADDRESS" DISPLAY=:0 \
-            notify-send -e 'NixOS' '[auto-update] failure: check /tmp/auto-update.log for more info' --icon=/home/armin/dotfiles/assets/pics/NixOS.png -u critical
+            notify-send 'NixOS' '[auto-update] failure: check /tmp/auto-update.log for more info' --icon=/home/armin/dotfiles/assets/pics/NixOS.png -u critical
         exit 1
     fi
     echo "[$DATE] NixOS update completed successfully"
     sudo -u armin DBUS_SESSION_BUS_ADDRESS="$BUS_ADDRESS" DISPLAY=:0 \
-        notify-send -e 'NixOS' '[auto-update] success' --icon=/home/armin/dotfiles/assets/pics/NixOS.png
+        notify-send 'NixOS' '[auto-update] success' --icon=/home/armin/dotfiles/assets/pics/NixOS.png
     exit 0
 fi
 

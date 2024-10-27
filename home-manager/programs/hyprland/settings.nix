@@ -22,6 +22,7 @@
           };
 
           general = {
+            resize_on_border = true;
             gaps_in = 5;
             gaps_out = 20;
             "col.active_border" = "$teal $accent 135deg";

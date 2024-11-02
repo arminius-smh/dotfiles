@@ -38,7 +38,7 @@
           # };
 
           render = {
-            explicit_sync = 1;
+            explicit_sync = lib.mkIf (systemName == "phoenix") 1;
           };
 
           debug = {

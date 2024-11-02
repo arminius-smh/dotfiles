@@ -7,9 +7,10 @@
     ./displayManager
     ./hyprland
     ./neovim
-    ./pipewire
     ./nh
+    ./pipewire
     ./sway
+    ./udev
     ./xserver
     ./zsh
   ];

@@ -48,6 +48,7 @@
       chatterino2 # twitch chat
       ctop # beautiful docker ps
       cryptsetup # crypto
+      acpi # battery status
 
       # file compression
       zip

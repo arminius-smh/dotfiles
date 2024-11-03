@@ -6,6 +6,8 @@
   ];
   home = {
     packages = with pkgs; [
+      ludusavi # save file manager
+
       # videogame manager
       heroic
       lutris

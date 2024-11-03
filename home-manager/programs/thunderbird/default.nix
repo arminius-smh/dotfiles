@@ -8,7 +8,7 @@
         extraPolicies = {
           ExtensionSettings = {
             "{47f5c9df-1d03-5424-ae9e-0613b69a9d2f}" = {
-              install_url = "https://github.com/arminius-smh/catppuccin-thunderbird/raw/refs/heads/update-theme/themes/mocha/mocha-mauve.xpi";
+              install_url = "https://github.com/catppuccin/thunderbird/raw/refs/heads/update-theme/themes/mocha/mocha-mauve.xpi";
               installation_mode = "normal_installed";
             };
           };
@@ -21,11 +21,43 @@
             enabled = false;
           };
         };
+        toolkit = {
+          legacyUserProfileCustomizations = {
+            stylesheets = true;
+          };
+        };
       };
 
       profiles = {
         armin = {
           isDefault = true;
+          userContent = ''
+            /* settings page catppuccin-mocha */
+            @-moz-document url-prefix("about:") {
+                #pref-category-box,
+                #sidebar,
+                #accountTreeBox {
+                    background-color: #1e1e2e !important;
+                }
+
+                #preferencesContainer,
+                .sticky-container,
+                #content,
+                .main-heading,
+                .main-search {
+                    background-color: #181825 !important;
+                }
+
+                #searchInput,
+                search-textbox {
+                    background-color: #1e1e2e !important;
+                }
+
+                .card {
+                    background-color: #1e1e2e !important;
+                }
+            }
+          '';
         };
       };
     };

@@ -23,10 +23,11 @@
       # rust
       rust-bin.stable.latest.default
       # js
-      deno
       nodePackages_latest.nodejs
+      deno
       yarn
       typescript
+      pnpm
 
       stack # haskell build tool
 

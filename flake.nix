@@ -45,8 +45,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin = {
-      url = "github:catppuccin/nix";
-      # url = "git+file:///home/armin/Projects/Coding/nix/nix/";
+      # url = "github:catppuccin/nix";
+      url = "github:arminius-smh/catppuccin-nix/fcitx5";
+      # url = "git+file:///home/armin/Projects/Coding/nix/catppuccin-nix/";
     };
     nixos-apple-silicon = {
       url = "github:tpwrules/nixos-apple-silicon";

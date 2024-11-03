@@ -14,9 +14,6 @@
           {
             # NOTE: add self patched packages here
             # e.g. fcxitx5-mozc = mypkgs.fcitx5-mozc
-
-            # WAIT: https://github.com/NixOS/nixpkgs/pull/251706
-            fcitx5-mozc = mypkgs.fcitx5-mozc;
           }
         )
       )

@@ -16,6 +16,7 @@
           "-H 1080"
           "-f"
           "-b"
+          "--force-grab-cursor"
         ];
       };
       remotePlay = {

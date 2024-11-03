@@ -31,9 +31,9 @@
           enable = true;
           type = "fcitx5";
           fcitx5 = {
-            # catppuccin = {
-            #   enable = true;
-            # };
+            catppuccin = {
+              enable = true;
+            };
             waylandFrontend = true;
             plasma6Support = true;
             addons = with pkgs; [

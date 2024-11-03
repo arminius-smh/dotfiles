@@ -47,7 +47,7 @@ echo "[$DATE] Starting NixOS update"
 
 if [[ "$interactive" == true ]]; then
     USER="armin"
-    BUS_ADDRESS="unix:path=/run/user/1000/bus" # ???
+    BUS_ADDRESS="unix:path=/run/user/1000/bus"
 
     cd "/home/armin/dotfiles" || { echo "[$DATE] Failed to cd into dotfiles directory"; exit 1; }
     if ! sudo -u armin git add --all; then

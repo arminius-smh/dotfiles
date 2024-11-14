@@ -49,6 +49,7 @@
       ctop # beautiful docker ps
       cryptsetup # crypto
       acpi # battery status
+      nix-update # update versions/source hashes of nix packages
 
       # file compression
       zip

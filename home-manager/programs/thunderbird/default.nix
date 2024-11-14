@@ -31,6 +31,11 @@
       profiles = {
         armin = {
           isDefault = true;
+          userChrome = ''
+            * {
+              --lwt-text-color: #cdd6f4 !important; /* catppuccin-mocha text color */
+            }
+          '';
           userContent = ''
             /* settings page catppuccin-mocha */
             @-moz-document url-prefix("about:") {

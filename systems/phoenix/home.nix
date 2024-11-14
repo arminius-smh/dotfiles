@@ -15,10 +15,10 @@
   catppuccin = {
     flavor = "mocha";
     accent = "mauve";
-    pointerCursor = {
-      enable = true;
-      flavor = "latte";
-    };
+    # pointerCursor = {
+    #   enable = true;
+    #   flavor = "latte";
+    # };
   };
 
   home = {
@@ -27,7 +27,9 @@
     stateVersion = "23.05"; # Don't touch this! - Unless..
 
     pointerCursor = {
-      size = 24;
+      package = pkgs.vanilla-dmz;
+      name = "Vanilla-DMZ";
+      size = 16; # https://github.com/catppuccin/cursors/issues/31
       gtk = {
         enable = true;
       };

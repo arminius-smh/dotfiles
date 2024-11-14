@@ -45,17 +45,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin = {
-      # url = "github:catppuccin/nix";
-      url = "github:arminius-smh/catppuccin-nix/fcitx5";
+      url = "github:catppuccin/nix";
+      # url = "github:arminius-smh/catppuccin-nix/fcitx5";
       # url = "git+file:///home/armin/Projects/Coding/nix/catppuccin-nix/";
     };
     nixos-apple-silicon = {
       url = "github:tpwrules/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-minecraft = {
-      url = "github:Infinidoge/nix-minecraft";
-    };
+    # nix-minecraft = {
+    #   url = "github:Infinidoge/nix-minecraft";
+    # };
     # ags = {
     #   url = "github:Aylur/ags";
     # };

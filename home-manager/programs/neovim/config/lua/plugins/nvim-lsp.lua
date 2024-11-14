@@ -4,6 +4,7 @@ local M = {
 }
 
 M.config = function()
+    local nvim_lsp = require('lspconfig')
     local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
     capabilities.textDocument.completion.completionItem.snippetSupport = true
     capabilities.textDocument.foldingRange = {
@@ -13,10 +14,10 @@ M.config = function()
 
 
     local no_config = { 'typst_lsp', 'svelte', 'swift_mesonls', 'vala_ls', 'gopls', 'marksman', 'jsonls', 'html', 'cssls',
-        'ccls', 'yamlls', 'bashls', 'pyright', 'ts_ls', 'nil_ls', 'emmet_ls', 'lemminx' }
+        'ccls', 'yamlls', 'bashls', 'pyright', 'nil_ls', 'emmet_ls', 'lemminx' }
 
     local function lsp_config(server)
-        require('lspconfig')[server].setup {
+        nvim_lsp[server].setup {
             capabilities = capabilities,
         }
     end
@@ -25,7 +26,18 @@ M.config = function()
         lsp_config(server)
     end
 
-    require('lspconfig').lua_ls.setup {
+    -- https://docs.deno.com/runtime/getting_started/setup_your_environment/#neovim-0.6%2B-using-the-built-in-language-server
+    nvim_lsp.denols.setup {
+        capabilities = capabilities,
+        root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+    }
+    nvim_lsp.ts_ls.setup {
+        capabilities = capabilities,
+        root_dir = nvim_lsp.util.root_pattern("package.json"),
+        single_file_support = false
+    }
+
+    nvim_lsp.lua_ls.setup {
         capabilities = capabilities,
         on_init = function(client)
             local path = client.workspace_folders[1].name

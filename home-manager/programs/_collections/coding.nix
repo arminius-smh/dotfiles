@@ -12,6 +12,7 @@
       just # command runner
       tree-sitter # parsing system for programming tools
       gh # github cli
+      hub # git wrapper for github
 
       # java
       jdk

@@ -79,11 +79,11 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ "module_blacklist=i915" ];
     loader = {
       grub = {
         enable = true;
+        useOSProber = true;
         catppuccin = {
           enable = true;
         };

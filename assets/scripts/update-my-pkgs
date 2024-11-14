@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# maintainer of:
+# hyprlauncher
+
+NIXPKGS_PATH="/home/armin/Projects/Coding/nix/nixpkgs"
+PKG="$1"
+BY_NAME="${PKG:0:2}"
+PKG_PATH="pkgs/by-name/${BY_NAME}/${PKG}"
+
+cd "${NIXPKGS_PATH}" || exit
+git checkout master
+
+git fetch upstream
+git merge upstream/master
+git push
+
+git checkout -b "${PKG}-update"
+VER_OLD=$(nix-instantiate --eval -E "with import <nixpkgs> {}; callPackage ./$PKG_PATH/package.nix {}" -A version | tr -d '"')
+nix-update "$PKG"
+VER_NEW=$(nix-instantiate --eval -E "with import <nixpkgs> {}; callPackage ./$PKG_PATH/package.nix {}" -A version | tr -d '"')
+
+nix-build -E "with import <nixpkgs> {}; callPackage ./$PKG_PATH/package.nix {}"
+git add .
+git commit -m "$PKG: $VER_OLD -> $VER_NEW"
+git push
+
+xdg-open "https://github.com/arminius-smh/nixpkgs"

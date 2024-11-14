@@ -3,7 +3,7 @@
   imports = [
     # ./activemq  # java message broker
     # ./kubo # Interplanetary File System
-    ./minecraft-server
+    # ./minecraft-server
     ./tumbler # filemanager thumbnail generator
     ./avahi
     ./blueman

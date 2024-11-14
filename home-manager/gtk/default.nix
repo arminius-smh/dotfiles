@@ -10,8 +10,8 @@
       # Tokyonight-Storm-B   | pkgs.tokyonight-gtk-theme;
       # Catppuccin-GTK-Purple-Dark | pkgs.magnetic-catppuccin-gtk.override { accent = [ "purple" ]; };
       # Kanagawa-B | pkgs.kanagawa-gtk-theme;
-      name = "Catppuccin-GTK-Purple-Dark";
-      package = pkgs.magnetic-catppuccin-gtk.override { accent = [ "purple" ]; };
+      name = "Kanagawa-B";
+      package = pkgs.kanagawa-gtk-theme;
     };
     iconTheme = {
       name = "kora";

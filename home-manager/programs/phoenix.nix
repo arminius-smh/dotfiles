@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./home-manager # manage user environment
@@ -21,6 +21,7 @@
     ./_collections/coding.nix # packages for programming
     ./_collections/utils.nix # common system utils
     ./_collections/gaming.nix # gaming related
+    ./_collections/maintainer.nix
 
     # ./fastfetch # system info
     ./firefox # browser

@@ -29,7 +29,7 @@
     pointerCursor = {
       package = pkgs.vanilla-dmz;
       name = "Vanilla-DMZ";
-      size = 16; # https://github.com/catppuccin/cursors/issues/31
+      size = 24;
       gtk = {
         enable = true;
       };

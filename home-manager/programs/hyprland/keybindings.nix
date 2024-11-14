@@ -50,7 +50,7 @@
             "$mainMod, M, exec, pkill -USR1 waybar"
             "$mainMod SHIFT, M, exit"
             "$mainMod, V, togglefloating"
-            "$mainMod, D, exec, rofi -show run"
+            "$mainMod, D, exec, hyprlauncher"
             "$mainMod SHIFT, J, togglesplit,"
             ''$mainMod SHIFT, D, exec, grimblast --freeze copysave area "$HOME/Downloads/$(date +'%Y-%m-%d_%H-%M-%S_screenshot.png')"''
             "$mainMod SHIFT, C, exec, ${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/monitor-switch.sh"

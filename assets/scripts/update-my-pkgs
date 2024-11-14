@@ -24,4 +24,6 @@ git add .
 git commit -m "$PKG: $VER_OLD -> $VER_NEW"
 git push
 
+cp "./$PKG_PATH/package.nix" "$DOTFILES_PATH/assets/pkgs/maintainer/$PKG/default.nix"
+
 xdg-open "https://github.com/arminius-smh/nixpkgs"

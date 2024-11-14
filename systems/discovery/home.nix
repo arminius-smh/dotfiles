@@ -26,7 +26,7 @@
     homeDirectory = "/home/armin";
 
     pointerCursor = {
-      size = 24;
+      size = 16;
       gtk = {
         enable = true;
       };

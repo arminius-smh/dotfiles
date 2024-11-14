@@ -1,5 +1,6 @@
 {
-    "autoUpdate": false,
+    "notifyAboutUpdates": false,
+    "autoUpdate": true,
     "autoUpdateNotification": false,
     "useQuickCss": true,
     "themeLinks": [
@@ -29,7 +30,7 @@
             "enabled": false
         },
         "MessageEventsAPI": {
-            "enabled": false
+            "enabled": true
         },
         "MessagePopoverAPI": {
             "enabled": false
@@ -38,7 +39,7 @@
             "enabled": false
         },
         "ServerListAPI": {
-            "enabled": false
+            "enabled": true
         },
         "UserSettingsAPI": {
             "enabled": true
@@ -65,7 +66,7 @@
             "enabled": false
         },
         "BetterFolders": {
-            "enabled": true,
+            "enabled": false,
             "sidebar": true,
             "showFolderIcon": 1,
             "keepIcons": false,
@@ -109,7 +110,7 @@
             "enabled": false
         },
         "ClearURLs": {
-            "enabled": false
+            "enabled": true
         },
         "ClientTheme": {
             "enabled": false
@@ -190,7 +191,7 @@
             "enabled": false
         },
         "FriendsSince": {
-            "enabled": false
+            "enabled": true
         },
         "GameActivityToggle": {
             "enabled": false
@@ -214,7 +215,7 @@
             "enabled": false
         },
         "ImageZoom": {
-            "enabled": false
+            "enabled": true
         },
         "ImplicitRelationships": {
             "enabled": false
@@ -235,10 +236,13 @@
             "enabled": false
         },
         "MemberCount": {
-            "enabled": false
+            "enabled": true,
+            "memberList": true,
+            "toolTip": true
         },
         "MentionAvatars": {
-            "enabled": false
+            "enabled": true,
+            "showAtSymbol": true
         },
         "MessageClickActions": {
             "enabled": false
@@ -410,7 +414,8 @@
             "enabled": true
         },
         "ServerListIndicators": {
-            "enabled": false
+            "enabled": true,
+            "mode": 2
         },
         "ShikiCodeblocks": {
             "enabled": true,
@@ -509,10 +514,10 @@
             "enabled": false
         },
         "ValidReply": {
-            "enabled": false
+            "enabled": true
         },
         "ValidUser": {
-            "enabled": false
+            "enabled": true
         },
         "VoiceChatDoubleClick": {
             "enabled": false
@@ -524,7 +529,7 @@
             "enabled": false
         },
         "ViewIcons": {
-            "enabled": false
+            "enabled": true
         },
         "ViewRaw": {
             "enabled": false
@@ -542,7 +547,7 @@
             "enabled": true
         },
         "WhoReacted": {
-            "enabled": false
+            "enabled": true
         },
         "XSOverlay": {
             "enabled": false
@@ -578,7 +583,7 @@
             "enabled": false
         },
         "VolumeBooster": {
-            "enabled": false
+            "enabled": true
         },
         "FullSearchContext": {
             "enabled": false
@@ -606,6 +611,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1729928194289
+        "settingsSyncVersion": 1731586886804
     }
 }

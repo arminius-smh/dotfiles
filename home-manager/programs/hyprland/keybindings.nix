@@ -62,9 +62,6 @@
 
             # Fullscreen
             "$mainMod, F,fullscreen "
-
-            # Force software rendering for alacritty (useful for asahi debugging)
-            "$mainMod SHIFT, T, exec, LIBGL_ALWAYS_SOFTWARE=1 alacritty"
           ];
 
           bindm = [
@@ -87,6 +84,9 @@
 
             ", XF86MonBrightnessUp, exec, lightctl -M $(hyprctl activeworkspace | awk '/monitorID/{print $2}' | head -n 1) up 5"
             ", XF86MonBrightnessDown, exec, lightctl -M $(hyprctl activeworkspace | awk '/monitorID/{print $2}' | head -n 1) down 5"
+
+            "$mainMod, XF86MonBrightnessUp, exec, lightctl -D kbd_backlight -M $(hyprctl activeworkspace | awk '/monitorID/{print $2}' | head -n 1) up 5"
+            "$mainMod, XF86MonBrightnessDown, exec, lightctl -D kbd_backlight -M $(hyprctl activeworkspace | awk '/monitorID/{print $2}' | head -n 1) down 5"
           ];
         };
       };

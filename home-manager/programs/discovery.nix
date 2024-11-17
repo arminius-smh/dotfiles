@@ -20,6 +20,7 @@
     ./cava # audio visualizer
     ./_collections/coding.nix # packages for programming
     ./_collections/utils.nix # common system utils
+    ./_collections/maintainer.nix
 
     # ./fastfetch # system info
     ./swaync # notification center
@@ -28,6 +29,7 @@
     ./thunderbird # mail client
     ./spotify-player # spotify streaming
     ./vesktop # discord enhancement
+
   ];
 
   home = {

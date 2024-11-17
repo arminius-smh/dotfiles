@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# NOTE: SOURCE - https://github.com/ericmurphyxyz/dotfiles/tree/master/.config/systemd/user
+# NOTE: SOURCE - https://github.com/ericmurphyxyz/dotfiles/blob/d10d652a7f718f504a33e51d3f617fe4dfb0539c/.local/bin/battery-alert#L9
 
 # Send a notification if the laptop battery is either low or is fully charged.
 # Set on a systemd timer

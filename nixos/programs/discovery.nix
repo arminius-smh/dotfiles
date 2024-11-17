@@ -9,6 +9,8 @@
     ./neovim
     ./nh
     ./pipewire
+    ./thunar
+    ./tumbler # filemanager thumbnail generator
     ./sway
     ./udev
     ./xserver

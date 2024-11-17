@@ -1,9 +1,6 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  home = {
-    packages = with pkgs; [
-      hyprlauncher-my
-    ];
-  };
-
+  imports = [
+    ../hyprlauncher
+  ];
 }

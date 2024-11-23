@@ -71,10 +71,6 @@
             ];
           };
 
-          # https://github.com/hyprwm/Hyprland/issues/7931
-          # gamescope cursor only shows with no_hardware_cursors=true
-          # however screenshots can only hide the cursors if
-          # no_hardware_cursors = false && allow_dumb_copy = true
           cursor = {
             no_hardware_cursors = false;
             allow_dumb_copy = true;

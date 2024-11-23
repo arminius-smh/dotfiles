@@ -1,7 +1,14 @@
-{ pkgs, config, ... }:
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}:
 {
   nix = {
     package = pkgs.lix;
+
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
     settings = {
       experimental-features = [

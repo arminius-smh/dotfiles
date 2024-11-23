@@ -56,7 +56,8 @@
             "$mainMod SHIFT, C, exec, ${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/monitor-switch.sh"
             "$mainMod SHIFT, W, exec, pkill -SIGUSR2 waybar"
             "$mainMod SHIFT, N, exec, swaync-client -t -sw"
-            "$mainMod, n, exec, nwg-bar"
+            "$mainMod, N, exec, nwg-bar"
+            "$mainMod SHIFT, E, exec, bemoji -t"
 
             "SUPER,F10,pass,^(com\.obsproject\.Studio)$" # pass key to obs
 

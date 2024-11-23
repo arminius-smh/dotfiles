@@ -159,6 +159,8 @@
           nettools
           sudo
           lix
+          curl
+          gnugrep
         ];
         wants = [
           "network-online.target" # for nix update

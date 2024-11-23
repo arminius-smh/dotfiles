@@ -12,9 +12,11 @@
     ../../assets/modules/secrets.nix
     ../../secrets/secrets.nix
   ];
+
   catppuccin = {
     flavor = "mocha";
     accent = "mauve";
+    # https://github.com/catppuccin/cursors/issues/53
     # pointerCursor = {
     #   enable = true;
     #   flavor = "latte";
@@ -29,7 +31,7 @@
     pointerCursor = {
       package = pkgs.vanilla-dmz;
       name = "Vanilla-DMZ";
-      size = 24;
+      size = 20;
       gtk = {
         enable = true;
       };

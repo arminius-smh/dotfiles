@@ -30,7 +30,7 @@
       gum # shell tool
       oxipng # lossless png compression optimizer
       nix-output-monitor # output nix info while building
-      trashy # trash manager
+      gtrash # trash manager
       xdg-utils # open files with default application
       xorg.xeyes # detect x-11 window
       xclip # only needed for wine paste
@@ -50,6 +50,8 @@
       cryptsetup # crypto
       acpi # battery status
       nix-update # update versions/source hashes of nix packages
+      bemoji # launcher emoji picker
+      wtype # wayland xdotool
 
       # file compression
       zip

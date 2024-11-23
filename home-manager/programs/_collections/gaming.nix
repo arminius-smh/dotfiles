@@ -25,7 +25,7 @@
 
       # emulation
       ryujinx # switch
-      # cemu # wiiu
+      cemu # wiiu
       dolphin-emu # wii
       wiimms-iso-tools # wbfs tools
       (retroarch.override {

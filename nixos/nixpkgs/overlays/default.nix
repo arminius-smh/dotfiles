@@ -4,7 +4,6 @@
     ./inputs.nix
     ./mypkgs.nix
     ./timer.nix
-    ./trashy.nix
     ./jellyfin-media-player.nix
   ];
 

@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   ...
 }:
 let
@@ -37,6 +36,7 @@ in
         "image/jpeg" = imageViewer;
         "image/png" = imageViewer;
         "image/webp" = imageViewer;
+        "image/gif" = browser;
         "text/plain" = editor;
         "video/x-matroska" = videoPlayer;
         "text/html" = browser;

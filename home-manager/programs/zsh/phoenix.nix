@@ -156,7 +156,7 @@
         nix-shell = "HISTFILE='${config.xdg.dataHome}/bash/history' nix-shell";
         cat = "bat --paging=never";
         fzf = ''fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'';
-        rm = "trashy put";
+        rm = "gtrash put --rm-mode";
         man = "batman";
       };
       oh-my-zsh = {

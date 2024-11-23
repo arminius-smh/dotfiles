@@ -60,6 +60,10 @@ if [[ "$interactive" == true ]]; then
         exit 1
     fi
 
+    # check status of merged prs
+    sudo -u armin DBUS_SESSION_BUS_ADDRESS="$BUS_ADDRESS" DISPLAY=:0 \
+            /home/armin/dotfiles/assets/scripts/nix-pr-notify
+
     if ! /run/current-system/sw/bin/nixos-rebuild boot --flake "/home/armin/dotfiles?submodules=1#$hostname" &> /tmp/auto-update.log ; then
         echo "[$DATE] nixos-rebuild failed"
         sudo -u armin DBUS_SESSION_BUS_ADDRESS="$BUS_ADDRESS" DISPLAY=:0 \
@@ -68,7 +72,7 @@ if [[ "$interactive" == true ]]; then
     fi
     echo "[$DATE] NixOS update completed successfully"
     sudo -u armin DBUS_SESSION_BUS_ADDRESS="$BUS_ADDRESS" DISPLAY=:0 \
-        notify-send 'NixOS' '[auto-update] success' --icon=/home/armin/dotfiles/assets/pics/NixOS.png
+        notify-send 'NixOS' '[auto-update] success' --icon=/home/armin/dotfiles/assets/pics/NixOS.png -e
     exit 0
 fi
 

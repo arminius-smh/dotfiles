@@ -17,7 +17,7 @@
     ./waybar # status bar
 
     ./rofi # application launcher
-    ./cava # audio visualizer
+    # ./cava # audio visualizer
     ./_collections/coding.nix # packages for programming
     ./_collections/utils.nix # common system utils
     ./_collections/maintainer.nix

@@ -14,7 +14,7 @@ M.config = function()
 
 
     local no_config = { 'typst_lsp', 'svelte', 'swift_mesonls', 'vala_ls', 'gopls', 'marksman', 'jsonls', 'html', 'cssls',
-        'ccls', 'yamlls', 'bashls', 'pyright', 'nil_ls', 'emmet_ls', 'lemminx' }
+        'ccls', 'yamlls', 'bashls', 'pyright', 'emmet_ls', 'lemminx' }
 
     local function lsp_config(server)
         nvim_lsp[server].setup {
@@ -79,6 +79,27 @@ M.config = function()
             ['rust-analyzer'] = {
                 diagnostics = {
                     enable = true,
+                }
+            }
+        }
+    }
+
+    require('lspconfig').nixd.setup {
+        capabilities = capabilities,
+        settings = {
+            nixd = {
+                nixpkgs = {
+                    expr = 'import (builtins.getFlake ("git+file:///home/armin/dotfiles?submodules=1")).inputs.nixpkgs { }',
+                },
+                options = {
+                    nixos = {
+                        expr = '(builtins.getFlake ("git+file:///home/armin/dotfiles?submodules=1")).nixosConfigurations.phoenix.options',
+                    },
+
+                    -- is this the correct way to include this?
+                    home_manager = {
+                        expr = '(builtins.getFlake ("git+file:///home/armin/dotfiles?submodules=1")).nixosConfigurations.phoenix.options.home-manager.users.type.getSubOptions []',
+                    },
                 }
             }
         }

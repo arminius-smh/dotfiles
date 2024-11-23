@@ -39,7 +39,7 @@
       python3Packages.pylint
 
       # lsp-config
-      nil # language server nix
+      nixd # language server nix
       bash-language-server # language server bash
       svelte-language-server # language server svelte
       lua-language-server # langugae server lua

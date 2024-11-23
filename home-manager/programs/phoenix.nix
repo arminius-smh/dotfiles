@@ -15,7 +15,7 @@
     # ./dunst # notification manager
     # ./swaylock # screen locker
     ./rofi # application launcher
-    ./cava # audio visualizer
+    # ./cava # audio visualizer
     ./avizo # on screen volume display
     # ./swayosd # on screen volume display
     ./_collections/coding.nix # packages for programming

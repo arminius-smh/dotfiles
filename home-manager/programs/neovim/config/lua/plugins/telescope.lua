@@ -5,17 +5,17 @@ local M = {
 }
 
 M.config = function()
-    require('telescope').setup {
+    require("telescope").setup({
         defaults = {
             mappings = {
                 i = {
-                    ["<C-h>"] = "which_key"
-                }
-            }
+                    ["<C-h>"] = "which_key",
+                },
+            },
         },
-    }
+    })
 
-    require('telescope').load_extension('notify')
+    require("telescope").load_extension("notify")
 end
 
 return M

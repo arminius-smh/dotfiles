@@ -28,16 +28,16 @@
       cemu # wiiu
       dolphin-emu # wii
       wiimms-iso-tools # wbfs tools
-      (retroarch.override {
-        cores = with libretro; [
+      (retroarch.withCores (
+        cores: with cores; [
           mesen # nes
           mesen-s # snes
           mgba # gb, gbc, gba
           mupen64plus # n64
           dolphin # gcn, wii
           melonds # nds
-        ];
-      })
+        ]
+      ))
       retroarch-assets
       retroarch-joypad-autoconfig
 

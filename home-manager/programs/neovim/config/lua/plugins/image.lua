@@ -12,8 +12,8 @@ M.config = function()
             neorg = {
                 enabled = true,
                 clear_in_insert_mode = true, -- NOTE: Otherwise extremly flashy
-            }
-        }
+            },
+        },
     })
 end
 

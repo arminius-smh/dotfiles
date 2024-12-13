@@ -23,12 +23,12 @@ vim.opt.scrolloff = 8 -- start scrolling 8 lines before the edge
 
 vim.opt.list = true -- show symbols for tabs, trailing spaces and non-breakable space
 -- vim.opt.listchars:append "space:⋅" -- dots instead of spaces
-vim.opt.listchars:append "eol:↴" -- arrow at eol
-vim.opt.listchars:append "tab:| " -- vertical line at tabs
-vim.cmd [[autocmd BufEnter * syntax sync minlines=4000]] -- buffer larger files for syntax highlighting
+vim.opt.listchars:append("eol:↴") -- arrow at eol
+vim.opt.listchars:append("tab:| ") -- vertical line at tabs
+vim.cmd([[autocmd BufEnter * syntax sync minlines=4000]]) -- buffer larger files for syntax highlighting
 vim.loader.enable() -- byte-compiles and caches lua files
 ------------
-require('keybindings') -- custom keybindings
+require("keybindings") -- custom keybindings
 -- bootstrap lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -46,20 +46,20 @@ require("lazy").setup("plugins", {
     lockfile = os.getenv("DOTFILES_PATH") .. "/home-manager/programs/neovim/config" .. "/lazy-lock.json",
     ui = {
         border = "rounded",
-    }
+    },
 })
 -- POST-PLUGIN CONFIG
 -- use nvim-lsp for code folding
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-vim.o.foldcolumn = '1' -- '0' is not bad
-vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldcolumn = "1" -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- colorscheme
 -- options: sonokai, tokyonight, kangawa, catppuccin
 -- NOTE: sonokai strikethrough is broken
-vim.api.nvim_cmd({ cmd = 'colorscheme', args = { 'tokyonight' } }, {})
+vim.api.nvim_cmd({ cmd = "colorscheme", args = { "tokyonight" } }, {})
 -- transparent
 vim.g.transparent_enabled = true
 -- copilot
@@ -68,7 +68,7 @@ vim.g.copilot_filetypes = {
     norg = false,
 }
 -- automatically update nix fetchgit
-vim.cmd [[
+vim.cmd([[
     function! Preserve(command)
       let w = winsaveview()
       execute a:command
@@ -76,17 +76,17 @@ vim.cmd [[
     endfunction
 
     autocmd FileType nix map <nowait> <leader>ü :call Preserve("%!update-nix-fetchgit --location=" . line(".") . ":" . col("."))<CR>
-]]
+]])
 
 -- open helpfiles in new buffer
-vim.api.nvim_create_autocmd('BufWinEnter', {
-    pattern = '*',
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    pattern = "*",
     callback = function(event)
-        if vim.bo[event.buf].filetype == 'help' then
+        if vim.bo[event.buf].filetype == "help" then
             vim.cmd.only()
             vim.bo[event.buf].buflisted = true
         end
     end,
 })
 
-require('after') -- post-nvim configuration
+require("after") -- post-nvim configuration

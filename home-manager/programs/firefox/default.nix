@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+  addons = inputs.firefox-addons.packages.${pkgs.system};
+in
 {
   programs = {
     firefox = {
@@ -31,7 +34,84 @@
               id = 1;
             };
           };
-          extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+          search = {
+            default = "Startpage";
+            force = true;
+            engines = {
+              "Startpage" = {
+                definedAliases = [ "@sp" ];
+                urls = [
+                  {
+                    template = "https://www.startpage.com/do/dsearch";
+                    params = [
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+              };
+              "Nix Packages" = {
+                urls = [
+                  {
+                    template = "https://search.nixos.org/packages";
+                    params = [
+                      {
+                        name = "channel";
+                        value = "unstable";
+                      }
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                definedAliases = [ "@np" ];
+              };
+              "NixOS options" = {
+                urls = [
+                  {
+                    template = "https://search.nixos.org/options";
+                    params = [
+                      {
+                        name = "channel";
+                        value = "unstable";
+                      }
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                definedAliases = [ "@nm" ];
+              };
+              "home-manager options" = {
+                urls = [
+                  {
+                    template = "https://home-manager-options.extranix.com/?release=master";
+                    params = [
+                      {
+                        name = "release";
+                        value = "master";
+                      }
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                definedAliases = [ "@hm" ];
+              };
+            };
+          };
+          extensions = with addons; [
             # bypass-paywalls-clean
             bitwarden
             catppuccin-gh-file-explorer
@@ -43,7 +123,6 @@
             simple-translate
             simplelogin
             sponsorblock
-            startpage-private-search
             stylus
             torrent-control
             ublock-origin
@@ -53,6 +132,8 @@
             watchmarker-for-youtube
             yomitan
             zotero-connector
+
+            addons."2fas-two-factor-authentication"
           ];
           bookmarks = [
             {
@@ -89,9 +170,17 @@
             }
           ];
           settings = {
+            privacy = {
+              history = {
+                custom = true;
+              };
+            };
             browser = {
               aboutConfig = {
                 showWarning = false;
+              };
+              formfill = {
+                enable = false;
               };
               startup = {
                 page = 3;
@@ -125,7 +214,7 @@
         twitch = {
           isDefault = false;
           id = 1;
-          extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+          extensions = with addons; [
             seventv
             stylus
           ];

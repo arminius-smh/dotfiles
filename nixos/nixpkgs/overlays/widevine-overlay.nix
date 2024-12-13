@@ -72,8 +72,12 @@ in
       '';
   });
   chromium = prev.chromium.overrideAttrs (old: {
-    buildCommand = builtins.replaceStrings [ "${prev.chromium.browser}" ] [
-      "${chromiumWV}"
-    ] old.buildCommand;
+    buildCommand =
+      builtins.replaceStrings
+        [ "${prev.chromium.browser}" ]
+        [
+          "${chromiumWV}"
+        ]
+        old.buildCommand;
   });
 }

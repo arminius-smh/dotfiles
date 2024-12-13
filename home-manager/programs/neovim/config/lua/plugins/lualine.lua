@@ -5,11 +5,11 @@ local M = {
 }
 
 M.config = function()
-    require('lualine').setup {
+    require("lualine").setup({
         options = {
-            theme = 'sonokai',
-        }
-    }
+            theme = "sonokai",
+        },
+    })
 end
 
 return M

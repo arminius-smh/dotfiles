@@ -3,16 +3,6 @@ local M = {
     "stevearc/conform.nvim",
 }
 
-local function prettier_config()
-    local file_extension = vim.fn.expand("%:e")
-    local tab2 = { "yaml", "yml", "html" }
-    if vim.tbl_contains(tab2, file_extension) then
-        return vim.fn.expand("$HOME/.config/prettier/prettierrc-tab-2.json")
-    else
-        return vim.fn.expand("$HOME/.config/prettier/prettierrc-tab-4.json")
-    end
-end
-
 local function clang_format_config()
     local no_file = { "-style=file:" .. vim.fn.expand("$HOME/.config/clang-format/clang-format") }
     local file_found = {}
@@ -44,26 +34,28 @@ M.config = function()
             json = { "prettierd" },
             yaml = { "prettierd" },
             typst = { "typstyle" },
+            lua = { "stylua" },
+            toml = { "taplo" },
         },
 
         formatters = {
             clang_format = {
-                prepend_args = clang_format_config()
+                prepend_args = clang_format_config(),
             },
             djlint = {
-                prepend_args = {"--profile=golang"}
+                prepend_args = { "--profile=golang" },
             },
             prettierd = {
                 env = {
-                    PRETTIERD_DEFAULT_CONFIG = prettier_config()
+                    PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("$HOME/.config/prettier/prettierrc.json"),
                 },
             },
             uncrustify = {
                 env = {
-                    UNCRUSTIFY_CONFIG = vim.fn.expand("$HOME/.config/uncrustify/uncrustify.cfg")
+                    UNCRUSTIFY_CONFIG = vim.fn.expand("$HOME/.config/uncrustify/uncrustify.cfg"),
                 },
             },
-        }
+        },
     })
 end
 

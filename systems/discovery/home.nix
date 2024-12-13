@@ -15,10 +15,6 @@
   catppuccin = {
     flavor = "mocha";
     accent = "mauve";
-    # pointerCursor = {
-    #   enable = true;
-    #   flavor = "latte";
-    # };
   };
 
   home = {
@@ -26,11 +22,15 @@
     homeDirectory = "/home/armin";
 
     pointerCursor = {
-      package = pkgs.vanilla-dmz;
-      name = "Vanilla-DMZ";
+      name = "catppuccin-latte-mauve-cursors";
+      package = pkgs.catppuccin-cursors.latteMauve;
       size = 24;
       gtk = {
         enable = true;
+      };
+      hyprcursor = {
+        enable = true;
+        size = 32;
       };
     };
 

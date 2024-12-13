@@ -1,7 +1,7 @@
 -- install luarocks with lazy
 local function capture_command_output(command)
     local file = io.popen(command)
-    local output = file:read('*all')
+    local output = file:read("*all")
     file:close()
     return output
 end
@@ -12,11 +12,11 @@ local M = {
     opts = {
         -- god forgive me, for I have sinned
         luarocks_build_args = {
-            "--with-lua-include=" ..
-            capture_command_output('readlink -f "$(which luajit)"'):gsub("/bin/luajit%-[%d%.]+", ""):gsub("\n$", "") ..
-            "/include"
-        }
-    }
+            "--with-lua-include=" .. capture_command_output('readlink -f "$(which luajit)"')
+                :gsub("/bin/luajit%-[%d%.]+", "")
+                :gsub("\n$", "") .. "/include",
+        },
+    },
 }
 
 return M

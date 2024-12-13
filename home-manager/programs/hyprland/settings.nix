@@ -18,7 +18,7 @@
             touchpad = {
               natural_scroll = true;
             };
-            sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+            sensitivity = 0;
           };
 
           general = {
@@ -87,17 +87,17 @@
 
           exec-once = lib.mkMerge [
             (lib.mkIf true [
+              "nwg-dock-hyprland -d -c hyprlauncher -hd 0 -i 40 -x" # -mb 5
               "fcitx5"
-              # "vesktop --start-minimized"
+              "vesktop --start-minimized"
               "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/wallpaper.sh ${systemName}"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "heroic"
+              "solaar -w hide"
               "steam -silent -noverifyfiles"
-              # "[workspace 7 silent] tradingview"
               "[workspace 9 silent] thunderbird"
               "[workspace 8 silent] spotify"
-              # "[workspace 8 silent] kitty --class 'spotify_player' spotify_player"
               "hyprctl dispatch focusmonitor DP-1"
             ])
             (lib.mkIf (systemName == "discovery") [

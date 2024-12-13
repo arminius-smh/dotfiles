@@ -112,6 +112,12 @@
   };
 
   hardware = {
+    logitech = {
+      wireless = {
+        enable = true;
+        enableGraphical = true;
+      };
+    };
     enableAllFirmware = true;
     bluetooth = {
       enable = true;
@@ -158,7 +164,7 @@
           libnotify
           nettools
           sudo
-          lix
+          nix
           curl
           gnugrep
         ];

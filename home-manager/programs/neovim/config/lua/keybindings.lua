@@ -1,5 +1,5 @@
-vim.g.mapleader = ','
-vim.g.maplocalleader = ','
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
 -- Functional wrapper for mapping custom keybindings
 local function map(mode, lhs, rhs, opts)
     local options = { noremap = true, silent = true }

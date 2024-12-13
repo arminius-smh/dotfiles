@@ -6,15 +6,15 @@ local M = {
 }
 
 M.config = function()
-    require 'nvim-tree'.setup {
+    require("nvim-tree").setup({
         open_on_tab = false,
         update_cwd = true,
         actions = {
             open_file = {
                 quit_on_open = true,
-            }
-        }
-    }
+            },
+        },
+    })
 end
 
 return M

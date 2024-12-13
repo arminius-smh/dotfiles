@@ -6,7 +6,7 @@ local M = {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
-        "3rd/image.nvim"
+        "3rd/image.nvim",
     },
 }
 
@@ -24,10 +24,9 @@ M.config = function()
                 event = "file_opened",
                 handler = function(file_path)
                     require("neo-tree.command").execute({ action = "close" })
-                end
+                end,
             },
-
-        }
+        },
     })
 end
 

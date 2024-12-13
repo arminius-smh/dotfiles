@@ -16,24 +16,23 @@
   catppuccin = {
     flavor = "mocha";
     accent = "mauve";
-    # https://github.com/catppuccin/cursors/issues/53
-    # pointerCursor = {
-    #   enable = true;
-    #   flavor = "latte";
-    # };
   };
 
   home = {
     username = "armin";
     homeDirectory = "/home/armin";
-    stateVersion = "23.05"; # Don't touch this! - Unless..
+    stateVersion = "23.05";
 
     pointerCursor = {
-      package = pkgs.vanilla-dmz;
-      name = "Vanilla-DMZ";
-      size = 20;
+      name = "catppuccin-latte-mauve-cursors";
+      package = pkgs.catppuccin-cursors.latteMauve;
+      size = 24;
       gtk = {
         enable = true;
+      };
+      hyprcursor = {
+        enable = true;
+        size = 32;
       };
     };
 

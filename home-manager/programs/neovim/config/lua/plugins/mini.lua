@@ -5,7 +5,7 @@ local M = {
 }
 
 M.config = function()
-    require('mini.surround').setup()
+    require("mini.surround").setup()
 end
 
 return M

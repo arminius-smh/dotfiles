@@ -8,7 +8,7 @@ local M = {
 }
 
 M.config = function()
-    require('refactoring').setup()
+    require("refactoring").setup()
 end
 
 return M

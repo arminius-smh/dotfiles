@@ -4,7 +4,7 @@ local M = {
 }
 
 M.config = function()
-    require('neoscroll').setup()
+    require("neoscroll").setup()
 end
 
 return M

@@ -23,6 +23,7 @@
       fd # find tool
       pyrosimple # torrent library
       nixfmt-rfc-style # formatter nix
+      tree # directory tree
 
       # file compression
       zip

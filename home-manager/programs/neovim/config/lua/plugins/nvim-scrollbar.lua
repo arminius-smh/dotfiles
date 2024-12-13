@@ -15,7 +15,7 @@ M.config = function()
             Info = { color = "#0db9d7" },
             Hint = { color = "#1abc9c" },
             Misc = { color = "#9d7cd8" },
-        }
+        },
     })
     require("scrollbar.handlers.gitsigns").setup()
 end

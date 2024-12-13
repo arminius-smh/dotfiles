@@ -47,6 +47,7 @@
       swaybg # set wallpaper
       swayidle # idle manager
       wireguard-tools # vpn wireguard
+      nwg-dock-hyprland # hyprland dock
 
       asahi-bless # switch boot partition on ARM Mac
       asahi-wifisync # sync wifi passwords on ARM Mac

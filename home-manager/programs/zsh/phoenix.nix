@@ -92,7 +92,6 @@
           # set prompt to include nix if another shell is entered ('nix shell')
           # various issues (just entering 'zsh' will edit the RPROMPT), this may get solved better in the future
           # e.g. https://github.com/NixOS/nix/issues/3862 or https://github.com/NixOS/nix/issues/6677
-          # look into lix solutions
           if [[ $SHLVL -gt 1 ]]; then
             export RPROMPT=' nix'
           fi

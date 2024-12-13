@@ -6,7 +6,7 @@ local M = {
 }
 
 M.config = function()
-    require 'nvim-treesitter.configs'.setup {
+    require("nvim-treesitter.configs").setup({
         -- A list of parser names, or "all"
         ensure_installed = "all",
         indent = { enable = true },
@@ -20,8 +20,8 @@ M.config = function()
                     return true
                 end
             end,
-        }
-    }
+        },
+    })
 end
 
 return M

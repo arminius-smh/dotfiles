@@ -13,6 +13,7 @@
       };
       systemd = {
         enable = true;
+        target = "hyprland-session.target"; # sway-session.target
       };
     };
   };

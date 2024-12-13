@@ -19,12 +19,14 @@ M.config = function()
     require("luasnip.loaders.from_snipmate").lazy_load()
 
     ls.add_snippets("lua", {
-        s({
-            trig = "plugin",
-            name = "Plugin Template",
-            desc = "Plugin Template for Lazy",
-        }, fmt(
-            [[
+        s(
+            {
+                trig = "plugin",
+                name = "Plugin Template",
+                desc = "Plugin Template for Lazy",
+            },
+            fmt(
+                [[
                 -- {}
                 local M = {{
                     "{}",
@@ -35,27 +37,35 @@ M.config = function()
                 end
 
                 return M
-            ]], {
-                i(1, "description"), i(2, "source"), i(0, "name")
-            }
-        ))
+            ]],
+                {
+                    i(1, "description"),
+                    i(2, "source"),
+                    i(0, "name"),
+                }
+            )
+        ),
     })
 
     ls.add_snippets("sh", {
-        s({
-            trig = "bashmain",
-            name = "Main Function",
-            desc = "Main Function Template",
-        }, fmt(
-            [[
+        s(
+            {
+                trig = "bashmain",
+                name = "Main Function",
+                desc = "Main Function Template",
+            },
+            fmt(
+                [[
                 #!/usr/bin/env bash
                 main() {{
                     echo "Hello, World!"
                 }}
 
                 main "$@"
-            ]], {}
-        ))
+            ]],
+                {}
+            )
+        ),
     })
 end
 

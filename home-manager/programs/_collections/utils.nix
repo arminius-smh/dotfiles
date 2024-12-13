@@ -21,6 +21,7 @@
     ../bat # cat alternative
     ../udiskie # automounter for removable media
     ../yazi # terminal file manager
+    ../fzf # fuzzy finder
   ];
 
   home = {
@@ -62,7 +63,6 @@
       imagemagick # image manipulation
       ripgrep # search tool
       fd # find tool
-      fzf # fuzzy finder
       pyrosimple # torrent library
       mediainfo # media info
       ffmpeg # video converter
@@ -74,5 +74,4 @@
       file-roller # archive manager
     ];
   };
-
 }

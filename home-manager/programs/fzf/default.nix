@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   programs = {
     fzf = {
@@ -6,6 +6,7 @@
       catppuccin = {
         enable = true;
       };
+      colors = lib.mkForce { bg = "#000000"; };
     };
   };
 }

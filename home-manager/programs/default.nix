@@ -1,4 +1,9 @@
-{ systemName, ... }:
+{
+  systemName,
+  config,
+  pkgs,
+  ...
+}:
 let
   options = {
     phoenix = ./phoenix.nix;
@@ -20,7 +25,7 @@ in
       };
 
       prettier = {
-        source = ./files/prettier;
+        source = config.lib.file.mkOutOfStoreSymlink /home/armin/dotfiles/home-manager/programs/files/prettier;
         recursive = true;
       };
 

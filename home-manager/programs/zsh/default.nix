@@ -11,4 +11,10 @@ in
   imports = [
     zsh
   ];
+
+  catppuccin = {
+    zsh-syntax-highlighting = {
+      enable = true;
+    };
+  };
 }

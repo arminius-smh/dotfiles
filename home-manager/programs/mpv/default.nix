@@ -3,9 +3,6 @@
   programs = {
     mpv = {
       enable = true;
-      catppuccin = {
-        enable = true;
-      };
       config = {
         profile = "high-quality";
         alang = "ja,jp,jpn,en,eng,de,deu,ger";

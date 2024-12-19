@@ -1,11 +1,14 @@
 { ... }:
 {
+  catppuccin = {
+    waybar = {
+      enable = true;
+    };
+  };
+
   programs = {
     zathura = {
       enable = true;
-      catppuccin = {
-        enable = true;
-      };
       mappings = {
         i = "recolor";
         D = "set 'first-page-column 1:1'";

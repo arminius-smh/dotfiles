@@ -4,13 +4,16 @@
     ./config.nix
     ./style.nix
   ];
+  catppuccin = {
+    waybar = {
+      enable = true;
+      mode = "prependImport";
+    };
+  };
+
   programs = {
     waybar = {
       enable = true;
-      catppuccin = {
-        enable = true;
-        mode = "prependImport";
-      };
       systemd = {
         enable = true;
         target = "hyprland-session.target"; # sway-session.target

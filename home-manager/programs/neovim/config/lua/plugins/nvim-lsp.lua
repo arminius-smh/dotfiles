@@ -13,7 +13,7 @@ M.config = function()
     }
 
     local no_config = {
-        "typst_lsp",
+        "tinymist",
         "svelte",
         "swift_mesonls",
         "vala_ls",

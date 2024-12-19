@@ -55,7 +55,7 @@
       rust-analyzer # language server rust
       vala-language-server # language server vala
       mesonlsp # language server meson
-      typst-lsp # language server typst
+      tinymist # language server typst
 
       # formatter + linter
       treefmt2 # treewide formatter

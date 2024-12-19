@@ -1,11 +1,14 @@
 { systemName, ... }:
 {
+  catppuccin = {
+    kitty = {
+      enable = true;
+    };
+  };
+
   programs = {
     kitty = {
       enable = true;
-      catppuccin = {
-        enable = true;
-      };
       shellIntegration = {
         mode = "no-cursor";
         enableZshIntegration = true;

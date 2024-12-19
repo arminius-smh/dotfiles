@@ -5,6 +5,12 @@
 }:
 
 {
+  catppuccin = {
+    fcitx5 = {
+      enable = true;
+    };
+  };
+
   i18n = {
     defaultLocale = "en_US.UTF-8";
     supportedLocales = [
@@ -30,9 +36,6 @@
           enable = true;
           type = "fcitx5";
           fcitx5 = {
-            catppuccin = {
-              enable = true;
-            };
             waylandFrontend = true;
             plasma6Support = true;
             addons = with pkgs; [

@@ -210,15 +210,6 @@ in
             };
           };
         };
-        # only for kiosk twitch chat
-        twitch = {
-          isDefault = false;
-          id = 1;
-          extensions = with addons; [
-            seventv
-            stylus
-          ];
-        };
       };
     };
   };

@@ -1,5 +1,12 @@
 { ... }:
 {
+  catppuccin = {
+    kvantum = {
+      enable = true;
+      apply = true;
+    };
+  };
+
   qt = {
     enable = true;
     platformTheme = {
@@ -7,10 +14,6 @@
     };
     style = {
       name = "kvantum";
-      catppuccin = {
-        enable = true;
-        apply = true;
-      };
     };
   };
 }

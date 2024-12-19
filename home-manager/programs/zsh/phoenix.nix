@@ -12,9 +12,6 @@
       enable = true;
       syntaxHighlighting = {
         enable = true;
-        catppuccin = {
-          enable = true;
-        };
       };
       autosuggestion = {
         enable = true;

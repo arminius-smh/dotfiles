@@ -112,7 +112,6 @@ in
             };
           };
           extensions = with addons; [
-            # bypass-paywalls-clean
             bitwarden
             catppuccin-gh-file-explorer
             darkreader

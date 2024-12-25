@@ -3,12 +3,15 @@
   ...
 }:
 {
+  catppuccin = {
+    spotify-player = {
+      enable = true;
+    };
+  };
+
   programs = {
     spotify-player = {
       enable = true;
-      catppuccin = {
-        enable = true;
-      };
       settings = {
         client_id = config.secrets.spotifyId;
         device = {

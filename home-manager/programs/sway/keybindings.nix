@@ -76,19 +76,25 @@
               "${configSway.modifier}+minus" = "scratchpad show";
 
               "${configSway.modifier}+Shift+c" = "reload";
-              "${configSway.modifier}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
+              "${configSway.modifier}+Shift+e" =
+                "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
 
               "${configSway.modifier}+r" = "mode resize";
 
               "${modifier}+Shift+v" = "floating toggle";
               "${modifier}+Shift+a" = "exec thunar";
 
-              "XF86AudioRaiseVolume" = "exec volumectl -M $(swaymsg -t get_outputs | jq 'map(.focused) | index(true)') -u up 2";
-              "XF86AudioLowerVolume" = "exec volumectl -M $(swaymsg -t get_outputs | jq 'map(.focused) | index(true)') -u down 2";
-              "XF86AudioMute" = "exec volumectl -M $(swaymsg -t get_outputs | jq 'map(.focused) | index(true)') toggle-mute";
+              "XF86AudioRaiseVolume" =
+                "exec volumectl -M $(swaymsg -t get_outputs | jq 'map(.focused) | index(true)') -u up 2";
+              "XF86AudioLowerVolume" =
+                "exec volumectl -M $(swaymsg -t get_outputs | jq 'map(.focused) | index(true)') -u down 2";
+              "XF86AudioMute" =
+                "exec volumectl -M $(swaymsg -t get_outputs | jq 'map(.focused) | index(true)') toggle-mute";
 
-              "XF86MonBrightnessUp" = "exec lightctl -M $(swaymsg -t get_outputs | jq 'map(.focused) | index(true)') up 5";
-              "XF86MonBrightnessDown" = "exec lightctl -M $(swaymsg -t get_outputs | jq 'map(.focused) | index(true)')  down 5";
+              "XF86MonBrightnessUp" =
+                "exec lightctl -M $(swaymsg -t get_outputs | jq 'map(.focused) | index(true)') up 5";
+              "XF86MonBrightnessDown" =
+                "exec lightctl -M $(swaymsg -t get_outputs | jq 'map(.focused) | index(true)')  down 5";
             };
         };
       };

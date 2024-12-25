@@ -72,8 +72,7 @@
           };
 
           cursor = {
-            no_hardware_cursors = false;
-            allow_dumb_copy = true;
+            use_cpu_buffer = true;
           };
 
           misc = {
@@ -87,10 +86,11 @@
 
           exec-once = lib.mkMerge [
             (lib.mkIf true [
+              "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/wallpaper.sh ${systemName}"
               "nwg-dock-hyprland -d -c hyprlauncher -hd 0 -i 40 -x" # -mb 5
               "fcitx5"
               "vesktop --start-minimized"
-              "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/wallpaper.sh ${systemName}"
+              "lxqt-policykit-agent"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "heroic"

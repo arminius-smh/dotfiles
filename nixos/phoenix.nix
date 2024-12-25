@@ -11,6 +11,7 @@
     ./nix
     ./nixpkgs
     ./programs
+    ./security
     # ./system
     ./zramSwap
   ];

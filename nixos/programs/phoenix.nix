@@ -34,6 +34,7 @@
   environment = {
     systemPackages = with pkgs; [
       virt-manager
+      lxqt.lxqt-policykit # polkit manager
     ];
     sessionVariables = {
       # Hint electron apps to use wayland

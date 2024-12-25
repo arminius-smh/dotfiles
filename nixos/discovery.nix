@@ -10,6 +10,7 @@
     ./nix
     ./nixpkgs
     ./programs
+    ./security
     ./xdg
     ./zramSwap
   ];

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # maintainer of:
-# hyprlauncher
 
 NIXPKGS_PATH="/home/armin/Projects/Coding/nix/nixpkgs"
 PKG="$1"

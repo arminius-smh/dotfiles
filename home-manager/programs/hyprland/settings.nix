@@ -87,7 +87,7 @@
           exec-once = lib.mkMerge [
             (lib.mkIf true [
               "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/wallpaper.sh ${systemName}"
-              "nwg-dock-hyprland -d -c hyprlauncher -hd 0 -i 40 -x" # -mb 5
+              "nwg-dock-hyprland -d -c 'rofi -show drun' -hd 0 -i 40 -x" # -mb 5
               "fcitx5"
               "vesktop --start-minimized"
               "lxqt-policykit-agent"

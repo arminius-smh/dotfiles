@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   imports = [
     ./config.nix
@@ -16,7 +16,7 @@
       enable = true;
       systemd = {
         enable = true;
-        target = "hyprland-session.target"; # sway-session.target
+        target = config.wayland.systemd.target;
       };
     };
   };

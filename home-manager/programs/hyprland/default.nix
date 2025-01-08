@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}:
+{ ... }:
 {
   imports = [
     ./plugins.nix
@@ -21,10 +17,11 @@
     windowManager = {
       hyprland = {
         enable = true;
-        # NOTE: activate for hyprland-git
-        # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
         xwayland = {
           enable = true;
+        };
+        systemd = {
+          enable = false;
         };
       };
     };

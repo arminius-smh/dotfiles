@@ -16,26 +16,13 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
-    # nixpkgs-master = {
-    #   url = "github:nixos/nixpkgs/master";
-    # };
     mypkgs = {
       url = "github:arminius-smh/nixpkgs/mypkgs";
       # url = "git+file:///home/armin/Projects/Coding/nix/nixpkgs/";
     };
-    # hyprland = {
-    #   url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    # };
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
     };
-    # nixgl = {
-    #   url = "github:nix-community/nixGL";
-    # };
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -53,12 +40,6 @@
       url = "github:tpwrules/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nix-minecraft = {
-    #   url = "github:Infinidoge/nix-minecraft";
-    # };
-    # ags = {
-    #   url = "github:Aylur/ags";
-    # };
   };
 
   outputs =

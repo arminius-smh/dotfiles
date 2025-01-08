@@ -1,17 +1,18 @@
 {
   lib,
   systemName,
+  pkgs,
   ...
 }:
 {
   wayland = {
     windowManager = {
       hyprland = {
-        plugins = lib.mkIf (systemName == "phoenix") [
-          # NOTE: unforuntately updating the system requires a reboot because plugins
-          # spam an error message that the hyprland version has changed
-          # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
-        ];
+        plugins =
+          with pkgs;
+          lib.mkIf (systemName == "phoenix") [
+            hyprlandPlugins.hyprtrails
+          ];
         settings = {
           plugin = {
             hyprtrails = {

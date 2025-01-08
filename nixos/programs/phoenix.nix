@@ -17,6 +17,7 @@
     ./getty
     ./gnupg
     ./gvfs
+    ./hyprland
     ./mysql
     ./neovim
     ./nix-ld
@@ -26,6 +27,7 @@
     ./steam
     ./udev
     ./udisks2
+    ./uwsm
     ./thunar
     ./xserver
     ./zsh

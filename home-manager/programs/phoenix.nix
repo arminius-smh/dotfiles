@@ -1,23 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./home-manager # manage user environment
     ./zsh # shell
 
-    ./syncthing # file sync
-    ./network-manager-applet # network manager tray + gui
-
     # ./ags # widgets
     ./hyprland # wayland window manager
     ./sway # wayland window manager
     ./waybar # status bar
-    ./swaync # notification center
-    # ./dunst # notification manager
     # ./swaylock # screen locker
     ./rofi # application launcher
     # ./cava # audio visualizer
-    ./avizo # on screen volume display
-    # ./swayosd # on screen volume display
     ./_collections/coding.nix # packages for programming
     ./_collections/utils.nix # common system utils
     ./_collections/gaming.nix # gaming related
@@ -26,10 +19,9 @@
     # ./fastfetch # system info
     ./firefox # browser
     ./thunderbird # mail client
-    ./blueman-applet # bluetooth applet
     ./spicetify # spotify enhancement
     # ./spotify-player # spotify streaming
-    ./obs-studio # video recording
+    # ./obs-studio # video recording
     ./vesktop # discord enhancement
     ./nwg-bar # button bar
     ./nwg-dock-hyprland # hyprland dock
@@ -74,6 +66,7 @@
       pamixer # audio mixer
       qbittorrent # bittorrent client
       hyprpicker # wayland color picker
+      trezor-suite # manage crypto
     ];
   };
 }

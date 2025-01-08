@@ -10,6 +10,7 @@
     ./timer.nix
     ./jellyfin-media-player.nix
     ./vlc.nix
+    ./temp.nix
   ];
 
   nixpkgs = {

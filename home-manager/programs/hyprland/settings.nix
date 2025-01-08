@@ -86,23 +86,23 @@
 
           exec-once = lib.mkMerge [
             (lib.mkIf true [
-              "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/wallpaper.sh ${systemName}"
-              "nwg-dock-hyprland -d -c 'rofi -show drun' -hd 0 -i 40 -x" # -mb 5
-              "fcitx5"
-              "vesktop --start-minimized"
-              "lxqt-policykit-agent"
+              "uwsm finalize"
+              "uwsm app -s s -- ${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/wallpaper.sh ${systemName}"
+              "uwsm app -- ${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/handle_events.sh"
+              "uwsm app -- nwg-dock-hyprland -d -c 'rofi -show drun' -hd 0 -i 40 -x" # -mb 5 doesn't support starting apps with uwsm
+              "uwsm app -- vesktop --start-minimized"
             ])
             (lib.mkIf (systemName == "phoenix") [
-              "heroic"
-              "solaar -w hide"
-              "steam -silent -noverifyfiles"
-              "[workspace 9 silent] thunderbird"
-              "[workspace 8 silent] spotify"
-              "hyprctl dispatch focusmonitor DP-1"
+              "uwsm app -- heroic"
+              "uwsm app -- solaar -w hide"
+              "uwsm app -- steam -silent -noverifyfiles"
+              "[workspace 9 silent] uwsm app -- thunderbird"
+              "[workspace 8 silent] uwsm app -- spotify"
+              "hyprctl dispatch focusmonitor HDMI-A-1"
             ])
             (lib.mkIf (systemName == "discovery") [
-              "libinput-gestures"
-              "[workspace 8 silent] kitty --class spotify_player -e spotify_player"
+              "uwsm app -- libinput-gestures"
+              "[workspace 8 silent] uwsm app -- kitty --class spotify_player -e spotify_player"
             ])
           ];
         };

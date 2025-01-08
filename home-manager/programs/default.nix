@@ -1,7 +1,6 @@
 {
   systemName,
   config,
-  pkgs,
   ...
 }:
 let
@@ -16,6 +15,16 @@ in
   imports = [
     programs
   ];
+  home = {
+    file = {
+      # https://github.com/Vladimir-csp/uwsm only sources from ~/.profile
+      ".profile" = {
+        text = ''
+          . "${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh"
+        '';
+      };
+    };
+  };
 
   xdg = {
     configFile = {

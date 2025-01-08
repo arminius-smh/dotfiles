@@ -24,7 +24,6 @@
             {
               command = "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/wallpaper.sh ${systemName}";
             }
-            { command = "fcitx5"; }
             {
               command = "autotiling";
               always = true;

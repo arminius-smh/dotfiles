@@ -32,6 +32,9 @@
       initExtra =
         # bash
         ''
+          export PATH="$HOME/Collections/Applications:$PATH"
+          export PATH="$DOTFILES_PATH/assets/scripts:$PATH"
+
           ZSH_HIGHLIGHT_STYLES[comment]="fg=245"
 
           # NVIM-JDTLS - https://github.com/mfussenegger/nvim-jdtls
@@ -97,51 +100,8 @@
       profileExtra =
         # bash
         ''
-          export PATH="$HOME/Collections/Applications:$PATH"
-          export PATH="$DOTFILES_PATH/assets/scripts:$PATH"
-          if [ "$(tty)" = "/dev/tty1" ]; then
-            DEFAULT="Hyprland" # Sway, Hyprland
-
-            local style ()
-            {
-                clear
-                gum style \
-                    --foreground 212 --border-foreground 212 --border rounded \
-                    --align center --width 50 --margin "1 2" \
-                    "Starting $1.."
-
-            }
-
-            clear
-            gum style \
-                --foreground 212 --border-foreground 212 --border double \
-                --align center --width 50 --margin "1 2" --padding "2 4" \
-                "Window Manager Picker" "Input any key, or wait for default.."
-
-            read -rsk1 -t 1 input
-
-            if [ -z "$input" ]; then
-                style "$DEFAULT"
-                case $DEFAULT in
-                  Hyprland)
-                    exec Hyprland
-                  ;;
-                  Sway)
-                    exec sway --unsupported-gpu
-                    ;;
-                esac
-            else
-                TYPE=$(gum choose "Hyprland" "Sway")
-                style "$TYPE"
-                case $TYPE in
-                    Hyprland)
-                        exec Hyprland
-                        ;;
-                    Sway)
-                        exec sway --unsupported-gpu
-                        ;;
-                esac
-            fi
+          if uwsm check may-start && uwsm select; then
+            exec systemd-cat -t uwsm_start uwsm start -S default
           fi
         '';
       shellAliases = {

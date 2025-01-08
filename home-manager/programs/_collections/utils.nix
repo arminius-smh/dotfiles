@@ -19,7 +19,6 @@
     # ../imv # image viewer
     ../feh # image viewer
     ../bat # cat alternative
-    ../udiskie # automounter for removable media
     ../yazi # terminal file manager
     ../fzf # fuzzy finder
   ];
@@ -72,6 +71,7 @@
       timer # a sleep with progress
       webp-pixbuf-loader # webp thumbnail support
       file-roller # archive manager
+      socat # socket cat
     ];
   };
 }

@@ -5,15 +5,10 @@
     ./zsh # shell
     ./hyprland # wayland window manager
     ./hyprlock # screen locker
-    ./hypridle # idle manager
 
     ./sway # wayland window manager
     # ./swaylock # screen locker
 
-    ./network-manager-applet # network manager tray + gui
-
-    ./avizo # on screen volume display
-    ./syncthing # file sync
     ./waybar # status bar
 
     ./rofi # application launcher
@@ -23,8 +18,6 @@
     ./_collections/maintainer.nix
 
     # ./fastfetch # system info
-    ./swaync # notification center
-    ./blueman-applet # bluetooth applet
     ./firefox # browser
     ./thunderbird # mail client
     ./spotify-player # spotify streaming

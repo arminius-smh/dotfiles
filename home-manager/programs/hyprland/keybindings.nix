@@ -42,21 +42,22 @@
             "$mainMod SHIFT, 0, movetoworkspace, 10"
 
             # Exec
-            "$mainMod, RETURN, exec, kitty"
-            "$mainMod SHIFT, P, exec, alacritty --class 'pomodoro' -e '$DOTFILES_PATH/home-manager/programs/hyprland/scripts/pomodoro.zsh'"
-            "$mainMod SHIFT, F, exec, firefox"
-            "$mainMod SHIFT, A, exec, thunar"
+            "$mainMod, RETURN, exec, uwsm app -- kitty"
+            "$mainMod SHIFT, P, exec, uwsm app -- alacritty --class 'pomodoro' -e '$DOTFILES_PATH/home-manager/programs/hyprland/scripts/pomodoro.zsh'"
+            "$mainMod SHIFT, F, exec, uwsm app -- firefox"
+            "$mainMod SHIFT, A, exec, uwsm app -- thunar"
+            "$mainMod, D, exec, rofi -show drun -run-command 'uwsm app -- {cmd}'"
+            "$mainMod, N, exec, uwsm app -- nwg-bar"
+            "$mainMod SHIFT, E, exec, uwsm app -- bemoji -t"
+            ''$mainMod SHIFT, D, exec, uwsm app -- grimblast --freeze copysave area "$HOME/Downloads/$(date +'%Y-%m-%d_%H-%M-%S_screenshot.png')"''
+
             "$mainMod CONTROL, Q, killactive"
             "$mainMod, M, exec, pkill -USR1 waybar"
-            "$mainMod SHIFT, M, exit"
+            "$mainMod SHIFT, M, exec, uwsm stop"
             "$mainMod, V, togglefloating"
-            "$mainMod, D, exec, rofi -show drun"
             "$mainMod SHIFT, J, togglesplit,"
-            ''$mainMod SHIFT, D, exec, grimblast --freeze copysave area "$HOME/Downloads/$(date +'%Y-%m-%d_%H-%M-%S_screenshot.png')"''
             "$mainMod SHIFT, W, exec, pkill -SIGUSR2 waybar"
             "$mainMod SHIFT, N, exec, swaync-client -t -sw"
-            "$mainMod, N, exec, nwg-bar"
-            "$mainMod SHIFT, E, exec, bemoji -t"
 
             "SUPER,F10,pass,^(com\.obsproject\.Studio)$" # pass key to obs
 

@@ -87,9 +87,10 @@
           exec-once = lib.mkMerge [
             (lib.mkIf true [
               "uwsm finalize"
-              "uwsm app -s s -- ${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/wallpaper.sh ${systemName}"
+              "uwsm app -- fumon"
+              "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/wallpaper.sh ${systemName}"
               "uwsm app -- ${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/handle_events.sh"
-              "uwsm app -- nwg-dock-hyprland -d -c 'rofi -show drun' -hd 0 -i 40 -x" # -mb 5 doesn't support starting apps with uwsm
+              "uwsm app -- nwg-dock-hyprland -d -c 'rofi -show drun' -hd 0 -i 40 -x -mb 5" # doesn't support starting apps with uwsm
               "uwsm app -- vesktop --start-minimized"
             ])
             (lib.mkIf (systemName == "phoenix") [

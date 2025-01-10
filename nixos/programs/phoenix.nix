@@ -1,35 +1,19 @@
 { pkgs, ... }:
 {
   imports = [
-    # ./activemq  # java message broker
-    # ./kubo # Interplanetary File System
-    # ./minecraft-server
-    ./tumbler # filemanager thumbnail generator
-    ./avahi
-    ./blueman
-    ./dbus
     ./gamemode
     ./gamescope
     ./git
     ./dconf
-    ./fwupd # firmware update
-    ./fstrim
-    ./getty
     ./gnupg
-    ./gvfs
     ./hyprland
-    ./mysql
     ./neovim
     ./nix-ld
     ./nh
-    ./openssh
-    ./pipewire
     ./steam
-    ./udev
-    ./udisks2
+    ./sway
     ./uwsm
     ./thunar
-    ./xserver
     ./zsh
   ];
 

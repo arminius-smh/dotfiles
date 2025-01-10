@@ -13,6 +13,7 @@
     ./programs
     ./qt
     ./security
+    ./services
     # ./system
     ./zramSwap
   ];

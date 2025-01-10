@@ -11,6 +11,7 @@
     ./nixpkgs
     ./programs
     ./security
+    ./services
     ./xdg
     ./zramSwap
   ];

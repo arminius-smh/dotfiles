@@ -1,0 +1,8 @@
+{ ... }:
+{
+  services = {
+    scx = {
+      enable = true;
+    };
+  };
+}

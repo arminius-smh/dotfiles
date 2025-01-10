@@ -9,6 +9,7 @@
 
     ./swaync # notification center
     ./blueman-applet # bluetooth applet
+    ./hypridle # idle manager
     ./kdeconnect # connect to phone
   ];
 }

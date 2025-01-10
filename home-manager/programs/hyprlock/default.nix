@@ -1,4 +1,12 @@
-{ config, ... }:
+{
+  config,
+  systemName,
+  lib,
+  ...
+}:
+let
+  mainMonitor = if (systemName == "phoenix") then "HDMI-A-1" else "";
+in
 {
   programs = {
     hyprlock = {
@@ -13,16 +21,33 @@
         general = {
           disable_loading_bar = true;
           hide_cursor = true;
+          grace = 3;
         };
 
-        background = {
-          path = "${config.home.sessionVariables.DOTFILES_PATH}/assets/wallpapers/lockscreen/background.jpg";
-          blur_passes = 0;
-          color = "$base";
-        };
+        background = lib.mkMerge [
+          (lib.mkIf true [
+            {
+              monitor = mainMonitor;
+              path = "${config.home.sessionVariables.DOTFILES_PATH}/assets/wallpapers/lockscreen/background.jpg";
+              blur_passes = 0;
+              color = "$base";
+            }
+          ])
+          (lib.mkIf (systemName == "phoenix") [
+            {
+              monitor = "DP-1";
+              color = "$base";
+            }
+            {
+              monitor = "DP-3";
+              color = "$base";
+            }
+          ])
+        ];
 
         label = [
           {
+            monitor = mainMonitor;
             text = "Layout: $LAYOUT";
             color = "$text";
             font_size = 25;
@@ -32,6 +57,7 @@
             valign = "top";
           }
           {
+            monitor = mainMonitor;
             text = "$TIME";
             color = "$text";
             font_size = 90;
@@ -41,6 +67,7 @@
             valign = "top";
           }
           {
+            monitor = mainMonitor;
             text = ''cmd[update:43200000] date +"%A, %d %B %Y"'';
             color = "$text";
             font_size = 25;
@@ -52,6 +79,7 @@
         ];
 
         image = {
+          monitor = mainMonitor;
           path = "${config.home.sessionVariables.DOTFILES_PATH}/assets/pics/profile.jpg";
           size = 200;
           border_color = "$accent";
@@ -62,6 +90,7 @@
         };
 
         input-field = {
+          monitor = mainMonitor;
           size = "380, 80";
           outline_thickness = 6;
           dots_size = 0.2;

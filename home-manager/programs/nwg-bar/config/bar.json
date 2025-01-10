@@ -1,8 +1,18 @@
 [
     {
+        "label": "Lock",
+        "exec": "loginctl lock-session",
+        "icon": "/home/armin/dotfiles/assets/pics/lock.svg"
+    },
+    {
         "label": "Shutdown",
         "exec": "systemctl poweroff",
         "icon": "/home/armin/dotfiles/assets/pics/shutdown.svg"
+    },
+    {
+        "label": "Reboot",
+        "exec": "systemctl reboot",
+        "icon": "/home/armin/dotfiles/assets/pics/reboot.svg"
     },
     {
         "label": "Gaming Mode",
@@ -13,10 +23,5 @@
         "label": "Cinema Mode",
         "exec": "/home/armin/dotfiles/assets/scripts/cinema",
         "icon": "/home/armin/dotfiles/assets/pics/popcorn.svg"
-    },
-    {
-        "label": "Reboot",
-        "exec": "systemctl reboot",
-        "icon": "/home/armin/dotfiles/assets/pics/reboot.svg"
     }
 ]

@@ -9,5 +9,6 @@
     ./nix
     ./nixpkgs
     ./programs
+    ./services
   ];
 }

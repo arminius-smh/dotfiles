@@ -10,7 +10,7 @@
         config = {
           modifier = "Mod4";
           terminal = "kitty";
-          menu = "rofi -show run";
+          menu = "rofi -show drun -run-command 'uwsm app -- {cmd}'";
           bars = [ ];
           left = "h";
           right = "l";

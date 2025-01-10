@@ -13,8 +13,8 @@
               modifier = configSway.modifier;
             in
             {
-              "${modifier}+Shift+f" = "exec firefox";
-              "${modifier}+Return" = "exec ${configSway.terminal}";
+              "${modifier}+Shift+f" = "exec uwsm app -- firefox";
+              "${modifier}+Return" = "exec uwsm app -- ${configSway.terminal}";
               "${modifier}+Ctrl+q" = "kill";
               "${modifier}+d" = "exec ${configSway.menu}";
 
@@ -77,12 +77,12 @@
 
               "${configSway.modifier}+Shift+c" = "reload";
               "${configSway.modifier}+Shift+e" =
-                "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
+                "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'uwsm stop'";
 
               "${configSway.modifier}+r" = "mode resize";
 
               "${modifier}+Shift+v" = "floating toggle";
-              "${modifier}+Shift+a" = "exec thunar";
+              "${modifier}+Shift+a" = "exec uwsm app -- thunar";
 
               "XF86AudioRaiseVolume" =
                 "exec volumectl -M $(swaymsg -t get_outputs | jq 'map(.focused) | index(true)') -u up 2";

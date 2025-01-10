@@ -1,10 +1,11 @@
 { ... }:
 {
   imports = [
-    ./programs
-    ./services
-    ./qt
     ./gtk
+    ./programs
+    ./qt
+    ./services
+    ./systemd
     ./xdg
   ];
 }

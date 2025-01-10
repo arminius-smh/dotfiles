@@ -46,7 +46,10 @@
   };
 
   boot = {
-    kernelParams = [ "module_blacklist=i915" ];
+    kernelPackages = pkgs.linuxPackages_6_12; # remove after stable is >=6_12
+    kernelParams = [
+      "module_blacklist=i915"
+    ];
     loader = {
       grub = {
         enable = true;

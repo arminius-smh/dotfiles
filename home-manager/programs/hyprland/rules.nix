@@ -9,7 +9,6 @@
             "fullscreen,class:^(Jellyfin Media Player)$"
             "fullscreen,class:^(TradingView)$"
             "fullscreen,class:^(thunderbird)$"
-            "fullscreen,class:^(spotify_player)$"
             "float,class:^(feh)$"
             "float,class:^(imv)$"
             "float,title:^(Authentication Required)$" # lxqt-policykit

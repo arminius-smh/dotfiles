@@ -10,5 +10,6 @@
     ./psd # https://wiki.archlinux.org/title/Profile-sync-daemon
     ./pipewire
     ./displayManager
+    ./scx
   ];
 }

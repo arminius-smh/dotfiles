@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ./udiskie # automounter for removable media
     ./syncthing # file sync
     ./network-manager-applet # network manager tray + gui
 

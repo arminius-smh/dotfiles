@@ -47,7 +47,7 @@
             "$mainMod SHIFT, F, exec, uwsm app -- firefox"
             "$mainMod SHIFT, A, exec, uwsm app -- thunar"
             "$mainMod, D, exec, rofi -show drun -run-command 'uwsm app -- {cmd}'"
-            "$mainMod, N, exec, uwsm app -- nwg-bar"
+            "$mainMod, N, exec, uwsm app -- $DOTFILES_PATH/home-manager/programs/rofi/scripts/powermenu.sh"
             "$mainMod SHIFT, E, exec, uwsm app -- bemoji -t"
             ''$mainMod SHIFT, D, exec, uwsm app -- grimblast --freeze copysave area "$HOME/Downloads/$(date +'%Y-%m-%d_%H-%M-%S_screenshot.png')"''
 

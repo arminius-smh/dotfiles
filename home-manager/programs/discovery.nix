@@ -23,6 +23,8 @@
     ./spotify-player # spotify streaming
     ./vesktop # discord enhancement
 
+    ./nwg-dock-hyprland # hyprland dock
+    # ./nwg-bar # button bar
   ];
 
   home = {

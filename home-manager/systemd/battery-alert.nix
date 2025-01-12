@@ -11,9 +11,6 @@
             Type = "oneshot";
             ExecStart = "/home/armin/dotfiles/assets/scripts/battery-alert";
           };
-          Install = {
-            WantedBy = [ "graphical.target" ];
-          };
         };
       };
 
@@ -22,6 +19,7 @@
           Unit = {
             Description = "Check battery status every few minutes to warn the user in case of low battery";
             Requires = "battery-alert.service";
+            After = [ "graphical-session.target" ];
           };
           Timer = {
             OnBootSec = "1m";

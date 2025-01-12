@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, systemName, ... }:
 {
   home = {
     packages = with pkgs; [
@@ -9,7 +9,16 @@
   home = {
     file = {
       ".cache/nwg-dock-pinned" = {
-        source = config.lib.file.mkOutOfStoreSymlink /home/armin/dotfiles/home-manager/programs/nwg-dock-hyprland/nwg-dock-pinned;
+        text = ''
+          firefox
+          obsidian
+          Jellyfin Media Player
+          ${if (systemName == "phoenix") then "heroic" else ""}
+          ${if (systemName == "phoenix") then "org.prismlauncher.PrismLauncher" else ""}
+          anki
+          ${if (systemName == "phoenix") then "spotify" else ""}
+          thunderbird
+        '';
       };
     };
   };

@@ -2,7 +2,7 @@
 {
   services = {
     displayManager = {
-      defaultSession = "hyprland"; # sway
+      defaultSession = "hyprland-uwsm";
       sddm = {
         enable = true;
         theme = "catppuccin-sddm-corners";

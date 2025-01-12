@@ -5,6 +5,7 @@
     ./neovim
     ./nh
     ./thunar
+    ./uwsm
     ./sway
     ./zsh
   ];

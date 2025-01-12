@@ -37,7 +37,8 @@
       # url = "git+file:///home/armin/Projects/Coding/nix/catppuccin-nix/";
     };
     nixos-apple-silicon = {
-      url = "github:tpwrules/nixos-apple-silicon";
+      # url = "github:tpwrules/nixos-apple-silicon"; # change back after mesa update on twprules
+      url = "github:marcusramberg/nixos-apple-silicon/mesa";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

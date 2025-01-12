@@ -24,7 +24,7 @@
     # ./spotify-player # spotify streaming
     # ./obs-studio # video recording
     ./vesktop # discord enhancement
-    ./nwg-bar # button bar
+    # ./nwg-bar # button bar
     ./nwg-dock-hyprland # hyprland dock
   ];
 

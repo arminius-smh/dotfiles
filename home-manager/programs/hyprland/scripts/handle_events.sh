@@ -11,7 +11,7 @@ handle_windowtitlev2 () {
         *"(Bitwarden"*"Password Manager) - Bitwarden"*)
             hyprctl --batch \
                 "dispatch togglefloating address:0x$windowaddress;"\
-                "dispatch resizewindowpixel exact 20% 57%,address:0x$windowaddress;"\
+                "dispatch resizewindowpixel exact 40% 70%,address:0x$windowaddress;"\
                 "dispatch centerwindow"\
                 ;;
             #   specificwindowtitle) commands ;;

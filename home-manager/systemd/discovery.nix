@@ -3,6 +3,7 @@
 
   imports = [
     ./battery-alert.nix
+    ./bluelight-filter.nix
   ];
 
   systemd = {

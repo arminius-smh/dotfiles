@@ -103,7 +103,7 @@
             ])
             (lib.mkIf (systemName == "discovery") [
               "uwsm app -- libinput-gestures"
-              "[workspace 8 silent] uwsm app -- kitty --class spotify_player -e spotify_player"
+              "[workspace 8 silent] uwsm app -- kitty --class spotify -e spotify_player"
             ])
           ];
         };

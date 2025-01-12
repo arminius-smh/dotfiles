@@ -146,7 +146,7 @@
             format = " ";
             # this could maybe be expanded with ags?
             # maybe ags widgets can be toggled by some variable I set with on-click here?
-            on-click = "nwg-bar";
+            on-click = "$DOTFILES_PATH/home-manager/programs/rofi/scripts/powermenu.sh";
             tooltip = false;
           };
 

@@ -11,7 +11,6 @@ M.config = function()
         markdown = { "markdownlint" },
         python = { "pylint" },
         sh = { "shellcheck" },
-        css = { "stylelint" },
     }
 
     linters.markdownlint.args = {

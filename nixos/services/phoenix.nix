@@ -4,7 +4,6 @@
     ./udev
     ./avahi
     ./udisks2
-    ./getty
     ./xserver
     ./tumbler # filemanager thumbnail generator
     ./fstrim
@@ -14,7 +13,8 @@
     ./blueman
     ./psd # https://wiki.archlinux.org/title/Profile-sync-daemon
     ./pipewire
+    ./displayManager
     ./gvfs
-    ./scx
+    # ./scx
   ];
 }

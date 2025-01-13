@@ -39,6 +39,7 @@
     sessionVariables = {
       QT_IM_MODULE = "fcitx"; # NOTE: fcitx5.waylandFrontend = false sets this together with GTK_IM_MODULE (which should be unset)
       DOTFILES_PATH = "${config.home.homeDirectory}/dotfiles";
+      UWSM_USE_SESSION_SLICE = "true";
     };
 
     activation = {

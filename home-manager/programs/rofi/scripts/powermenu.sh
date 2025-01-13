@@ -9,7 +9,7 @@
 dir="$DOTFILES_PATH/home-manager/programs/rofi/themes/powermenu/style.rasi"
 
 # CMDs
-lastlogin="`last $USER | head -n1 | tr -s ' ' | cut -d' ' -f4,5,6`"
+lastlogin=$(last "$USER" | head -n1 | tr -s ' ' | cut -d' ' -f4,5,6)
 
 uptime_output=$(uptime)
 time=$(echo "$uptime_output" | awk -F' up ' '{print $2}' | awk '{print $1}')
@@ -21,40 +21,55 @@ else
     uptime="$hours hours, $minutes minutes"
 fi
 
-host=`hostname`
+host=$(hostname)
+
+if [ "$host" == "phoenix" ]; then
+    iconnum=6
+else
+    iconnum=4
+fi
 
 # Options
 shutdown=''
 reboot=''
 lock=''
 logout='󰍃'
+cinema='󰐢'
+gaming='󰮂'
 
 # Rofi CMD
 rofi_cmd() {
     rofi -dmenu \
         -p "$USER@$host" \
+        -theme-str "listview {columns: $iconnum;}" \
         -mesg "󰍹 Last Login: $lastlogin |  Uptime: $uptime" \
-        -theme ${dir}
+        -theme "${dir}"
 }
 
 # Pass variables to rofi dmenu
 run_rofi() {
-    echo -e "$lock\n$logout\n$reboot\n$shutdown" | rofi_cmd
+    echo -e "$cinema\n$gaming\n$lock\n$logout\n$reboot\n$shutdown" | rofi_cmd
 }
 
 # Actions
 chosen="$(run_rofi)"
 case ${chosen} in
-    $shutdown)
-        systemctl poweroff
+    "$shutdown")
+        shutdown
         ;;
-    $reboot)
-        systemctl reboot
+    "$reboot")
+        reboot
         ;;
-    $lock)
+    "$lock")
         hyprlock
         ;;
-    $logout)
+    "$logout")
         uwsm stop
+        ;;
+    "$cinema")
+        "$DOTFILES_PATH"/assets/scripts/cinema
+        ;;
+    "$gaming")
+        "$DOTFILES_PATH"/assets/scripts/gaming
         ;;
 esac

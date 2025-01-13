@@ -46,16 +46,37 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_6_12; # remove after stable is >=6_12
+    # only shutdown works, idk why
+    plymouth = {
+      enable = true;
+      theme = "rings";
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "rings" ];
+        })
+      ];
+    };
+    initrd = {
+      systemd = {
+        enable = true;
+      };
+      verbose = false;
+    };
+    consoleLogLevel = 0;
     kernelParams = [
       "module_blacklist=i915"
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
     ];
     loader = {
+      timeout = 0;
       grub = {
         enable = true;
         useOSProber = true;
         efiSupport = true;
         device = "nodev";
+        timeoutStyle = "hidden";
       };
       efi = {
         canTouchEfiVariables = true;

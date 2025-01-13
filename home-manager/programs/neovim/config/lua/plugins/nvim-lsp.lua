@@ -28,6 +28,7 @@ M.config = function()
         "pyright",
         "emmet_ls",
         "lemminx",
+        "stylelint_lsp",
     }
 
     local function lsp_config(server)

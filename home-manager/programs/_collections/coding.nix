@@ -69,7 +69,7 @@
       markdownlint-cli # linter markdown
       shellcheck # linter bash
       uncrustify # formatter c, c++, c#, objectivec, d, java, pawn, vala
-      stylelint # linter css
+      stylelint-lsp # linter css
       stylua # lua formatter
     ];
   };

@@ -11,7 +11,6 @@
             "fullscreen,class:^(thunderbird)$"
             "float,class:^(feh)$"
             "float,class:^(imv)$"
-            "float,title:^(Authentication Required)$" # lxqt-policykit
             "float,class:^(pomodoro)$"
             "size 650 150,class:^(pomodoro)$"
             "move onscreen 1200 135,class:^(pomodoro)$"

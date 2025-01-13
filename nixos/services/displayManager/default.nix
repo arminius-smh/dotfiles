@@ -9,6 +9,7 @@
         settings = {
           Theme = {
             FacesDir = "/var/lib/AccountsService/icons/";
+            CursorTheme = "catppuccin-latte-mauve-cursors";
           };
         };
         wayland = {
@@ -22,6 +23,7 @@
   environment = {
     systemPackages = with pkgs; [
       catppuccin-sddm-corners
+      catppuccin-cursors.latteMauve
     ];
   };
 
@@ -31,7 +33,7 @@
         text = ''
           #!/usr/bin/env bash
           if [ ! -f "/var/lib/AccountsService/icons/armin.face.icon" ]; then
-            cp /home/armin/dotfiles/assets/pics/armin.face.icon /var/lib/AccountsService/icons/armin.face.icon
+            mkdir -p /var/lib/AccountsService/icons && cp /home/armin/dotfiles/assets/pics/armin.face.icon /var/lib/AccountsService/icons/armin.face.icon
           fi
         '';
       };

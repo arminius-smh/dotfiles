@@ -87,6 +87,7 @@
           exec-once = lib.mkMerge [
             (lib.mkIf true [
               "uwsm finalize"
+              "hyprctl dismissnotify" # hide plugin startup notification
               "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/wallpaper.sh ${systemName}"
               "uwsm app -- fumon"
               "uwsm app -- ${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/handle_events.sh"
@@ -99,7 +100,7 @@
               "uwsm app -- steam -silent -noverifyfiles"
               "[workspace 9 silent] uwsm app -- thunderbird"
               "[workspace 8 silent] uwsm app -- spotify"
-              "hyprctl dispatch focusmonitor HDMI-A-1"
+              "hyprctl dispatch focusmonitor ${config.home.sessionVariables.MONITOR_PRIMARY}"
             ])
             (lib.mkIf (systemName == "discovery") [
               "uwsm app -- libinput-gestures"

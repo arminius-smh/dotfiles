@@ -4,9 +4,6 @@
   lib,
   ...
 }:
-let
-  mainMonitor = if (systemName == "phoenix") then "HDMI-A-1" else "";
-in
 {
   programs = {
     hyprlock = {
@@ -27,7 +24,7 @@ in
         background = lib.mkMerge [
           (lib.mkIf true [
             {
-              monitor = mainMonitor;
+              monitor = config.home.sessionVariables.MONITOR_PRIMARY;
               path = "${config.home.sessionVariables.DOTFILES_PATH}/assets/wallpapers/lockscreen/background.jpg";
               blur_passes = 0;
               color = "$base";
@@ -35,11 +32,11 @@ in
           ])
           (lib.mkIf (systemName == "phoenix") [
             {
-              monitor = "DP-1";
+              monitor = "${config.home.sessionVariables.MONITOR_SECONDARY}";
               color = "$base";
             }
             {
-              monitor = "DP-3";
+              monitor = "${config.home.sessionVariables.MONITOR_TERTIARY}";
               color = "$base";
             }
           ])
@@ -47,7 +44,7 @@ in
 
         label = [
           {
-            monitor = mainMonitor;
+            monitor = config.home.sessionVariables.MONITOR_PRIMARY;
             text = "Layout: $LAYOUT";
             color = "$text";
             font_size = 25;
@@ -57,7 +54,7 @@ in
             valign = "top";
           }
           {
-            monitor = mainMonitor;
+            monitor = config.home.sessionVariables.MONITOR_PRIMARY;
             text = "$TIME";
             color = "$text";
             font_size = 90;
@@ -67,7 +64,7 @@ in
             valign = "top";
           }
           {
-            monitor = mainMonitor;
+            monitor = config.home.sessionVariables.MONITOR_PRIMARY;
             text = ''cmd[update:43200000] date +"%A, %d %B %Y"'';
             color = "$text";
             font_size = 25;
@@ -79,7 +76,7 @@ in
         ];
 
         image = {
-          monitor = mainMonitor;
+          monitor = config.home.sessionVariables.MONITOR_PRIMARY;
           path = "${config.home.sessionVariables.DOTFILES_PATH}/assets/pics/profile.jpg";
           size = 200;
           border_color = "$accent";
@@ -90,7 +87,7 @@ in
         };
 
         input-field = {
-          monitor = mainMonitor;
+          monitor = config.home.sessionVariables.MONITOR_PRIMARY;
           size = "380, 80";
           outline_thickness = 6;
           dots_size = 0.2;

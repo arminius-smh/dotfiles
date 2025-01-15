@@ -6,7 +6,7 @@ local M = {
 M.config = function()
     require("scrollbar").setup({
         handle = {
-            color = "#292e42",
+            color = "#1e1e2e",
         },
         marks = {
             Search = { color = "#ff9e64" },

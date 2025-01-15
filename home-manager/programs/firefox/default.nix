@@ -88,7 +88,7 @@ in
                   }
                 ];
                 icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                definedAliases = [ "@nm" ];
+                definedAliases = [ "@no" ];
               };
               "home-manager options" = {
                 urls = [
@@ -169,6 +169,11 @@ in
             }
           ];
           settings = {
+            toolkit = {
+              legacyUserProfileCustomizations = {
+                stylesheets = true;
+              };
+            };
             privacy = {
               history = {
                 custom = true;

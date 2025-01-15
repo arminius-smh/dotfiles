@@ -10,14 +10,14 @@ initialize(){
 
 mode_on(){
     # turn montiors off
-    hyprctl dispatch dpms off DP-1
-    hyprctl dispatch dpms off DP-3
+    hyprctl dispatch dpms off "$MONITOR_SECONDARY"
+    hyprctl dispatch dpms off "$MONITOR_TERTIARY"
 }
 
 mode_off(){
     # turn monitors on again
-    hyprctl dispatch dpms on DP-1
-    hyprctl dispatch dpms on DP-3
+    hyprctl dispatch dpms on "$MONITOR_SECONDARY"
+    hyprctl dispatch dpms on "$MONITOR_TERTIARY"
 }
 
 

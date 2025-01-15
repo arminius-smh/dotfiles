@@ -40,6 +40,9 @@
       QT_IM_MODULE = "fcitx"; # NOTE: fcitx5.waylandFrontend = false sets this together with GTK_IM_MODULE (which should be unset)
       DOTFILES_PATH = "${config.home.homeDirectory}/dotfiles";
       UWSM_USE_SESSION_SLICE = "true";
+      MONITOR_PRIMARY = "HDMI-A-1";
+      MONITOR_SECONDARY = "DP-1";
+      MONITOR_TERTIARY = "DP-3";
     };
 
     activation = {

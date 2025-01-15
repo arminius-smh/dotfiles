@@ -5,9 +5,9 @@ wallpaper=$(find "$DOTFILES_PATH/assets/wallpapers/$systemName" -type f | shuf)
 
 monitors=()
 if [[ "$systemName" == "discovery" ]]; then
-    monitors=("eDP-1")
+    monitors=("$MONITOR_PRIMARY")
 elif [[ "$systemName" == "phoenix" ]]; then
-    monitors=("DP-3" "DP-1" "HDMI-A-1")
+    monitors=("$MONITOR_PRIMARY" "$MONITOR_SECONDARY" "$MONITOR_TERTIARY")
 fi
 
 counter=1

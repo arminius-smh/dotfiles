@@ -5,12 +5,13 @@
 }:
 {
   imports = [
+    ./adi1090x-plymouth-themes.nix
     ./inputs.nix
-    ./mypkgs.nix
-    ./timer.nix
     ./jellyfin-media-player.nix
-    ./vlc.nix
+    ./mypkgs.nix
     ./temp.nix
+    ./timer.nix
+    ./vlc.nix
   ];
 
   nixpkgs = {

@@ -46,7 +46,6 @@
   };
 
   boot = {
-    # only shutdown works, idk why
     plymouth = {
       enable = true;
       theme = "rings";
@@ -68,11 +67,13 @@
       "quiet"
       "splash"
       "boot.shell_on_fail"
+      "plymouth.use-simpledrm"
     ];
     loader = {
       timeout = 0;
       grub = {
         enable = true;
+        configurationLimit = 25;
         useOSProber = true;
         efiSupport = true;
         device = "nodev";

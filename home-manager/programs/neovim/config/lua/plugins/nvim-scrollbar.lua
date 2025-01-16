@@ -1,6 +1,7 @@
 -- scrollbar
 local M = {
     "petertriho/nvim-scrollbar",
+    enabled = false,
 }
 
 M.config = function()

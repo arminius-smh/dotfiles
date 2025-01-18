@@ -10,6 +10,7 @@ excludes = [
   "secrets",
   "assets/wallpapers",
   "*.png",
+  "*.webp",
   "*.jpg",
   "*.md",
   "*.mp3",

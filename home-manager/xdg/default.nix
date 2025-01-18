@@ -33,5 +33,36 @@ in
         "inode/directory" = fileManager;
       };
     };
+    desktopEntries = {
+      steam-gamescope = {
+        name = "Steam (Gamescope)";
+        exec = "gamescope --steam -- steam %U";
+        terminal = false;
+        categories = [
+          "Game"
+        ];
+        mimeType = [
+          "x-scheme-handler/steam"
+          "x-scheme-handler/steamlink"
+        ];
+        type = "Application";
+        icon = "steam";
+        prefersNonDefaultGPU = true;
+      };
+      heroic-gamescope = {
+        name = "Heroic Games Launcher (Gamescope)";
+        exec = "gamescope -- heroic %u";
+        terminal = false;
+        categories = [
+          "Game"
+        ];
+        mimeType = [
+          "x-scheme-handler/heroic"
+        ];
+        type = "Application";
+        icon = "com.heroicgameslauncher.hgl";
+        prefersNonDefaultGPU = true;
+      };
+    };
   };
 }

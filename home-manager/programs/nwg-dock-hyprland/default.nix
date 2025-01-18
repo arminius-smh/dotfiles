@@ -13,7 +13,8 @@
           firefox
           obsidian
           Jellyfin Media Player
-          ${if (systemName == "phoenix") then "heroic" else ""}
+          ${if (systemName == "phoenix") then "steam-gamescope" else ""}
+          ${if (systemName == "phoenix") then "heroic-gamescope" else ""}
           ${if (systemName == "phoenix") then "org.prismlauncher.PrismLauncher" else ""}
           anki
           ${if (systemName == "phoenix") then "spotify" else ""}

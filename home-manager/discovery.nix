@@ -2,6 +2,7 @@
 {
   imports = [
     ./gtk
+    ./home
     ./programs
     ./qt
     ./services

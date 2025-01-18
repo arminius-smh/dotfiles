@@ -8,6 +8,7 @@
     ./adi1090x-plymouth-themes.nix
     ./inputs.nix
     ./jellyfin-media-player.nix
+    ./nwg-dock-hyprland.nix
     ./mypkgs.nix
     ./temp.nix
     ./timer.nix

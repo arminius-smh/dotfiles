@@ -2,14 +2,13 @@
 {
   imports = [
     ../mangohud # game performance overlay
-
+    ../heroic # videogame manager
   ];
   home = {
     packages = with pkgs; [
       ludusavi # save file manager
 
       # videogame manager
-      heroic
       lutris
 
       protonup-qt # manage different proton versions for steam

@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./home
     ./programs
     ./services
     ./systemd

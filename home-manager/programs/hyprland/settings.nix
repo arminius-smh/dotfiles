@@ -95,9 +95,9 @@
               "uwsm app -- vesktop --start-minimized"
             ])
             (lib.mkIf (systemName == "phoenix") [
-              "uwsm app -- heroic"
               "uwsm app -- solaar -w hide"
-              "uwsm app -- steam -silent -noverifyfiles"
+              # "uwsm app -- heroic"
+              # "uwsm app -- steam -silent -noverifyfiles"
               "[workspace 9 silent] uwsm app -- thunderbird"
               "[workspace 8 silent] uwsm app -- spotify"
               "hyprctl dispatch focusmonitor ${config.home.sessionVariables.MONITOR_PRIMARY}"

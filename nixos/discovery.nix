@@ -12,7 +12,7 @@
     ./programs
     ./security
     ./services
+    ./swapDevices
     ./xdg
-    ./zramSwap
   ];
 }

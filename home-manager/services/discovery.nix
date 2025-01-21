@@ -9,5 +9,6 @@
     ./swaync # notification center
     ./blueman-applet # bluetooth applet
     ./hypridle # idle manager
+    ./podman # container manager
   ];
 }

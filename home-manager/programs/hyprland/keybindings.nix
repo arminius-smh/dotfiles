@@ -59,7 +59,11 @@
             "$mainMod SHIFT, W, exec, pkill -SIGUSR2 waybar"
             "$mainMod SHIFT, N, exec, swaync-client -t -sw"
 
-            "SUPER,F10,pass,^(com\.obsproject\.Studio)$" # pass key to obs
+            # stolen from https://github.com/hyprwm/Hyprland/issues/9058
+            "$mainMod, Z, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 + 0.5}')"
+            "$mainMod SHIFT, Z, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 - 0.5}')"
+
+            "$mainMod,F10,pass,^(com\.obsproject\.Studio)$" # pass key to obs
 
             # Fullscreen
             "$mainMod, F,fullscreen "

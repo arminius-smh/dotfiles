@@ -1,6 +1,7 @@
 -- debug adapter protocol
 local M = {
     "mfussenegger/nvim-dap",
+    enabled = false,
 }
 
 M.config = function()

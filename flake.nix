@@ -16,13 +16,6 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
-    mypkgs = {
-      url = "github:arminius-smh/nixpkgs/mypkgs";
-      # url = "git+file:///home/armin/Projects/Coding/nix/nixpkgs/";
-    };
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-    };
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,12 +26,9 @@
     };
     catppuccin = {
       url = "github:catppuccin/nix";
-      # url = "github:arminius-smh/catppuccin-nix/fcitx5";
-      # url = "git+file:///home/armin/Projects/Coding/nix/catppuccin-nix/";
     };
     nixos-apple-silicon = {
-      # url = "github:tpwrules/nixos-apple-silicon"; # change back after mesa update on twprules
-      url = "github:marcusramberg/nixos-apple-silicon/mesa";
+      url = "github:tpwrules/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

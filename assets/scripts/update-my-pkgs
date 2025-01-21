@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # maintainer of:
 
-NIXPKGS_PATH="/home/armin/Projects/Coding/nix/nixpkgs"
+NIXPKGS_PATH="/home/armin/projects/dev/misc/nixpkgs"
 PKG="$1"
 BY_NAME="${PKG:0:2}"
 PKG_PATH="pkgs/by-name/${BY_NAME}/${PKG}"

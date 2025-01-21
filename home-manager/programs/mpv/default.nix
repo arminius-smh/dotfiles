@@ -1,27 +1,35 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  systemName,
+  ...
+}:
 {
   programs = {
     mpv = {
       enable = true;
-      config = {
-        profile = "high-quality";
-        alang = "ja,jp,jpn,en,eng,de,deu,ger";
-        slang = "en,eng,de,deu,ger";
-        sub-auto = "fuzzy";
-        blend-subtitles = "yes";
-        audio-file-auto = "fuzzy";
-        dither-depth = "auto";
-        fullscreen = "yes";
-        screenshot-format = "png";
-        screenshot-template = "%F-%p";
-        screenshot-png-compression = 3;
-        deband = "yes";
-        deband-iterations = 4;
-        deband-threshold = 48;
-        deband-range = 24;
-        vo = "gpu-next";
-        gpu-api = "vulkan";
-      };
+      config =
+        {
+          profile = "high-quality";
+          alang = "ja,jp,jpn,en,eng,de,deu,ger";
+          slang = "en,eng,de,deu,ger";
+          sub-auto = "fuzzy";
+          blend-subtitles = "yes";
+          audio-file-auto = "fuzzy";
+          dither-depth = "auto";
+          fullscreen = "yes";
+          screenshot-format = "png";
+          screenshot-template = "%F-%p";
+          screenshot-png-compression = 3;
+          deband = "yes";
+          deband-iterations = 4;
+          deband-threshold = 48;
+          deband-range = 24;
+        }
+        // lib.optionalAttrs (systemName == "phoenix") {
+          vo = "gpu-next";
+          gpu-api = "vulkan";
+        };
       bindings = {
         "ctrl+t" = "script-binding toggle-subs-to-clipboard";
         "B" = "script_message bookmarker-menu";

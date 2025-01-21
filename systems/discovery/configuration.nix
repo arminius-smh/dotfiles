@@ -44,7 +44,6 @@
       enable = true;
       peripheralFirmwareDirectory = ./firmware;
       useExperimentalGPUDriver = true;
-      experimentalGPUInstallMode = "replace"; # "overlay" NOTE: overlay recompiles the world, replace is impure
       setupAsahiSound = true;
     };
     graphics = {

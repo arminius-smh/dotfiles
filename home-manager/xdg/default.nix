@@ -1,4 +1,9 @@
-{ config, ... }:
+{
+  config,
+  lib,
+  systemName,
+  ...
+}:
 let
   browser = [ "firefox.desktop" ];
   editor = [ "nvim.desktop" ];
@@ -33,7 +38,7 @@ in
         "inode/directory" = fileManager;
       };
     };
-    desktopEntries = {
+    desktopEntries = lib.optionalAttrs (systemName == "phoenix") {
       steam-gamescope = {
         name = "Steam (Gamescope)";
         exec = "gamescope --steam -- steam %U";
@@ -63,6 +68,7 @@ in
         icon = "com.heroicgameslauncher.hgl";
         prefersNonDefaultGPU = true;
       };
+
     };
   };
 }

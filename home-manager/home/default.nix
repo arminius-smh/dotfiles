@@ -38,7 +38,7 @@
       # NOTE: gamescope doesn't import wayland keyboard layout https://github.com/ValveSoftware/gamescope/issues/203
       XKB_DEFAULT_LAYOUT = "de";
       XKB_DEFAULT_VARIANT = "deadtilde";
-      
+
       DOTFILES_PATH = "${config.home.homeDirectory}/dotfiles";
       UWSM_USE_SESSION_SLICE = "true";
       MONITOR_PRIMARY =
@@ -48,8 +48,29 @@
           "eDP-1"
         else
           "";
-      MONITOR_SECONDARY = lib.mkIf (systemName == "phoenix") "DP-1";
-      MONITOR_TERTIARY = lib.mkIf (systemName == "phoenix") "DP-3";
+      MONITOR_SECONDARY = if (systemName == "phoenix") then "DP-1" else "";
+      MONITOR_TERTIARY = if (systemName == "phoenix") then "DP-3" else "";
+
+      # HOMEDIR CLEANUP
+      ADOTDIR = "${config.xdg.dataHome}/antigen";
+      CARGO_HOME = "${config.xdg.dataHome}/cargo";
+      CUDA_CACHE_PATH = "${config.xdg.cacheHome}/nv";
+      NPM_CONFIG_USERCONFIG = "${config.xdg.configHome}/npm/npmrc";
+      NODE_REPL_HISTORY = "${config.xdg.dataHome}/node_repl_history";
+      _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${config.xdg.configHome}/java";
+      WINEPREFIX = "${config.xdg.dataHome}/wine";
+      PYTHONSTARTUP = "${config.xdg.configHome}/python/pythonrc";
+      SSB_HOME = "${config.xdg.dataHome}/zoom";
+      STACK_XDG = 1;
+      STACK_ROOT = "${config.xdg.dataHome}/stack";
+      GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
+      DOCKER_CONFIG = "${config.xdg.configHome}/docker";
+      GOPATH = "${config.xdg.dataHome}/go";
+      PLATFORMIO_CORE_DIR = "${config.xdg.dataHome}/platformio";
+      RUSTUP_HOME = "${config.xdg.dataHome}/rustup";
+      NPM_CONFIG_INIT_MODULE = "${config.xdg.configHome}/npm/config/npm-init.js";
+      NPM_CONFIG_CACHE = "${config.xdg.cacheHome}/npm";
+      PM_CONFIG_TMP = "$XDG_RUNTIME_DIR/npm";
     };
 
     pointerCursor = lib.mkIf (systemName == "phoenix" || systemName == "discovery") {
@@ -66,23 +87,15 @@
     };
 
     activation = lib.mkIf (systemName == "phoenix" || systemName == "discovery") {
-      python-dab = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        if [ ! -d "$HOME/Projects/Coding/.virtualenvs/" ]; then
-            mkdir -p "$HOME/Projects/Coding/.virtualenvs/" && cd "$_" || exit
-            ${pkgs.python3}/bin/python3 -m venv debugpy
-            debugpy/bin/python -m pip install debugpy
-        fi
-      '';
-
       nvim-jdtls = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
         # https://github.com/eclipse-jdtls/eclipse.jdt.ls#installation
-        if [ ! -d "$HOME/Projects/Coding/.jdtls/" ]; then
+        if [ ! -d "$HOME/projects/dev/.jdtls/" ]; then
             FILENAME="jdt-language-server.tar.gz"
             LINK="https://download.eclipse.org/jdtls/milestones/1.36.0/jdt-language-server-1.36.0-202405301306.tar.gz"
 
-            mkdir -p "$HOME/Projects/Coding/.jdtls/data" && cd "$_/.." || exit
+            mkdir -p "$HOME/projects/dev/.jdtls/data" && cd "$_/.." || exit
             ${pkgs.wget}/bin/wget --hsts-file=${config.xdg.dataHome}/wget-hsts -O "$FILENAME" "$LINK"
-            ${pkgs.busybox}/bin/tar -zxvf "$HOME/Projects/Coding/.jdtls/$FILENAME" -C "$HOME/Projects/Coding/.jdtls"
+            ${pkgs.busybox}/bin/tar -zxvf "$HOME/projects/dev/.jdtls/$FILENAME" -C "$HOME/projects/dev/.jdtls"
             rm "$FILENAME"
         fi
       '';

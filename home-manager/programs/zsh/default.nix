@@ -53,32 +53,13 @@
               ''
                 # NVIM-JDTLS - https://github.com/mfussenegger/nvim-jdtls
                 export NVIM_LOMBOK="${pkgs.lombok}/share/java/lombok.jar"
-                export NVIM_JDT_LANGUAGE_SERVER_JAR=$(fd --base-directory ${config.home.homeDirectory}/Projects/Coding/.jdtls/plugins -a "org.eclipse.equinox.launcher_" 2> /dev/null) # NOTE: this may break
-                export NVIM_JAVA_CONFIG_DIR="${config.home.homeDirectory}/Projects/Coding/.jdtls/config_linux"
-                export NVIM_JAVA_WORKSPACE_DIR="${config.home.homeDirectory}/Projects/Coding/.jdtls/data"
+                export NVIM_JDT_LANGUAGE_SERVER_JAR=$(fd --base-directory ${config.home.homeDirectory}/projects/dev/.jdtls/plugins -a "org.eclipse.equinox.launcher_" 2> /dev/null) # NOTE: this may break
+                export NVIM_JAVA_CONFIG_DIR="${config.home.homeDirectory}/projects/dev/.jdtls/config_linux"
+                export NVIM_JAVA_WORKSPACE_DIR="${config.home.homeDirectory}/projects/dev/.jdtls/data"
               ''
             else
               ""
           }
-
-          # HOMEDIR CLEANUP
-          export ADOTDIR="${config.xdg.dataHome}/antigen"
-          export CARGO_HOME="${config.xdg.dataHome}/cargo"
-          export CUDA_CACHE_PATH="${config.xdg.cacheHome}/nv"
-          export NPM_CONFIG_USERCONFIG="${config.xdg.configHome}/npm/npmrc"
-          export NODE_REPL_HISTORY="${config.xdg.dataHome}/node_repl_history"
-          export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=${config.xdg.configHome}/java"
-          export WINEPREFIX="${config.xdg.dataHome}/wine"
-          export PYTHONSTARTUP="${config.xdg.configHome}/python/pythonrc"
-          export SSB_HOME="${config.xdg.dataHome}/zoom"
-          export STACK_XDG=1
-          export STACK_ROOT="${config.xdg.dataHome}"/stack
-          export GRADLE_USER_HOME="${config.xdg.dataHome}"/gradle
-          export DOCKER_CONFIG="${config.xdg.configHome}"/docker
-          export GOPATH="${config.xdg.dataHome}"/go
-          export PLATFORMIO_CORE_DIR="${config.xdg.dataHome}"/platformio
-          export RUSTUP_HOME="${config.xdg.dataHome}"/rustup
-          export GOPATH="${config.xdg.dataHome}"/go
 
           # Source private stuff
           if [ -f $HOME/.config/zsh/.priv.zsh ]; then
@@ -96,7 +77,7 @@
           export PATH="$DOTFILES_PATH/assets/scripts:$PATH"
 
           # color --help with bat
-          alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+          alias -g -- --help='--help 2>&1 | bat --paging=never --language=help --style=plain'
 
           ## mv img from download folder to notes folder
           mvimg() {

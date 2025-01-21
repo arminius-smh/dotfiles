@@ -22,7 +22,7 @@ M.config = function()
     -- Set menu
     dashboard.section.buttons.val = {
         dashboard.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
-        dashboard.button("f", "  > Find file", ":cd $HOME/Projects/Coding | Telescope find_files<CR>"),
+        dashboard.button("f", "  > Find file", ":cd $HOME/projects/dev | Telescope find_files<CR>"),
         dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
         dashboard.button("n", "  > Notes", ":e $HOME/notes/index.norg | :cd $HOME/notes/ <CR>"),
         dashboard.button("s", "  > Dotfiles", ":e $DOTFILES_PATH/ | :cd $HOME/dotfiles/ <CR>"),

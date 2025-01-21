@@ -92,7 +92,11 @@
 
           # , alias for nix(nom) shell
           ,() {
-            nom shell nixpkgs#$1
+            cmd="nom shell"
+            for arg in "$@"; do
+              cmd="$cmd nixpkgs#$arg"
+            done
+            eval "$cmd"
           }
 
           # pfetch options

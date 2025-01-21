@@ -1,4 +1,5 @@
 {
+  pkgs,
   inputs,
   ...
 }:
@@ -22,6 +23,16 @@
   };
 
   boot = {
+    # NOTE: https://github.com/tpwrules/nixos-apple-silicon/issues/257#issuecomment-2608236190
+    # plymouth = {
+    #   enable = true;
+    #   theme = "hud_3";
+    #   themePackages = with pkgs; [
+    #     (adi1090x-plymouth-themes.override {
+    #       selected_themes = [ "hud_3" ];
+    #     })
+    #   ];
+    # };
     loader = {
       grub = {
         enable = true;
@@ -31,7 +42,18 @@
         canTouchEfiVariables = false;
       };
     };
-    kernelParams = [ "apple_dcp.show_notch=1" ];
+    initrd = {
+      systemd = {
+        enable = true;
+      };
+      verbose = false;
+    };
+    consoleLogLevel = 0;
+    kernelParams = [
+      "apple_dcp.show_notch=1"
+      "quiet"
+      "boot.shell_on_fail"
+    ];
   };
 
   hardware = {

@@ -48,7 +48,11 @@ rofi_cmd() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-    echo -e "$cinema\n$gaming\n$lock\n$logout\n$reboot\n$shutdown" | rofi_cmd
+    if [[ $host == "phoenix" ]]; then
+        echo -e "$cinema\n$gaming\n$lock\n$logout\n$reboot\n$shutdown" | rofi_cmd
+    elif [[ $host == "discovery" ]]; then
+        echo -e "$lock\n$logout\n$reboot\n$shutdown" | rofi_cmd
+    fi
 }
 
 # Actions

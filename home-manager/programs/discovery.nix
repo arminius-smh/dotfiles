@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     ./home-manager # manage user environment
@@ -29,6 +29,7 @@
 
   home = {
     packages = with pkgs; [
+      fex # x86 and x86-64 usermode emulator NOTE: not working w/o muvm
       anki # flashcard
       brightnessctl # brightness controller
       chromium # browser

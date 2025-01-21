@@ -1,14 +1,15 @@
 { ... }:
 {
   imports = [
-    ./i18n
-    ./time
     ./console
-    ./users
+    ./i18n
     ./networking
     ./nix
     ./nixpkgs
     ./programs
     ./services
+    ./systemd
+    ./time
+    ./users
   ];
 }

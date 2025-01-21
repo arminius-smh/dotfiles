@@ -12,6 +12,11 @@
           path = ./go;
           description = "Simple Go project";
         };
+
+        empty = {
+          path = ./empty;
+          description = "Empty flake template";
+        };
       };
     };
 }

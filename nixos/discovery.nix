@@ -2,10 +2,8 @@
 {
   imports = [
     ./console
-    ./time
-    ./i18n
-    ./users
     ./fonts
+    ./i18n
     ./networking
     ./nix
     ./nixpkgs
@@ -13,6 +11,9 @@
     ./security
     ./services
     ./swapDevices
+    ./systemd
+    ./time
+    ./users
     ./xdg
   ];
 }

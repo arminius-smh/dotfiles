@@ -1,6 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, systemName, ... }:
 let
-  theme = "rings";
+  theme =
+    if (systemName == "phoenix") then
+      "rings"
+    else if (systemName == "discovery") then
+      "hud_3"
+    else
+      "";
 in
 {
   nixpkgs = {

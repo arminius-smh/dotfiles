@@ -1,12 +1,10 @@
 { ... }:
 {
   imports = [
+    # ./system
     ./console
-    ./xdg
-    ./time
-    ./users
-    ./i18n
     ./fonts
+    ./i18n
     ./networking
     ./nix
     ./nixpkgs
@@ -14,7 +12,10 @@
     ./qt
     ./security
     ./services
-    # ./system
+    ./systemd
+    ./time
+    ./users
+    ./xdg
     ./zramSwap
   ];
 }

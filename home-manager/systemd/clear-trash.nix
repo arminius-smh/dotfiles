@@ -9,7 +9,7 @@
           };
           Service = {
             Type = "oneshot";
-            ExecStart = "${pkgs.bash}/bin/sh -c '${pkgs.coreutils}/bin/rm -rf /home/armin/.local/share/Trash/files/* /home/armin/.local/share/Trash/info/* /home/armin/Mount/Storage/.Trash-1000/files/* /home/armin/Mount/Storage/.Trash-1000/info/*'";
+            ExecStart = "${pkgs.gtrash}/bin/gtrash find --rm";
           };
         };
       };

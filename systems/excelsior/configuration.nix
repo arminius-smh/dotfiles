@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   ...
 }:
@@ -31,7 +30,6 @@
         useOSProber = false;
       };
     };
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [ "nohibernate" ];
     supportedFilesystems = [ "zfs" ];
     zfs = {

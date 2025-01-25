@@ -12,6 +12,7 @@
           "docker"
           "gamemode"
           "input"
+          "uinput"
           "libvirtd"
           "networkmanager"
           "tty"

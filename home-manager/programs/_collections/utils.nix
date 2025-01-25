@@ -51,7 +51,7 @@
       acpi # battery status
       nix-update # update versions/source hashes of nix packages
       bemoji # launcher emoji picker
-      wtype # wayland xdotool
+      dotool # simulate input
       hyprsunset # Hyprland blue-light filter
 
       # file compression

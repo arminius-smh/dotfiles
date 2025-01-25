@@ -71,10 +71,6 @@
             ];
           };
 
-          cursor = {
-            use_cpu_buffer = true;
-          };
-
           misc = {
             disable_hyprland_logo = true;
           };
@@ -104,7 +100,7 @@
             ])
             (lib.mkIf (systemName == "discovery") [
               "uwsm app -- libinput-gestures"
-              "[workspace 8 silent] uwsm app -- kitty --class spotify -e spotify_player"
+              "[workspace 8 silent] uwsm app -- kitty -o background_opacity=1 --class spotify -e spotify_player"
             ])
           ];
         };

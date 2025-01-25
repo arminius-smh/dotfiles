@@ -114,6 +114,8 @@
         fzf = ''fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'';
         rm = "gtrash put --rm-mode";
         man = "batman";
+        shutdown = "shutdown --no-wall";
+        reboot = "reboot --no-wall";
       };
     };
   };

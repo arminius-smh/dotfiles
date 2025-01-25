@@ -34,8 +34,10 @@
     #   ];
     # };
     loader = {
+      timeout = 1;
       grub = {
         enable = true;
+        configurationLimit = 25;
         device = "nodev";
       };
       efi = {
@@ -52,7 +54,13 @@
     kernelParams = [
       "apple_dcp.show_notch=1"
       "quiet"
+      # "splash"
       "boot.shell_on_fail"
+      "vt.cur_default=1" # hide blinking _ cursor during boot
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
     ];
   };
 
@@ -61,6 +69,9 @@
     bluetooth = {
       enable = true;
       powerOnBoot = true;
+    };
+    uinput = {
+      enable = true;
     };
     asahi = {
       enable = true;

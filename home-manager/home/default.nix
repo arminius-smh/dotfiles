@@ -71,6 +71,8 @@
       NPM_CONFIG_INIT_MODULE = "${config.xdg.configHome}/npm/config/npm-init.js";
       NPM_CONFIG_CACHE = "${config.xdg.cacheHome}/npm";
       PM_CONFIG_TMP = "$XDG_RUNTIME_DIR/npm";
+      GNUPGHOME = "${config.xdg.dataHome}/gnupg";
+      DVDCSS_CACHE = "${config.xdg.dataHome}/dvdcss";
     };
 
     pointerCursor = lib.mkIf (systemName == "phoenix" || systemName == "discovery") {
@@ -87,6 +89,19 @@
     };
 
     activation = lib.mkIf (systemName == "phoenix" || systemName == "discovery") {
+      dir-structure = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        directories=(
+          "$HOME/projects/dev/projects"
+          "$HOME/projects/dev/misc"
+          "$HOME/projects/dev/scratch"
+        )
+
+        for dir in "''${directories[@]}"; do
+          if [ ! -d "$dir" ]; then
+            mkdir -p "$dir"
+          fi
+        done
+      '';
       nvim-jdtls = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
         # https://github.com/eclipse-jdtls/eclipse.jdt.ls#installation
         if [ ! -d "$HOME/projects/dev/.jdtls/" ]; then

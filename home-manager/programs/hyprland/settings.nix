@@ -19,6 +19,7 @@
               natural_scroll = true;
             };
             sensitivity = 0;
+            accel_profile = "flat";
           };
 
           general = {

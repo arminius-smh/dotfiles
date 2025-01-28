@@ -35,6 +35,7 @@
           };
         };
         push = {
+          default = "current";
           autoSetupRemote = true;
         };
         commit = {

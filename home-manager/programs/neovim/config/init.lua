@@ -89,4 +89,9 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     end,
 })
 
+-- hyprland filetype
+vim.filetype.add({
+    pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})
+
 require("after") -- post-nvim configuration

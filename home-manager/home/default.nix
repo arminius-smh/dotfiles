@@ -94,6 +94,7 @@
           "$HOME/projects/dev/projects"
           "$HOME/projects/dev/misc"
           "$HOME/projects/dev/scratch"
+          "$HOME/misc/themes"
         )
 
         for dir in "''${directories[@]}"; do

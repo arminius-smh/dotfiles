@@ -45,3 +45,7 @@ includes = ["*.toml"]
 [formatter.beautysh]
 command = "beautysh"
 includes = ["*.sh", "*.zsh", "assets/scripts/*"]
+
+[formatter.black]
+command = "black"
+includes = ["*.py"]

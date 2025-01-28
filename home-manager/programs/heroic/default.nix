@@ -1,4 +1,13 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+let
+  json_edit = "${config.home.sessionVariables.DOTFILES_PATH}/assets/scripts/json_edit.py";
+in
+
 {
   home = {
     packages = with pkgs; [
@@ -6,18 +15,29 @@
     ];
 
     activation = {
-      # this is stupid.
       heroic-settings = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        if [ ! $(${pkgs.jq}/bin/jq '.defaultSettings.customThemesPath' /home/armin/.config/heroic/config.json) == '"/home/armin/Collections/heroic/themes"' ]; then
-          ${pkgs.jq}/bin/jq '.defaultSettings.customThemesPath = "/home/armin/Collections/heroic/themes"' /home/armin/.config/heroic/config.json > /tmp/temp.json
-          mv /tmp/temp.json /home/armin/.config/heroic/config.json
-        fi
+        ${pkgs.python3}/bin/python \
+          ${json_edit} \
+          "${config.home.homeDirectory}/.config/heroic/config.json" \
+          "defaultSettings.customThemesPath" \
+          "${config.home.homeDirectory}/misc/themes/heroic/themes"
 
-        if [ ! $(${pkgs.jq}/bin/jq '.theme' /home/armin/.config/heroic/store/config.json) == '"catppuccin-mocha.css"' ]; then
-          ${pkgs.jq}/bin/jq '.theme = "catppuccin-mocha.css"' /home/armin/.config/heroic/store/config.json > /tmp/temp.json
-          mv /tmp/temp.json /home/armin/.config/heroic/store/config.json
-        fi
+        ${pkgs.python3}/bin/python \
+          ${json_edit} \
+          "${config.home.homeDirectory}/.config/heroic/store/config.json" \
+          "theme" \
+          "catppuccin-mocha.css"
       '';
+    };
+
+    file = {
+      "misc/themes/heroic" = {
+        source = pkgs.fetchgit {
+          url = "https://github.com/catppuccin/heroic.git";
+          rev = "8f32fd139320a8d85d9d5176090538cbf05f3c0f";
+          sha256 = "00n9vhm71ibhysd1fhr156rvglw9aghxcr45vr0ngy3i1ij2v516";
+        };
+      };
     };
   };
 }

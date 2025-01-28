@@ -19,6 +19,7 @@
             "size 650 150,class:^(pomodoro)$"
             "move onscreen 1200 135,class:^(pomodoro)$"
             "norounding 1,class:^(steam_app_.*)$"
+            "float,class:^(com.saivert.pwvucontrol)$"
           ];
         };
       };

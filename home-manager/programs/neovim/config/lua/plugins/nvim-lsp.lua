@@ -36,6 +36,7 @@ M.config = function()
         "ts_ls",
         "vala_ls",
         "yamlls",
+        "hyprls",
     }
 
     -- if lsp isn't installed globally and only used in flakes,

@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./plugins.nix
+    # ./plugins.nix
     ./settings.nix
     ./keybindings.nix
     ./rules.nix

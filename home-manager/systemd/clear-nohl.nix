@@ -10,19 +10,19 @@
           Service = {
             Type = "oneshot";
             ExecStart = "${pkgs.writeShellScript "clear-nohl" ''
-              #!/usr/bin/env bash
+                            #!/usr/bin/env bash
 
-              MOVIE_PATH=/tank/users/armin/Media/Movies/3_RADARR
+                            MOVIE_PATH=/tank/users/armin/Media/Movies/3_RADARR
 
-              ${pkgs.busybox}/bin/find "$MOVIE_PATH" -type f -name "*.mkv" -name "*.mp4" | while read -r file; do
-                  link_count=$(${pkgs.busybox}/bin/stat -c '%h' "$file")
-                  if [ "$link_count" -eq 1 ]; then
-                      folder=$(${pkgs.busybox}/bin/dirname "$file")
-                      echo "$folder"
-                      ${pkgs.busybox}/bin/rm -r "$folder"
-                  fi
-              done
-	      ''}";
+                            ${pkgs.busybox}/bin/find "$MOVIE_PATH" -type f -name "*.mkv" -name "*.mp4" | while read -r file; do
+                                link_count=$(${pkgs.busybox}/bin/stat -c '%h' "$file")
+                                if [ "$link_count" -eq 1 ]; then
+                                    folder=$(${pkgs.busybox}/bin/dirname "$file")
+                                    echo "$folder"
+                                    ${pkgs.busybox}/bin/rm -r "$folder"
+                                fi
+                            done
+              	      ''}";
           };
         };
       };

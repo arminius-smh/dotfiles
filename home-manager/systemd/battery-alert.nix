@@ -9,7 +9,7 @@
           };
           Service = {
             Type = "oneshot";
-            ExecStart = "/home/armin/dotfiles/assets/scripts/battery-alert";
+            ExecStart = "/home/armin/dotfiles/assets/scripts/battery-alert.sh";
           };
         };
       };

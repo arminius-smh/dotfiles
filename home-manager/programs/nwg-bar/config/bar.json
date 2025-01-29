@@ -16,12 +16,12 @@
     },
     {
         "label": "Gaming Mode",
-        "exec": "/home/armin/dotfiles/assets/scripts/gaming",
+        "exec": "/home/armin/dotfiles/assets/scripts/gaming.sh",
         "icon": "/home/armin/dotfiles/assets/pics/gamepad-1.svg"
     },
     {
         "label": "Cinema Mode",
-        "exec": "/home/armin/dotfiles/assets/scripts/cinema",
+        "exec": "/home/armin/dotfiles/assets/scripts/cinema.sh",
         "icon": "/home/armin/dotfiles/assets/pics/popcorn.svg"
     }
 ]

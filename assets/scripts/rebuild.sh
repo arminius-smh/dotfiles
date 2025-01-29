@@ -62,7 +62,7 @@ if [[ "$interactive" == true ]]; then
 
     # check status of merged prs
     sudo -u armin DBUS_SESSION_BUS_ADDRESS="$BUS_ADDRESS" DISPLAY=:0 \
-        /home/armin/dotfiles/assets/scripts/nix-pr-notify
+        /home/armin/dotfiles/assets/scripts/nix-pr-notify.sh
 
     if ! /run/current-system/sw/bin/nixos-rebuild boot --flake "/home/armin/dotfiles?submodules=1#$hostname" &> /tmp/auto-update.log ; then
         echo "[$DATE] nixos-rebuild failed"

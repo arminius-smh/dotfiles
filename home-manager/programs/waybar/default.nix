@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 {
   imports = [
     ./config.nix
@@ -16,7 +16,6 @@
       enable = true;
       systemd = {
         enable = true;
-        target = config.wayland.systemd.target;
       };
     };
   };

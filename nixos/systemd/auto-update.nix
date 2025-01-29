@@ -26,7 +26,7 @@
           "network-online.target"
           "graphical.target"
         ];
-        script = "/home/armin/dotfiles/assets/scripts/rebuild -i";
+        script = "/home/armin/dotfiles/assets/scripts/rebuild.sh -i";
       };
     };
     timers = {

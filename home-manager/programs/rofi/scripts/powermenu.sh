@@ -71,9 +71,9 @@ case ${chosen} in
         uwsm stop
         ;;
     "$cinema")
-        "$DOTFILES_PATH"/assets/scripts/cinema
+        "$DOTFILES_PATH"/assets/scripts/cinema.sh
         ;;
     "$gaming")
-        "$DOTFILES_PATH"/assets/scripts/gaming
+        "$DOTFILES_PATH"/assets/scripts/gaming.sh
         ;;
 esac

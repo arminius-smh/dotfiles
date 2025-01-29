@@ -12,10 +12,10 @@
     ./qt
     ./security
     ./services
+    ./swapDevices
     ./systemd
     ./time
     ./users
     ./xdg
-    ./zramSwap
   ];
 }

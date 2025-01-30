@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    # ./system
     ./console
     ./fonts
     ./i18n
@@ -13,9 +12,11 @@
     ./security
     ./services
     ./swapDevices
+    # ./system
     ./systemd
     ./time
     ./users
     ./xdg
+    # ./zramSwap
   ];
 }

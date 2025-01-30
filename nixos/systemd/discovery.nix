@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    # ./auto-update.nix
   ];
 
   # hide tty1 from showing before sddm

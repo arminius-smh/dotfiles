@@ -7,7 +7,7 @@
     # ./ags # widgets
     ./hyprland # wayland window manager
     ./hyprlock # screen locker
-    ./sway # wayland window manager
+    # ./sway # wayland window manager
     ./waybar # status bar
     # ./swaylock # screen locker
     ./rofi # application launcher

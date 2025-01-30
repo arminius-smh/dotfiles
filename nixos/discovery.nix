@@ -8,12 +8,15 @@
     ./nix
     ./nixpkgs
     ./programs
+    ./qt
     ./security
     ./services
     ./swapDevices
+    # ./system
     ./systemd
     ./time
     ./users
     ./xdg
+    # ./zramSwap
   ];
 }

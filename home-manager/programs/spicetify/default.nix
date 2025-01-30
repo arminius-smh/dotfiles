@@ -7,17 +7,18 @@ let
   spicePkgs = inputs.spicetify.legacyPackages.${pkgs.system};
 in
 {
-  # import the flake's module for your system
   imports = [ inputs.spicetify.homeManagerModules.default ];
 
-  # configure spicetify :)
   programs = {
     spicetify = {
       enable = true;
 
-      # theme = spicePkgs.themes.text;
       theme = spicePkgs.themes.catppuccin;
       colorScheme = "mocha";
+
+      enabledCustomApps = with spicePkgs.apps; [
+        marketplace
+      ];
 
       enabledExtensions = with spicePkgs.extensions; [
         fullAppDisplay
@@ -25,6 +26,8 @@ in
         copyLyrics
         copyToClipboard
         betterGenres
+        playNext
+        hidePodcasts
       ];
     };
   };

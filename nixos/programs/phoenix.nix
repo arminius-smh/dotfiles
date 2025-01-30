@@ -11,7 +11,7 @@
     ./nix-ld
     ./nh
     ./steam
-    ./sway
+    # ./sway
     ./uwsm
     ./thunar
     ./zsh

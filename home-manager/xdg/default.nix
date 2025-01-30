@@ -2,6 +2,7 @@
   config,
   lib,
   systemName,
+  pkgs,
   ...
 }:
 let
@@ -19,6 +20,22 @@ in
     configHome = "${config.home.homeDirectory}/.config";
     dataHome = "${config.home.homeDirectory}/.local/share";
     stateHome = "${config.home.homeDirectory}/.local/state";
+    portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+
+      config = {
+        common.default = [ "gtk" ];
+        hyprland.default = [
+          "gtk"
+          "hyprland"
+        ];
+      };
+
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+      ];
+    };
     mime = {
       enable = true;
     };

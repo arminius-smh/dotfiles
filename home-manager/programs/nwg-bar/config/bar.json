@@ -6,12 +6,12 @@
     },
     {
         "label": "Shutdown",
-        "exec": "systemctl poweroff",
+        "exec": "shutdown --no-wall now",
         "icon": "/home/armin/dotfiles/assets/pics/shutdown.svg"
     },
     {
         "label": "Reboot",
-        "exec": "systemctl reboot",
+        "exec": "reboot --no-wall",
         "icon": "/home/armin/dotfiles/assets/pics/reboot.svg"
     },
     {

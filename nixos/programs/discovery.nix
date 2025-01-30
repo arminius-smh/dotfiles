@@ -6,7 +6,7 @@
     ./nh
     ./thunar
     ./uwsm
-    ./sway
+    # ./sway
     ./zsh
   ];
 

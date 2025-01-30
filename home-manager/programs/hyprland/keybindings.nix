@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   wayland = {
     windowManager = {
@@ -75,22 +75,26 @@
             "$mainMod, mouse:273, resizewindow"
           ];
 
+          bindr = [
+            "CAPS, Caps_Lock, exec, swayosd-client --caps-lock"
+          ];
+
           binde = [
             # Keyboard Volume Buttons
-            ", XF86AudioRaiseVolume, exec, volumectl -M $(hyprctl activeworkspace | awk '/monitorID/{print $2}' | head -n 1) -u up 2"
-            ", XF86AudioLowerVolume, exec, volumectl -M $(hyprctl activeworkspace | awk '/monitorID/{print $2}' | head -n 1) -u down 2"
-            ", XF86AudioMute, exec, volumectl -M $(hyprctl activeworkspace | awk '/monitorID/{print $2}' | head -n 1) toggle-mute"
+            ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume +2"
+            ", XF86AudioLowerVolume, exec, swayosd-client --output-volume -2"
+            ", XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
 
             ", XF86AudioNext, exec, playerctl next"
             ", XF86AudioPause, exec, playerctl play-pause"
             ", XF86AudioPlay, exec, playerctl play-pause"
             ", XF86AudioPrev, exec, playerctl previous"
 
-            ", XF86MonBrightnessUp, exec, lightctl -M $(hyprctl activeworkspace | awk '/monitorID/{print $2}' | head -n 1) up 5"
-            ", XF86MonBrightnessDown, exec, lightctl -M $(hyprctl activeworkspace | awk '/monitorID/{print $2}' | head -n 1) down 5"
+            ", XF86MonBrightnessUp, exec, swayosd-client --device apple-panel-bl --brightness +5"
+            ", XF86MonBrightnessDown, exec, swayosd-client --device apple-panel-bl --brightness -5"
 
-            "$mainMod, XF86MonBrightnessUp, exec, lightctl -D kbd_backlight -M $(hyprctl activeworkspace | awk '/monitorID/{print $2}' | head -n 1) up 5"
-            "$mainMod, XF86MonBrightnessDown, exec, lightctl -D kbd_backlight -M $(hyprctl activeworkspace | awk '/monitorID/{print $2}' | head -n 1) down 5"
+            "$mainMod, XF86MonBrightnessUp, exec, swayosd-client --device kbd_backlight --brightness +5"
+            "$mainMod, XF86MonBrightnessDown, exec, swayosd-client --device kbd_backlight --brightness -5"
           ];
         };
       };

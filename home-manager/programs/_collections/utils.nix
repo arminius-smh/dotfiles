@@ -73,6 +73,7 @@
       webp-pixbuf-loader # webp thumbnail support
       file-roller # archive manager
       socat # socket cat
+      hyprpolkitagent # polkit agent
     ];
   };
 }

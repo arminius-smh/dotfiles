@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./home-manager # manage user environment
@@ -6,7 +6,7 @@
     ./hyprland # wayland window manager
     ./hyprlock # screen locker
 
-    ./sway # wayland window manager
+    # ./sway # wayland window manager
     # ./swaylock # screen locker
 
     ./waybar # status bar

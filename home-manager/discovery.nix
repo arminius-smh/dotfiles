@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./dconf
     ./gtk
     ./home
     ./programs

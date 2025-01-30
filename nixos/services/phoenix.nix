@@ -1,20 +1,26 @@
 { ... }:
 {
   imports = [
-    ./udev
+    # ./activemq
     ./avahi
+    ./blueman
+    ./dbus
+    ./displayManager
+    ./fstrim
+    ./fwupd # firmware update
+    # ./getty
+    ./gvfs
+    # ./kubo
+    # ./minecraft-server
+    # ./mysql
+    ./openssh
+    ./pipewire
+    ./psd # https://wiki.archlinux.org/title/Profile-sync-daemon
+    # ./scx
+    ./tumbler # filemanager thumbnail generator
+    ./udev
     ./udisks2
     ./xserver
-    ./tumbler # filemanager thumbnail generator
-    ./fstrim
-    ./openssh
-    ./dbus
-    ./fwupd # firmware update
-    ./blueman
-    ./psd # https://wiki.archlinux.org/title/Profile-sync-daemon
-    ./pipewire
-    ./displayManager
-    ./gvfs
-    # ./scx
+    # ./zfs
   ];
 }

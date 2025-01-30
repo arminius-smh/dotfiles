@@ -59,10 +59,10 @@ run_rofi() {
 chosen="$(run_rofi)"
 case ${chosen} in
     "$shutdown")
-        shutdown now
+        shutdown --no-wall now
         ;;
     "$reboot")
-        reboot
+        reboot --no-wall
         ;;
     "$lock")
         hyprlock

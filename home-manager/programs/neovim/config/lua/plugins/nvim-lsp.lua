@@ -4,6 +4,8 @@ local M = {
 }
 
 M.config = function()
+    local dotfiles_path = os.getenv("DOTFILES_PATH")
+
     local nvim_lsp = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
     capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -14,6 +16,8 @@ M.config = function()
 
     local server_list = {
         "rust_analyzer",
+        "hyprls",
+        "nixd",
 
         "bashls",
         "ccls",
@@ -27,7 +31,6 @@ M.config = function()
         "lemminx",
         "lua_ls",
         "marksman",
-        "nixd",
         "pyright",
         "stylelint_lsp",
         "svelte",
@@ -36,7 +39,6 @@ M.config = function()
         "ts_ls",
         "vala_ls",
         "yamlls",
-        "hyprls",
     }
 
     -- if lsp isn't installed globally and only used in flakes,
@@ -99,17 +101,17 @@ M.config = function()
             if server == "nixd" then
                 config.settings = {
                     nixd = {
-                        nixpkgs = {
-                            expr = 'import (builtins.getFlake ("git+file:///home/armin/dotfiles?submodules=1")).inputs.nixpkgs { }',
-                        },
                         options = {
                             nixos = {
-                                expr = '(builtins.getFlake ("git+file:///home/armin/dotfiles?submodules=1")).nixosConfigurations.phoenix.options',
+                                expr = '(builtins.getFlake ("git+file://'
+                                    .. dotfiles_path
+                                    .. '?submodules=1")).nixosConfigurations.phoenix.options',
                             },
 
-                            -- is this the correct way to include this?
                             home_manager = {
-                                expr = '(builtins.getFlake ("git+file:///home/armin/dotfiles?submodules=1")).nixosConfigurations.phoenix.options.home-manager.users.type.getSubOptions []',
+                                expr = '(builtins.getFlake ("git+file://'
+                                    .. dotfiles_path
+                                    .. '?submodules=1")).nixosConfigurations.phoenix.options.home-manager.users.type.getSubOptions []',
                             },
                         },
                     },

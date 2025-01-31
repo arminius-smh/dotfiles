@@ -76,25 +76,25 @@
           ];
 
           bindr = [
-            "CAPS, Caps_Lock, exec, swayosd-client --caps-lock"
+            ''CAPS, Caps_Lock, exec, swayosd-client --monitor "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')" --caps-lock''
           ];
 
           binde = [
             # Keyboard Volume Buttons
-            ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume +2"
-            ", XF86AudioLowerVolume, exec, swayosd-client --output-volume -2"
-            ", XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
+            '', XF86AudioRaiseVolume, exec, swayosd-client --monitor "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')" --output-volume +2''
+            '', XF86AudioLowerVolume, exec, swayosd-client --monitor "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')" --output-volume -2''
+            '', XF86AudioMute, exec, swayosd-client --monitor "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')" --output-volume mute-toggle''
 
             ", XF86AudioNext, exec, playerctl next"
             ", XF86AudioPause, exec, playerctl play-pause"
             ", XF86AudioPlay, exec, playerctl play-pause"
             ", XF86AudioPrev, exec, playerctl previous"
 
-            ", XF86MonBrightnessUp, exec, swayosd-client --device apple-panel-bl --brightness +5"
-            ", XF86MonBrightnessDown, exec, swayosd-client --device apple-panel-bl --brightness -5"
+            '', XF86MonBrightnessUp, exec, swayosd-client --monitor "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')" --device apple-panel-bl --brightness +5''
+            '', XF86MonBrightnessDown, exec, swayosd-client --monitor "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')" --device apple-panel-bl --brightness -5''
 
-            "$mainMod, XF86MonBrightnessUp, exec, swayosd-client --device kbd_backlight --brightness +5"
-            "$mainMod, XF86MonBrightnessDown, exec, swayosd-client --device kbd_backlight --brightness -5"
+            ''$mainMod, XF86MonBrightnessUp, exec, swayosd-client --monitor "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')" --device kbd_backlight --brightness +5''
+            ''$mainMod, XF86MonBrightnessDown, exec, swayosd-client --monitor "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')" --device kbd_backlight --brightness -5''
           ];
         };
       };

@@ -20,6 +20,7 @@
             "move onscreen 1200 135,class:^(pomodoro)$"
             "norounding 1,class:^(steam_app_.*)$"
             "float,class:^(com.saivert.pwvucontrol)$"
+            "float,class:^(nwg-displays)$"
           ];
         };
       };

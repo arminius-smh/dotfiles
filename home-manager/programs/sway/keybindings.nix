@@ -76,7 +76,7 @@
               "${configSway.modifier}+minus" = "scratchpad show";
 
               "${configSway.modifier}+Shift+c" = "reload";
-              "${configSway.modifier}+Shift+e" =
+              "${configSway.modifier}+Shift+m" =
                 "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'uwsm stop'";
 
               "${configSway.modifier}+r" = "mode resize";
@@ -85,16 +85,21 @@
               "${modifier}+Shift+a" = "exec uwsm app -- thunar";
 
               "XF86AudioRaiseVolume" =
-                "exec volumectl -M $(swaymsg -t get_outputs | jq 'map(.focused) | index(true)') -u up 2";
+                ''exec swayosd-client --monitor "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused == true).name')" --output-volume +2'';
               "XF86AudioLowerVolume" =
-                "exec volumectl -M $(swaymsg -t get_outputs | jq 'map(.focused) | index(true)') -u down 2";
+                ''exec swayosd-client --monitor "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused == true).name')" --output-volume -2'';
               "XF86AudioMute" =
-                "exec volumectl -M $(swaymsg -t get_outputs | jq 'map(.focused) | index(true)') toggle-mute";
+                ''exec swayosd-client --monitor "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused == true).name')" --output-volume mute-toggle'';
 
               "XF86MonBrightnessUp" =
-                "exec lightctl -M $(swaymsg -t get_outputs | jq 'map(.focused) | index(true)') up 5";
+                ''exec swayosd-client --monitor "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused == true).name')" --device apple-panel-bl --brightness +5'';
               "XF86MonBrightnessDown" =
-                "exec lightctl -M $(swaymsg -t get_outputs | jq 'map(.focused) | index(true)')  down 5";
+                ''exec swayosd-client --monitor "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused == true).name')" --device apple-panel-bl --brightness -5'';
+
+              "${modifier}+XF86MonBrightnessUp" =
+                ''exec swayosd-client --monitor "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused == true).name')" --device kbd_backlight --brightness +5'';
+              "${modifier}+XF86MonBrightnessDown" =
+                ''exec swayosd-client --monitor "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused == true).name')" --device kbd_backlight --brightness -5'';
             };
         };
       };

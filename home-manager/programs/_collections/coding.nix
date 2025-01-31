@@ -6,6 +6,11 @@
 
   home = {
     packages = with pkgs; [
+      treefmt2 # treewide formatter
+      nixd # language server nix
+      nixfmt-rfc-style # formatter nix
+      hyprls # language server hypr
+
       luajit # lua compiler
       gcc # c/c++ compiler
       gnumake # make
@@ -13,7 +18,6 @@
       tree-sitter # parsing system for programming tools
       gh # github cli
       hub # git wrapper for github
-      hyprls # hyprland configuration lsp
 
       # java
       jdk
@@ -35,7 +39,6 @@
       python3Packages.pylint
 
       # lsp-config
-      nixd # language server nix
       bash-language-server # language server bash
       svelte-language-server # language server svelte
       lua-language-server # langugae server lua
@@ -53,9 +56,7 @@
       tinymist # language server typst
 
       # formatter + linter
-      treefmt2 # treewide formatter
       typstyle # formatter typst
-      nixfmt-rfc-style # formatter nix
       beautysh # formatter bash
       prettierd # formatter various - js, ts, html, css, json, yaml
       taplo # formatter toml

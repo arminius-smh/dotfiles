@@ -117,6 +117,7 @@
         shutdown = "shutdown --no-wall";
         reboot = "reboot --no-wall";
         nvidia-settings = "nvidia-settings --config=${config.xdg.configHome}/nvidia/settings";
+        nix-edit = "nix-edit.sh";
       };
     };
   };

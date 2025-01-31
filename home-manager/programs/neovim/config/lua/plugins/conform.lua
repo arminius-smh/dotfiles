@@ -21,7 +21,6 @@ M.config = function()
             sh = { "beautysh" },
             zsh = { "beautysh" }, -- not intended
             python = { "black" },
-            nix = { "nixfmt" },
             markdown = { "markdownlint" },
             c = { "clang_format" },
             cpp = { "clang_format" },

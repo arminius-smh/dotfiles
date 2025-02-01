@@ -43,6 +43,17 @@
               fcitx5-lua
             ];
             settings = {
+              globalOptions = {
+                "Hotkey" = {
+                  TriggerKeys = "";
+                };
+                "Hotkey/EnumerateForwardKeys" = {
+                  "0" = "Control+space";
+                };
+                "Hotkey/EnumerateBackwardKeys" = {
+                  "0" = "Control+Shift+space";
+                };
+              };
               inputMethod = {
                 "Groups/0" = {
                   Name = "Default";
@@ -55,6 +66,10 @@
                 };
                 "Groups/0/Items/1" = {
                   Name = "mozc";
+                  Layout = "";
+                };
+                "[Groups/0/Items/2]" = {
+                  Name = "keyboard-de-ru-recom";
                   Layout = "";
                 };
                 "GroupOrder" = {

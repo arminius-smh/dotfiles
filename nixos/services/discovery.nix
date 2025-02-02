@@ -6,10 +6,11 @@
     ./blueman
     ./dbus
     ./displayManager
+    # ./flatpak
     # ./fstrim
     # ./fwupd # firmware update
     # ./getty
-    # ./gvfs
+    ./gvfs
     # ./kubo
     # ./minecraft-server
     # ./mysql

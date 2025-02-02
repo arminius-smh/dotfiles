@@ -1,19 +1,19 @@
 { pkgs, ... }:
 {
   imports = [
+    ./dconf
     ./gamemode
     ./gamescope
     ./git
-    ./dconf
     ./gnupg
     ./hyprland
     ./neovim
-    ./nix-ld
     ./nh
+    ./nix-ld
     ./steam
     # ./sway
-    ./uwsm
     ./thunar
+    ./uwsm
     ./zsh
   ];
 

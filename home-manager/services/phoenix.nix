@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./amberol # music player
     # ./avizo # on screen volume display
     ./blueman-applet # bluetooth applet
     # ./dunst # notification daemon

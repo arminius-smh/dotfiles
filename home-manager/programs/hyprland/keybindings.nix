@@ -48,21 +48,23 @@
             "$mainMod SHIFT, A, exec, uwsm app -- thunar"
             "$mainMod, D, exec, rofi -show drun"
             "$mainMod, N, exec, uwsm app -- $DOTFILES_PATH/home-manager/programs/rofi/scripts/powermenu.sh"
+            "$mainMod SHIFT, R, exec, waypaper --random"
 
             #  -t https://github.com/marty-oehme/bemoji/issues/34
-            "$mainMod SHIFT, E, exec, bemoji -cn && echo key ctrl+v | dotool"
+            "$mainMod SHIFT, M, exec, bemoji -cn && echo key ctrl+v | dotool"
             "$mainMod SHIFT, D, exec, $DOTFILES_PATH/home-manager/programs/hyprland/scripts/screenshot.sh"
 
             "$mainMod CONTROL, Q, killactive"
             "$mainMod, M, exec, pkill -USR1 waybar"
-            "$mainMod SHIFT, M, exec, uwsm stop"
+            "$mainMod SHIFT, E, exec, uwsm stop"
             "$mainMod, V, togglefloating"
 
             # stolen from https://github.com/hyprwm/Hyprland/issues/9058
             "$mainMod, Z, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 + 0.5}')"
-            "$mainMod SHIFT, Z, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 - 0.5}')"
+            "$mainMod SHIFT, Z, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {val = $2 - 0.5; print (val < 1 ? 1 : val)}')"
 
-            "$mainMod,F10,pass,^(com\.obsproject\.Studio)$" # pass key to obs
+            # Special Workspace
+            "$mainMod SHIFT, N,toggleSpecialWorkspace"
 
             # Fullscreen
             "$mainMod, F,fullscreen "

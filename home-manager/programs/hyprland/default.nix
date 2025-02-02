@@ -16,7 +16,6 @@
   wayland = {
     windowManager = {
       hyprland = {
-        package = null; # manage through nixos-module
         enable = true;
         systemd = {
           enable = false;

@@ -12,6 +12,7 @@ let
   pdfViewer = [ "org.pwmt.zathura.desktop" ];
   videoPlayer = [ "mpv.desktop" ];
   fileManager = [ "thunar.desktop" ];
+  audioPlayer = [ "io.bassi.Amberol.desktop" ];
 in
 {
   xdg = {
@@ -43,16 +44,18 @@ in
       enable = true;
       defaultApplications = {
         "application/pdf" = pdfViewer;
+        "audio/flac" = audioPlayer;
+        "audio/mpeg" = audioPlayer;
+        "image/gif" = browser;
         "image/jpeg" = imageViewer;
         "image/png" = imageViewer;
         "image/webp" = imageViewer;
-        "image/gif" = browser;
+        "inode/directory" = fileManager;
+        "text/html" = browser;
         "text/plain" = editor;
         "video/x-matroska" = videoPlayer;
-        "text/html" = browser;
         "x-scheme-handler/http" = browser;
         "x-scheme-handler/https" = browser;
-        "inode/directory" = fileManager;
       };
     };
     desktopEntries = lib.optionalAttrs (systemName == "phoenix") {

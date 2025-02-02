@@ -24,6 +24,7 @@ excludes = [
   "*.css",
   "*.json",
   "home-manager/programs/nwg-dock-hyprland/nwg-dock-pinned",
+  "home-manager/programs/waypaper/config/config.ini",
   "home-manager/programs/direnv/direnvrc",
   "**/.envrc",
 ]

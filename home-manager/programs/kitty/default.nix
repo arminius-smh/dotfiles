@@ -29,4 +29,16 @@
       };
     };
   };
+
+  xdg = {
+    configFile = {
+      "kitty/spotify_player" = {
+        text = ''
+          layout splits
+          launch spotify_player
+          launch --location=hsplit --bias=10 cava
+        '';
+      };
+    };
+  };
 }

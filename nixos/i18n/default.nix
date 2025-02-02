@@ -57,7 +57,7 @@
               inputMethod = {
                 "Groups/0" = {
                   Name = "Default";
-                  "Default Layout" = "keyboard-de-deadtilde";
+                  "Default Layout" = "de-deadtilde";
                   DefaultIM = "mozc";
                 };
                 "Groups/0/Items/0" = {

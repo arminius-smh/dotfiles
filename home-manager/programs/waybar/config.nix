@@ -17,6 +17,7 @@
             "custom/launcher"
             "hyprland/workspaces"
             "sway/workspaces"
+            "mpris"
           ];
           modules-right = [
             "tray"
@@ -35,6 +36,24 @@
               ""
               ""
             ];
+          };
+
+          mpris = {
+            format = "{player_icon} {dynamic}";
+            format-paused = "{status_icon} <i>{dynamic}</i>";
+            dynamic-order = [
+              "artist"
+              "title"
+            ];
+            status-icons = {
+              "paused" = "⏸";
+            };
+            player-icons = {
+              "default" = "▶";
+              "mpv" = "🎵";
+            };
+            ignored-players = [ "firefox" ];
+            max-length = 30;
           };
 
           battery = {
@@ -120,14 +139,14 @@
           };
 
           memory = {
-            format = "󰍛 {}%";
-            format-alt = "󰍛 {used}/{total} GiB";
+            format = "  {}%";
+            format-alt = "  {used}/{total} GiB";
             interval = 5;
           };
 
           cpu = {
-            format = "󰻠 {usage}%";
-            format-alt = "󰻠 {avg_frequency} GHz";
+            format = "󰍛 {usage}%";
+            format-alt = "󰍛 {avg_frequency} GHz";
             interval = 5;
           };
 
@@ -144,8 +163,6 @@
 
           "custom/launcher" = {
             format = " ";
-            # this could maybe be expanded with ags?
-            # maybe ags widgets can be toggled by some variable I set with on-click here?
             on-click = "$DOTFILES_PATH/home-manager/programs/rofi/scripts/powermenu.sh";
             tooltip = false;
           };
@@ -161,6 +178,7 @@
                 "󰕾"
               ];
             };
+            on-click = "pwvucontrol";
             on-click-right = "pwvucontrol";
           };
         };

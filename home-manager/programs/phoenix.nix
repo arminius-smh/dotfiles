@@ -11,11 +11,10 @@
     ./waybar # status bar
     # ./swaylock # screen locker
     ./rofi # application launcher
-    # ./cava # audio visualizer
+    ./cava # audio visualizer
     ./_collections/coding.nix # packages for programming
     ./_collections/utils.nix # common system utils
     ./_collections/gaming.nix # gaming related
-    ./_collections/maintainer.nix
 
     # ./fastfetch # system info
     ./firefox # browser
@@ -41,7 +40,6 @@
       # megasync # mega cloud storage
       vscode # integrated development environment
       jellyfin-media-player # media player
-      swaybg # set wallpaper
       swayidle # idle manager
       vlc # media player
       obsidian # markdown notes

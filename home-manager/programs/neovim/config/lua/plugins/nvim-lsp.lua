@@ -21,7 +21,6 @@ M.config = function()
 
         "bashls",
         "ccls",
-        "cssls",
         "denols",
         "emmet_ls",
         "eslint",

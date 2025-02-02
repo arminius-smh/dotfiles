@@ -12,10 +12,9 @@
     ./waybar # status bar
 
     ./rofi # application launcher
-    # ./cava # audio visualizer
+    ./cava # audio visualizer
     ./_collections/coding.nix # packages for programming
     ./_collections/utils.nix # common system utils
-    ./_collections/maintainer.nix
 
     # ./fastfetch # system info
     ./firefox # browser
@@ -40,10 +39,8 @@
       obsidian # markdown notes
       pamixer # audio mixer
       pwvucontrol # pipewire volume control
-      swaybg # set wallpaper
       swayidle # idle manager
       wireguard-tools # vpn wireguard
-      nwg-dock-hyprland # hyprland dock
       distrobox # container wrapper for using distros
       autotiling # sway dynamic tiling
 

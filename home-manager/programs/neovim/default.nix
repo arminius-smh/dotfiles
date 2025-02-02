@@ -9,7 +9,9 @@
   xdg = {
     configFile = {
       nvim = {
-        source = config.lib.file.mkOutOfStoreSymlink /home/armin/dotfiles/home-manager/programs/neovim/config;
+        source =
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}"
+          + /dotfiles/home-manager/programs/neovim/config;
         recursive = true;
       };
     };

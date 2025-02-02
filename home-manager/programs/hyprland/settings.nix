@@ -49,10 +49,12 @@
           decoration = {
             rounding = 10;
             rounding_power = 4;
+            dim_special = 0.25;
             blur = {
               enabled = true;
-              size = 3;
+              size = 4;
               passes = 1;
+              special = true;
             };
             shadow = {
               enabled = true;
@@ -62,14 +64,20 @@
 
           animations = {
             enabled = true;
-            bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+            bezier = [
+              "easeInOutSine, 0.37, 0, 0.63, 1"
+              "winMove, 0.05, 0.9, 0.1, 1.05"
+              "winInOut, 0.1, 1.1, 0.1, 1.1"
+            ];
             animation = [
-              "windows, 1, 7, myBezier"
-              "windowsOut, 1, 7, default, popin 80%"
-              "border, 1, 10, default"
-              "borderangle, 1, 8, default"
-              "fade, 1, 7, default"
-              "workspaces, 1, 6, default"
+              "border, 1, 3, easeInOutSine"
+              "windowsMove, 1, 6, winMove, slide"
+              "windowsIn, 1, 6, winInOut, slide"
+              "windowsOut, 1, 6, winInOut, slide"
+              "workspacesIn, 1, 3, easeInOutSine, slidefade"
+              "workspacesOut, 1, 3, easeInOutSine, slidefade"
+              "specialWorkspaceIn, 1, 3, easeInOutSine, slidevert"
+              "specialWorkspaceOut, 1, 3, easeInOutSine, slidevert"
             ];
           };
 
@@ -90,7 +98,7 @@
               "systemctl --user start hyprpolkitagent.service"
               "uwsm app -- fumon"
               "uwsm app -- ${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/handle_events.sh"
-              "uwsm app -- nwg-dock-hyprland -d -c 'rofi -show drun' -hd 0 -i 40 -x -mb 5" # doesn't support starting apps with uwsm
+              "uwsm app -- nwg-dock-hyprland -d -c 'rofi -show drun' -hd 0 -i 38 -x -mb 5"
               "uwsm app -- vesktop --start-minimized"
             ])
             (lib.mkIf (systemName == "phoenix") [
@@ -103,7 +111,7 @@
             ])
             (lib.mkIf (systemName == "discovery") [
               "uwsm app -- libinput-gestures"
-              "[workspace 8 silent] uwsm app -- kitty -o background_opacity=1 --class spotify -e spotify_player"
+              "[workspace special silent] uwsm app -- kitty -o background_opacity=1 --class spotify --session spotify_player"
             ])
           ];
         };

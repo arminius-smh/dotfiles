@@ -21,6 +21,7 @@
     ../bat # cat alternative
     ../yazi # terminal file manager
     ../fzf # fuzzy finder
+    ../waypaper # wallpaper gui
   ];
 
   home = {
@@ -53,6 +54,8 @@
       bemoji # launcher emoji picker
       dotool # simulate input
       hyprsunset # Hyprland blue-light filter
+      swww # wallpaper backend
+      swaybg # wallpaper backend
 
       # file compression
       zip

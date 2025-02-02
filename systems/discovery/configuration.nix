@@ -61,6 +61,10 @@
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
+      # zswap
+      "zswap.enabled=1"
+      "zswap.zpool=zsmalloc"
+      "zswap.max_pool_percent=50"
     ];
   };
 
@@ -77,7 +81,6 @@
       enable = true;
       peripheralFirmwareDirectory = ./firmware;
       useExperimentalGPUDriver = true;
-      setupAsahiSound = true;
     };
     graphics = {
       enable = true;

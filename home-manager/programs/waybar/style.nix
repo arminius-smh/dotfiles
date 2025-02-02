@@ -13,7 +13,7 @@
           }
 
           window#waybar {
-              background: rgba(0, 0, 0, 0.4);
+              background: rgba(0, 0, 0, 0.5);
           }
 
           #workspaces {
@@ -23,6 +23,14 @@
               border-radius: 26px;
               background: @surface0;
               transition: none;
+          }
+
+          #mpris {
+              margin: 6px 6px 6px 12px;
+              background: alpha(@mauve, 0.5);
+              padding: 0 10px;
+              border-radius: 8px;
+              color: #f5f0ff;
           }
 
           #custom-launcher {

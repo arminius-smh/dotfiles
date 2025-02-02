@@ -1,17 +1,22 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 {
   home = {
     packages = with pkgs; [
-      vesktop
+      waypaper
     ];
   };
 
   xdg = {
     configFile = {
-      "vesktop/settings/settings.json" = {
+      waypaper = {
         source =
           config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}"
-          + /dotfiles/home-manager/programs/vesktop/config/settings/settings.json;
+          + /dotfiles/home-manager/programs/waypaper/config;
+        recursive = true;
       };
     };
   };

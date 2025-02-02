@@ -1,17 +1,20 @@
 #!/usr/bin/env bash
 
 systemName="$1"
-wallpaper=$(find "$DOTFILES_PATH/assets/wallpapers/$systemName" -type f | shuf)
+wallpaper=$(find "$DOTFILES_PATH/assets/wallpapers/desktop" -type f | shuf)
 
 monitors=()
-if [[ "$systemName" == "discovery" ]]; then
-    monitors=("$MONITOR_PRIMARY")
-elif [[ "$systemName" == "phoenix" ]]; then
-    monitors=("$MONITOR_PRIMARY" "$MONITOR_SECONDARY" "$MONITOR_TERTIARY")
-fi
+
+for monitor in "$MONITOR_PRIMARY" "$MONITOR_SECONDARY" "$MONITOR_TERTIARY"; do
+    [[ -n "$monitor" ]] && monitors+=("$monitor")
+done
 
 counter=1
 for monitor in "${monitors[@]}"; do
-    swaybg -o "$monitor" -i "$(echo "$wallpaper" | head -n ${counter} | tail -n 1)" &
+    if [[ $systemName == "discovery" ]]; then
+        waypaper --restore
+    else
+        swaybg -o "$monitor" -i "$(echo "$wallpaper" | head -n ${counter} | tail -n 1)" &
+    fi
     ((counter++))
 done

@@ -1,5 +1,4 @@
 {
-  systemName,
   config,
   ...
 }:
@@ -22,7 +21,7 @@
           };
           startup = [
             {
-              command = "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/wallpaper.sh ${systemName}";
+              command = "${config.home.homeDirectory}/dotfiles/home-manager/programs/hyprland/scripts/wallpaper.sh";
             }
             {
               command = "autotiling";

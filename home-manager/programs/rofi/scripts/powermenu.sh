@@ -6,7 +6,7 @@
 ## Rofi   : Power Menu
 
 # Current Theme
-dir="$DOTFILES_PATH/home-manager/programs/rofi/themes/powermenu/style.rasi"
+dir="$HOME/dotfiles/home-manager/programs/rofi/themes/powermenu/style.rasi"
 
 # CMDs
 lastlogin=$(last "$USER" | head -n1 | tr -s ' ' | cut -d' ' -f4,5,6)
@@ -71,9 +71,9 @@ case ${chosen} in
         uwsm stop
         ;;
     "$cinema")
-        "$DOTFILES_PATH"/assets/scripts/cinema.sh
+        "$HOME"/dotfiles/assets/scripts/cinema.sh
         ;;
     "$gaming")
-        "$DOTFILES_PATH"/assets/scripts/gaming.sh
+        "$HOME"/dotfiles/assets/scripts/gaming.sh
         ;;
 esac

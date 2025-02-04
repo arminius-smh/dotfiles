@@ -31,10 +31,8 @@
       fex # x86 and x86-64 usermode emulator NOTE: not working w/o muvm
       anki # flashcard
       brightnessctl # brightness controller
-      chromium # browser
       jellyfin-media-player # media player
       libinput-gestures # multitouch gestures
-      nwg-displays # output management utility
       obs-studio # video recording
       obsidian # markdown notes
       pamixer # audio mixer

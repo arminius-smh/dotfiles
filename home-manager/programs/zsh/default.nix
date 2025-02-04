@@ -73,8 +73,7 @@
             export RPROMPT=' nix'
           fi
 
-          export PATH="$HOME/Collections/Applications:$PATH"
-          export PATH="$DOTFILES_PATH/assets/scripts:$PATH"
+          export PATH="$HOME/dotfiles/assets/scripts:$PATH"
 
           # color --help with bat
           alias -g -- --help='--help 2>&1 | bat --paging=never --language=help --style=plain'

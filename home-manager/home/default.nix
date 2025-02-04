@@ -39,7 +39,6 @@
       XKB_DEFAULT_LAYOUT = "de";
       XKB_DEFAULT_VARIANT = "deadtilde";
 
-      DOTFILES_PATH = "${config.home.homeDirectory}/dotfiles";
       UWSM_USE_SESSION_SLICE = "true";
       MONITOR_PRIMARY =
         if (systemName == "phoenix") then

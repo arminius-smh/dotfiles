@@ -3,6 +3,11 @@ with lib;
 {
   options = {
     secrets = {
+      settings = {
+        startpage = mkOption {
+          type = types.str;
+        };
+      };
       ip = {
         webdav-selfhost = mkOption {
           type = types.str;

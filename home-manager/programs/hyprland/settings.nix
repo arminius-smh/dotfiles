@@ -94,10 +94,10 @@
             (lib.mkIf true [
               "uwsm finalize"
               "hyprctl dismissnotify" # hide plugin startup notification
-              "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/wallpaper.sh ${systemName}"
+              "${config.home.homeDirectory}/dotfiles/home-manager/programs/hyprland/scripts/wallpaper.sh"
               "systemctl --user start hyprpolkitagent.service"
               "uwsm app -- fumon"
-              "uwsm app -- ${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprland/scripts/handle_events.sh"
+              "uwsm app -- ${config.home.homeDirectory}/dotfiles/home-manager/programs/hyprland/scripts/handle_events.sh"
               "uwsm app -- nwg-dock-hyprland -d -c 'rofi -show drun' -hd 0 -i 38 -x -mb 5"
               "uwsm app -- vesktop --start-minimized"
             ])

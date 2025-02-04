@@ -5,7 +5,7 @@
   ...
 }:
 let
-  json_edit = "${config.home.sessionVariables.DOTFILES_PATH}/assets/scripts/json_edit.py";
+  json_edit = "${config.home.homeDirectory}/dotfiles/assets/scripts/json_edit.py";
 in
 
 {

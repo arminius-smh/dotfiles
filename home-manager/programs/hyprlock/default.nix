@@ -9,7 +9,7 @@
     hyprlock = {
       enable = true;
       settings = {
-        source = "${config.home.sessionVariables.DOTFILES_PATH}/home-manager/programs/hyprlock/mocha.conf";
+        source = "${config.home.homeDirectory}/dotfiles/home-manager/programs/hyprlock/mocha.conf";
 
         "$accent" = "$mauve";
         "$accentAlpha" = "$mauveAlpha";
@@ -25,7 +25,7 @@
           (lib.mkIf true [
             {
               monitor = config.home.sessionVariables.MONITOR_PRIMARY;
-              path = "${config.home.sessionVariables.DOTFILES_PATH}/assets/wallpapers/lockscreen/background.jpg";
+              path = "${config.home.homeDirectory}/dotfiles/assets/wallpapers/lockscreen/background.jpg";
               blur_passes = 0;
               color = "$base";
             }
@@ -77,7 +77,7 @@
 
         image = {
           monitor = config.home.sessionVariables.MONITOR_PRIMARY;
-          path = "${config.home.sessionVariables.DOTFILES_PATH}/assets/pics/profile.jpg";
+          path = "${config.home.homeDirectory}/dotfiles/assets/pics/profile.jpg";
           size = 200;
           border_color = "$accent";
           border_size = 6;

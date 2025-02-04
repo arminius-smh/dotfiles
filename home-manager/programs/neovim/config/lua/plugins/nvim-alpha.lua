@@ -25,7 +25,7 @@ M.config = function()
         dashboard.button("f", "  > Find file", ":cd $HOME/projects/dev | Telescope find_files<CR>"),
         dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
         dashboard.button("n", "  > Notes", ":e $HOME/notes/index.norg | :cd $HOME/notes/ <CR>"),
-        dashboard.button("s", "  > Dotfiles", ":e $DOTFILES_PATH/ | :cd $HOME/dotfiles/ <CR>"),
+        dashboard.button("s", "  > Dotfiles", ":e $HOME/dotfiles | :cd $HOME/dotfiles/ <CR>"),
         dashboard.button("q", "󰗼  > Quit NVIM", ":qa<CR>"),
     }
 

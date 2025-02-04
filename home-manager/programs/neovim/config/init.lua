@@ -43,7 +43,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins", {
-    lockfile = os.getenv("DOTFILES_PATH") .. "/home-manager/programs/neovim/config" .. "/lazy-lock.json",
+    lockfile = os.getenv("HOME") .. "dotfiles/home-manager/programs/neovim/config" .. "/lazy-lock.json",
     ui = {
         border = "rounded",
     },

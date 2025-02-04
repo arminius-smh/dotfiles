@@ -7,10 +7,8 @@ hyprctl keyword decoration:rounding 0
 
 screenshot_path="$HOME/$(date +'%Y-%m-%d_%H-%M-%S_screenshot.png')"
 
-# wait 1 sec to move cursor out of the way
-
-
-if RESULT=$(grimblast --wait 1 save area "$screenshot_path" 2>&1); then
+# --wait to move cursor out of the way
+if RESULT=$(grimblast --wait 0.7 save area "$screenshot_path" 2>&1); then
     notify-send --transient -t 3000 --icon "$screenshot_path" "Screenshot saved" "Image saved in $screenshot_path"
 else
     echo "$RESULT"

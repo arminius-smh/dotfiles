@@ -43,16 +43,16 @@
 
             # Exec
             "$mainMod, RETURN, exec, uwsm app -- kitty"
-            "$mainMod SHIFT, P, exec, uwsm app -- alacritty --class 'pomodoro' -e '$DOTFILES_PATH/home-manager/programs/hyprland/scripts/pomodoro.zsh'"
+            "$mainMod SHIFT, P, exec, uwsm app -- alacritty --class 'pomodoro' -e '$HOME/dotfiles/home-manager/programs/hyprland/scripts/pomodoro.zsh'"
             "$mainMod SHIFT, F, exec, uwsm app -- firefox"
             "$mainMod SHIFT, A, exec, uwsm app -- thunar"
             "$mainMod, D, exec, rofi -show drun"
-            "$mainMod, N, exec, uwsm app -- $DOTFILES_PATH/home-manager/programs/rofi/scripts/powermenu.sh"
+            "$mainMod, N, exec, uwsm app -- $HOME/dotfiles/home-manager/programs/rofi/scripts/powermenu.sh"
             "$mainMod SHIFT, R, exec, waypaper --random"
 
             #  -t https://github.com/marty-oehme/bemoji/issues/34
             "$mainMod SHIFT, M, exec, bemoji -cn && echo key ctrl+v | dotool"
-            "$mainMod SHIFT, D, exec, $DOTFILES_PATH/home-manager/programs/hyprland/scripts/screenshot.sh"
+            "$mainMod SHIFT, D, exec, $HOME/dotfiles/home-manager/programs/hyprland/scripts/screenshot.sh"
 
             "$mainMod CONTROL, Q, killactive"
             "$mainMod, M, exec, pkill -USR1 waybar"

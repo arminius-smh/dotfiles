@@ -76,7 +76,7 @@ if [[ "$interactive" == true ]]; then
     exit 0
 fi
 
-pushd "$DOTFILES_PATH" || { echo "[$DATE] Failed to cd into dotfiles directory"; exit 1; }
+pushd "$HOME/dotfiles" || { echo "[$DATE] Failed to cd into dotfiles directory"; exit 1; }
 git pull
 git submodule update --recursive
 

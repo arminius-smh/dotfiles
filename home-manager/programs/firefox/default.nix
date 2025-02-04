@@ -35,7 +35,7 @@ in
             };
           };
           search = {
-            default = "Startpage";
+            default = "DuckDuckGo";
             force = true;
             engines = {
               "Startpage" = {
@@ -47,7 +47,7 @@ in
                       {
                         # settings
                         name = "prfe";
-                        value = "e9042b3b9a1e358da90ffbac992b9cb850959da4f70c79e737ade5c357843dc65c4afbb8e698375f7abd24bc2cb3df7e1964403841903e8e00c0b64ad74337b9cb19735ed85962abca9e072c";
+                        value = config.secrets.settings.startpage;
                       }
                       {
                         name = "query";

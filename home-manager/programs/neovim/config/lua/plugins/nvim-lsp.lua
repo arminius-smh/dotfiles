@@ -4,7 +4,7 @@ local M = {
 }
 
 M.config = function()
-    local dotfiles_path = os.getenv("DOTFILES_PATH")
+    local dotfiles_path = os.getenv("HOME") .. "/dotfiles"
 
     local nvim_lsp = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())

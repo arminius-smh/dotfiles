@@ -9,7 +9,7 @@ pomo() {
         if [[ "$OSTYPE" == "darwin"* ]]; then
             osascript -e 'display notification "🌴" with title "Work Timer is up!" subtitle "Take a Break 😊"'
         fi
-        (mpv --no-terminal "$DOTFILES_PATH/assets/sounds/notification.mp3" &)
+        (mpv --no-terminal "$HOME/dotfiles/assets/sounds/notification.mp3" &)
     }
 
     local rest() {
@@ -19,7 +19,7 @@ pomo() {
         if [[ "$OSTYPE" == "darwin"* ]]; then
             osascript -e 'display notification "🚀" with title "Break Timer is up!" subtitle "Go Back to Work 😌"'
         fi
-        (mpv --no-terminal "$DOTFILES_PATH/assets/sounds/notification.mp3" &)
+        (mpv --no-terminal "$HOME/dotfiles/assets/sounds/notification.mp3" &)
     }
 
     local print_centered_text() {

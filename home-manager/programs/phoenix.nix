@@ -29,15 +29,10 @@
 
   home = {
     packages = with pkgs; [
-      # browsers
-      chromium
-
       emacs # operating system
       zoom-us # video conference
       catppuccin-whiskers # catppuccin templating tool
       catppuccin-catwalk # catppuccin image generator
-      # spotify # spotify streaming
-      # megasync # mega cloud storage
       vscode # integrated development environment
       jellyfin-media-player # media player
       swayidle # idle manager
@@ -47,10 +42,8 @@
       OVMF # UEFI support for qemu
       zotero # citation manager
       arduino # arduino ide
-      nwg-displays # output management utility
       anki # flashcard
       krita # image manipulation
-      # subtitleedit # subtitle editor
       killall # kill processes by name
       pwvucontrol # pipewire volume control
       tradingview # stock tracker

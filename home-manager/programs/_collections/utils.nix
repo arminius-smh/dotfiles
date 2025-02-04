@@ -22,10 +22,12 @@
     ../yazi # terminal file manager
     ../fzf # fuzzy finder
     ../waypaper # wallpaper gui
+    ../nwg-displays # output management utility
   ];
 
   home = {
     packages = with pkgs; [
+      amberol # music player
       wl-clipboard # clipboard manager
       grimblast # screenshot
       gum # shell tool
@@ -55,7 +57,6 @@
       dotool # simulate input
       hyprsunset # Hyprland blue-light filter
       swww # wallpaper backend
-      swaybg # wallpaper backend
 
       # file compression
       zip

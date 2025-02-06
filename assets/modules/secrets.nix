@@ -8,6 +8,14 @@ with lib;
           type = types.str;
         };
       };
+      syncthing = {
+        excelsior = mkOption {
+          type = types.str;
+        };
+        phoenix = mkOption {
+          type = types.str;
+        };
+      };
       ip = {
         webdav-selfhost = mkOption {
           type = types.str;

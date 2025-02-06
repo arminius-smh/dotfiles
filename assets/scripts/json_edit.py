@@ -3,9 +3,14 @@ import json
 import uuid
 import os
 import argparse
+import sys
 
 
 def update_json_file(file_path, keys, value):
+    if not os.path.exists(file_path):
+        print(f"File '{file_path}' does not exist. Exiting the program.")
+        sys.exit()
+
     with open(file_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 

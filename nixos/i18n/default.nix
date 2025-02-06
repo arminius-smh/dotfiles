@@ -68,7 +68,7 @@
                   Name = "mozc";
                   Layout = "";
                 };
-                "[Groups/0/Items/2]" = {
+                "Groups/0/Items/2" = {
                   Name = "keyboard-de-ru-recom";
                   Layout = "";
                 };

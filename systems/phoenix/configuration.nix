@@ -70,15 +70,15 @@
       "plymouth.use-simpledrm"
     ];
     loader = {
-      timeout = 0;
+      timeout = 1;
       grub = {
         enable = true;
         configurationLimit = 25;
         useOSProber = true;
         efiSupport = true;
         device = "nodev";
-        timeoutStyle = "hidden";
       };
+
       efi = {
         canTouchEfiVariables = true;
       };
@@ -140,6 +140,6 @@
   };
 
   system = {
-    stateVersion = "23.11";
+    stateVersion = "24.11";
   };
 }

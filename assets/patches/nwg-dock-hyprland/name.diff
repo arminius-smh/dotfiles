@@ -1,0 +1,13 @@
+diff --git a/tools.go b/tools.go
+index 0543273..d231750 100644
+--- a/tools.go
++++ b/tools.go
+@@ -804,7 +804,7 @@ func getName(appName string) string {
+ 				return name
+ 			}
+ 			for _, line := range lines {
+-				if strings.HasPrefix(strings.ToUpper(line), "NAME") {
++				if strings.HasPrefix(strings.ToUpper(line), "NAME=") {
+ 					name = line[5:]
+ 					break
+ 				}

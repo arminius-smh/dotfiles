@@ -174,49 +174,23 @@ in
             }
           ];
           settings = {
-            toolkit = {
-              legacyUserProfileCustomizations = {
-                stylesheets = true;
-              };
-            };
-            privacy = {
-              history = {
-                custom = true;
-              };
-            };
-            browser = {
-              aboutConfig = {
-                showWarning = false;
-              };
-              formfill = {
-                enable = false;
-              };
-              startup = {
-                page = 3;
-                homepage = config.secrets.ip.homepage;
-              };
-              newtabpage = {
-                activity-stream = {
-                  showSponsoredTopSites = false;
-                  feeds = {
-                    topsites = false;
-                  };
-                };
-              };
-            };
-            app = {
-              normandy = {
-                first_run = false;
-              };
-            };
-            signon = {
-              rememberSignons = false;
-            };
-            extensions = {
-              update = {
-                enabled = false;
-              };
-            };
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
+            "privacy.history.custom" = true;
+
+            "browser.aboutConfig.showWarning" = false;
+            "browser.formfill.enable" = false;
+            "browser.startup.page" = 3;
+            "browser.startup.homepage" = config.secrets.ip.homepage;
+            "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+            "browser.newtabpage.activity-stream.feeds.topsites" = false;
+
+            "app.normandy.first_run" = false;
+
+            "extensions.update.enabled" = false;
+            "extensions.autoDisableScopes" = 0;
+
+            "media.eme.enabled" = true;
           };
         };
       };

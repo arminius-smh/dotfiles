@@ -24,7 +24,7 @@
 
     stateVersion =
       if (systemName == "phoenix") then
-        "23.05"
+        "24.11"
       else if (systemName == "discovery") then
         "24.05"
       else if (systemName == "excelsior") then

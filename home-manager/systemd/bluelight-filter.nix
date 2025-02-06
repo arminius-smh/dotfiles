@@ -16,7 +16,7 @@
               # needed if pc is started after 22:00 or before 07:00
               time="$(date +%H)"
               if [ "$time" -ge 22 ] || [ "$time" -le 7 ]; then
-                ${pkgs.hyprsunset}/bin/hyprsunset -t 4700
+                ${pkgs.hyprsunset}/bin/hyprsunset -t 5500
               fi
             ''}";
           };

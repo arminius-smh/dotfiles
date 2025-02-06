@@ -23,7 +23,7 @@ in
 
               nixos_sprite.SetImage(nixos_image);
               nixos_sprite.SetX(Window.GetX() + (Window.GetWidth() / 2 - nixos_image.GetWidth() / 2)); # Center the image horizontally
-              nixos_sprite.SetY(Window.GetHeight() - nixos_image.GetHeight() - 50); # Display just above the bottom of the screen
+              nixos_sprite.SetY(Window.GetHeight() - nixos_image.GetHeight() - 100); # Display just above the bottom of the screen
               " >> $out/share/plymouth/themes/${theme}/${theme}.script
             '';
         });

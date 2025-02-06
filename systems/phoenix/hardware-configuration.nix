@@ -8,6 +8,7 @@
   modulesPath,
   ...
 }:
+
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -25,16 +26,19 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/f2eab8f9-7198-4573-9a23-4f7ba657ab60";
+    device = "/dev/disk/by-uuid/e2865e4f-7919-4517-bcbe-ec7acb3a240c";
     fsType = "ext4";
   };
 
+  boot.initrd.luks.devices."luks-008cf422-57b9-4e09-9bd8-d32e6007de96".device =
+    "/dev/disk/by-uuid/008cf422-57b9-4e09-9bd8-d32e6007de96";
+
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/E983-7C76";
+    device = "/dev/disk/by-uuid/7117-EC1C";
     fsType = "vfat";
     options = [
-      "fmask=0022"
-      "dmask=0022"
+      "fmask=0077"
+      "dmask=0077"
     ];
   };
 
@@ -50,6 +54,7 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

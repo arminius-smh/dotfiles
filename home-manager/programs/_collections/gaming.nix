@@ -2,16 +2,18 @@
 {
   imports = [
     ../mangohud # game performance overlay
-    ../heroic # videogame manager
+    # ../heroic # videogame manager
   ];
   home = {
     packages = with pkgs; [
       ludusavi # save file manager
 
       # videogame manager
-      lutris
+      cartridges
 
-      protonup-qt # manage different proton versions for steam
+      umu-launcher # unified launcher for windows games on linux
+
+      protonup-qt # manage different proton versions
 
       r2modman # game mod manager
       (prismlauncher.override {

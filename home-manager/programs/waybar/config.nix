@@ -121,10 +121,9 @@ let
 
     "hyprland/workspaces" = {
       active-only = false;
-      disable-scroll = false;
       all-outputs = true;
-      on-scroll-up = "hyprctl dispatch workspace -1";
-      on-scroll-down = "hyprctl dispatch workspace +1";
+      on-scroll-up = "hyprctl dispatch workspace e-1";
+      on-scroll-down = "hyprctl dispatch workspace e+1";
       format = "{icon}";
       on-click = "activate";
       format-icons = {

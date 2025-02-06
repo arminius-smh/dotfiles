@@ -2,7 +2,7 @@
 {
   imports = [
     ../mangohud # game performance overlay
-    # ../heroic # videogame manager
+    ../heroic # videogame manager
   ];
   home = {
     packages = with pkgs; [

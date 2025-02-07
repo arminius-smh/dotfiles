@@ -93,7 +93,7 @@ if [[ "$hostname" == "phoenix" ]]; then
     OPTIONS=""
 elif [[ "$hostname" == "discovery" ]]; then
     COMMAND="switch"
-    OPTIONS="-- --impure"
+    OPTIONS=""
 elif [[ "$hostname" == "excelsior" ]]; then
     COMMAND="boot"
     OPTIONS=""

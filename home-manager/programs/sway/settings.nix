@@ -21,6 +21,9 @@
           };
           startup = [
             {
+              command = "uwsm finalize";
+            }
+            {
               command = "${config.home.homeDirectory}/dotfiles/home-manager/programs/hyprland/scripts/wallpaper.sh";
             }
             {

@@ -30,6 +30,7 @@ M.config = function()
             html = { "prettierd" },
             template = { "djlint" },
             css = { "prettierd" },
+            scss = { "prettierd" },
             json = { "prettierd" },
             yaml = { "prettierd" },
             typst = { "typstyle" },

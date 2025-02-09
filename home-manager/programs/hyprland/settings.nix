@@ -99,7 +99,7 @@
               "uwsm app -- fumon"
               "uwsm app -- ${config.home.homeDirectory}/dotfiles/home-manager/programs/hyprland/scripts/handle_events.sh"
               "uwsm app -- nwg-dock-hyprland -d -c 'rofi -show drun' -hd 0 -i 38 -x -mb 5"
-              "uwsm app -- vesktop --start-minimized"
+              # "uwsm app -- vesktop --start-minimized"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "uwsm app -- solaar -w hide"

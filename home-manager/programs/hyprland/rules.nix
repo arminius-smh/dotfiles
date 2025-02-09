@@ -34,6 +34,7 @@
           ];
           layerrule = [
             "blur, waybar"
+            "blur, ags"
           ];
         };
       };

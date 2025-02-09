@@ -64,10 +64,15 @@
     consoleLogLevel = 0;
     kernelParams = [
       "module_blacklist=i915"
-      "quiet"
-      "splash"
       "boot.shell_on_fail"
       "plymouth.use-simpledrm"
+      # Silent Boot - https://wiki.nixos.org/wiki/Plymouth
+      "splash"
+      "quiet"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
     ];
     loader = {
       timeout = 1;

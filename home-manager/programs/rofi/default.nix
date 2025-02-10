@@ -15,7 +15,7 @@
         window-format = "{w} · {c} · {t}";
         run-command = "uwsm app -- {cmd}";
       };
-      font = "JetBrains Mono Nerd Font 10";
+      font = "JetBrainsMono Nerd Font 10";
       theme = ./theme.rasi;
     };
   };

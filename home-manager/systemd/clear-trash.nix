@@ -9,7 +9,7 @@
           };
           Service = {
             Type = "oneshot";
-            ExecStart = "${pkgs.gtrash}/bin/gtrash find --rm";
+            ExecStart = "${pkgs.gtrash}/bin/gtrash prune --day 7";
           };
         };
       };
@@ -17,10 +17,10 @@
       timers = {
         "clear-trash" = {
           Unit = {
-            Description = "Weekly Trash Bin Clearing";
+            Description = "Trash Bin Clearing >7d";
           };
           Timer = {
-            OnCalendar = "weekly";
+            OnCalendar = "daily";
             Persistent = true;
           };
           Install = {

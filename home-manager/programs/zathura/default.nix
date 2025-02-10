@@ -1,7 +1,7 @@
 { ... }:
 {
   catppuccin = {
-    waybar = {
+    zathura = {
       enable = true;
     };
   };

@@ -112,6 +112,7 @@
         cat = "bat --paging=never";
         fzf = ''fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'';
         rm = "gtrash put --rm-mode";
+        trash-restore = "gtrash find | fzf | awk -F'\t' '{print $2}' | xargs -o gtrash restore";
         man = "batman";
         shutdown = "shutdown --no-wall";
         reboot = "reboot --no-wall";

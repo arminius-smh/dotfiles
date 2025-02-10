@@ -1,0 +1,128 @@
+// Catppuccin Mocha Colors
+$rosewater: #f5e0dc;
+$flamingo: #f2cdcd;
+$pink: #f5c2e7;
+$mauve: #cba6f7;
+$red: #f38ba8;
+$maroon: #eba0ac;
+$peach: #fab387;
+$yellow: #f9e2af;
+$green: #a6e3a1;
+$teal: #94e2d5;
+$sky: #89dceb;
+$sapphire: #74c7ec;
+$blue: #89b4fa;
+$lavender: #b4befe;
+
+$text: #cdd6f4;
+$subtext1: #bac2de;
+$subtext0: #a6adc8;
+
+$overlay2: #9399b2;
+$overlay1: #7f849c;
+$overlay0: #6c7086;
+
+$surface2: #585b70;
+$surface1: #45475a;
+$surface0: #313244;
+
+$base: #1e1e2e;
+$mantle: #181825;
+$crust: #11111b;
+
+window.Bar {
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family: Nerd Font Hack;
+    font-size: 12px;
+
+    .Home {
+        background-color: $mauve;
+        border-radius: 10px;
+        margin: 5px 0px 5px 12px;
+        button {
+            padding: 0px 12px;
+            color: $surface0;
+            background: none;
+            box-shadow: none;
+            border: none;
+        }
+    }
+
+    .Workspaces {
+        background-color: #313244;
+        border-radius: 26px;
+        margin-left: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        button {
+            background: none;
+            box-shadow: none;
+            border: none;
+        }
+        button:hover {
+            color: #f5c2e7;
+        }
+
+        .focused {
+            color: #74c7ec;
+        }
+    }
+
+    .SysTray {
+        button {
+            background: none;
+            padding: 0px 2px;
+            box-shadow: none;
+            border: none;
+            icon {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .SwayNC {
+        background-color: $peach;
+        color: $surface1;
+        border-radius: 22px;
+        margin: 5px 5px;
+        padding: 0px 10px 0px 15px;
+    }
+
+    .RAM {
+        background-color: $red;
+        color: $base;
+        border-radius: 22px;
+        margin: 5px 5px;
+        padding: 0px 15px;
+    }
+
+    .CPU {
+        background-color: $lavender;
+        color: $base;
+        border-radius: 22px;
+        margin: 5px 5px;
+        padding: 0px 15px;
+    }
+
+    .AudioSlider {
+        background-color: $surface0;
+        border-radius: 22px;
+        margin: 5px 2px 5px 8px;
+        padding: 0px 2px;
+        slider {
+            background-color: $overlay0;
+        }
+        button {
+            background: none;
+            box-shadow: none;
+            border: none;
+        }
+    }
+
+    .Time {
+        margin: 5px 5px;
+        padding: 0px 15px;
+        background-color: $surface0;
+        border-radius: 22px;
+    }
+}

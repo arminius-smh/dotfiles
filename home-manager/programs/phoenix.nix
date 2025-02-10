@@ -4,11 +4,11 @@
     ./home-manager # manage user environment
     ./zsh # shell
 
-    # ./ags # widgets
+    ./ags # status bar + widgets
     ./hyprland # wayland window manager
     ./hyprlock # screen locker
     # ./sway # wayland window manager
-    ./waybar # status bar
+    # ./waybar # status bar
     # ./swaylock # screen locker
     ./rofi # application launcher
     ./cava # audio visualizer

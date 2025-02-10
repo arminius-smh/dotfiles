@@ -55,7 +55,10 @@
             "$mainMod SHIFT, D, exec, $HOME/dotfiles/home-manager/programs/hyprland/scripts/screenshot.sh"
 
             "$mainMod CONTROL, Q, killactive"
-            "$mainMod, M, exec, pkill -USR1 waybar"
+
+            # "$mainMod, M, exec, pkill -USR1 waybar"
+            "$mainMod, M, exec, $HOME/dotfiles/home-manager/programs/hyprland/scripts/toggle-ags.sh"
+
             "$mainMod SHIFT, E, exec, uwsm stop"
             "$mainMod, V, togglefloating"
 

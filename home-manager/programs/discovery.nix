@@ -6,10 +6,11 @@
     ./hyprland # wayland window manager
     ./hyprlock # screen locker
 
+    ./ags # status bar + widgets
     # ./sway # wayland window manager
     # ./swaylock # screen locker
 
-    ./waybar # status bar
+    # ./waybar # status bar
 
     ./rofi # application launcher
     ./cava # audio visualizer

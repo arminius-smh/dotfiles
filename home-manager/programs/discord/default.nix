@@ -21,9 +21,8 @@
 
   xdg = {
     configFile =
-      {
-      }
-      // lib.mkIf (systemName == "phoenix") {
+      { }
+      // lib.optionalAttrs (systemName == "phoenix") {
         "Vencord/settings/settings.json" = {
           source =
             config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}"
@@ -31,13 +30,12 @@
 
         };
       }
-      // lib.mkIf (systemName == "discovery") {
+      // lib.optionalAttrs (systemName == "discovery") {
         "vesktop/settings/settings.json" = {
           source =
             config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}"
             + /dotfiles/home-manager/programs/discord/config/settings/settings.json;
         };
       };
-
   };
 }

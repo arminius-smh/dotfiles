@@ -32,6 +32,7 @@ $crust: #11111b;
 
 window.Bar {
     background-color: rgba(0, 0, 0, 0.5);
+    color: $text;
     font-family: Nerd Font Hack;
     font-size: 12px;
 
@@ -124,5 +125,41 @@ window.Bar {
         padding: 0px 15px;
         background-color: $surface0;
         border-radius: 22px;
+    }
+
+    .MediaPlayer {
+        margin: 5px 5px;
+        background: none;
+
+        .cover-art {
+            margin-top: 5px;
+            min-width: 32px;
+            min-height: 32px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .title {
+            padding: 0.6rem;
+            label {
+                margin-right: 0.6rem;
+            }
+            icon {
+                font-size: 20px;
+            }
+        }
+
+        .controller {
+            button {
+                background: none;
+                box-shadow: none;
+                border: none;
+                padding: 4px;
+                label {
+                    font-size: 20px;
+                }
+            }
+        }
     }
 }

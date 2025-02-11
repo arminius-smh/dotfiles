@@ -17,7 +17,7 @@
               id = config.secrets.syncthing.excelsior;
               autoAcceptFolders = true;
             }
-            // lib.mkIf (systemName != "phoenix") {
+            // lib.optionalAttrs (systemName != "phoenix") {
               id = config.secrets.syncthing.phoenix;
               autoAcceptFolders = true;
             };

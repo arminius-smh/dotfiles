@@ -62,10 +62,6 @@
             "$mainMod SHIFT, E, exec, uwsm stop"
             "$mainMod, V, togglefloating"
 
-            # stolen from https://github.com/hyprwm/Hyprland/issues/9058
-            "$mainMod, Z, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 + 0.5}')"
-            "$mainMod SHIFT, Z, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {val = $2 - 0.5; print (val < 1 ? 1 : val)}')"
-
             # Special Workspace
             "$mainMod SHIFT, N,toggleSpecialWorkspace"
 
@@ -85,6 +81,10 @@
           ];
 
           binde = [
+            # stolen from https://github.com/hyprwm/Hyprland/issues/9058
+            "$mainMod, Z, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 + 0.5}')"
+            "$mainMod SHIFT, Z, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {val = $2 - 0.5; print (val < 1 ? 1 : val)}')"
+
             # Keyboard Volume Buttons
             '', XF86AudioRaiseVolume, exec, swayosd-client --monitor "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')" --output-volume +2''
             '', XF86AudioLowerVolume, exec, swayosd-client --monitor "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')" --output-volume -2''

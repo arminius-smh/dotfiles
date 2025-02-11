@@ -24,7 +24,6 @@ export default function AudioSlider() {
         }
     }}>
         <box className="AudioSlider" >
-
             <revealer
                 setup={(self) => {
                     showSlider.subscribe((value) => {

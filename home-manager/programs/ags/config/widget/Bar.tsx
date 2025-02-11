@@ -7,6 +7,7 @@ import RAM from "./RAM"
 import CPU from "./CPU"
 import Home from "./Home"
 import SwayNC from "./SwayNC"
+import MprisPlayers from "./MprisPlayers"
 
 const { Layer, WindowAnchor, Exclusivity } = Astal;
 
@@ -21,6 +22,7 @@ export default function Bar(monitor: Gdk.Monitor) {
             </box>
             <box>
                 <box>
+                    <MprisPlayers />
                 </box>
             </box>
             <box halign={Gtk.Align.END} >

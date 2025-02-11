@@ -11,6 +11,6 @@
     ./swaync # notification center
     ./swayosd # on screen display
     ./syncthing # file sync
-    ./udiskie # automounter for removable media
+    # ./udiskie # automounter for removable media
   ];
 }

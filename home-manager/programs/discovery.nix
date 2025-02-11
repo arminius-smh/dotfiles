@@ -21,7 +21,7 @@
     ./firefox # browser
     ./thunderbird # mail client
     ./spotify-player # spotify streaming
-    ./vesktop # discord enhancement
+    ./discord # voice and text chat
 
     ./nwg-dock-hyprland # hyprland dock
     # ./nwg-bar # button bar
@@ -34,7 +34,6 @@
       brightnessctl # brightness controller
       jellyfin-media-player # media player
       libinput-gestures # multitouch gestures
-      obs-studio # video recording
       obsidian # markdown notes
       pamixer # audio mixer
       pwvucontrol # pipewire volume control

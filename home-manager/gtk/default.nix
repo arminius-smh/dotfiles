@@ -14,6 +14,8 @@
       name = "Dracula";
       package = pkgs.dracula-theme;
     };
+    # Papirus | pkgs.papirus-icon-theme
+    # kora | pkgs.kora-icon-theme
     iconTheme = {
       name = "kora";
       package = pkgs.kora-icon-theme;

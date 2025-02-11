@@ -99,7 +99,6 @@
               "uwsm app -- fumon"
               "uwsm app -- ${config.home.homeDirectory}/dotfiles/home-manager/programs/hyprland/scripts/handle_events.sh"
               "uwsm app -- nwg-dock-hyprland -d -c 'rofi -show drun' -hd 0 -i 38 -x -mb 5"
-              # "uwsm app -- vesktop --start-minimized"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "uwsm app -- solaar -w hide"
@@ -108,10 +107,12 @@
               "[workspace 9 silent] uwsm app -- thunderbird"
               "[workspace 8 silent] uwsm app -- spotify"
               "hyprctl dispatch focusmonitor ${config.home.sessionVariables.MONITOR_PRIMARY}"
+              "[workspace special silent] uwsm app -- discord --start-minimized"
             ])
             (lib.mkIf (systemName == "discovery") [
               "uwsm app -- libinput-gestures"
               "[workspace special silent] uwsm app -- kitty -o background_opacity=1 --class spotify --session spotify_player"
+              "uwsm app -- vesktop --start-minimized"
             ])
           ];
         };

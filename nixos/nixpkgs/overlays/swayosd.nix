@@ -12,13 +12,13 @@
             rev = "e3167c5ad534c74f0dac7745795653e2c611b81f";
             sha256 = "sha256-EjwWHF2zDpM2Yo069yHJ3DQLGQuk0H3zxk2Kg516tfs=";
           };
-          cargoDeps = old.cargoDeps.overrideAttrs (
-            prev.lib.const {
-              name = "swayosd-vendor.tar.gz";
-              inherit src;
-              outputHash = "sha256-Wi7MLMTY4dITrOEa/LYwPvPgVdvXIALOr8fUygwESxo=";
-            }
-          );
+
+          cargoDeps = final.rustPlatform.fetchCargoVendor {
+            inherit src;
+            name = "swayosd-${version}";
+            hash = "sha256-5E+mSwhmW0Kfgjr2yvGm9ptfiNwRBjxK7U5K5RsQ114=";
+          };
+
           nativeBuildInpuits = old.nativeBuildInputs ++ [
             final.wrapGAppsHook4
             final.graphene

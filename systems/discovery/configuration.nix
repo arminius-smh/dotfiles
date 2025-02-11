@@ -33,6 +33,9 @@
     #     })
     #   ];
     # };
+    tmp = {
+      cleanOnBoot = true;
+    };
     loader = {
       timeout = 1;
       grub = {

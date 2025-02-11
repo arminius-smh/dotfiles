@@ -22,7 +22,7 @@
     ./spicetify # spotify enhancement
     # ./spotify-player # spotify streaming
     # ./obs-studio # video recording
-    ./vesktop # discord enhancement
+    ./discord # discord enhancement
     # ./nwg-bar # button bar
     ./nwg-dock-hyprland # hyprland dock
   ];

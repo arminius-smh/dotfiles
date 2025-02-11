@@ -8,6 +8,7 @@
   modulesPath,
   ...
 }:
+
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -19,13 +20,20 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/5c209d96-f2e5-4fb3-91e4-4af42d02ceb3";
+    device = "/dev/disk/by-uuid/f7b9385b-42f7-47e0-97eb-06ba86ec06e5";
     fsType = "ext4";
   };
+
+  boot.initrd.luks.devices."cryptroot".device =
+    "/dev/disk/by-uuid/a8ebb988-0137-41b5-ae9a-0ac232da8025";
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/2118-1EF6";
     fsType = "vfat";
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
   };
 
   swapDevices = [ ];

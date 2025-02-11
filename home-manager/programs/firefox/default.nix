@@ -119,7 +119,6 @@ in
           extensions = with addons; [
             bitwarden
             catppuccin-gh-file-explorer
-            darkreader
             refined-github
             multi-account-containers
             return-youtube-dislikes

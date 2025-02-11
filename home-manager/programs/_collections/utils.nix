@@ -58,6 +58,8 @@
       dotool # simulate input
       hyprsunset # Hyprland blue-light filter
       swww # wallpaper backend
+      d-spy # d-bus exploration
+      nixpkgs-review # review prs on nixpkgs
 
       # file compression
       zip

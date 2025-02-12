@@ -23,6 +23,8 @@
     ../fzf # fuzzy finder
     ../waypaper # wallpaper gui
     ../nwg-displays # output management utility
+    ../fastfetch # system info
+    ../nwg-drawer # app drawer
   ];
 
   home = {
@@ -40,7 +42,6 @@
       xclip # only needed for wine paste
       update-nix-fetchgit # automatically fill hashes for nix expressions
       dig # dns lookup
-      pfetch-rs # sytem info
       ueberzugpp # draw images on terminals
       yt-dlp # video downloader
       tree # directory tree
@@ -60,6 +61,7 @@
       swww # wallpaper backend
       d-spy # d-bus exploration
       nixpkgs-review # review prs on nixpkgs
+      gnome-font-viewer # view installed fonts
 
       # file compression
       zip

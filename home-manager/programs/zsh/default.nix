@@ -33,10 +33,7 @@
       };
       oh-my-zsh = {
         enable = true;
-        plugins = [
-          "git"
-        ];
-        theme = "lukerandall";
+        theme = lib.mkIf (systemName == "excelsior") "lukerandall";
       };
       initExtraFirst =
         # bash
@@ -66,13 +63,6 @@
               source $HOME/.config/zsh/.priv.zsh
           fi
 
-          # set prompt to include nix if another shell is entered ('nix shell')
-          # various issues (just entering 'zsh' will edit the RPROMPT), this may get solved better in the future
-          # e.g. https://github.com/NixOS/nix/issues/3862 or https://github.com/NixOS/nix/issues/6677
-          if [[ $SHLVL -gt 1 ]]; then
-            export RPROMPT=' nix'
-          fi
-
           export PATH="$HOME/dotfiles/assets/scripts:$PATH"
 
           # color --help with bat
@@ -98,10 +88,7 @@
             eval "$cmd"
           }
 
-          # pfetch options
-          export PF_INFO="ascii title os de editor kernel uptime memory"
-          export PF_FAST_PKG_COUNT=1
-          pfetch
+          fastfetch
         '';
       shellAliases = lib.mkIf (systemName == "phoenix" || systemName == "discovery") {
         zath = "zathura";

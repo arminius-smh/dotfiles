@@ -16,7 +16,6 @@
     ./_collections/utils.nix # common system utils
     ./_collections/gaming.nix # gaming related
 
-    # ./fastfetch # system info
     ./firefox # browser
     ./thunderbird # mail client
     ./spicetify # spotify enhancement
@@ -25,6 +24,7 @@
     ./discord # discord enhancement
     # ./nwg-bar # button bar
     ./nwg-dock-hyprland # hyprland dock
+    ./starship # shell prompt
   ];
 
   home = {

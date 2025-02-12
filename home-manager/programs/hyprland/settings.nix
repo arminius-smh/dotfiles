@@ -94,13 +94,14 @@
             (lib.mkIf true [
               "uwsm finalize"
               "hyprctl dismissnotify" # hide plugin startup notification
-              "${config.home.homeDirectory}/dotfiles/home-manager/programs/hyprland/scripts/wallpaper.sh"
               "systemctl --user start hyprpolkitagent.service"
               "uwsm app -- fumon"
               "uwsm app -- ${config.home.homeDirectory}/dotfiles/home-manager/programs/hyprland/scripts/handle_events.sh"
-              "uwsm app -- nwg-dock-hyprland -d -c 'rofi -show drun' -hd 0 -i 38 -x -mb 5"
+              "uwsm app -- nwg-drawer -mt 10 -mr 10 -mb 10 -ml 10 -closebtn right -k -r"
+              "uwsm app -- nwg-dock-hyprland -d -c 'nwg-drawer' -hd 0 -i 38 -x -mb 5"
             ])
             (lib.mkIf (systemName == "phoenix") [
+              "waypaper --random"
               "uwsm app -- solaar -w hide"
               # "uwsm app -- heroic"
               # "uwsm app -- steam -silent -noverifyfiles"
@@ -110,6 +111,7 @@
               "[workspace special silent] uwsm app -- discord --start-minimized"
             ])
             (lib.mkIf (systemName == "discovery") [
+              "waypaper --restore"
               "uwsm app -- libinput-gestures"
               "[workspace special silent] uwsm app -- kitty -o background_opacity=1 --class spotify --session spotify_player"
               "uwsm app -- vesktop --start-minimized"

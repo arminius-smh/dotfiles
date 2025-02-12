@@ -1,12 +1,12 @@
-import { Variable } from "astal"
+import { bind, Variable } from "astal"
 
 export default function RAM() {
-    const ram = Variable<string>("  0%").poll(5000, ["bash", "-c", "free -m | awk '/Mem/{printf(\"  %d%%\\n\"), $3/$2*100}'"])
+    const ram = Variable<number>(0.0).poll(5000, ["bash", "-c", "free -m | awk '/Mem/{printf(\"%.2f\\n\"), $3/$2}'"])
 
-    return <label
-        className="RAM"
-        onDestroy={() => ram.drop()}
-        label={ram()}
-    />
+    return <box className="RAM">
+        <circularprogress value={ram()} startAt={0} endAt={0} onDestroy={() => ram.drop()} tooltipText={bind(ram).as(ram => "ram: " + (ram * 100).toFixed(0) + "%")}>
+            <icon />
+        </circularprogress>
+    </box>
 }
 

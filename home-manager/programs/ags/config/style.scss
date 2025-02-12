@@ -33,16 +33,19 @@ $crust: #11111b;
 window.Bar {
     background-color: rgba(0, 0, 0, 0.5);
     color: $text;
-    font-family: Nerd Font Hack;
+    font-family: Inter;
     font-size: 12px;
 
+    .Separator {
+        font-size: 18px;
+        color: $surface0;
+    }
+
     .Home {
-        background-color: $mauve;
-        border-radius: 10px;
-        margin: 5px 0px 5px 12px;
         button {
-            padding: 0px 12px;
-            color: $surface0;
+            padding: 0px 0px 0px 8px;
+            font-size: 22px;
+            color: $blue;
             background: none;
             box-shadow: none;
             border: none;
@@ -50,26 +53,19 @@ window.Bar {
     }
 
     .Workspaces {
-        background-color: #313244;
-        border-radius: 26px;
-        margin-left: 10px;
-        margin-top: 5px;
-        margin-bottom: 5px;
         button {
+            padding: 0px 5px;
             background: none;
             box-shadow: none;
             border: none;
         }
         button:hover {
-            color: #f5c2e7;
-        }
-
-        .focused {
-            color: #74c7ec;
+            color: $maroon;
         }
     }
 
     .SysTray {
+        margin-right: 5px;
         button {
             background: none;
             padding: 0px 2px;
@@ -82,57 +78,60 @@ window.Bar {
     }
 
     .SwayNC {
-        background-color: $peach;
-        color: $surface1;
-        border-radius: 22px;
-        margin: 5px 5px;
-        padding: 0px 10px 0px 15px;
+        color: $lavender;
+        font-size: 16px;
+        padding: 0px 0px 0px 8px;
     }
 
     .RAM {
-        background-color: $red;
-        color: $base;
-        border-radius: 22px;
-        margin: 5px 5px;
-        padding: 0px 15px;
+        margin: 0px 5px;
+        circularprogress {
+            color: $peach;
+            background-color: $surface0;
+            font-size: 3px;
+            margin: 2px;
+            min-width: 22px;
+        }
     }
 
     .CPU {
-        background-color: $lavender;
-        color: $base;
-        border-radius: 22px;
-        margin: 5px 5px;
-        padding: 0px 15px;
+        margin: 0px 5px;
+        circularprogress {
+            color: $blue;
+            background-color: $surface0;
+            font-size: 3px;
+            margin: 2px;
+            min-width: 22px;
+        }
     }
 
     .AudioSlider {
-        background-color: $surface0;
-        border-radius: 22px;
-        margin: 5px 2px 5px 8px;
-        padding: 0px 2px;
+        .volume-icon {
+            font-size: 14px;
+            color: $mauve;
+        }
         slider {
             background-color: $overlay0;
         }
         button {
             background: none;
+            padding: 0px 0px 0px 10px;
             box-shadow: none;
             border: none;
         }
     }
 
     .Time {
-        margin: 5px 5px;
-        padding: 0px 15px;
-        background-color: $surface0;
-        border-radius: 22px;
+        padding: 0px 10px 0px 5px;
+        font-size: 14px;
     }
 
     .MediaPlayer {
-        margin: 5px 5px;
         background: none;
 
         .cover-art {
             margin-top: 5px;
+            margin-bottom: 5px;
             min-width: 32px;
             min-height: 32px;
             border-radius: 50%;
@@ -143,10 +142,10 @@ window.Bar {
         .title {
             padding: 0.6rem;
             label {
-                margin-right: 0.6rem;
+                margin-right: 0.4rem;
             }
             icon {
-                font-size: 20px;
+                font-size: 14px;
             }
         }
 

@@ -13,6 +13,12 @@
       noto-fonts-cjk-serif
       noto-fonts-emoji
 
+      (google-fonts.override {
+        fonts = [
+          "Inter"
+        ];
+      })
+
       nerd-fonts.victor-mono
       nerd-fonts.jetbrains-mono
       nerd-fonts.hack

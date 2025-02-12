@@ -9,7 +9,7 @@
         settings = {
           Theme = {
             FacesDir = "/var/lib/AccountsService/icons/";
-            CursorTheme = "catppuccin-latte-mauve-cursors";
+            CursorTheme = "catppuccin-macchiato-dark-cursors";
           };
         };
         wayland = {
@@ -23,7 +23,7 @@
   environment = {
     systemPackages = with pkgs; [
       catppuccin-sddm-corners
-      catppuccin-cursors.latteMauve
+      catppuccin-cursors.macchiatoDark
     ];
   };
 

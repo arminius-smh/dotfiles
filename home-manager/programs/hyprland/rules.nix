@@ -22,6 +22,7 @@
               "norounding 1,class:^(steam_app_.*)$"
               "float,class:^(com.saivert.pwvucontrol)$"
               "float,class:^(nwg-displays)$"
+              "float,class:^(org.gnome.font-viewer)$"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "fullscreen,class:^(spotify)$"
@@ -35,6 +36,7 @@
           layerrule = [
             "blur, waybar"
             "blur, ags"
+            "blur, nwg-drawer"
           ];
         };
       };

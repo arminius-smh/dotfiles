@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # checks if prs are merged in nixos-unstable
 
+if [[ ! -f /home/armin/.nix-prs ]]; then
+    exit
+fi
+
+
 # prs to be notified about:
 readarray -t prs < "/home/armin/.nix-prs"
 

@@ -26,7 +26,7 @@ export default function SwayNC() {
             content.set("󰂚 ")
         } else if (
             val.alt == "notification") {
-            content.set("󰂚<span foreground='red'><small><sup>⬤</sup></small></span>")
+            content.set("󰂚<span foreground='#d20f39'><small><sup>⬤</sup></small></span>")
         }
         else if (val.alt == "dnd-notification" || val.alt == "dnd-none") {
             content.set("󰂛 ")

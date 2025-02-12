@@ -17,7 +17,6 @@
     ./_collections/coding.nix # packages for programming
     ./_collections/utils.nix # common system utils
 
-    # ./fastfetch # system info
     ./firefox # browser
     ./thunderbird # mail client
     ./spotify-player # spotify streaming
@@ -25,6 +24,7 @@
 
     ./nwg-dock-hyprland # hyprland dock
     # ./nwg-bar # button bar
+    ./starship # shell prompt
   ];
 
   home = {

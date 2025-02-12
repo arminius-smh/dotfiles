@@ -11,6 +11,10 @@ import MprisPlayers from "./MprisPlayers"
 
 const { Layer, WindowAnchor, Exclusivity } = Astal;
 
+function Separator(){
+    return <label label="|" className="Separator" />
+}
+
 export default function Bar(monitor: Gdk.Monitor) {
     return <window className="Bar" namespace="ags" gdkmonitor={monitor} layer={Layer.BOTTOM} exclusivity={Exclusivity.EXCLUSIVE} anchor={WindowAnchor.TOP | WindowAnchor.LEFT | WindowAnchor.RIGHT}>
         <centerbox>
@@ -28,10 +32,13 @@ export default function Bar(monitor: Gdk.Monitor) {
             <box halign={Gtk.Align.END} >
                 <box>
                     <SysTray />
+                    <Separator />
                     <AudioSlider />
                     <SwayNC />
+                    <Separator />
                     <CPU />
                     <RAM />
+                    <Separator />
                     <Time />
                 </box>
             </box>

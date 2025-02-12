@@ -18,11 +18,11 @@ M.config = function()
         "rust_analyzer",
         "hyprls",
         "nixd",
+        "emmet_language_server",
 
         "bashls",
         "ccls",
         "denols",
-        "emmet_ls",
         "eslint",
         "gopls",
         "html",

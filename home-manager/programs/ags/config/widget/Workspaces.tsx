@@ -24,6 +24,8 @@ export default function Workspaces() {
                 return "八"
             case 9:
                 return "九"
+            case 10:
+                return "十"
             default:
                 return id
         }

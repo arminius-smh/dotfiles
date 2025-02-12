@@ -75,8 +75,8 @@
     };
 
     pointerCursor = lib.mkIf (systemName == "phoenix" || systemName == "discovery") {
-      name = "catppuccin-latte-mauve-cursors";
-      package = pkgs.catppuccin-cursors.latteMauve;
+      name = "catppuccin-macchiato-dark-cursors";
+      package = pkgs.catppuccin-cursors.macchiatoDark;
       size = 24;
       gtk = {
         enable = true;

@@ -10,6 +10,7 @@
       nixd # language server nix
       nixfmt-rfc-style # formatter nix
       hyprls # language server hypr
+      emmet-language-server # language server html (emmet shortcuts)
 
       luajit # lua compiler
       gcc # c/c++ compiler
@@ -44,7 +45,6 @@
       lua-language-server # langugae server lua
       yaml-language-server # language server yaml
       lemminx # language server xml
-      emmet-ls # language server html (emmet shortcuts)
       vscode-langservers-extracted # language server html, css, js
       nodePackages_latest.typescript-language-server # language server typescript
       pyright # language server python

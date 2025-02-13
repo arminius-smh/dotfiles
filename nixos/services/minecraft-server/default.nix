@@ -11,7 +11,6 @@
   imports = [
     inputs.nix-minecraft.nixosModules.minecraft-servers
     ./vanilla-fabric-server-1_21_1.nix
-    ./hexxit-1_5_2.nix
   ];
   services = {
     minecraft-servers = {

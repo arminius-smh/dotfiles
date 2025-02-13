@@ -24,15 +24,15 @@
 
   boot = {
     # NOTE: https://github.com/tpwrules/nixos-apple-silicon/issues/257#issuecomment-2608236190
-    # plymouth = {
-    #   enable = true;
-    #   theme = "hud_3";
-    #   themePackages = with pkgs; [
-    #     (adi1090x-plymouth-themes.override {
-    #       selected_themes = [ "hud_3" ];
-    #     })
-    #   ];
-    # };
+    plymouth = {
+      enable = true;
+      theme = "rings";
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "rings" ];
+        })
+      ];
+    };
     tmp = {
       cleanOnBoot = true;
     };
@@ -55,9 +55,10 @@
     };
     consoleLogLevel = 0;
     kernelParams = [
+      "plymouth.use-simpledrm"
       "apple_dcp.show_notch=1"
       "quiet"
-      # "splash"
+      "splash"
       "boot.shell_on_fail"
       "vt.cur_default=1" # hide blinking _ cursor during boot
       "loglevel=3"

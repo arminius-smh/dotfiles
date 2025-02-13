@@ -1,4 +1,5 @@
 {
+  config,
   systemName,
   lib,
   ...
@@ -25,6 +26,9 @@
       wifi = {
         backend = "wpa_supplicant"; # iwd
         scanRandMacAddress = false;
+      };
+      ensureProfiles = lib.mkIf (systemName == "discovery") {
+        profiles = config.secrets.wifi.profiles;
       };
     };
     interfaces = lib.mkIf (systemName == "phoenix") {

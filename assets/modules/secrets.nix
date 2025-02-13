@@ -3,6 +3,11 @@ with lib;
 {
   options = {
     secrets = {
+      wifi = {
+        profiles = mkOption {
+          type = types.attrs;
+        };
+      };
       settings = {
         startpage = mkOption {
           type = types.str;

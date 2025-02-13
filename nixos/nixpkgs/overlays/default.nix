@@ -19,7 +19,7 @@
   nixpkgs = {
     overlays = lib.mkMerge [
       (lib.mkIf (systemName == "discovery") [
-        (import ./widevine-overlay.nix)
+        (import ./firefox.nix)
       ])
       (lib.mkIf (systemName == "phoenix") [
         (import ./btop.nix)

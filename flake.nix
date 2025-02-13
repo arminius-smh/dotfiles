@@ -28,7 +28,8 @@
       url = "github:catppuccin/nix";
     };
     nixos-apple-silicon = {
-      url = "github:tpwrules/nixos-apple-silicon";
+      # url = "github:tpwrules/nixos-apple-silicon";
+      url = "git+file:///home/armin/projects/dev/misc/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ags = {

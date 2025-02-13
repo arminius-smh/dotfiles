@@ -19,6 +19,9 @@
       delta = {
         enable = true;
       };
+      signing = {
+        format = "ssh";
+      };
       extraConfig = {
         user = {
           email = config.secrets.mail.personal;
@@ -29,7 +32,6 @@
           defaultBranch = "main";
         };
         gpg = {
-          format = "ssh";
           ssh = {
             allowedSignersFile = "${config.home.homeDirectory}/.ssh/allowed_signers";
           };

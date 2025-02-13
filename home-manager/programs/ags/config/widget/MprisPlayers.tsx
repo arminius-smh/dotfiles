@@ -24,8 +24,8 @@ function MediaPlayer({ player }: { player: Mpris.Player }) {
 
     const playIcon = bind(player, "playbackStatus").as(s =>
         s === Mpris.PlaybackStatus.PLAYING
-            ? ""
-            : ""
+            ? "󰏤"
+            : "󰐊"
     )
 
     let showSlider = Variable(false)

@@ -8,19 +8,22 @@
   services = {
     syncthing = {
       enable = true;
+      overrideFolders = false;
       overrideDevices = true;
-      overrideFolders = true;
       settings = {
-        devices = lib.mkIf (systemName != "excelsior") {
-          "excelsior" =
-            {
-              id = config.secrets.syncthing.excelsior;
-              autoAcceptFolders = true;
-            }
-            // lib.optionalAttrs (systemName != "phoenix") {
-              id = config.secrets.syncthing.phoenix;
-              autoAcceptFolders = true;
-            };
+        devices = {
+          "excelsior" = lib.mkIf (systemName != "excelsior") {
+            id = config.secrets.syncthing.excelsior;
+            autoAcceptFolders = true;
+          };
+          "phoenix" = lib.mkIf (systemName != "phoenix") {
+            id = config.secrets.syncthing.phoenix;
+            autoAcceptFolders = true;
+          };
+          "discovery" = lib.mkIf (systemName != "discovery") {
+            id = config.secrets.syncthing.discovery;
+            autoAcceptFolders = true;
+          };
         };
       };
     };

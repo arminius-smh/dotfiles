@@ -1,4 +1,6 @@
 {
+  config,
+  lib,
   inputs,
   pkgs,
   ...
@@ -24,4 +26,6 @@
       ];
     };
   };
+
+  systemd.user.services.ags.Unit.After = lib.mkForce [ config.wayland.systemd.target ];
 }

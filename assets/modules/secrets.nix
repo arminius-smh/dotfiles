@@ -15,6 +15,9 @@ with lib;
         phoenix = mkOption {
           type = types.str;
         };
+        discovery = mkOption {
+          type = types.str;
+        };
       };
       ip = {
         webdav-selfhost = mkOption {

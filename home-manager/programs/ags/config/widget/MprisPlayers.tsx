@@ -19,8 +19,8 @@ function MediaPlayer({ player }: { player: Mpris.Player }) {
     const coverArt = bind(player, "coverArt").as(c =>
         `background-image: url('${c}')`)
 
-    const playerIcon = bind(player, "entry").as(e =>
-        Astal.Icon.lookup_icon(e) ? e : "audio-x-generic-symbolic")
+    const playerIcon = bind(player, "entry").as(e => 
+        e != null && Astal.Icon.lookup_icon(e) ? e : "audio-x-generic-symbolic")
 
     const playIcon = bind(player, "playbackStatus").as(s =>
         s === Mpris.PlaybackStatus.PLAYING
@@ -69,7 +69,7 @@ function MediaPlayer({ player }: { player: Mpris.Player }) {
 export default function MprisPlayers() {
     const mpris = Mpris.get_default()
     return <box>
-        {bind(mpris, "players").as(arr => arr.filter(player => player.get_bus_name() == "org.mpris.MediaPlayer2.spotify").map(player => (
+        {bind(mpris, "players").as(arr => arr.filter(player => player.get_bus_name() == "org.mpris.MediaPlayer2.spotify" || player.get_bus_name() == "org.mpris.MediaPlayer2.spotify_player").map(player => (
             <MediaPlayer player={player} />
         )))}
     </box>

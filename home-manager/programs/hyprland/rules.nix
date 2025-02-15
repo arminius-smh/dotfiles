@@ -21,6 +21,7 @@
               "move onscreen 1200 135,class:^(pomodoro)$"
               "norounding 1,class:^(steam_app_.*)$"
               "float,class:^(com.saivert.pwvucontrol)$"
+              "float,class:^(nm-connection-editor)$"
               "float,class:^(nwg-displays)$"
               "float,class:^(org.gnome.font-viewer)$"
             ])

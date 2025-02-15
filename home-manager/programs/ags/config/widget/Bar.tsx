@@ -5,9 +5,11 @@ import Workspaces from "./Workspaces"
 import Time from "./Time"
 import RAM from "./RAM"
 import CPU from "./CPU"
+import BatteryStatus from "./BatteryStatus"
 import Home from "./Home"
 import SwayNC from "./SwayNC"
 import MprisPlayers from "./MprisPlayers"
+import { exec } from "astal"
 
 const { Layer, WindowAnchor, Exclusivity } = Astal;
 
@@ -16,17 +18,20 @@ function Separator(){
 }
 
 export default function Bar(monitor: Gdk.Monitor) {
+    let hostname = exec(["bash", "-c", "hostname"])
+
     return <window className="Bar" namespace="ags" gdkmonitor={monitor} layer={Layer.BOTTOM} exclusivity={Exclusivity.EXCLUSIVE} anchor={WindowAnchor.TOP | WindowAnchor.LEFT | WindowAnchor.RIGHT}>
         <centerbox>
             <box halign={Gtk.Align.START}>
                 <box>
                     <Home />
                     <Workspaces />
+                    {hostname === "discovery" && <MprisPlayers />}
                 </box>
             </box>
             <box>
                 <box>
-                    <MprisPlayers />
+                    {hostname !== "discovery" && <MprisPlayers />}
                 </box>
             </box>
             <box halign={Gtk.Align.END} >
@@ -38,6 +43,7 @@ export default function Bar(monitor: Gdk.Monitor) {
                     <Separator />
                     <CPU />
                     <RAM />
+                    <BatteryStatus />
                     <Separator />
                     <Time />
                 </box>

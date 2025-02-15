@@ -105,6 +105,17 @@ window.Bar {
         }
     }
 
+    .BatteryStatus {
+        margin: 0px 5px;
+        circularprogress {
+            color: $green;
+            background-color: $surface0;
+            font-size: 3px;
+            margin: 2px;
+            min-width: 22px;
+        }
+    }
+
     .AudioSlider {
         .volume-icon {
             font-size: 14px;
@@ -128,6 +139,7 @@ window.Bar {
 
     .MediaPlayer {
         background: none;
+        margin-left: 5px;
 
         .cover-art {
             margin-top: 5px;

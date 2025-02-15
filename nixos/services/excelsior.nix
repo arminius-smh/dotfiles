@@ -22,6 +22,7 @@
     # ./tumbler # filemanager thumbnail generator
     # ./udev
     # ./udisks2
+    # ./upower
     ./xserver
     ./zfs
   ];

@@ -21,12 +21,13 @@
       };
       signing = {
         format = "ssh";
+        key = "${config.home.homeDirectory}/.ssh/git.pub";
+        signByDefault = true;
       };
       extraConfig = {
         user = {
           email = config.secrets.mail.personal;
           name = "arminius-smh";
-          signingkey = "${config.home.homeDirectory}/.ssh/git.pub";
         };
         init = {
           defaultBranch = "main";
@@ -39,9 +40,6 @@
         push = {
           default = "current";
           autoSetupRemote = true;
-        };
-        commit = {
-          gpgSign = true;
         };
         diff = {
           ignoreSpaceChange = false;

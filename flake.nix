@@ -26,6 +26,7 @@
     };
     catppuccin = {
       url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-apple-silicon = {
       # url = "github:tpwrules/nixos-apple-silicon";

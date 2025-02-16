@@ -1,0 +1,8 @@
+{ ... }:
+{
+  services = {
+    amberol = {
+      enable = true;
+    };
+  };
+}

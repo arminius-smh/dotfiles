@@ -30,7 +30,6 @@
   home = {
     packages = with pkgs; [
       hyprsysteminfo # system info
-      amberol # music player
       wl-clipboard # clipboard manager
       grimblast # screenshot
       gum # shell tool

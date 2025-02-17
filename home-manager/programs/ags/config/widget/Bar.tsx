@@ -3,9 +3,7 @@ import SysTray from "./SysTray"
 import AudioSlider from "./AudioSlider"
 import Workspaces from "./Workspaces"
 import Time from "./Time"
-import RAM from "./RAM"
-import CPU from "./CPU"
-import BatteryStatus from "./BatteryStatus"
+import Status from "./Status"
 import Home from "./Home"
 import SwayNC from "./SwayNC"
 import MprisPlayers from "./MprisPlayers"
@@ -41,9 +39,7 @@ export default function Bar(monitor: Gdk.Monitor) {
                     <AudioSlider />
                     <SwayNC />
                     <Separator />
-                    <CPU />
-                    <RAM />
-                    <BatteryStatus />
+                    <Status />
                     <Separator />
                     <Time />
                 </box>

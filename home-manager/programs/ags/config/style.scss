@@ -37,6 +37,10 @@ window.Bar {
     font-size: 12px;
 
     .Separator {
+        // increase default height of bar
+        padding-top: 10px;
+        padding-bottom: 10px;
+
         font-size: 18px;
         color: $surface0;
     }

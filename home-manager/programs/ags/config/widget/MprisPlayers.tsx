@@ -19,7 +19,7 @@ function MediaPlayer({ player }: { player: Mpris.Player }) {
     const coverArt = bind(player, "coverArt").as(c =>
         `background-image: url('${c}')`)
 
-    const playerIcon = bind(player, "entry").as(e => 
+    const playerIcon = bind(player, "entry").as(e =>
         e != null && Astal.Icon.lookup_icon(e) ? e : "audio-x-generic-symbolic")
 
     const playIcon = bind(player, "playbackStatus").as(s =>
@@ -66,11 +66,45 @@ function MediaPlayer({ player }: { player: Mpris.Player }) {
     </eventbox>
 }
 
+function playerSetup(player: Mpris.Player, showPlayer: Variable<Mpris.Player>, players: Array<Mpris.Player>) {
+    bind(player, "available").subscribe((available) => {
+        if (available === true) {
+            showPlayer.set(player)
+        } else {
+            showPlayer.set(players.filter((val) => (val.get_bus_name() != player.get_bus_name())).at(0) ?? Mpris.Player.new("none"))
+        }
+    })
+    bind(player, "playbackStatus").subscribe((status) => {
+        if (status === Mpris.PlaybackStatus.PLAYING) {
+            showPlayer.set(player)
+        }
+    })
+}
+
 export default function MprisPlayers() {
     const mpris = Mpris.get_default()
+
+    const showPlayer = Variable(Mpris.Player.new(mpris.get_players().at(0)?.get_bus_name() ?? "none"))
+
+    const players = [
+        Mpris.Player.new("spotify"),
+        Mpris.Player.new("spotify_player"),
+        Mpris.Player.new("io.bassi.Amberol"),
+    ]
+
+    players.forEach(player => {
+        playerSetup(player, showPlayer, players)
+    });
+
     return <box>
-        {bind(mpris, "players").as(arr => arr.filter(player => player.get_bus_name() == "org.mpris.MediaPlayer2.spotify" || player.get_bus_name() == "org.mpris.MediaPlayer2.spotify_player").map(player => (
-            <MediaPlayer player={player} />
-        )))}
+        {bind(showPlayer).as(player => {
+            if (player.available) {
+                return <revealer setup={(self) => setTimeout(() => self.revealChild = true, 100)} transitionType={Gtk.RevealerTransitionType.CROSSFADE}>
+                    <MediaPlayer player={player} />
+                </revealer>
+            } else {
+                return <box />
+            }
+        })}
     </box>
 }

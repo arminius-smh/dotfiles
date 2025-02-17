@@ -24,6 +24,8 @@
               "float,class:^(nm-connection-editor)$"
               "float,class:^(nwg-displays)$"
               "float,class:^(org.gnome.font-viewer)$"
+              "float,class:^(io.bassi.Amberol)$"
+              "float,class:^(xdg-desktop-portal-gtk)$"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "fullscreen,class:^(spotify)$"

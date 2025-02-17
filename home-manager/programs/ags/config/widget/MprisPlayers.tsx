@@ -82,15 +82,20 @@ function playerSetup(player: Mpris.Player, showPlayer: Variable<Mpris.Player>, p
 }
 
 export default function MprisPlayers() {
-    const mpris = Mpris.get_default()
-
-    const showPlayer = Variable(Mpris.Player.new(mpris.get_players().at(0)?.get_bus_name() ?? "none"))
+    const showPlayer = Variable(Mpris.Player.new("none"))
 
     const players = [
         Mpris.Player.new("spotify"),
         Mpris.Player.new("spotify_player"),
         Mpris.Player.new("io.bassi.Amberol"),
     ]
+
+    for (const player of players) {
+        if (player.available) {
+            showPlayer.set(player);
+            break;
+        }
+    }
 
     players.forEach(player => {
         playerSetup(player, showPlayer, players)

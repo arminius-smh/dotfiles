@@ -40,15 +40,15 @@ export default function AudioSlider() {
                 <label className="volume-icon" label={bind(speaker, "volume_icon").as(vol_icon => {
                     switch (vol_icon) {
                         case 'audio-volume-low-symbolic':
-                            return " "
-                        case 'audio-volume-medium-symbolic':
                             return " "
+                        case 'audio-volume-medium-symbolic':
+                            return " "
                         case 'audio-volume-high-symbolic':
                             return " "
                         case 'audio-volume-muted-symbolic':
                             return " "
                         default:
-                            return " "
+                            return " "
                     }
                 })} />
             </button>

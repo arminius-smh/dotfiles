@@ -59,7 +59,7 @@
             # "$mainMod, M, exec, pkill -USR1 waybar"
             "$mainMod, M, exec, $HOME/dotfiles/home-manager/programs/hyprland/scripts/toggle-ags.sh"
 
-            "$mainMod SHIFT, E, exec, uwsm stop"
+            ''$mainMod SHIFT, E, exec, bash -c "[[ $(hyprland-dialog --title 'Exiting Hyprland' --text 'Are you sure?' --buttons 'Yes;No') == 'Yes' ]] && uwsm stop"''
             "$mainMod, V, togglefloating"
 
             # Special Workspace

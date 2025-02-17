@@ -116,28 +116,30 @@ in
               };
             };
           };
-          extensions = with addons; [
-            bitwarden
-            catppuccin-gh-file-explorer
-            refined-github
-            multi-account-containers
-            return-youtube-dislikes
-            seventv
-            simple-translate
-            simplelogin
-            sponsorblock
-            stylus
-            torrent-control
-            ublock-origin
-            user-agent-string-switcher
-            videospeed
-            violentmonkey
-            watchmarker-for-youtube
-            yomitan
-            zotero-connector
+          extensions = {
+            packages = with addons; [
+              bitwarden
+              catppuccin-gh-file-explorer
+              refined-github
+              multi-account-containers
+              return-youtube-dislikes
+              seventv
+              simple-translate
+              simplelogin
+              sponsorblock
+              stylus
+              torrent-control
+              ublock-origin
+              user-agent-string-switcher
+              videospeed
+              violentmonkey
+              watchmarker-for-youtube
+              yomitan
+              zotero-connector
 
-            addons."2fas-two-factor-authentication"
-          ];
+              addons."2fas-two-factor-authentication"
+            ];
+          };
           bookmarks = [
             {
               name = "toolbar";
@@ -190,6 +192,7 @@ in
             "extensions.autoDisableScopes" = 0;
 
             "media.eme.enabled" = true;
+            "extensions.webextensions.ExtensionStorageIDB.enabled" = false;
           };
         };
       };

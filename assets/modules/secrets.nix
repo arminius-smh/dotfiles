@@ -75,6 +75,13 @@ with lib;
           type = types.attrs;
         };
       };
+      firefox = {
+        extensions = {
+          settings = mkOption {
+            type = types.attrs;
+          };
+        };
+      };
     };
   };
 }

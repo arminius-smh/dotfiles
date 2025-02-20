@@ -18,7 +18,7 @@
         size = if (systemName == "discovery") then 11 else 13;
       };
       settings = {
-        background_opacity = "0.95";
+        background_opacity = "0.92";
         window_padding_width = 5;
         update_check_interval = 0;
         tab_bar_style = "powerline";

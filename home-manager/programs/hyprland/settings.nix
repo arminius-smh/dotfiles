@@ -38,10 +38,6 @@
           #   workspace_swipe_fingers = 3;
           # };
 
-          render = {
-            explicit_sync = lib.mkIf (systemName == "phoenix") 1;
-          };
-
           debug = {
             disable_logs = false;
           };
@@ -106,7 +102,8 @@
               # "uwsm app -- heroic"
               # "uwsm app -- steam -silent -noverifyfiles"
               "[workspace 9 silent] uwsm app -- thunderbird"
-              "[workspace 8 silent] uwsm app -- spotify"
+              "[workspace special silent] uwsm app -- spotify"
+              "[workspace special silent] uwsm app -- kitty --class cava cava"
               "hyprctl dispatch focusmonitor ${config.home.sessionVariables.MONITOR_PRIMARY}"
               "[workspace special silent] uwsm app -- discord --start-minimized"
             ])

@@ -6,9 +6,7 @@
         settings = {
           windowrulev2 = lib.mkMerge [
             (lib.mkIf true [
-              "fullscreen,class:^(Jellyfin Media Player)$"
               "fullscreen,class:^(TradingView)$"
-              "fullscreen,class:^(thunderbird)$"
               "float,class:^(gamescope)$"
               "norounding 1,class:^(gamescope)$"
               "float,class:^(feh)$"
@@ -16,9 +14,6 @@
               "float,class:^(waypaper)$"
               "float,class:^(imv)$"
               "norounding 1,class:^(imv)$"
-              "float,class:^(pomodoro)$"
-              "size 650 150,class:^(pomodoro)$"
-              "move onscreen 1200 135,class:^(pomodoro)$"
               "norounding 1,class:^(steam_app_.*)$"
               "float,class:^(com.saivert.pwvucontrol)$"
               "float,class:^(nm-connection-editor)$"
@@ -26,9 +21,15 @@
               "float,class:^(org.gnome.font-viewer)$"
               "float,class:^(io.bassi.Amberol)$"
               "float,class:^(xdg-desktop-portal-gtk)$"
+              "float,class:^(.blueman-manager-wrapped)$"
             ])
             (lib.mkIf (systemName == "phoenix") [
-              "fullscreen,class:^(spotify)$"
+              "float,class:^(spotify)$"
+              "size 1200 700,class:^(spotify)$"
+              "move onscreen 19% 13%,class:^(spotify)$"
+              "float,class:^(cava)$"
+              "size 1200 100,class:^(cava)$"
+              "move onscreen 19% 80%,class:^(cava)$"
             ])
             (lib.mkIf (systemName == "discovery") [
               "float,class:^(spotify)$"

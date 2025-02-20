@@ -43,7 +43,6 @@
 
             # Exec
             "$mainMod, RETURN, exec, uwsm app -- kitty"
-            "$mainMod SHIFT, P, exec, uwsm app -- alacritty --class 'pomodoro' -e '$HOME/dotfiles/home-manager/programs/hyprland/scripts/pomodoro.zsh'"
             "$mainMod SHIFT, F, exec, uwsm app -- firefox"
             "$mainMod SHIFT, A, exec, uwsm app -- thunar"
             "$mainMod, D, exec, rofi -show drun"
@@ -57,7 +56,7 @@
             "$mainMod CONTROL, Q, killactive"
 
             # "$mainMod, M, exec, pkill -USR1 waybar"
-            "$mainMod, M, exec, $HOME/dotfiles/home-manager/programs/hyprland/scripts/toggle-ags.sh"
+            "$mainMod, M, exec, $HOME/dotfiles/assets/scripts/toggle-ags.sh"
 
             ''$mainMod SHIFT, E, exec, bash -c "[[ $(hyprland-dialog --title 'Exiting Hyprland' --text 'Are you sure?' --buttons 'Yes;No') == 'Yes' ]] && uwsm stop"''
             "$mainMod, V, togglefloating"

@@ -48,10 +48,10 @@
                   TriggerKeys = "";
                 };
                 "Hotkey/EnumerateForwardKeys" = {
-                  "0" = "Control+space";
+                  "0" = "Super+space";
                 };
                 "Hotkey/EnumerateBackwardKeys" = {
-                  "0" = "Control+Shift+space";
+                  "0" = "Super+Shift+space";
                 };
               };
               inputMethod = {

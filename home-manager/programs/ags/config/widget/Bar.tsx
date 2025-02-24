@@ -38,9 +38,7 @@ export default function Bar(monitor: Gdk.Monitor) {
                     <Separator />
                     <AudioSlider />
                     <SwayNC />
-                    <Separator />
                     <Status />
-                    <Separator />
                     <Time />
                 </box>
             </box>

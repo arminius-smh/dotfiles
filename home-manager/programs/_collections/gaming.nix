@@ -6,9 +6,6 @@
   ];
   home = {
     packages = with pkgs; [
-      # videogame manager
-      cartridges
-
       umu-launcher # unified launcher for windows games on linux
 
       protonup-qt # manage different proton versions

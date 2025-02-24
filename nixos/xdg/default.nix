@@ -10,6 +10,7 @@ let
   videoPlayer = [ "mpv.desktop" ];
   fileManager = [ "thunar.desktop" ];
   audioPlayer = [ "io.bassi.Amberol.desktop" ];
+  terminal = [ "kitty.desktop" ];
 in
 {
   xdg = {
@@ -28,6 +29,12 @@ in
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
       ];
+    };
+    terminal-exec = {
+      enable = true;
+      settings = {
+        default = terminal;
+      };
     };
     mime = {
       enable = true;

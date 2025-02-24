@@ -24,4 +24,15 @@
       configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
     };
   };
+
+  xdg = {
+    configFile = {
+      "gtk-3.0/bookmarks" = {
+        text = ''
+          file://${config.home.homeDirectory}/Mount/Storage/Games
+          file://${config.home.homeDirectory}/misc/music
+        '';
+      };
+    };
+  };
 }

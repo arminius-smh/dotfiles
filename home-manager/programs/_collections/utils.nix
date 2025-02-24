@@ -41,7 +41,6 @@
       xclip # only needed for wine paste
       update-nix-fetchgit # automatically fill hashes for nix expressions
       dig # dns lookup
-      ueberzugpp # draw images on terminals
       yt-dlp # video downloader
       tree # directory tree
       wget # website curler

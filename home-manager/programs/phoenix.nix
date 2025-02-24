@@ -47,7 +47,6 @@
       killall # kill processes by name
       pwvucontrol # pipewire volume control
       tradingview # stock tracker
-      autotiling # sway dynamic tiling
       python3Packages.manga-ocr # manga ocr
       mokuro # manga selectable text
 

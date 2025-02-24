@@ -46,6 +46,7 @@
             "$mainMod SHIFT, F, exec, uwsm app -- firefox"
             "$mainMod SHIFT, A, exec, uwsm app -- thunar"
             "$mainMod, D, exec, rofi -show drun"
+            "$mainMod CONTROL, D, exec, uuctl"
             "$mainMod, N, exec, uwsm app -- $HOME/dotfiles/home-manager/programs/rofi/scripts/powermenu.sh"
             "$mainMod SHIFT, R, exec, waypaper --random"
 
@@ -62,10 +63,10 @@
             "$mainMod, V, togglefloating"
 
             # Special Workspace
-            "$mainMod SHIFT, N,toggleSpecialWorkspace"
+            "$mainMod SHIFT, N, toggleSpecialWorkspace"
 
             # Fullscreen
-            "$mainMod, F,fullscreen "
+            "$mainMod, F, fullscreen"
           ];
 
           bindm = [
@@ -99,6 +100,9 @@
 
             ''$mainMod, XF86MonBrightnessUp, exec, swayosd-client --monitor "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')" --device kbd_backlight --brightness +5''
             ''$mainMod, XF86MonBrightnessDown, exec, swayosd-client --monitor "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')" --device kbd_backlight --brightness -5''
+
+            "ALT,Tab,cyclenext"
+            "ALT_SHIFT,Tab,cyclenext,prev"
           ];
         };
       };

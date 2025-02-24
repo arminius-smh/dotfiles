@@ -25,4 +25,17 @@
       };
     };
   };
+
+  # icon for dock entry
+  xdg = {
+    desktopEntries = {
+      cava = {
+        name = "cava";
+        exec = "cava";
+        terminal = true;
+        type = "Application";
+        icon = "audio-card";
+      };
+    };
+  };
 }

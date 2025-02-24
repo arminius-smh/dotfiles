@@ -1,4 +1,5 @@
 {
+  pkgs,
   ...
 }:
 {
@@ -17,5 +18,11 @@
         };
       };
     };
+  };
+
+  home = {
+    packages = with pkgs; [
+      autotiling # sway dynamic tiling
+    ];
   };
 }

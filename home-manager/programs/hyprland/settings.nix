@@ -23,13 +23,13 @@
           };
 
           general = {
-            resize_on_border = true;
             gaps_in = 5;
-            gaps_out = 20;
+            gaps_out = 10;
             "col.active_border" = "$teal $accent 135deg";
             "col.inactive_border" = "$surface0";
             border_size = 2;
             layout = "dwindle";
+            allow_tearing = true;
           };
 
           # NOTE: my libinput-gestures script works and looks better
@@ -37,10 +37,6 @@
           #   workspace_swipe = true;
           #   workspace_swipe_fingers = 3;
           # };
-
-          debug = {
-            disable_logs = false;
-          };
 
           decoration = {
             rounding = 10;
@@ -56,6 +52,10 @@
               enabled = true;
               color = "$crust";
             };
+          };
+
+          cursor = {
+            default_monitor = "${config.home.sessionVariables.MONITOR_PRIMARY}";
           };
 
           animations = {
@@ -99,12 +99,11 @@
             (lib.mkIf (systemName == "phoenix") [
               "waypaper --random"
               "uwsm app -- solaar -w hide"
-              # "uwsm app -- heroic"
+              "uwsm app -- heroic"
               # "uwsm app -- steam -silent -noverifyfiles"
               "[workspace 9 silent] uwsm app -- thunderbird"
               "[workspace special silent] uwsm app -- spotify"
               "[workspace special silent] uwsm app -- kitty --class cava cava"
-              "hyprctl dispatch focusmonitor ${config.home.sessionVariables.MONITOR_PRIMARY}"
               "[workspace special silent] uwsm app -- discord --start-minimized"
             ])
             (lib.mkIf (systemName == "discovery") [

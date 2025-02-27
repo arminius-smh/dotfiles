@@ -18,7 +18,7 @@
     ./pipewire
     # ./printing
     ./psd # https://wiki.archlinux.org/title/Profile-sync-daemon
-    ./scx
+    # ./scx
     ./tumbler # filemanager thumbnail generator
     ./udev
     # ./udisks2

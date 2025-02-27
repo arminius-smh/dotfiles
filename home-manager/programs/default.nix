@@ -46,10 +46,6 @@ in
         recursive = true;
       };
 
-      "libinput-gestures.conf" = {
-        source = ./files/libinput-gestures/libinput-gestures.conf;
-      };
-
       "Thunar/uca.xml" = {
         source = ./files/Thunar/uca.xml;
       };

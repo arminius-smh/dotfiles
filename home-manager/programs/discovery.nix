@@ -25,6 +25,7 @@
     ./nwg-dock-hyprland # hyprland dock
     # ./nwg-bar # button bar
     ./starship # shell prompt
+    ./libinput-gestures # multitouch gestures
   ];
 
   home = {
@@ -33,7 +34,6 @@
       anki # flashcard
       brightnessctl # brightness controller
       jellyfin-media-player # media player
-      libinput-gestures # multitouch gestures
       obsidian # markdown notes
       pamixer # audio mixer
       pwvucontrol # pipewire volume control

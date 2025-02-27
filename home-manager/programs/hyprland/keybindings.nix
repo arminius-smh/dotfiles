@@ -52,7 +52,7 @@
 
             #  -t https://github.com/marty-oehme/bemoji/issues/34
             "$mainMod SHIFT, M, exec, bemoji -cn && echo key ctrl+v | dotool"
-            "$mainMod SHIFT, D, exec, $HOME/dotfiles/home-manager/programs/hyprland/scripts/screenshot.sh"
+            "$mainMod SHIFT, D, exec, $HOME/dotfiles/assets/scripts/screenshot.sh"
 
             "$mainMod CONTROL, Q, killactive"
 

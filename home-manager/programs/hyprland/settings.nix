@@ -32,12 +32,6 @@
             allow_tearing = true;
           };
 
-          # NOTE: my libinput-gestures script works and looks better
-          # gestures = {
-          #   workspace_swipe = true;
-          #   workspace_swipe_fingers = 3;
-          # };
-
           decoration = {
             rounding = 10;
             rounding_power = 4;

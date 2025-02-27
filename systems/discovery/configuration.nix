@@ -55,7 +55,6 @@
     };
     consoleLogLevel = 0;
     kernelParams = [
-      "plymouth.use-simpledrm"
       "apple_dcp.show_notch=1"
       "quiet"
       "splash"

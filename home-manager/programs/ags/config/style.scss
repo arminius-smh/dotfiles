@@ -122,6 +122,19 @@ window.Bar {
         }
     }
 
+    .BluetoothStatus {
+        .bluetooth-icon {
+            font-size: 18px;
+            color: $blue;
+        }
+        button {
+            background: none;
+            padding: 0px 0px 0px 10px;
+            box-shadow: none;
+            border: none;
+        }
+    }
+
     .AudioSlider {
         .volume-icon {
             font-size: 14px;

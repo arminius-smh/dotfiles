@@ -3,7 +3,7 @@
   imports = [
     ./amberol # music player
     # ./avizo # on screen volume display
-    ./blueman-applet # bluetooth applet
+    # ./blueman-applet # bluetooth applet
     # ./dunst # notification daemon
     ./hypridle # idle manager
     ./kdeconnect # connect to phone

@@ -7,6 +7,7 @@ import Status from "./Status"
 import Home from "./Home"
 import SwayNC from "./SwayNC"
 import MprisPlayers from "./MprisPlayers"
+import BluetoothStatus from "./BluetoothStatus"
 import { exec } from "astal"
 
 const { Layer, WindowAnchor, Exclusivity } = Astal;
@@ -37,6 +38,7 @@ export default function Bar(monitor: Gdk.Monitor) {
                     <SysTray />
                     <Separator />
                     <AudioSlider />
+                    <BluetoothStatus />
                     <SwayNC />
                     <Status />
                     <Time />

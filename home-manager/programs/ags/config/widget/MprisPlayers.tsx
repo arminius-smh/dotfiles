@@ -1,6 +1,6 @@
 import { Astal, Gtk } from "astal/gtk3"
 import Mpris from "gi://AstalMpris"
-import { Variable, bind } from "astal"
+import { exec, Variable, bind } from "astal"
 import Popover from "./Popover"
 
 
@@ -12,6 +12,8 @@ function lengthStr(length: number) {
 }
 
 function MediaPlayer({ player }: { player: Mpris.Player }) {
+    let hostname = exec(["bash", "-c", "hostname"])
+
     const title_short = bind(player, "title").as(t => {
         if (t.length > 38) {
             t = t.substring(0, 35) + "...";
@@ -49,8 +51,9 @@ function MediaPlayer({ player }: { player: Mpris.Player }) {
         onClose={() => visible1.set(false)}
         visible={visible1()}
         marginTop={50}
+        marginLeft={hostname === "discovery" ? 5 : 0}
         valign={Gtk.Align.START}
-        halign={Gtk.Align.CENTER}
+        halign={hostname === "discovery" ? Gtk.Align.START : Gtk.Align.CENTER}
     >
         <box className="MediaPlayerPopup">
             <box className="cover-art" css={coverArt} />

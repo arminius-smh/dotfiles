@@ -1,6 +1,6 @@
 import Wp from "gi://AstalWp"
 import { Gtk } from "astal/gtk3"
-import { Variable, bind } from "astal"
+import { execAsync, Variable, bind } from "astal"
 
 export default function AudioSlider() {
     const speaker = Wp.get_default()?.audio.defaultSpeaker!
@@ -36,8 +36,14 @@ export default function AudioSlider() {
                     value={bind(speaker, "volume")}
                 />
             </revealer>
-            <button onClick="pwvucontrol">
-                <label className="volume-icon" label={bind(speaker, "volume_icon").as(vol_icon => {
+            <button onClick={(_, event) => {
+                if (event.button == 1) { // left-click
+                    execAsync(["bash", "-c", "pwvucontrol"])
+                } else if (event.button == 3) { // right-click
+                    speaker.set_mute(!speaker.get_mute())
+                }
+            }}>
+                <label className="volume-icon" useMarkup={true} label={bind(speaker, "volume_icon").as(vol_icon => {
                     switch (vol_icon) {
                         case 'audio-volume-low-symbolic':
                             return " "
@@ -46,7 +52,7 @@ export default function AudioSlider() {
                         case 'audio-volume-high-symbolic':
                             return " "
                         case 'audio-volume-muted-symbolic':
-                            return " "
+                            return "<span foreground='#7f849c'> </span>"
                         default:
                             return " "
                     }

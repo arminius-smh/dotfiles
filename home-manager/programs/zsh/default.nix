@@ -107,6 +107,7 @@
         lg = "lazygit";
         nix-edit = "nix-edit.sh";
         rebuild = "rebuild.sh";
+        json2nix = "nix run github:sempruijs/json2nix";
       };
     };
   };

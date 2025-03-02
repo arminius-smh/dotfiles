@@ -1,7 +1,9 @@
 {
   inputs,
+  systemName,
   config,
   pkgs,
+  lib,
   ...
 }:
 let
@@ -123,11 +125,18 @@ in
           };
           extensions = {
             force = true;
-            settings = {
-              "{d559f111-ba90-4646-8d28-5e8a3da53fe9}" = {
-                settings = import ./config/videospeed.nix;
+            settings =
+              {
+                "{d559f111-ba90-4646-8d28-5e8a3da53fe9}" = {
+                  settings = import ./config/videospeed.nix;
+                };
+              }
+              // config.secrets.firefox.extensions.settings
+              // lib.optionalAttrs (systemName == "discovery") {
+                "{a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7}" = {
+                  settings = import ./config/user-agent-switcher.nix;
+                };
               };
-            } // config.secrets.firefox.extensions.settings;
             packages = with addons; [
               bitwarden
               catppuccin-gh-file-explorer

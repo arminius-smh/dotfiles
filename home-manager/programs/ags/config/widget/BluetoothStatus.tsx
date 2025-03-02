@@ -12,7 +12,6 @@ export default function BluetoothStatus() {
         }
     })}>
         <button onClick={(_, event) => {
-
             if (event.button == 1) { // left-click
                 execAsync(["bash", "-c", "blueman-manager"])
             } else if (event.button == 3) { // right-click

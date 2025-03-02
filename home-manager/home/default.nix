@@ -83,7 +83,6 @@
       };
       hyprcursor = {
         enable = true;
-        size = 32;
       };
     };
 

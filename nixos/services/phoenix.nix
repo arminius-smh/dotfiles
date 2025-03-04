@@ -6,7 +6,7 @@
     ./blueman
     ./dbus
     ./displayManager
-    # ./flatpak
+    ./flatpak
     ./fstrim
     ./fwupd # firmware update
     # ./getty

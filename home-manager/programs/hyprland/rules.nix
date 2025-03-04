@@ -22,8 +22,9 @@
               "float,class:^(io.bassi.Amberol)$"
               "float,class:^(xdg-desktop-portal-gtk)$"
               "float,class:^(.blueman-manager-wrapped)$"
-              "immediate,class:^(gamescope)$"
-              "immediate,class:^(steam_app_.*)$"
+              "float,class:^(io.missioncenter.MissionCenter)$"
+              "size 1050 650,class:^(io.missioncenter.MissionCenter)$"
+              "float,class:^(org.fcitx.)$"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "float,class:^(spotify)$"

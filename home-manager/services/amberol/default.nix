@@ -6,5 +6,15 @@
     };
   };
 
-  systemd.user.services.waybar.Unit.After = lib.mkForce [ config.wayland.systemd.target ];
+  systemd = {
+    user = {
+      services = {
+        amberol = {
+          Unit = {
+            After = lib.mkForce [ config.wayland.systemd.target ];
+          };
+        };
+      };
+    };
+  };
 }

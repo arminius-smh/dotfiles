@@ -29,7 +29,6 @@
             "col.inactive_border" = "$surface0";
             border_size = 2;
             layout = "dwindle";
-            allow_tearing = true;
           };
 
           decoration = {
@@ -96,14 +95,14 @@
               "uwsm app -- heroic"
               # "uwsm app -- steam -silent -noverifyfiles"
               "[workspace 9 silent] uwsm app -- thunderbird"
-              "[workspace special silent] uwsm app -- spotify"
-              "[workspace special silent] uwsm app -- kitty --class cava cava"
-              "[workspace special silent] uwsm app -- discord --start-minimized"
+              "[workspace special:spotify silent] uwsm app -- spotify"
+              "[workspace special:spotify silent] uwsm app -- kitty --class cava cava"
+              "[workspace special:spotify silent] uwsm app -- discord --start-minimized"
             ])
             (lib.mkIf (systemName == "discovery") [
               "waypaper --restore"
               "uwsm app -- libinput-gestures"
-              "[workspace special silent] uwsm app -- kitty -o background_opacity=1 --class spotify --session spotify_player"
+              "[workspace special:spotify silent] uwsm app -- kitty -o background_opacity=1 --class spotify --session spotify_player"
               "uwsm app -- vesktop --start-minimized"
             ])
           ];

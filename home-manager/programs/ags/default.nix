@@ -29,5 +29,16 @@
     };
   };
 
-  systemd.user.services.ags.Unit.After = lib.mkForce [ config.wayland.systemd.target ];
+  systemd = {
+    user = {
+      services = {
+        ags = {
+          Unit = {
+            X-SwitchMethod = "restart";
+            After = lib.mkForce [ config.wayland.systemd.target ];
+          };
+        };
+      };
+    };
+  };
 }

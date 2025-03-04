@@ -1,5 +1,5 @@
 import { Gtk } from "astal/gtk3"
-import { Variable, bind, exec } from "astal"
+import { Variable, bind, exec, execAsync } from "astal"
 import Battery from "gi://AstalBattery"
 import Popover from "./Popover"
 
@@ -33,7 +33,7 @@ export default function CPU() {
                 </box>
             </box>
             <box className="RAMStatusPopup">
-                <circularprogress value={bind(ram).as((val) => val/ramTotal)} startAt={0} endAt={0} onDestroy={() => ram.drop()}>
+                <circularprogress value={bind(ram).as((val) => val / ramTotal)} startAt={0} endAt={0} onDestroy={() => ram.drop()}>
                     <icon icon={"ram-symbolic"} />
                 </circularprogress>
                 <box className="RAMStatusBox" vertical>
@@ -53,7 +53,13 @@ export default function CPU() {
         </box>
     </Popover>
 
-    return <eventbox onClick={() => visible1.set(true)}>
+    return <eventbox onClick={(_, event) => {
+        if (event.button == 1) {
+            execAsync(["bash", "-c", "missioncenter"])
+        } else if (event.button == 3) {
+            visible1.set(true)
+        }
+    }}>
         <box className="Status">
             <box className="CPU">
                 <circularprogress value={cpu()} startAt={0} endAt={0} onDestroy={() => cpu.drop()} tooltipText={bind(cpu).as(cpu => "cpu: " + (cpu * 100).toFixed(0) + "%")}>
@@ -61,7 +67,7 @@ export default function CPU() {
                 </circularprogress>
             </box>
             <box className="RAM">
-                <circularprogress value={bind(ram).as((val) => val/ramTotal)} startAt={0} endAt={0} onDestroy={() => ram.drop()} tooltipText={bind(ram).as(ram => "ram: " + (ram/ramTotal * 100).toFixed(0) + "%")}>
+                <circularprogress value={bind(ram).as((val) => val / ramTotal)} startAt={0} endAt={0} onDestroy={() => ram.drop()} tooltipText={bind(ram).as(ram => "ram: " + (ram / ramTotal * 100).toFixed(0) + "%")}>
                     <icon />
                 </circularprogress>
             </box>

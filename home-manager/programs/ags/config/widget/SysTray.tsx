@@ -24,14 +24,17 @@ export default function SysTray() {
     const tray = Tray.get_default()
 
     return <box className="SysTray">
-        {bind(tray, "items").as(items => items.filter(item => (item.get_status() != Tray.Status.PASSIVE) && (item.get_title() != "blueman")).map(item => (
-            <button
-                onClick={(self, event) => clicky(self, event, item)}
-                tooltipMarkup={item.get_tooltip_markup() != "" ? bind(item, "tooltipMarkup") : bind(item, "title")}
-            >
-                <icon gicon={bind(item, "gicon")} />
-            </button>
-        )))}
+        {bind(tray, "items").as(items => items
+            .filter(item => (item.get_status() != Tray.Status.PASSIVE) && (item.get_title() != "blueman"))
+            .sort((a, b) => a.id.localeCompare(b.id))
+            .map(item => (
+                <button
+                    onClick={(self, event) => clicky(self, event, item)}
+                    tooltipMarkup={item.get_tooltip_markup() != "" ? bind(item, "tooltipMarkup") : bind(item, "title")}
+                >
+                    <icon gicon={bind(item, "gicon")} />
+                </button>
+            )))}
     </box>
 }
 

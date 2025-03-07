@@ -76,7 +76,7 @@
               "${configSway.modifier}+minus" = "scratchpad show";
 
               "${configSway.modifier}+Shift+c" = "reload";
-              "${configSway.modifier}+Shift+m" =
+              "${configSway.modifier}+Shift+e" =
                 "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'uwsm stop'";
 
               "${configSway.modifier}+r" = "mode resize";

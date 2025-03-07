@@ -6,7 +6,7 @@
 }:
 {
   nix = {
-    package = pkgs.nix;
+    package = pkgs.lix;
 
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
@@ -36,6 +36,13 @@
       ];
 
       warn-dirty = false;
+    };
+
+    gc = {
+      automatic = true;
+      persistent = true;
+      dates = "weekly";
+      options = "--delete-older-than 3d";
     };
 
     extraOptions = ''

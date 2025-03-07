@@ -6,7 +6,7 @@
 }:
 {
   nix = {
-    package = pkgs.nix;
+    package = pkgs.lix;
 
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 

@@ -13,6 +13,9 @@
         enable = true;
         xwayland = true;
         checkConfig = true;
+        systemd = {
+          enable = false;
+        };
         wrapperFeatures = {
           gtk = true;
         };

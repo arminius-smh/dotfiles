@@ -9,7 +9,6 @@
     ./inputs.nix
     ./jellyfin-media-player.nix
     ./mypkgs.nix
-    ./swayosd.nix
     ./temp.nix
     ./timer.nix
     ./vlc.nix

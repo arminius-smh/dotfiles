@@ -67,6 +67,10 @@
 
             # Fullscreen
             "$mainMod, F, fullscreen"
+
+            # Alt+Tab
+            "alt, tab, exec, hyprswitch gui --mod-key alt --key tab --close mod-key-release --reverse-key=mod=shift --filter-current-monitor && hyprswitch dispatch"
+            "alt shift, tab, exec, hyprswitch gui --mod-key alt --key tab --close mod-key-release --reverse-key=mod=shift --filter-current-monitor && hyprswitch dispatch -r"
           ];
 
           bindm = [
@@ -100,9 +104,6 @@
 
             ''$mainMod, XF86MonBrightnessUp, exec, swayosd-client --monitor "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')" --device kbd_backlight --brightness +5''
             ''$mainMod, XF86MonBrightnessDown, exec, swayosd-client --monitor "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')" --device kbd_backlight --brightness -5''
-
-            "ALT,Tab,cyclenext"
-            "ALT_SHIFT,Tab,cyclenext,prev"
           ];
         };
       };

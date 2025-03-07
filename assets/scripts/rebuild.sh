@@ -110,7 +110,7 @@ fi
 echo "COMMAND: $COMMAND"
 
 # shellcheck disable=SC2086
-if ! nh os $COMMAND -H "$hostname" '.?submodules=1' $OPTIONS; then
+if ! sudo nixos-rebuild $COMMAND --flake "/home/armin/dotfiles?submodules=1#$hostname" $OPTIONS |& nom; then
     echo "NixOS rebuild failed"
     exit
 fi

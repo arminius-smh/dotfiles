@@ -23,7 +23,6 @@
     # ./obs-studio # video recording
     ./discord # discord enhancement
     # ./nwg-bar # button bar
-    ./nwg-dock-hyprland # hyprland dock
     ./starship # shell prompt
   ];
 

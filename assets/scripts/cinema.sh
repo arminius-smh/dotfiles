@@ -27,11 +27,9 @@ main() {
     if [[ "$var" -eq "0" ]]; then
         mode_off
         echo "1" > "$VAR_FILE"
-        pkill -f jellyfinmediaplayer
     elif [[ "$var" -eq "1" ]]; then
         mode_on
         echo "0" > "$VAR_FILE"
-        jellyfinmediaplayer
     fi
 }
 

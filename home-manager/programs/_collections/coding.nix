@@ -11,6 +11,7 @@
       nixfmt-rfc-style # formatter nix
       hyprls # language server hypr
       emmet-language-server # language server html (emmet shortcuts)
+      rust-analyzer # language server rust
 
       luajit # lua compiler
       gcc # c/c++ compiler

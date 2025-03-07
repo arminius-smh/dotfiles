@@ -8,7 +8,7 @@
     ./gnupg
     ./hyprland
     ./neovim
-    ./nh
+    # ./nh
     # ./nix-ld
     # ./steam
     # ./sway

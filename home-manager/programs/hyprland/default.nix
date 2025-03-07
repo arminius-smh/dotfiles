@@ -5,6 +5,9 @@
     ./settings.nix
     ./keybindings.nix
     ./rules.nix
+
+    ../hyprswitch # alt+tab functionality
+    ../nwg-dock-hyprland # hyprland dock
   ];
 
   catppuccin = {

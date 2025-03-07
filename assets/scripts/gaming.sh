@@ -12,16 +12,12 @@ mode_on(){
     # move every monitor except the on with a game on down to prevent mouse capturing issues
     hyprctl keyword monitor "$MONITOR_SECONDARY", 1920x1080, 0x2000
     hyprctl keyword monitor "$MONITOR_TERTIARY", 1920x1080, 3840x2000
-    # turn fcitx5 off
-    pkill fcitx5
 }
 
 mode_off(){
     # return monitor config
     hyprctl keyword monitor "$MONITOR_SECONDARY", 1920x1080, 0x0
     hyprctl keyword monitor "$MONITOR_TERTIARY", 1920x1080, 3840x0
-    # enable fcitx5 again
-    fcitx5 &
 }
 
 

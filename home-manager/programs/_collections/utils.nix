@@ -61,6 +61,7 @@
       nixpkgs-review # review prs on nixpkgs
       gnome-font-viewer # view installed fonts
       mission-center # task manager
+      baobab # disk usage analyzer
 
       # file compression
       zip

@@ -152,7 +152,6 @@ in
               ublock-origin
               user-agent-string-switcher
               violentmonkey
-              watchmarker-for-youtube
               yomitan
               zotero-connector
 

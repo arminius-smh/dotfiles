@@ -32,21 +32,26 @@ export default function Workspaces() {
 
     }
 
-    return <box className="Workspaces"> {bind(hypr, "workspaces").as(wss => wss.
-        filter(ws => !(ws.id >= -99 && ws.id <= -2))
-        .sort((a, b) => a.id - b.id)
-        .map(ws => (
-            <button
-                className={bind(hypr, "focusedWorkspace").as(fw =>
-                    ws === fw ? "focused" : "")}
-                onClicked={() => ws.focus()}>
-                <label
-                    useMarkup={true}
-                >
-                    {bind(hypr, "focusedWorkspace").as(fw => fw.id == ws.id ? "<span foreground='#74c7ec'></span>" : transform(ws.id))}
-                </label>
+    if (hypr != null) {
+        return <box className="Workspaces"> {bind(hypr, "workspaces").as(wss => wss.
+            filter(ws => !(ws.id >= -99 && ws.id <= -2))
+            .sort((a, b) => a.id - b.id)
+            .map(ws => (
+                <button
+                    className={bind(hypr, "focusedWorkspace").as(fw =>
+                        ws === fw ? "focused" : "")}
+                    onClicked={() => ws.focus()}>
+                    <label
+                        useMarkup={true}
+                    >
+                        {bind(hypr, "focusedWorkspace").as(fw => fw.id == ws.id ? "<span foreground='#74c7ec'></span>" : transform(ws.id))}
+                    </label>
 
-            </button>
-        )))
-    } </box>
+                </button>
+            )))
+        } </box>
+    } else {
+        return <box />
+    }
+
 }

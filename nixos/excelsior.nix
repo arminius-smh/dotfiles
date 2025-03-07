@@ -12,7 +12,7 @@
     # ./security
     ./services
     # ./swapDevices
-    # ./system
+    ./system
     ./systemd
     ./time
     ./users

@@ -6,7 +6,6 @@
 {
   imports = [
     ./adi1090x-plymouth-themes.nix
-    ./jellyfin-media-player.nix
     ./vlc.nix
   ];
 

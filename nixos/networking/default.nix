@@ -31,12 +31,5 @@
         profiles = config.secrets.wifi.profiles;
       };
     };
-    interfaces = lib.mkIf (systemName == "phoenix") {
-      enp3s0 = {
-        wakeOnLan = {
-          enable = true;
-        };
-      };
-    };
   };
 }

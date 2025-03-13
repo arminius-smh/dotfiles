@@ -1,13 +1,12 @@
 {
   pkgs,
-  inputs,
   config,
   ...
 }:
 {
   home = {
-    packages = [
-      inputs.hyprswitch.packages.x86_64-linux.default
+    packages = with pkgs; [
+      hyprswitch
     ];
   };
 

@@ -109,6 +109,12 @@
   };
 
   hardware = {
+    amdgpu = {
+      opencl = {
+        enable = true;
+      };
+    };
+
     logitech = {
       wireless = {
         enable = true;

@@ -6,7 +6,7 @@
 
   home = {
     packages = with pkgs; [
-      treefmt2 # treewide formatter
+      treefmt # treewide formatter
       nixd # language server nix
       nixfmt-rfc-style # formatter nix
       hyprls # language server hypr

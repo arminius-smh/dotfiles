@@ -42,13 +42,13 @@
       UWSM_USE_SESSION_SLICE = "true";
       MONITOR_PRIMARY =
         if (systemName == "phoenix") then
-          "HDMI-A-1"
+          "DP-2"
         else if (systemName == "discovery") then
           "eDP-1"
         else
           "";
-      MONITOR_SECONDARY = if (systemName == "phoenix") then "DP-1" else "";
-      MONITOR_TERTIARY = if (systemName == "phoenix") then "DP-3" else "";
+      MONITOR_SECONDARY = if (systemName == "phoenix") then "DP-3" else "";
+      MONITOR_TERTIARY = if (systemName == "phoenix") then "DP-1" else "";
 
       # HOMEDIR CLEANUP
       ADOTDIR = "${config.xdg.dataHome}/antigen";

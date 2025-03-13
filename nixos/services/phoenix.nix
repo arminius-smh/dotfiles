@@ -5,7 +5,7 @@
     ./avahi
     ./blueman
     ./dbus
-    ./displayManager
+    # ./displayManager
     ./flatpak
     ./fstrim
     ./fwupd # firmware update

@@ -71,6 +71,7 @@
           };
 
           misc = {
+            vrr = 1;
             disable_hyprland_logo = true;
           };
 

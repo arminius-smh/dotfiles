@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    # ./appimage
     # ./dconf
     # ./gamemode
     # ./gamescope

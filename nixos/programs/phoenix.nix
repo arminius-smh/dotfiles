@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./appimage
     ./dconf
     ./gamemode
     ./gamescope

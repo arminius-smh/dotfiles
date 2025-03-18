@@ -26,6 +26,7 @@
               "size 1050 650,class:^(io.missioncenter.MissionCenter)$"
               "float,class:^(org.kde.kdeconnect.daemon)$"
               "float,class:^(org.fcitx.)$"
+              "float,class:^(gnome-disks)$"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "float,class:^(spotify)$"

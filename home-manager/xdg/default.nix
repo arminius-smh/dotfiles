@@ -8,7 +8,8 @@
 let
   browser = [ "firefox.desktop" ];
   editor = [ "nvim.desktop" ];
-  imageViewer = [ "feh.desktop" ];
+  imageViewer = [ "imv.desktop" ];
+  imageViewer2 = [ "feh.desktop" ];
   pdfViewer = [ "org.pwmt.zathura.desktop" ];
   videoPlayer = [ "mpv.desktop" ];
   fileManager = [ "thunar.desktop" ];
@@ -46,10 +47,10 @@ in
         "application/pdf" = pdfViewer;
         "audio/flac" = audioPlayer;
         "audio/mpeg" = audioPlayer;
-        "image/gif" = browser;
+        "image/gif" = imageViewer;
         "image/jpeg" = imageViewer;
         "image/png" = imageViewer;
-        "image/webp" = imageViewer;
+        "image/webp" = imageViewer2;
         "inode/directory" = fileManager;
         "text/html" = browser;
         "text/plain" = editor;

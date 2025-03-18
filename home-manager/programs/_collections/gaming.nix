@@ -20,16 +20,17 @@
       }) # minecraft launcher
 
       # emulation
-      ryujinx # switch
-      cemu # wiiu
+      rmg-wayland # n64
       dolphin-emu # wii
+      cemu # wiiu
+      ryujinx # switch
+
       wiimms-iso-tools # wbfs tools
       (retroarch.withCores (
         cores: with cores; [
           mesen # nes
           mesen-s # snes
           mgba # gb, gbc, gba
-          mupen64plus # n64
           dolphin # gcn, wii
           melonds # nds
         ]

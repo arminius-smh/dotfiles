@@ -1,11 +1,14 @@
 { ... }:
 {
+  catppuccin = {
+    imv = {
+      enable = true;
+    };
+  };
+
   programs = {
     imv = {
       enable = true;
-      catppuccin = {
-        enable = true;
-      };
     };
   };
 }

@@ -16,7 +16,7 @@
     ../btop # process viewer
     ../ssh # remote shell
     ../neovim # text editor
-    # ../imv # image viewer
+    ../imv # image viewer
     ../feh # image viewer
     ../bat # cat alternative
     ../yazi # terminal file manager
@@ -62,6 +62,8 @@
       gnome-font-viewer # view installed fonts
       mission-center # task manager
       baobab # disk usage analyzer
+      gnome-disk-utility # disk management utility
+      simple-scan # scan documents
 
       # file compression
       zip

@@ -67,35 +67,40 @@
     };
     consoleLogLevel = 0;
     kernelParams = [
-      "module_blacklist=i915"
       "boot.shell_on_fail"
       "plymouth.use-simpledrm"
-      # Silent Boot - https://wiki.nixos.org/wiki/Plymouth
+      # Silent Boot
+      # https://wiki.nixos.org/wiki/Plymouth
+      # https://wiki.archlinux.org/title/Silent_boot
       "splash"
       "quiet"
       "loglevel=3"
-      "rd.systemd.show_status=false"
+      "systemd.show_status=auto"
       "rd.udev.log_level=3"
-      "udev.log_priority=3"
     ];
     loader = {
       timeout = 1;
       grub = {
         enable = true;
+        efiInstallAsRemovable = true;
         configurationLimit = 25;
-        useOSProber = true;
+        useOSProber = false;
         efiSupport = true;
         device = "nodev";
       };
 
       efi = {
-        canTouchEfiVariables = true;
+        canTouchEfiVariables = false;
       };
     };
     supportedFilesystems = [ "ntfs" ];
   };
 
   hardware = {
+    xone = {
+      enable = true;
+    };
+
     amdgpu = {
       opencl = {
         enable = true;

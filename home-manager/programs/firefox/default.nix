@@ -42,7 +42,7 @@ in
             };
           };
           search = {
-            default = "DuckDuckGo";
+            default = "ddg";
             force = true;
             engines = {
               "Startpage" = {
@@ -158,40 +158,43 @@ in
               addons."2fas-two-factor-authentication"
             ];
           };
-          bookmarks = [
-            {
-              name = "toolbar";
-              toolbar = true;
-              bookmarks = [
-                {
-                  name = "Homepage";
-                  url = config.secrets.ip.homepage;
-                }
-                {
-                  name = "Syncthing";
-                  url = "http://localhost:8384/";
-                }
-                {
-                  name = "Palette";
-                  url = "https://catppuccin.com/palette";
-                }
-                {
-                  name = "aesthetic";
-                  bookmarks = [
-                    {
-                      name = "lily_chou-chou";
-                      url = "http://lily-chou-chou.jp/holic/bbs/";
-                    }
-                    {
-                      name = "lain";
-                      url = "https://fauux.neocities.org/";
-                    }
-                  ];
-                }
-                config.secrets.bookmarks.priv
-              ];
-            }
-          ];
+          bookmarks = {
+            force = true;
+            settings = [
+              {
+                name = "toolbar";
+                toolbar = true;
+                bookmarks = [
+                  {
+                    name = "Homepage";
+                    url = config.secrets.ip.homepage;
+                  }
+                  {
+                    name = "Syncthing";
+                    url = "http://localhost:8384/";
+                  }
+                  {
+                    name = "Palette";
+                    url = "https://catppuccin.com/palette";
+                  }
+                  {
+                    name = "aesthetic";
+                    bookmarks = [
+                      {
+                        name = "lily_chou-chou";
+                        url = "http://lily-chou-chou.jp/holic/bbs/";
+                      }
+                      {
+                        name = "lain";
+                        url = "https://fauux.neocities.org/";
+                      }
+                    ];
+                  }
+                  config.secrets.bookmarks.priv
+                ];
+              }
+            ];
+          };
           settings = {
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 

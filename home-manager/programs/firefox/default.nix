@@ -35,10 +35,15 @@ in
           isDefault = true;
           containersForce = true;
           containers = {
-            T = {
-              color = "red";
-              icon = "tree";
+            private = {
+              color = "blue";
+              icon = "fingerprint";
               id = 1;
+            };
+            university = {
+              color = "purple";
+              icon = "briefcase";
+              id = 2;
             };
           };
           search = {

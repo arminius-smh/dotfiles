@@ -38,4 +38,29 @@
       };
     };
   };
+
+  systemd = {
+    user = {
+      services = {
+        nwg-dock-hyprland = {
+          Unit = {
+            Description = "${pkgs.nwg-dock-hyprland.meta.description}";
+            Documentation = "${pkgs.nwg-dock-hyprland.meta.homepage}";
+            PartOf = [ config.wayland.systemd.target ];
+            After = [ config.wayland.systemd.target ];
+          };
+
+          Service = {
+            ExecStart = "${pkgs.nwg-dock-hyprland}/bin/nwg-dock-hyprland -d -c 'nwg-drawer' -hd 0 -i 38 -x -mb 5";
+            Restart = "on-failure";
+            KillMode = "mixed";
+          };
+
+          Install = {
+            WantedBy = [ config.wayland.systemd.target ];
+          };
+        };
+      };
+    };
+  };
 }

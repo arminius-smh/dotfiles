@@ -88,6 +88,11 @@
             eval "$cmd"
           }
 
+          nixdev() {
+              LANGUAGE="$1"
+              nix flake init -t "path:$HOME/dotfiles/assets/devenvs#$LANGUAGE"
+          }
+
           fastfetch
         '';
       shellAliases = lib.mkIf (systemName == "phoenix" || systemName == "discovery") {

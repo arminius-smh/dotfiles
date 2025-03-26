@@ -53,5 +53,11 @@
         };
       };
     };
+
+    dataFile = {
+      "icons/hicolor/128x128/apps/steam_app_0.png" = {
+        source = ../../../assets/pics/steam_app_0.png;
+      };
+    };
   };
 }

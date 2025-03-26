@@ -6,6 +6,7 @@
     # ./blueman-applet # bluetooth applet
     # ./dunst # notification daemon
     ./hypridle # idle manager
+    ./hyprpolkitagent # polkit agent
     ./kdeconnect # connect to phone
     ./network-manager-applet # network manager tray + gui
     # ./podman # container manager

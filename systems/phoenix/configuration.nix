@@ -82,6 +82,9 @@
       timeout = 1;
       grub = {
         enable = true;
+        memtest86 = {
+          enable = true;
+        };
         efiInstallAsRemovable = true;
         configurationLimit = 25;
         useOSProber = false;

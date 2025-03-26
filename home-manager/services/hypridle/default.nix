@@ -21,6 +21,8 @@
               timeout = 300;
               on-timeout = "loginctl lock-session";
             }
+          ])
+          (lib.mkIf (systemName == "discovery") [
             {
               timeout = 600;
               on-timeout = "hyprctl dispatch dpms off";

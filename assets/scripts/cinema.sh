@@ -12,12 +12,16 @@ mode_on(){
     # turn montiors off
     hyprctl dispatch dpms off "$MONITOR_SECONDARY"
     hyprctl dispatch dpms off "$MONITOR_TERTIARY"
+    # crashes when specified monitors are turned off
+    systemctl --user stop hypridle
 }
 
 mode_off(){
     # turn monitors on again
     hyprctl dispatch dpms on "$MONITOR_SECONDARY"
     hyprctl dispatch dpms on "$MONITOR_TERTIARY"
+
+    systemctl --user start hypridle
 }
 
 

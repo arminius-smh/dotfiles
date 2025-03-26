@@ -37,6 +37,7 @@
       swayidle # idle manager
       vlc # media player
       obsidian # markdown notes
+      element-desktop # matrix client
 
       OVMF # UEFI support for qemu
       zotero # citation manager

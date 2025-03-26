@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   inputs,
   ...
@@ -54,11 +55,15 @@
       verbose = false;
     };
     consoleLogLevel = 0;
-    kernelParams = [
-      "apple_dcp.show_notch=1"
+    # https://github.com/tpwrules/nixos-apple-silicon/pull/273
+    kernelParams = lib.mkForce [
+      "earlycon"
+      "console=tty0"
+      "nvme_apple.flush_interval=0"
       "quiet"
       "splash"
       "boot.shell_on_fail"
+      "apple_dcp.show_notch=1"
       "vt.cur_default=1" # hide blinking _ cursor during boot
       "loglevel=3"
       "rd.systemd.show_status=false"
@@ -68,6 +73,10 @@
       "zswap.enabled=1"
       "zswap.zpool=zsmalloc"
       "zswap.max_pool_percent=50"
+      # Catppuccin Virtual Terminal colors
+      "vt.default_red=0x1e,0xf3,0xa6,0xf9,0x89,0xf5,0x94,0xba,0x58,0xf3,0xa6,0xf9,0x89,0xf5,0x94,0xa6"
+      "vt.default_grn=0x1e,0x8b,0xe3,0xe2,0xb4,0xc2,0xe2,0xc2,0x5b,0x8b,0xe3,0xe2,0xb4,0xc2,0xe2,0xad"
+      "vt.default_blu=0x2e,0xa8,0xa1,0xaf,0xfa,0xe7,0xd5,0xde,0x70,0xa8,0xa1,0xaf,0xfa,0xe7,0xd5,0xc8"
     ];
   };
 

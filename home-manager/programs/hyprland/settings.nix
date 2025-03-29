@@ -83,7 +83,7 @@
           exec-once = lib.mkMerge [
             (lib.mkIf true [
               "uwsm finalize"
-              "hyprctl dismissnotify" # hide plugin startup notification
+              # "hyprctl dismissnotify" # hide plugin startup notification
               "uwsm app -- fumon"
               "uwsm app -- ${config.home.homeDirectory}/dotfiles/home-manager/programs/hyprland/scripts/handle_events.sh"
             ])
@@ -92,6 +92,7 @@
               "uwsm app -- solaar -w hide"
               "uwsm app -- heroic"
               # "uwsm app -- steam -silent -noverifyfiles"
+              "[workspace 5 silent] uwsm app -- obsidian --disable-gpu"
               "[workspace 9 silent] uwsm app -- thunderbird"
               "[workspace special:spotify silent] uwsm app -- spotify"
               "[workspace special:spotify silent] uwsm app -- kitty --class cava cava"

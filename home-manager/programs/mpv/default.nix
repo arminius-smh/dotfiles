@@ -30,6 +30,18 @@
           vo = "gpu-next";
           gpu-api = "vulkan";
         };
+      scriptOpts = {
+        modernz = {
+          window_top_bar = "no";
+          showonpause = "no";
+          osc_on_start = "yes";
+          seekbarfg_color = "#FFFFFF";
+          seekbarbg_color = "#FFFFFF";
+          hover_effect_color = "#FFFFFF";
+          ontop_button = "no";
+          speed_button = "yes";
+        };
+      };
       bindings = {
         "ctrl+t" = "script-binding toggle-subs-to-clipboard";
         "B" = "script_message bookmarker-menu";
@@ -38,7 +50,7 @@
         "r" = "cycle_values video-rotate 90 180 270 0";
       };
       scripts = with pkgs; [
-        mpvScripts.modernx-zydezu
+        mpvScripts.modernz
         mpvScripts.thumbfast
         bookmarker-menu
         subs_to_clipboard

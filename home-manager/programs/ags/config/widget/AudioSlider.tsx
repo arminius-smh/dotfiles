@@ -51,6 +51,8 @@ export default function AudioSlider() {
                             return " "
                         case 'audio-volume-high-symbolic':
                             return " "
+                        case  'audio-volume-overamplified-symbolic':
+                            return " "
                         case 'audio-volume-muted-symbolic':
                             return "<span foreground='#7f849c'> </span>"
                         default:

@@ -4,7 +4,7 @@
     windowManager = {
       hyprland = {
         settings = {
-          windowrulev2 = lib.mkMerge [
+          windowrule = lib.mkMerge [
             (lib.mkIf true [
               "fullscreen,class:^(TradingView)$"
               "float,class:^(gamescope)$"
@@ -27,6 +27,9 @@
               "float,class:^(org.kde.kdeconnect.daemon)$"
               "float,class:^(org.fcitx.)$"
               "float,class:^(gnome-disks)$"
+              # main window tiled, popups floating
+              "float,class:^(steam)$"
+              "tile,class:^(steam)$,title:^(Steam)"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "float,class:^(spotify)$"

@@ -8,7 +8,7 @@
 }:
 {
   imports = [
-    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.catppuccin.homeModules.catppuccin
     ../../assets/modules/secrets.nix
     ../../secrets/secrets.nix
   ];

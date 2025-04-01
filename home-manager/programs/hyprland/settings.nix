@@ -70,9 +70,17 @@
             ];
           };
 
+          # debug = {
+          #   disable_logs = false;
+          # };
+
           misc = {
             vrr = 1;
             disable_hyprland_logo = true;
+          };
+
+          xwayland = lib.mkIf (systemName == "phoenix") {
+            force_zero_scaling = true;
           };
 
           source = [

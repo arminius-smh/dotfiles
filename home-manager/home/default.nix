@@ -50,6 +50,8 @@
       MONITOR_SECONDARY = if (systemName == "phoenix") then "DP-3" else "";
       MONITOR_TERTIARY = if (systemName == "phoenix") then "DP-2" else "";
 
+      GDK_SCALE = lib.mkIf (systemName == "phoenix") 2;
+
       # HOMEDIR CLEANUP
       ADOTDIR = "${config.xdg.dataHome}/antigen";
       CARGO_HOME = "${config.xdg.dataHome}/cargo";

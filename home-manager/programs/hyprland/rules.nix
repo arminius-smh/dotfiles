@@ -14,7 +14,6 @@
               "float,class:^(waypaper)$"
               "float,class:^(imv)$"
               "norounding 1,class:^(imv)$"
-              "norounding 1,class:^(steam_app_.*)$"
               "float,class:^(com.saivert.pwvucontrol)$"
               "float,class:^(nm-connection-editor)$"
               "float,class:^(nwg-displays)$"
@@ -30,6 +29,8 @@
               # main window tiled, popups floating
               "float,class:^(steam)$"
               "tile,class:^(steam)$,title:^(Steam)"
+              "norounding 1,class:^(steam_app_.*)$"
+              "norounding 1,class:^(cs2)$"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "float,class:^(spotify)$"

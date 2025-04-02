@@ -2,7 +2,7 @@
 {
   imports = [
     # ./activemq
-    ./avahi
+    # ./avahi
     ./blueman
     ./dbus
     # ./displayManager

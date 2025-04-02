@@ -52,7 +52,7 @@
 
             #  -t https://github.com/marty-oehme/bemoji/issues/34
             "$mainMod SHIFT, M, exec, bemoji -cn && echo key ctrl+v | dotool"
-            "$mainMod SHIFT, D, exec, $HOME/dotfiles/assets/scripts/screenshot.sh"
+            "$mainMod SHIFT, D, exec, $HOME/dotfiles/assets/scripts/screenshot.sh interactive"
 
             "$mainMod CONTROL, Q, killactive"
 
@@ -71,6 +71,10 @@
             # Alt+Tab
             "alt, tab, exec, hyprswitch gui --mod-key alt --key tab --close mod-key-release --reverse-key=mod=shift --filter-current-monitor && hyprswitch dispatch"
             "alt shift, tab, exec, hyprswitch gui --mod-key alt --key tab --close mod-key-release --reverse-key=mod=shift --filter-current-monitor && hyprswitch dispatch -r"
+
+            # screenshot button on controller executes windows screenshot
+            # replicate keybindg kinda-ish
+            "$mainMod ALT, Alt_L, exec, $HOME/dotfiles/assets/scripts/screenshot.sh immediate"
           ];
 
           bindm = [

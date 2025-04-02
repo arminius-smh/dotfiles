@@ -104,6 +104,10 @@
       enable = true;
     };
 
+    xpad-noone = {
+      enable = true;
+    };
+
     amdgpu = {
       opencl = {
         enable = true;

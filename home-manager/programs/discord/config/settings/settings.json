@@ -164,7 +164,7 @@
             "enabled": false
         },
         "FakeNitro": {
-            "enabled": false
+            "enabled": true
         },
         "FakeProfileThemes": {
             "enabled": false
@@ -599,6 +599,21 @@
         },
         "HideMedia": {
             "enabled": false
+        },
+        "FullUserInChatbox": {
+            "enabled": false
+        },
+        "IrcColors": {
+            "enabled": false
+        },
+        "NoRPC": {
+            "enabled": false
+        },
+        "NoSystemBadge": {
+            "enabled": false
+        },
+        "BadgeAPI": {
+            "enabled": true
         }
     },
     "notifications": {
@@ -611,6 +626,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1738497801621
-    }
+        "settingsSyncVersion": 1743956352662
+    },
+    "eagerPatches": false
 }

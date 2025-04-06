@@ -100,10 +100,10 @@
               "uwsm app -- solaar -w hide"
               "uwsm app -- heroic"
               "uwsm app -- steam -silent -noverifyfiles"
-              "[workspace 5 silent] uwsm app -- obsidian --disable-gpu"
               "[workspace 9 silent] uwsm app -- thunderbird"
               "[workspace special:spotify silent] uwsm app -- spotify"
               "[workspace special:spotify silent] uwsm app -- kitty --class cava cava"
+              "[workspace special:obsidian silent] uwsm app -- obsidian --disable-gpu"
             ])
             (lib.mkIf (systemName == "discovery") [
               "waypaper --restore"

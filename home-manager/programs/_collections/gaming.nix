@@ -20,8 +20,7 @@
       }) # minecraft launcher
 
       # emulation
-      rmg-wayland # n64
-      dolphin-emu # wii
+      dolphin-emu # gcn, wii
       cemu # wiiu
       ryujinx # switch
 
@@ -31,7 +30,8 @@
           mesen # nes
           mesen-s # snes
           mgba # gb, gbc, gba
-          dolphin # gcn, wii
+          mupen64plus # n64
+          # dolphin # gcn, wii
           melonds # nds
         ]
       ))

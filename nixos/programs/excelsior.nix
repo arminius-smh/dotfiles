@@ -15,6 +15,7 @@
     # ./sway
     # ./thunar
     # ./uwsm
+    # ./virt-manager
     ./zsh
   ];
 }

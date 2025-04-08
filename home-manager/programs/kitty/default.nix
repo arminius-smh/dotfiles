@@ -19,7 +19,7 @@
       };
       settings = {
         background_opacity = "0.92";
-        window_padding_width = 5;
+        window_padding_width = "0 5 5 5";
         update_check_interval = 0;
         tab_bar_style = "powerline";
         enable_audio_bell = "no";

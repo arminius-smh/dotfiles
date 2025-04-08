@@ -7,7 +7,7 @@
   outputs =
     { self, nixpkgs }:
     let
-      goVersion = 23; # Change this to update the whole stack
+      goVersion = 24; # Change this to update the whole stack
 
       supportedSystems = [
         "x86_64-linux"
@@ -45,6 +45,9 @@
 
               # https://github.com/golangci/golangci-lint
               golangci-lint
+
+              # official go language server
+              gopls
             ];
           };
         }

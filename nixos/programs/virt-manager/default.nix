@@ -1,7 +1,7 @@
 { ... }:
 {
   programs = {
-    dconf = {
+    virt-manager = {
       enable = true;
     };
   };

@@ -30,7 +30,7 @@
               "float,class:^(steam)$"
               "tile,class:^(steam)$,title:^(Steam)"
               "norounding 1,class:^(steam_app_.*)$"
-              "norounding 1,class:^(cs2)$"
+              "norounding 1,class:^(cs2|cstrike_linux64)$"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "float,class:^(spotify)$"

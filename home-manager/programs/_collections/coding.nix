@@ -36,10 +36,6 @@
 
       typst # typst
 
-      # python3
-      python3
-      python3Packages.pylint
-
       # lsp-config
       bash-language-server # language server bash
       svelte-language-server # language server svelte
@@ -48,7 +44,6 @@
       lemminx # language server xml
       vscode-langservers-extracted # language server html, css, js
       nodePackages_latest.typescript-language-server # language server typescript
-      pyright # language server python
       marksman # language server markdown
       clang-tools # language server c/c++
       ccls # language server c/c++
@@ -62,7 +57,6 @@
       prettierd # formatter various - js, ts, html, css, json, yaml
       taplo # formatter toml
       djlint # formatter html templates
-      black # formatter python
       markdownlint-cli # linter markdown
       shellcheck # linter bash
       uncrustify # formatter c, c++, c#, objectivec, d, java, pawn, vala

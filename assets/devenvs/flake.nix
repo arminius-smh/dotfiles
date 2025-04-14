@@ -12,6 +12,10 @@
           path = ./go;
           description = "Simple Go project";
         };
+        python = {
+          path = ./python;
+          description = "Simple Python project";
+        };
 
         empty = {
           path = ./empty;

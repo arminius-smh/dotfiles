@@ -23,6 +23,7 @@
     ./udev
     # ./udisks2
     ./upower
+    # ./usbmuxd # needed for iOS data transfer
     ./xserver
     # ./zfs
   ];

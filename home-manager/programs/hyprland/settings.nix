@@ -90,7 +90,6 @@
 
           exec-once = lib.mkMerge [
             (lib.mkIf true [
-              "uwsm finalize"
               # "hyprctl dismissnotify" # hide plugin startup notification
               "uwsm app -- fumon"
               "uwsm app -- ${config.home.homeDirectory}/dotfiles/home-manager/programs/hyprland/scripts/handle_events.sh"

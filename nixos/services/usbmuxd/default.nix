@@ -1,0 +1,8 @@
+{ ... }:
+{
+  services = {
+    usbmuxd = {
+      enable = true;
+    };
+  };
+}

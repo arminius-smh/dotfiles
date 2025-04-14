@@ -144,7 +144,6 @@ in
               };
             packages = with addons; [
               bitwarden
-              catppuccin-gh-file-explorer
               refined-github
               multi-account-containers
               return-youtube-dislikes

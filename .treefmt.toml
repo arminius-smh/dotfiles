@@ -29,6 +29,7 @@ excludes = [
   "*.yaml",
   "*.yml",
   "*.ini",
+  "*.py",
   "home-manager/programs/nwg-dock-hyprland/nwg-dock-pinned",
   "home-manager/programs/direnv/direnvrc",
   "**/.envrc",
@@ -51,7 +52,3 @@ includes = ["*.toml"]
 [formatter.beautysh]
 command = "beautysh"
 includes = ["*.sh", "*.zsh"]
-
-[formatter.black]
-command = "black"
-includes = ["*.py"]

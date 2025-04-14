@@ -88,7 +88,7 @@
             eval "$cmd"
           }
 
-          nixdev() {
+          nix-dev() {
               LANGUAGE="$1"
               nix flake init -t "path:$HOME/dotfiles/assets/devenvs#$LANGUAGE"
           }

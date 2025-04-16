@@ -104,7 +104,7 @@ if [[ -v COMMAND_OVERRIDE ]]; then
 fi
 
 if [[ "$update" == true ]]; then
-    COMMAND+=" --update"
+    nix flake update
 fi
 
 echo "COMMAND: $COMMAND"

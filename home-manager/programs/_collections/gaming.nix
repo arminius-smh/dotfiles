@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 {
   imports = [
     ../mangohud # game performance overlay
@@ -42,6 +47,12 @@
       wineWowPackages.stable
       winetricks
     ];
+
+    activation = {
+      fix-steam-desktopfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        ${pkgs.bash}/bin/bash ${config.home.homeDirectory}/dotfiles/assets/scripts/fix-steam-desktopfiles.sh
+      '';
+    };
   };
 
   xdg = {

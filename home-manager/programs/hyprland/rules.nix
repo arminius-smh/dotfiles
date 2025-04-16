@@ -29,6 +29,7 @@
               # main window tiled, popups floating
               "float,class:^(steam)$"
               "tile,class:^(steam)$,title:^(Steam)"
+
               "norounding 1,class:^(steam_app_.*)$"
               "norounding 1,class:^(cs2|cstrike_linux64)$"
             ])

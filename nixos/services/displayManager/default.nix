@@ -5,6 +5,7 @@
       defaultSession = "hyprland-uwsm";
       sddm = {
         enable = true;
+        package = pkgs.kdePackages.sddm;
         theme = "catppuccin-sddm-corners";
         settings = {
           Theme = {

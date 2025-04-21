@@ -48,7 +48,6 @@
       playerctl # audio commands
       libnotify # send notifications
       streamlink # stream videos with local player
-      chatterino2 # twitch chat
       ctop # beautiful docker ps
       cryptsetup # crypto
       acpi # battery status

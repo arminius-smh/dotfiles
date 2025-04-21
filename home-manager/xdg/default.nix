@@ -50,10 +50,10 @@ in
         categories = [
           "Game"
         ];
-        mimeType = [
-          "x-scheme-handler/steam"
-          "x-scheme-handler/steamlink"
-        ];
+        # mimeType = [
+        #   "x-scheme-handler/steam"
+        #   "x-scheme-handler/steamlink"
+        # ];
         type = "Application";
         icon = "steam";
         prefersNonDefaultGPU = true;

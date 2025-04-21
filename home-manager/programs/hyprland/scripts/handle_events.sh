@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 # https://github.com/hyprwm/Hyprland/issues/3835
+#
+HIDE_DOCK_SIGNAL="pkill -37 -f nwg-dock-hyprland"
+SHOW_DOCK_SIGNAL="pkill -36 -f nwg-dock-hyprland"
 
 handle_windowtitlev2 () {
     # Description: emitted when a window title changes.
@@ -25,6 +28,17 @@ handle_windowtitlev2 () {
     esac
 }
 
+handle_fullscreen () {
+    # Description: emitted when a fullscreen status of a window changes.
+    # Format: `0/1 (exit fullscreen / enter fulllscreen)`
+    fullscreen_state=${1}
+
+    # nwg-dock-hyprland sometimes stays open after exiting
+    # fullscreen app, not sure why but this simply works around it
+    if [[ $fullscreen_state == 0 ]]; then
+        $HIDE_DOCK_SIGNAL
+    fi
+}
 
 handle() {
     # $1 Format: `EVENT>>DATA`
@@ -35,6 +49,7 @@ handle() {
 
     case $event in
         windowtitlev2) handle_windowtitlev2 "$data" ;;
+        fullscreen) handle_fullscreen "$data" ;;
             #   anyotherevent) handle_otherevent "$data" ;;
         *) echo "unhandled event: $event" ;;
     esac

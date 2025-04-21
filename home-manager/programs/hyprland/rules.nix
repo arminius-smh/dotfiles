@@ -35,11 +35,11 @@
             ])
             (lib.mkIf (systemName == "phoenix") [
               "float,class:^(spotify)$"
-              "size 1200 700,class:^(spotify)$"
-              "move onscreen 19% 13%,class:^(spotify)$"
+              "size 1700 890,class:^(spotify)$"
+              "move onscreen 6% 4%,class:^(spotify)$"
               "float,class:^(cava)$"
-              "size 1200 100,class:^(cava)$"
-              "move onscreen 19% 80%,class:^(cava)$"
+              "size 1700 100,class:^(cava)$"
+              "move onscreen 6% 88%,class:^(cava)$"
             ])
             (lib.mkIf (systemName == "discovery") [
               "float,class:^(spotify)$"

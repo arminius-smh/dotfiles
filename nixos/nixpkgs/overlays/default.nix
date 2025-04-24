@@ -6,7 +6,6 @@
 {
   imports = [
     ./adi1090x-plymouth-themes.nix
-    ./vlc.nix
   ];
 
   nixpkgs = {
@@ -17,6 +16,10 @@
 
       (lib.mkIf (systemName == "discovery") [
         (import ./firefox.nix)
+      ])
+
+      (lib.mkIf (systemName == "phoenix") [
+        (import ./vlc.nix)
       ])
     ];
   };

@@ -14,6 +14,9 @@
         devices = {
           "excelsior" = lib.mkIf (systemName != "excelsior") {
             id = config.secrets.syncthing.excelsior;
+            addresses = [
+              "tcp://${config.secrets.ip.excelsior}:22000"
+            ];
             autoAcceptFolders = true;
           };
           "phoenix" = lib.mkIf (systemName != "phoenix") {

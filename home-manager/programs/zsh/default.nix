@@ -113,6 +113,7 @@
         nix-edit = "nix-edit.sh";
         rebuild = "rebuild.sh";
         json2nix = "nix run github:sempruijs/json2nix";
+        nm2nix = ''sudo su -c "cd /etc/NetworkManager/system-connections && nix --extra-experimental-features 'nix-command flakes' run github:Janik-Haag/nm2nix | nix --extra-experimental-features 'nix-command flakes' run nixpkgs#nixfmt-rfc-style"'';
       };
     };
   };

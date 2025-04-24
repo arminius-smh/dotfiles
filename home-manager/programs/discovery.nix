@@ -40,6 +40,7 @@
       swayidle # idle manager
       wireguard-tools # vpn wireguard
       distrobox # container wrapper for using distros
+      vlc # media player
 
       asahi-bless # switch boot partition on ARM Mac
       asahi-wifisync # sync wifi passwords on ARM Mac

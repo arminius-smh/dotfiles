@@ -55,9 +55,9 @@ export default function CPU() {
 
     return <eventbox onClick={(_, event) => {
         if (event.button == 1) {
-            execAsync(["bash", "-c", "missioncenter"])
-        } else if (event.button == 3) {
             visible1.set(true)
+        } else if (event.button == 3) {
+            execAsync(["bash", "-c", "missioncenter"])
         }
     }}>
         <box className="Status">

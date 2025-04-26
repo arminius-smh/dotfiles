@@ -1,4 +1,15 @@
-{ ... }:
+{ systemName, ... }:
+let
+  sysTransformed =
+    if systemName == "phoenix" then
+      "феникс"
+    else if systemName == "discovery" then
+      "дискавери"
+    else if systemName == "excelsior" then
+      "эксельсиор"
+    else
+      "";
+in
 {
   programs = {
     fastfetch = {
@@ -14,11 +25,8 @@
         };
         modules = [
           {
-            type = "title";
-            color = {
-              user = "magenta";
-              host = "magenta";
-            };
+            type = "custom";
+            format = "{#35}армин{#}@{#35}${sysTransformed}{#}";
           }
           {
             type = "os";

@@ -2,7 +2,7 @@
 {
   programs = {
     zsh = {
-      initExtra = builtins.readFile ./pomodoro.zsh;
+      initContent = builtins.readFile ./pomodoro.zsh;
     };
   };
 }

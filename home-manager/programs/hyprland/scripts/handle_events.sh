@@ -40,6 +40,17 @@ handle_fullscreen () {
     fi
 }
 
+handle_workspacev2() {
+    # Description: emitted on workspace change. Is emitted ONLY when a user requests a workspace change, and is not emitted on mouse movements (see focusedmon)
+    # Format: `WORKSPACEID,WORKSPACENAME`
+    workspaceid=${1%,*}
+    workspacename=${1#*,}
+
+    # same issue as handle_fullscreen for nwg-dock-hyprland
+    # workaround
+    $HIDE_DOCK_SIGNAL
+}
+
 handle() {
     # $1 Format: `EVENT>>DATA`
     # example: `workspace>>2`
@@ -50,6 +61,7 @@ handle() {
     case $event in
         windowtitlev2) handle_windowtitlev2 "$data" ;;
         fullscreen) handle_fullscreen "$data" ;;
+        workspacev2) handle_workspacev2 "$data" ;;
             #   anyotherevent) handle_otherevent "$data" ;;
         *) echo "unhandled event: $event" ;;
     esac

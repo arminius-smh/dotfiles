@@ -35,14 +35,10 @@
         enable = true;
         theme = lib.mkIf (systemName == "excelsior") "lukerandall";
       };
-      initExtraFirst =
+      initContent =
         # bash
         ''
           DISABLE_MAGIC_FUNCTIONS=true
-        '';
-      initExtra =
-        # bash
-        ''
           ZSH_HIGHLIGHT_STYLES[comment]="fg=245"
 
           ${

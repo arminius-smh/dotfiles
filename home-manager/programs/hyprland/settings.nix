@@ -92,7 +92,6 @@
             (lib.mkIf true [
               # "hyprctl dismissnotify" # hide plugin startup notification
               "uwsm app -- fumon"
-              "uwsm app -- ${config.home.homeDirectory}/dotfiles/home-manager/programs/hyprland/scripts/handle_events.sh"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "waypaper --random"
@@ -110,6 +109,29 @@
               "uwsm app -- vesktop --start-minimized"
             ])
           ];
+        };
+      };
+    };
+  };
+
+  systemd = {
+    user = {
+      services = {
+        hypr_handle_events = {
+          Unit = {
+            PartOf = [ config.wayland.systemd.target ];
+            After = [ config.wayland.systemd.target ];
+          };
+
+          Service = {
+            ExecStart = "${config.home.homeDirectory}/dotfiles/home-manager/programs/hyprland/scripts/handle_events.sh";
+            Restart = "on-failure";
+            KillMode = "mixed";
+          };
+
+          Install = {
+            WantedBy = [ config.wayland.systemd.target ];
+          };
         };
       };
     };

@@ -26,6 +26,9 @@
               "float,class:^(org.kde.kdeconnect.daemon)$"
               "float,class:^(org.fcitx.)$"
               "float,class:^(gnome-disks)$"
+              "float,class:^(zoom)$"
+              "float,class:^(anki)$"
+              "tile,class:^(anki)$,title:^(User 1 - Anki)$"
               # main window tiled, popups floating
               "float,class:^(steam)$"
               "tile,class:^(steam)$,title:^(Steam)"

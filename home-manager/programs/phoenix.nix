@@ -42,7 +42,7 @@
       OVMF # UEFI support for qemu
       zotero # citation manager
       arduino # arduino ide
-      anki # flashcard
+      anki-bin # flashcard
       krita # image manipulation
       killall # kill processes by name
       pwvucontrol # pipewire volume control

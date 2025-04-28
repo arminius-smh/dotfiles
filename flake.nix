@@ -29,9 +29,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-apple-silicon = {
-      # url = "github:tpwrules/nixos-apple-silicon";
-      # https://github.com/tpwrules/nixos-apple-silicon/pull/284
-      url = "github:marcin-serwin/nixos-apple-silicon/push-nwvktpxoswts";
+      url = "github:tpwrules/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ags = {

@@ -2,6 +2,7 @@
   lib,
   config,
   systemName,
+  pkgs,
   ...
 }:
 {
@@ -99,6 +100,7 @@
               "uwsm app -- heroic"
               "uwsm app -- steam -silent -noverifyfiles"
               "[workspace 9 silent] uwsm app -- thunderbird"
+              "[workspace special silent] uwsm app -- discord --start-minimized"
               "[workspace special:spotify silent] uwsm app -- spotify"
               "[workspace special:spotify silent] uwsm app -- kitty --class cava cava"
               "[workspace special:obsidian silent] uwsm app -- obsidian --disable-gpu"
@@ -127,6 +129,15 @@
             ExecStart = "${config.home.homeDirectory}/dotfiles/home-manager/programs/hyprland/scripts/handle_events.sh";
             Restart = "on-failure";
             KillMode = "mixed";
+            Environment = [
+              "PATH=$PATH:${
+                lib.makeBinPath [
+                  pkgs.bash
+                  pkgs.socat
+                  pkgs.toybox
+                ]
+              }"
+            ];
           };
 
           Install = {

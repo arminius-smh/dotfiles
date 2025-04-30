@@ -13,6 +13,7 @@ let
   videoPlayer = [ "mpv.desktop" ];
   fileManager = [ "thunar.desktop" ];
   audioPlayer = [ "io.bassi.Amberol.desktop" ];
+  mail = [ "thunderbird.desktop" ];
 in
 {
   xdg = {
@@ -40,6 +41,7 @@ in
         "video/x-matroska" = videoPlayer;
         "x-scheme-handler/http" = browser;
         "x-scheme-handler/https" = browser;
+        "x-scheme-handler/mailto" = mail;
       };
     };
     desktopEntries = lib.optionalAttrs (systemName == "phoenix") {

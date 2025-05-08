@@ -135,6 +135,7 @@
                   pkgs.bash
                   pkgs.socat
                   pkgs.toybox
+                  pkgs.hyprland
                 ]
               }"
             ];

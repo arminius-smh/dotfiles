@@ -210,6 +210,7 @@ in
             "browser.startup.homepage" = config.secrets.ip.homepage;
             "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
             "browser.newtabpage.activity-stream.feeds.topsites" = false;
+            "browser.storageManager.pressureNotification.usageThresholdGB" = 10;
 
             "app.normandy.first_run" = false;
 

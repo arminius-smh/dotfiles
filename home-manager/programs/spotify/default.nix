@@ -24,11 +24,15 @@ in
         fullAppDisplay
         shuffle
         copyLyrics
-        copyToClipboard
         betterGenres
-        playNext
         hidePodcasts
       ];
     };
   };
+
+  # home = {
+  #   packages = with pkgs; [
+  #     spotify
+  #   ];
+  # };
 }

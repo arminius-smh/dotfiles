@@ -18,7 +18,7 @@
 
     ./firefox # browser
     ./thunderbird # mail client
-    ./spicetify # spotify enhancement
+    ./spotify # music streaming
     # ./spotify-player # spotify streaming
     # ./obs-studio # video recording
     ./discord # discord enhancement

@@ -11,6 +11,7 @@
     ./neovim
     # ./nh
     # ./nix-ld
+    # ./regreet # greetd frontend
     # ./steam
     # ./sway
     ./thunar

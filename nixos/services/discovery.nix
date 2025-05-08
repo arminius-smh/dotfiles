@@ -10,6 +10,7 @@
     # ./fstrim
     # ./fwupd # firmware update
     # ./getty
+    # ./greetd # display manager daemon
     ./gvfs
     # ./kubo
     # ./minecraft-server

@@ -30,7 +30,8 @@
 
   home = {
     packages = with pkgs; [
-      fex # x86 and x86-64 usermode emulator NOTE: not working w/o muvm
+      fex # x86 and x86-64 usermode emulator
+      muvm # microVM
       anki # flashcard
       brightnessctl # brightness controller
       jellyfin-media-player # media player

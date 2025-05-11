@@ -355,3 +355,20 @@ window.Bar {
         }
     }
 }
+
+.HomePopup {
+    background: $base;
+    color: $text;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 2px 3px 7px 6px rgba(0, 0, 0, 0.4);
+    .Heading {
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: $blue;
+    }
+
+    .Idle {
+        margin-right: 10px;
+    }
+}

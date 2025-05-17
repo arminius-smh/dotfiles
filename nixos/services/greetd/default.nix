@@ -7,6 +7,9 @@ let
         disable_splash_rendering = true
         disable_hyprland_qtutils_check = true
     }
+    animations {
+      enabled = 0
+    }
   '';
 in
 

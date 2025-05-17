@@ -21,6 +21,7 @@
     ./thunderbird # mail client
     ./spotify-player # spotify streaming
     ./discord # voice and text chat
+    ./obs-studio # video recording
 
     ./nwg-dock-hyprland # hyprland dock
     # ./nwg-bar # button bar
@@ -42,6 +43,7 @@
       wireguard-tools # vpn wireguard
       distrobox # container wrapper for using distros
       vlc # media player
+      chromium # web apps
 
       asahi-bless # switch boot partition on ARM Mac
       asahi-wifisync # sync wifi passwords on ARM Mac

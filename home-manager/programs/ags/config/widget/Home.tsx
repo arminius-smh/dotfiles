@@ -7,7 +7,7 @@ export default function Home() {
     const idleActive = Variable<number>(0).poll(5000, (['bash', '-c', "systemctl --user is-active --quiet hypridle && echo '1' || echo '0'"]))
     const idleInit = Variable(true);
 
-    if(idleInitStatus==0){
+    if (idleInitStatus == 0) {
         idleInit.set(false)
     }
 
@@ -35,21 +35,27 @@ export default function Home() {
                 })} onNotifyActive={self => {
                     // ignore initial setting
                     // if I would use systemctl --user x hypridle directly
-                    // it will do execute again, not sure how I can only listen to mouseClick events
+                    // it will execute again, not sure how I can only listen to mouseClick events
                     if (idleInit.get() == true) {
                         idleInit.set(false)
                         return
                     }
 
+                    // check if hypridle is active before starting
+                    // to mitigiate multiple-monitors(bars) and multiple executions when state changes
                     if (self.active) {
                         execAsync(["bash", "-c", `
-                            systemctl --user start hypridle &&
-                            notify-send -e 'NixOS' 'Hypridle started' --icon=/home/armin/dotfiles/assets/pics/NixOS.png -t 2000
+                            if ! systemctl --user is-active --quiet hypridle; then
+                                systemctl --user start hypridle &&
+                                notify-send -e 'NixOS' 'Hypridle started' --icon=/home/armin/dotfiles/assets/pics/NixOS.png -t 2000
+                            fi
                         `]);
                     } else {
                         execAsync(["bash", "-c", `
-                            systemctl --user stop hypridle &&
-                            notify-send -e 'NixOS' 'Hypridle stopped' --icon=/home/armin/dotfiles/assets/pics/NixOS.png -t 2000
+                            if systemctl --user is-active --quiet hypridle; then
+                                systemctl --user stop hypridle &&
+                                notify-send -e 'NixOS' 'Hypridle stopped' --icon=/home/armin/dotfiles/assets/pics/NixOS.png -t 2000
+                            fi
                         `]);
                     }
                 }} />

@@ -39,6 +39,7 @@
       obsidian # markdown notes
       element-desktop # matrix client
       ausweisapp # eid-client
+      chromium # web apps
 
       OVMF # UEFI support for qemu
       zotero # citation manager

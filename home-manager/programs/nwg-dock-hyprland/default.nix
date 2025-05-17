@@ -51,7 +51,11 @@
           };
 
           Service = {
-            ExecStart = "${pkgs.nwg-dock-hyprland}/bin/nwg-dock-hyprland -d -c 'nwg-drawer' -hd 0 -i 38 -x -mb 5";
+            ExecStart =
+              if (systemName == "phoenix") then
+                "${pkgs.nwg-dock-hyprland}/bin/nwg-dock-hyprland -d -c 'nwg-drawer' -hd 0 -i 38 -x -mb 5 -hl top"
+              else
+                "${pkgs.nwg-dock-hyprland}/bin/nwg-dock-hyprland -d -c 'nwg-drawer' -hd 0 -i 38 -x -mb 5 ";
             Restart = "on-failure";
             KillMode = "mixed";
           };

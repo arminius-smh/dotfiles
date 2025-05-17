@@ -175,7 +175,11 @@ in
                   }
                   {
                     name = "Syncthing";
-                    url = "http://localhost:8384/";
+                    url = "http://localhost:8384";
+                  }
+                  {
+                    name = "HLTV";
+                    url = "https://hltv.org";
                   }
                   {
                     name = "Palette";
@@ -186,11 +190,11 @@ in
                     bookmarks = [
                       {
                         name = "lily_chou-chou";
-                        url = "http://lily-chou-chou.jp/holic/bbs/";
+                        url = "http://lily-chou-chou.jp/holic/bbs";
                       }
                       {
                         name = "lain";
-                        url = "https://fauux.neocities.org/";
+                        url = "https://fauux.neocities.org";
                       }
                     ];
                   }
@@ -211,6 +215,7 @@ in
             "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
             "browser.newtabpage.activity-stream.feeds.topsites" = false;
             "browser.storageManager.pressureNotification.usageThresholdGB" = 10;
+            "browser.translations.neverTranslateLanguages" = "de";
 
             "app.normandy.first_run" = false;
 

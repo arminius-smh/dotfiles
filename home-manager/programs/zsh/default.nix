@@ -70,9 +70,10 @@
               NAME="$2"
               IMG_NAME=$(echo "$NAME" | sed 's/ /_/g')
               IMG_PATH="$COURSE$IMG_NAME.png"
-              oxipng -o 6 --strip safe --alpha /home/armin/Downloads/*_screenshot.png
-              mv ~/Downloads/*_screenshot.png "/home/armin/notes/vault/attachments/$IMG_PATH"
+              oxipng -o 6 --strip safe --alpha /home/armin/*_screenshot.png
+              mv ~/*_screenshot.png "/home/armin/notes/vault/attachments/$IMG_PATH"
               wl-copy "![$NAME](../../../attachments/$IMG_PATH)"
+              echo "Copied Markdownlink"
           }
 
           # , alias for nix(nom) shell

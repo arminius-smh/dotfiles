@@ -15,6 +15,7 @@
           input = {
             kb_layout = "de";
             kb_variant = "deadtilde";
+            kb_options = "caps:none";
             follow_mouse = 1;
             touchpad = {
               natural_scroll = true;

@@ -79,8 +79,14 @@
           misc = {
             vrr = 1;
             disable_hyprland_logo = true;
+            enable_anr_dialog = false; # enable when window rules exists to ignore it
           };
 
+          # disable this + remove GDK_SCALE=2 when:
+          # - cs2 x11 allows to change res >1920x1080 when this is off
+          # - or: cs2 wayland with:
+          # - working steam overlay
+          # - cs2 fixes the weird res bug when using >1920x1080
           xwayland = lib.mkIf (systemName == "phoenix") {
             force_zero_scaling = true;
           };

@@ -50,7 +50,6 @@
       MONITOR_SECONDARY = if (systemName == "phoenix") then "DP-3" else "";
       MONITOR_TERTIARY = if (systemName == "phoenix") then "DP-2" else "";
 
-      GDK_SCALE = if (systemName == "phoenix") then 2 else "";
       ANKI_WAYLAND = 1;
 
       # HOMEDIR CLEANUP

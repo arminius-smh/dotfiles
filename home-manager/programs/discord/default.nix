@@ -6,6 +6,8 @@
   ...
 }:
 let
+  discord_option = if (systemName == "phoenix") then "discord" else "vesktop";
+
   krisp-patcher =
     pkgs.writers.writePython3Bin "krisp-patcher"
       {
@@ -32,23 +34,35 @@ in
 {
   home = {
     packages = lib.mkMerge [
-      (lib.mkIf (systemName == "phoenix") [
+      (lib.mkIf (discord_option == "discord") [
         # krisp-patcher ~/.config/discord/0.0.XX/modules/discord_krisp/discord_krisp.node
         krisp-patcher
         (pkgs.discord.override {
           withVencord = true;
         })
       ])
-      (lib.mkIf (systemName == "discovery") [
+      (lib.mkIf (discord_option == "vesktop") [
         pkgs.vesktop # no aarch64-linux package for discord
       ])
     ];
+
+    activation = lib.mkIf (discord_option == "discord") {
+      krisp_patcher = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        DISCORD_PATH="${config.home.homeDirectory}/.config/discord"
+
+        VERSION_DIR=$(ls "$DISCORD_PATH" | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -n 1)
+
+        KRISP_PATH="$DISCORD_PATH/$VERSION_DIR/modules/discord_krisp/discord_krisp.node"
+
+        ${krisp-patcher}/bin/krisp-patcher "$KRISP_PATH"
+      '';
+    };
   };
 
   xdg = {
     configFile =
       { }
-      // lib.optionalAttrs (systemName == "phoenix") {
+      // lib.optionalAttrs (discord_option == "discord") {
         "Vencord/settings/settings.json" = {
           source =
             config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}"
@@ -56,12 +70,53 @@ in
 
         };
       }
-      // lib.optionalAttrs (systemName == "discovery") {
+      // lib.optionalAttrs (discord_option == "vesktop") {
         "vesktop/settings/settings.json" = {
           source =
             config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}"
             + /dotfiles/home-manager/programs/discord/config/settings/settings.json;
         };
       };
+  };
+
+  systemd = {
+    user = {
+      services = {
+        discord = {
+          Unit = {
+            Description = "${pkgs.discord.meta.description}";
+            Documentation = "${pkgs.discord.meta.homepage}";
+            PartOf = [ config.wayland.systemd.target ];
+            After = [
+              config.wayland.systemd.target
+              "ags.service"
+            ];
+          };
+
+          Service = {
+            # otherwise discord isn't shown in ags, idk why
+            ExecStartPre = lib.mkIf (discord_option == "discord") "${pkgs.coreutils}/bin/sleep 15";
+
+            ExecStart =
+              if (discord_option == "discord") then
+                "${pkgs.discord}/bin/discord --start-minimized"
+              else
+                "${pkgs.vesktop}/bin/vesktop --start-minimized";
+            Restart = "on-failure";
+            KillMode = "mixed";
+
+            # remove x11 variable settings when discord/hyprland idk? allows to set keybindings in wayland discord
+            Environment = lib.mkIf (discord_option == "discord") [
+              "NIXOS_OZONE_WL="
+              "ELECTRON_OZONE_PLATFORM_HINT="
+            ];
+          };
+
+          Install = {
+            WantedBy = [ config.wayland.systemd.target ];
+          };
+        };
+      };
+    };
   };
 }

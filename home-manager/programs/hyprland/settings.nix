@@ -82,15 +82,6 @@
             enable_anr_dialog = false; # enable when window rules exists to ignore it
           };
 
-          # disable this + remove GDK_SCALE=2 when:
-          # - cs2 x11 allows to change res >1920x1080 when this is off
-          # - or: cs2 wayland with:
-          # - working steam overlay
-          # - cs2 fixes the weird res bug when using >1920x1080
-          xwayland = lib.mkIf (systemName == "phoenix") {
-            force_zero_scaling = true;
-          };
-
           source = [
             "${config.xdg.configHome}/hypr/monitors.conf"
             "${config.xdg.configHome}/hypr/workspaces.conf"
@@ -107,7 +98,6 @@
               "uwsm app -- heroic"
               "uwsm app -- steam -silent -noverifyfiles"
               "[workspace 9 silent] uwsm app -- thunderbird"
-              "[workspace special silent] uwsm app -- discord --start-minimized"
               "[workspace special:spotify silent] uwsm app -- spotify"
               "[workspace special:spotify silent] uwsm app -- kitty --class cava cava"
               "[workspace special:obsidian silent] uwsm app -- obsidian --disable-gpu"
@@ -115,7 +105,6 @@
             (lib.mkIf (systemName == "discovery") [
               "waypaper --restore"
               "[workspace special:spotify silent] uwsm app -- kitty -o background_opacity=1 --class spotify --session spotify_player"
-              "uwsm app -- vesktop --start-minimized"
             ])
           ];
         };

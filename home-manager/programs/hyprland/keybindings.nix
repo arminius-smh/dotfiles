@@ -76,6 +76,15 @@
             # screenshot button on controller executes windows screenshot
             # replicate keybindg kinda-ish
             "$mainMod ALT, Alt_L, exec, $HOME/dotfiles/assets/scripts/screenshot.sh immediate"
+
+            # pass mouse5 to discord
+            ", mouse:276, pass, class:^(discord)$"
+
+            # this should be uncessarry, but if discord is not open
+            # the key gets "eaten" / I can't vc
+            # if discord is open it works
+            # this works around it idk why this happens
+            ", mouse:276, pass, class:^(cs2)$"
           ];
 
           bindm = [

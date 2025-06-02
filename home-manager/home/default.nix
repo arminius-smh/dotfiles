@@ -91,8 +91,8 @@
     activation = lib.mkIf (systemName == "phoenix" || systemName == "discovery") {
       dir-structure = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
         directories=(
-          "$HOME/projects/dev/projects"
           "$HOME/projects/dev/misc"
+          "$HOME/projects/dev/jupyter"
           "$HOME/projects/dev/scratch"
           "$HOME/misc/themes"
         )

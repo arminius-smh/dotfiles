@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# I could check wether hypridle and swaync state is off and not turn it on again when toggling
+# but, eh
 VAR_FILE="/tmp/cinema.txt"
 
 initialize(){
@@ -14,6 +16,7 @@ mode_on(){
     hyprctl dispatch dpms off "$MONITOR_TERTIARY"
     # crashes when specified monitors are turned off
     systemctl --user stop hypridle
+    swaync-client --dnd-on
 }
 
 mode_off(){
@@ -28,6 +31,7 @@ mode_off(){
     hyprctl dispatch dpms on "$MONITOR_PRIMARY"
 
     systemctl --user start hypridle
+    swaync-client --dnd-off
 }
 
 

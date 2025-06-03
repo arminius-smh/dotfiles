@@ -28,12 +28,15 @@
         "nodiratime"
       ];
     };
-    "/home/armin/Mount/Storage" = {
-      options = [
-        "noatime"
-        "nodiratime"
-      ];
-    };
+    # "/home/armin/Mount/Storage" = {
+    #   options = [
+    #     "nofail"
+    #     "x-systemd.automount"
+    #     "noauto"
+    #     "noatime"
+    #     "nodiratime"
+    #   ];
+    # };
   };
 
   virtualisation = {

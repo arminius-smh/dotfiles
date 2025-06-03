@@ -19,7 +19,7 @@
     ./openssh
     ./pipewire
     ./printing
-    ./psd # https://wiki.archlinux.org/title/Profile-sync-daemon
+    # ./psd # https://wiki.archlinux.org/title/Profile-sync-daemon
     # ./scx
     ./tumbler # filemanager thumbnail generator
     ./udev

@@ -69,24 +69,18 @@
             # Fullscreen
             "$mainMod, F, fullscreen"
 
-            # Alt+Tab
-            "alt, tab, exec, hyprswitch gui --mod-key alt --key tab --close mod-key-release --reverse-key=mod=shift --filter-current-monitor && hyprswitch dispatch"
-            "alt shift, tab, exec, hyprswitch gui --mod-key alt --key tab --close mod-key-release --reverse-key=mod=shift --filter-current-monitor && hyprswitch dispatch -r"
-
             # screenshot button on controller executes windows screenshot
             # replicate keybindg kinda-ish
             "$mainMod ALT, Alt_L, exec, $HOME/dotfiles/assets/scripts/screenshot.sh immediate"
-
-            # pass mouse5 to discord
-            ", mouse:276, pass, class:^(discord)$"
-
-            # this should be uncessarry, but if discord is not open
-            # the key gets "eaten" / I can't vc
-            # if discord is open it works
-            # this works around it idk why this happens
-            ", mouse:276, pass, class:^(cs2)$"
           ];
 
+          # n -> non-consuming, key/mouse events will be passed to the active window in addition to triggering the dispatcher.
+          bindn = [
+            # pass mouse5 to discord
+            ", mouse:276, pass, class:^(discord)$"
+          ];
+
+          # m -> mouse
           bindm = [
             # Move/resize windows with mainMod + LMB/RMB and dragging
             "$mainMod, mouse:272, movewindow"
@@ -94,10 +88,12 @@
             "$mainMod, mouse:273, resizewindow"
           ];
 
+          # r -> release, will trigger on release of a key.
           bindr = [
             ''CAPS, Caps_Lock, exec, swayosd-client --monitor "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')" --caps-lock''
           ];
 
+          # e -> repeat, will repeat when held.
           binde = [
             # stolen from https://github.com/hyprwm/Hyprland/issues/9058
             "$mainMod, Z, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 + 0.5}')"

@@ -34,6 +34,7 @@
               "tile,class:^(steam)$,title:^(Steam)"
 
               "norounding 1,class:^(steam_app_.*)$"
+              "fullscreen,class:^(steam_app_.*)$"
               "norounding 1,class:^(cs2|cstrike_linux64)$"
               "fullscreen,class:^(cs2|cstrike_linux64)$"
             ])

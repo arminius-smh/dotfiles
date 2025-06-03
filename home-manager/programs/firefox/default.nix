@@ -144,6 +144,7 @@ in
               };
             packages = with addons; [
               bitwarden
+              catppuccin-web-file-icons
               refined-github
               multi-account-containers
               return-youtube-dislikes

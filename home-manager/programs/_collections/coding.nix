@@ -27,7 +27,6 @@
       maven
       # js
       nodePackages_latest.nodejs
-      deno
       yarn
       typescript
       pnpm

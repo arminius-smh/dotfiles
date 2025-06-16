@@ -31,7 +31,7 @@
     packages = with pkgs; [
       hyprsysteminfo # system info
       wl-clipboard # clipboard manager
-      grimblast # screenshot
+      hyprshot # screenshot
       gum # shell tool
       oxipng # lossless png compression optimizer
       nix-output-monitor # output nix info while building
@@ -63,6 +63,7 @@
       baobab # disk usage analyzer
       gnome-disk-utility # disk management utility
       simple-scan # scan documents
+      satty # screenshot annotation
 
       # file compression
       zip

@@ -12,7 +12,7 @@
     # ./getty
     # ./greetd # display manager daemon
     ./gvfs
-    # ./jupyter
+    ./jupyter
     # ./kubo
     # ./minecraft-server
     # ./mysql

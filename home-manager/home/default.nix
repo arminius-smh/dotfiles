@@ -42,7 +42,7 @@
       UWSM_USE_SESSION_SLICE = "true";
       MONITOR_PRIMARY =
         if (systemName == "phoenix") then
-          "DP-1"
+          "HDMI-A-1"
         else if (systemName == "discovery") then
           "eDP-1"
         else

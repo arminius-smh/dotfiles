@@ -24,7 +24,7 @@ export default function Home() {
     >
         <box className="HomePopup" vertical>
             <label className="Heading" label="Home" />
-            <box className="Settings">
+            <box className="Settings" halign={Gtk.Align.CENTER}>
                 <label className="Idle" label="Idle" />
                 <switch state={bind(idleActive).as(state => {
                     if (state == 0) {
@@ -59,6 +59,24 @@ export default function Home() {
                         `]);
                     }
                 }} />
+            </box>
+            <label className="horziontalLine"/>
+            <box className="Powermenu">
+                <button
+                    className="PowerButton"
+                    label={"󰐥"}
+                    onClick={() => { execAsync(["bash", "-c", "shutdown now"]) }}
+                />
+                <button
+                    className="LockButton"
+                    label={""}
+                    onClick={() => { execAsync(["bash", "-c", "loginctl lock-session"]) }}
+                />
+                <button
+                    className="RestartButton"
+                    label={"󰜉"}
+                    onClick={() => { execAsync(["bash", "-c", "restart"]) }}
+                />
             </box>
         </box>
     </Popover>

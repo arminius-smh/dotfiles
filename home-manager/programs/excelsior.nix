@@ -23,6 +23,7 @@
       pyrosimple # torrent library
       nixfmt-rfc-style # formatter nix
       tree # directory tree
+      nix-output-monitor # output management utility
 
       # file compression
       zip

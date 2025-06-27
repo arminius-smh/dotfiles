@@ -33,6 +33,15 @@
             layout = "dwindle";
           };
 
+          ecosystem = {
+            enforce_permissions = true;
+          };
+
+          permission = [
+            "${pkgs.grim}/bin/grim, screencopy, allow"
+            "${pkgs.xdg-desktop-portal-hyprland}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
+          ];
+
           decoration = {
             rounding = 10;
             rounding_power = 4;

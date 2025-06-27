@@ -49,8 +49,8 @@
       killall # kill processes by name
       pwvucontrol # pipewire volume control
       tradingview # stock tracker
-      python3Packages.manga-ocr # manga ocr
-      mokuro # manga selectable text
+      python3Packages.manga-ocr
+      mokuro
 
       mkvtoolnix-cli # mkv tools
       platformio-core # embedded dev environment

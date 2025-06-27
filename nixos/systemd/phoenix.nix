@@ -1,7 +1,6 @@
 { ... }:
 {
-
   imports = [
-    ./auto-update.nix
+    # ./auto-update.nix
   ];
 }

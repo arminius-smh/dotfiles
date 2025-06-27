@@ -41,6 +41,7 @@ while getopts ":hutsbBi" option; do
 done
 
 DATE=$(date)
+DATE_COMMIT=$(date +%F)
 hostname=$(hostname)
 
 echo "[$DATE] Starting NixOS update"
@@ -51,7 +52,7 @@ if [[ "$interactive" == true ]]; then
 
     cd "/home/armin/dotfiles" || { echo "[$DATE] Failed to cd into dotfiles directory"; exit 1; }
     if ! sudo -u armin git add --all; then
-        echo "[$DATE] Failed to run 'git add'"
+        echo "[$DATE] Failed to run 'git add' 1"
         exit 1
     fi
 
@@ -60,17 +61,26 @@ if [[ "$interactive" == true ]]; then
         exit 1
     fi
 
-    # check status of merged prs
-    sudo -u armin DBUS_SESSION_BUS_ADDRESS="$BUS_ADDRESS" DISPLAY=:0 \
-        /home/armin/dotfiles/assets/scripts/nix-pr-notify.sh
+    if ! sudo -u armin git add --all; then
+        echo "[$DATE] Failed to run 'git add' 2"
+        exit 1
+    fi
 
+    if ! sudo -u armin git commit -m "chore(phoenix): updates $DATE_COMMIT"; then
+        echo "[$DATE] Failed to run 'git commit'"
+        exit 1
+    fi
+
+    echo "[$DATE] starting nixos-rebuild"
     if ! /run/current-system/sw/bin/nixos-rebuild boot --flake "/home/armin/dotfiles?submodules=1#$hostname" &> /tmp/auto-update.log ; then
         echo "[$DATE] nixos-rebuild failed"
         sudo -u armin DBUS_SESSION_BUS_ADDRESS="$BUS_ADDRESS" DISPLAY=:0 \
             notify-send 'NixOS' '[auto-update] failure: check /tmp/auto-update.log for more info' --icon=/home/armin/dotfiles/assets/pics/NixOS.png -u critical
         exit 1
     fi
+
     echo "[$DATE] NixOS update completed successfully"
+
     sudo -u armin DBUS_SESSION_BUS_ADDRESS="$BUS_ADDRESS" DISPLAY=:0 \
         notify-send 'NixOS' '[auto-update] success' --icon=/home/armin/dotfiles/assets/pics/NixOS.png -e
     exit 0

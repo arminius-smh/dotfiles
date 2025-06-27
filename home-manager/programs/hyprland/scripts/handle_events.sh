@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# https://github.com/hyprwm/Hyprland/issues/3835
-#
+
 HIDE_DOCK_SIGNAL="pkill -37 -f nwg-dock-hyprland"
 SHOW_DOCK_SIGNAL="pkill -36 -f nwg-dock-hyprland"
 
@@ -10,6 +9,7 @@ handle_windowtitlev2 () {
     windowaddress=${1%,*}
     windowtitle=${1#*,}
 
+    # https://github.com/hyprwm/Hyprland/issues/3835
     case $windowtitle in
         *"(Bitwarden"*"Password Manager) - Bitwarden"*)
             if [ "$host" == "discovery" ]; then
@@ -51,6 +51,14 @@ handle_workspacev2() {
     $HIDE_DOCK_SIGNAL
 }
 
+handle_monitoraddedv2() {
+    # Description: emitted when a monitor is added (connected)
+    # Format: `MONITORID,MONITORNAME,MONITORDESCRIPTION`
+
+    # restart dock for it to appear on new monitor
+    systemctl --user restart ags
+}
+
 handle() {
     # $1 Format: `EVENT>>DATA`
     # example: `workspace>>2`
@@ -62,6 +70,7 @@ handle() {
         windowtitlev2) handle_windowtitlev2 "$data" ;;
         fullscreen) handle_fullscreen "$data" ;;
         workspacev2) handle_workspacev2 "$data" ;;
+        monitoraddedv2) handle_monitoraddedv2 "$data" ;;
             #   anyotherevent) handle_otherevent "$data" ;;
         *) echo "unhandled event: $event" ;;
     esac

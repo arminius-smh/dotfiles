@@ -33,6 +33,7 @@ excludes = [
   "home-manager/programs/nwg-dock-hyprland/nwg-dock-pinned",
   "home-manager/programs/direnv/direnvrc",
   "**/.envrc",
+  "assets/scripts/retroarch-playlists.sh",
 ]
 
 

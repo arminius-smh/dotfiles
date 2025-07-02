@@ -36,7 +36,7 @@
           mesen-s # snes
           mgba # gb, gbc, gba
           mupen64plus # n64
-          # dolphin # gcn, wii
+          dolphin # gcn, wii
           melonds # nds
         ]
       ))

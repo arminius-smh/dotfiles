@@ -81,9 +81,11 @@
             ];
           };
 
-          # debug = {
-          #   disable_logs = false;
-          # };
+          debug = {
+            # disable_logs = false;
+            # fixes gamescope https://github.com/hyprwm/Hyprland/issues/9064
+            full_cm_proto = 1;
+          };
 
           misc = {
             vrr = 1;

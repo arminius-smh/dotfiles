@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # I could check wether hypridle and swaync state is off and not turn it on again when toggling
 # but, eh
-VAR_FILE="/tmp/cinema.txt"
+VAR_FILE="/tmp/focus.txt"
 
 initialize(){
     if [[ ! -f "$VAR_FILE" ]]; then
@@ -41,9 +41,11 @@ main() {
     if [[ "$var" -eq "0" ]]; then
         mode_off
         echo "1" > "$VAR_FILE"
+        notify-send 'Focus' 'Deactivated Focus Mode' --icon=/home/armin/dotfiles/assets/pics/NixOS.png -e
     elif [[ "$var" -eq "1" ]]; then
         mode_on
         echo "0" > "$VAR_FILE"
+        notify-send 'Focus' 'Activated Focus Mode' --icon=/home/armin/dotfiles/assets/pics/NixOS.png -e
     fi
 }
 

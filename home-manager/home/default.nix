@@ -52,6 +52,11 @@
 
       ANKI_WAYLAND = 1;
 
+      PROTON_ENABLE_WAYLAND = 1;
+      # Source: https://github.com/GloriousEggroll/proton-ge-custom/blob/9232db0585af3d144472c9386113fb51f646988d/patches/wine-hotfixes/pending/wine-wayland/0079-HACK-winewayland-add-support-for-picking-primary-mon.patch
+      # may be replaced with something else in the future?
+      WAYLANDDRV_PRIMARY_MONITOR = "${config.home.sessionVariables.MONITOR_PRIMARY}";
+
       # HOMEDIR CLEANUP
       ADOTDIR = "${config.xdg.dataHome}/antigen";
       CARGO_HOME = "${config.xdg.dataHome}/cargo";

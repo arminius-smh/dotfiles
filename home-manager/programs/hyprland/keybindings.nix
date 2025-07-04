@@ -47,7 +47,7 @@
             "$mainMod SHIFT, A, exec, uwsm app -- thunar"
             "$mainMod, D, exec, rofi -show drun"
             "$mainMod CONTROL, D, exec, uuctl"
-            "$mainMod, N, exec, uwsm app -- $HOME/dotfiles/home-manager/programs/rofi/scripts/powermenu.sh"
+            "$mainMod, N, exec, $HOME/dotfiles/assets/scripts/focus.sh"
             "$mainMod SHIFT, R, exec, waypaper --random"
 
             #  -t https://github.com/marty-oehme/bemoji/issues/34

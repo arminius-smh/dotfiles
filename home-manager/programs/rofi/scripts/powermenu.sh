@@ -34,8 +34,6 @@ shutdown=''
 reboot=''
 lock=''
 logout='󰍃'
-cinema='󰐢'
-gaming='󰮂'
 
 # Rofi CMD
 rofi_cmd() {
@@ -49,7 +47,7 @@ rofi_cmd() {
 # Pass variables to rofi dmenu
 run_rofi() {
     if [[ $host == "phoenix" ]]; then
-        echo -e "$cinema\n$gaming\n$lock\n$logout\n$reboot\n$shutdown" | rofi_cmd
+        echo -e "$lock\n$logout\n$reboot\n$shutdown" | rofi_cmd
     elif [[ $host == "discovery" ]]; then
         echo -e "$lock\n$logout\n$reboot\n$shutdown" | rofi_cmd
     fi
@@ -69,11 +67,5 @@ case ${chosen} in
         ;;
     "$logout")
         uwsm stop
-        ;;
-    "$cinema")
-        "$HOME"/dotfiles/assets/scripts/cinema.sh
-        ;;
-    "$gaming")
-        "$HOME"/dotfiles/assets/scripts/gaming.sh
         ;;
 esac

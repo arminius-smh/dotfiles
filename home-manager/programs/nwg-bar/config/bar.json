@@ -13,15 +13,5 @@
         "label": "Reboot",
         "exec": "reboot --no-wall",
         "icon": "/home/armin/dotfiles/assets/pics/reboot.svg"
-    },
-    {
-        "label": "Gaming Mode",
-        "exec": "/home/armin/dotfiles/assets/scripts/gaming.sh",
-        "icon": "/home/armin/dotfiles/assets/pics/gamepad-1.svg"
-    },
-    {
-        "label": "Cinema Mode",
-        "exec": "/home/armin/dotfiles/assets/scripts/cinema.sh",
-        "icon": "/home/armin/dotfiles/assets/pics/popcorn.svg"
     }
 ]

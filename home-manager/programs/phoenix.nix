@@ -60,6 +60,7 @@
       qbittorrent # bittorrent client
       hyprpicker # wayland color picker
       trezor-suite # manage crypto
+      # libpst # convert pst to mbox
     ];
   };
 }

@@ -13,7 +13,7 @@
     packages = with pkgs; [
       umu-launcher # unified launcher for windows games on linux
 
-      protonup-qt # manage different proton versions
+      protonplus # manage different proton versions
 
       r2modman # game mod manager
       (prismlauncher.override {
@@ -38,6 +38,7 @@
           mupen64plus # n64
           dolphin # gcn, wii
           melonds # nds
+          citra # 3ds
         ]
       ))
       retroarch-assets

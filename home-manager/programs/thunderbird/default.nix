@@ -26,6 +26,9 @@
       profiles = {
         armin = {
           isDefault = true;
+          settings = {
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          };
           userChrome = ''
             * {
               --lwt-text-color: #cdd6f4 !important; /* catppuccin-mocha text color */

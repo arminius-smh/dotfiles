@@ -19,7 +19,7 @@
       ])
 
       (lib.mkIf (systemName == "phoenix") [
-        (import ./vlc.nix)
+        # (import ./vlc.nix) # recompilces vlc + programs where libvlc is a dependency
       ])
     ];
   };

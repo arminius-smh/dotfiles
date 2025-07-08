@@ -1,90 +1,85 @@
-import { Astal, Gdk, Gtk, Widget } from "astal/gtk3"
+import { Astal, Gtk, Gdk } from "ags/gtk4";
+import { Setter, Accessor } from "ags";
+import GObject from "gi://GObject?version=2.0";
 
-const { TOP, BOTTOM, LEFT, RIGHT } = Astal.WindowAnchor
+type PopupWindowSpecificProps = {
+    $?: (self: Astal.Window) => void;
+    children?: GObject.Object;
+    // this works, but can't be right...
+    visible?: Accessor<boolean>;
+    setvisible: Setter<boolean>;
+};
 
-type PopoverProps = Pick<
-    Widget.WindowProps,
-    | "name"
-    | "namespace"
-    | "className"
-    | "visible"
-    | "child"
+type PopoverProps = Partial<Pick<
+    Astal.Window.ConstructorProps,
+    | "anchor"
     | "marginBottom"
     | "marginTop"
     | "marginLeft"
     | "marginRight"
-    | "halign"
-    | "valign"
-> & {
-    onClose?(self: Widget.Window): void
-}
+    | "widthRequest"
+    | "heightRequest"
+>> & PopupWindowSpecificProps;
 
-/**
- * Full screen window widget where you can space the child widget
- * using margins and alignment properties.
- *
- * NOTE: Child widgets will assume they can span across the full window width
- * this means that setting `wrap` or `ellipsize` on labels for example will not work
- * without explicitly setting its `max_width_chars` property.
- * For a workaround see Popover2.tsx
- */
 export default function Popover({
-    child,
-    marginBottom,
-    marginTop,
-    marginLeft,
-    marginRight,
-    halign = Gtk.Align.CENTER,
-    valign = Gtk.Align.CENTER,
-    onClose,
+    visible,
+    setvisible,
+    children,
+    anchor,
+    marginBottom = 0,
+    marginTop = 0,
+    marginLeft = 0,
+    marginRight = 0,
+    widthRequest = 0,
+    heightRequest = 0,
     ...props
-}: PopoverProps) {
-    return (
-        <window
-            {...props}
-            css="background-color: transparent"
-            keymode={Astal.Keymode.EXCLUSIVE}
-            anchor={TOP | BOTTOM | LEFT | RIGHT}
-            exclusivity={Astal.Exclusivity.IGNORE}
-            onNotifyVisible={(self) => {
-                if (!self.visible) onClose?.(self)
-            }}
-            // close when click occurs otside of child
-            onButtonPressEvent={(self, event) => {
-                const [, _x, _y] = event.get_coords()
-                const { x, y, width, height } = self
-                    .get_child()!
-                    .get_allocation()
+}: PopoverProps): GObject.Object {
 
-                const xOut = _x < x || _x > x + width
-                const yOut = _y < y || _y > y + height
 
-                // clicked outside
-                if (xOut || yOut) {
-                    self.visible = false
+    // TODO: Gjs-Console-CRITICAL **: Error: out of tracking context: will not be able to cleanup (prob releated to the 'visible' stuff?)
+    return <Astal.Window
+        {...props}
+        exclusivity={Astal.Exclusivity.NORMAL}
+        keymode={Astal.Keymode.EXCLUSIVE}
+        anchor={anchor}
+        css={`window {
+                margin-left: ${marginLeft}px;
+                margin-right: ${marginRight}px;
+                margin-top: ${marginTop}px;
+                margin-bottom: ${marginBottom}px;
+                background-color: transparent;
+            }`}
+        visible={visible}
+        $={(self) => {
+            const keyController = Gtk.EventControllerKey.new();
+            const clickController = new Gtk.GestureClick();
+            clickController.set_button(0)
+            clickController.connect('pressed', (_controller, _, x, y) => {
+                const width = self.get_allocated_width();
+                const heigth = self.get_allocated_height();
+
+                // TODO: Gtk-WARNING **: Broken accounting of active state for widget
+                if (x > width || y > heigth || x < 0 || y < 0) {
+                    setvisible(false);
                 }
-            }}
-            // close when hitting Escape
-            onKeyPressEvent={(self, event: Gdk.Event) => {
-                if (event.get_keyval()[1] === Gdk.KEY_Escape) {
-                    self.visible = false
+            })
+
+            keyController.connect("key-pressed", (_, keyval) => {
+                if (keyval === Gdk.KEY_Escape) {
+                    setvisible(false);
                 }
-            }}
-        >
-            <box
-                // make sure click event does not bubble up
-                onButtonPressEvent={() => true}
-                // child can be positioned with `halign` `valign` and margins
-                expand
-                halign={halign}
-                valign={valign}
-                marginBottom={marginBottom}
-                marginTop={marginTop}
-                marginStart={marginLeft}
-                marginEnd={marginRight}
-            >
-                {child}
-            </box>
-        </window>
-    )
+
+            })
+            self.add_controller(keyController);
+            self.add_controller(clickController);
+        }}
+    >
+
+        <Gtk.Box>
+            <Gtk.Box widthRequest={widthRequest} heightRequest={heightRequest}>
+                {children}
+            </Gtk.Box>
+        </Gtk.Box>
+
+    </Astal.Window>
 }

@@ -1,14 +1,11 @@
-import { GLib, Variable } from "astal"
+import { createPoll } from "ags/time"
 
-// thin-space in format
-export default function Time({ format = "<b>%H</b> : %M" }) { 
-    const time = Variable<string>("").poll(1000, () =>
-        GLib.DateTime.new_now_local().format(format)!)
+export default function Time() {
+    const time = createPoll("", 1000, "date +'<b>%H</b> : %M'")
 
     return <label
-        className="Time"
-        useMarkup={true}
-        onDestroy={() => time.drop()}
-        label={time()}
+        class="Time"
+        useMarkup
+        label={time}
     />
 }

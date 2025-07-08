@@ -1,49 +1,62 @@
-import { Gtk, Gdk, Astal } from "astal/gtk3"
-import SysTray from "./SysTray"
-import AudioSlider from "./AudioSlider"
-import Workspaces from "./Workspaces"
-import Time from "./Time"
-import Status from "./Status"
+import app from "ags/gtk4/app"
+import { Astal, Gdk } from "ags/gtk4"
+import { exec } from "ags/process"
+
 import Home from "./Home"
-import SwayNC from "./SwayNC"
+import Workspaces from "./Workspaces"
+
 import MprisPlayers from "./MprisPlayers"
+
 import BluetoothStatus from "./BluetoothStatus"
-import { exec } from "astal"
+import AudioSlider from "./AudioSlider"
+import SwayNC from "./SwayNC"
+import SysTray from "./SysTray"
+import SysStatus from "./SysStatus"
+import Time from "./Time"
 
-const { Layer, WindowAnchor, Exclusivity } = Astal;
 
-function Separator(){
-    return <label label="|" className="Separator" />
+function Separator() {
+    return <label label="|" class="Separator" />
 }
 
-export default function Bar(monitor: Gdk.Monitor) {
+export default function Bar(gdkmonitor: Gdk.Monitor) {
+    const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
+
     let hostname = exec(["bash", "-c", "hostname"])
 
-    return <window className="Bar" namespace="ags" gdkmonitor={monitor} layer={Layer.BOTTOM} exclusivity={Exclusivity.EXCLUSIVE} anchor={WindowAnchor.TOP | WindowAnchor.LEFT | WindowAnchor.RIGHT}>
-        <centerbox>
-            <box halign={Gtk.Align.START}>
-                <box>
+    return (
+        <window
+            visible
+            name="bar"
+            class="Bar"
+            namespace="ags"
+            gdkmonitor={gdkmonitor}
+            exclusivity={Astal.Exclusivity.EXCLUSIVE}
+            layer={Astal.Layer.BOTTOM}
+            anchor={TOP | LEFT | RIGHT}
+            application={app}
+        >
+            <centerbox cssName="centerbox">
+                <box  $type="start">
                     <Home />
                     <Workspaces />
                     {hostname === "discovery" && <MprisPlayers />}
                 </box>
-            </box>
-            <box>
-                <box>
+                <box $type="center">
                     {hostname !== "discovery" && <MprisPlayers />}
                 </box>
-            </box>
-            <box halign={Gtk.Align.END} >
-                <box>
+                <box $type="end">
                     <SysTray />
                     <Separator />
                     <AudioSlider />
                     <BluetoothStatus />
                     <SwayNC />
-                    <Status />
+                    <Separator />
+                    <SysStatus />
+                    <Separator />
                     <Time />
                 </box>
-            </box>
-        </centerbox>
-    </window>
+            </centerbox>
+        </window>
+    )
 }

@@ -58,7 +58,7 @@ window.Bar {
 
     .Workspaces {
         button {
-            padding: 0px 5px;
+            padding: 0px 4px;
             background: none;
             box-shadow: none;
             border: none;
@@ -66,6 +66,11 @@ window.Bar {
         button:hover {
             color: $maroon;
         }
+    }
+
+    .Time {
+        padding: 0px 10px 0px 5px;
+        font-size: 14px;
     }
 
     .SysTray {
@@ -81,11 +86,24 @@ window.Bar {
         }
     }
 
+    .AudioSlider {
+        slider {
+            background-color: $overlay0;
+        }
+        button {
+            background: none;
+            padding: 0px 0px 0px 8px;
+            box-shadow: none;
+            border: none;
+        }
+    }
+
     .SwayNC {
         color: $lavender;
         font-size: 16px;
         padding: 0px 0px 0px 8px;
     }
+
     .BluetoothStatus {
         .bluetooth-icon {
             font-size: 18px;
@@ -94,21 +112,6 @@ window.Bar {
         button {
             background: none;
             padding: 0px 0px 0px 4px;
-            box-shadow: none;
-            border: none;
-        }
-    }
-
-    .AudioSlider {
-        .volume-icon {
-            font-size: 20px;
-        }
-        slider {
-            background-color: $overlay0;
-        }
-        button {
-            background: none;
-            padding: 0px 0px 0px 8px;
             box-shadow: none;
             border: none;
         }
@@ -149,11 +152,6 @@ window.Bar {
         }
     }
 
-    .Time {
-        padding: 0px 10px 0px 5px;
-        font-size: 14px;
-    }
-
     .MediaPlayer {
         background: none;
         margin-left: 5px;
@@ -163,7 +161,7 @@ window.Bar {
             margin-bottom: 5px;
             min-width: 32px;
             min-height: 32px;
-            border-radius: 50%;
+            border-radius: 16px;
             background-size: cover;
             background-position: center;
         }
@@ -190,6 +188,10 @@ window.Bar {
             }
         }
     }
+}
+
+popover {
+    border: none;
 }
 
 .StatusPopup {
@@ -285,7 +287,6 @@ window.Bar {
     background-color: $base;
     padding: 1.2rem;
     border-radius: 12px;
-    box-shadow: 2px 3px 7px 6px rgba(0, 0, 0, 0.4);
 
     .cover-art {
         min-width: 150px;
@@ -361,7 +362,6 @@ window.Bar {
     color: $text;
     border-radius: 12px;
     padding: 12px;
-    box-shadow: 2px 3px 7px 6px rgba(0, 0, 0, 0.4);
     .Heading {
         margin-bottom: 10px;
         font-weight: bold;

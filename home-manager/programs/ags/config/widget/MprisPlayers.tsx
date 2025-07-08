@@ -1,8 +1,11 @@
-import { Astal, Gtk } from "astal/gtk3"
+import { Astal, Gtk } from "ags/gtk4"
 import Mpris from "gi://AstalMpris"
-import { exec, Variable, bind } from "astal"
 import Popover from "./Popover"
+import { Setter, With, createBinding, createState } from "ags"
+import { exec } from "ags/process"
 
+const { TOP, LEFT } = Astal.WindowAnchor
+let hostname = exec(["bash", "-c", "hostname"])
 
 function lengthStr(length: number) {
     const min = Math.floor(length / 60)
@@ -12,179 +15,203 @@ function lengthStr(length: number) {
 }
 
 function MediaPlayer({ player }: { player: Mpris.Player }) {
-    let hostname = exec(["bash", "-c", "hostname"])
-
-    const title_short = bind(player, "title").as(t => {
+    const title_short = createBinding(player, "title").as(t => {
         if (t.length > 38) {
             t = t.substring(0, 35) + "...";
         }
         return t || "Unknown Track"
     })
 
-    const title_full = bind(player, "title").as(t => {
+    const title_full = createBinding(player, "title").as(t => {
         return t || "Unknown Track"
     })
 
-    const artist = bind(player, "artist").as(a =>
+    const artist = createBinding(player, "artist").as(a =>
         a || "Unknown Artist")
 
-    const coverArt = bind(player, "coverArt").as(c =>
-        `background-image: url('${c}')`)
+    const coverArt = createBinding(player, "coverArt").as(c => `background-image: url("file://${c}");`)
 
-    const playerIcon = bind(player, "entry").as(e =>
-        e != null && Astal.Icon.lookup_icon(e) ? e : "audio-x-generic-symbolic")
+    const playerIcon = createBinding(player, "entry").as(e =>
+        e != null ? e : "audio-x-generic-symbolic")
 
-    const playIcon = bind(player, "playbackStatus").as(s =>
+    const playIcon = createBinding(player, "playbackStatus").as(s =>
         s === Mpris.PlaybackStatus.PLAYING
             ? "󰏤"
             : "󰐊"
     )
 
-    const position = bind(player, "position").as(p => player.length > 0
+    const position = createBinding(player, "position").as(p => player.length > 0
         ? p / player.length : 0)
 
-    let showSlider = Variable(false)
+    let [showSlider, setshowSlider] = createState(false)
 
-    const visible1 = Variable(false);
+    const [visible1, setvisible1] = createState(false);
 
-    const _popover1 = <Popover
-        onClose={() => visible1.set(false)}
-        visible={visible1()}
-        marginTop={50}
-        marginLeft={hostname === "discovery" ? 5 : 0}
-        valign={Gtk.Align.START}
-        halign={hostname === "discovery" ? Gtk.Align.START : Gtk.Align.CENTER}
+    <Popover
+        anchor={hostname === "discovery" ? TOP | LEFT : TOP}
+        marginTop={10}
+        marginLeft={hostname === "discovery" ? 30 : 0}
+        visible={visible1}
+        setvisible={setvisible1}
     >
-        <box className="MediaPlayerPopup">
-            <box className="cover-art" css={coverArt} />
-            <box vertical>
-                <box className="title" tooltipText={title_full}>
-                    <label truncate hexpand halign={Gtk.Align.CENTER} label={title_short} />
+        <box class="MediaPlayerPopup">
+            <box class="cover-art" css={coverArt} />
+            <box orientation={Gtk.Orientation.VERTICAL}>
+                <box class="title" tooltipText={title_full}>
+                    <label hexpand halign={Gtk.Align.CENTER} label={title_short} />
                 </box>
-                <label className="artist" halign={Gtk.Align.CENTER} valign={Gtk.Align.START} vexpand wrap label={artist} />
+                <label class="artist" halign={Gtk.Align.CENTER} valign={Gtk.Align.START} vexpand wrap label={artist} />
 
-                <box className="actionButtons" halign={Gtk.Align.CENTER}>
+                <box class="actionButtons" halign={Gtk.Align.CENTER}>
                     <button
                         onClicked={() => player.previous()}
-                        visible={bind(player, "canGoPrevious")}>
+                        visible={createBinding(player, "canGoPrevious")}>
                         <label label="󰒮" />
                     </button>
                     <button
                         onClicked={() => player.play_pause()}
-                        visible={bind(player, "canControl")}>
+                        visible={createBinding(player, "canControl")}>
                         <label label={playIcon} />
                     </button>
                     <button
                         onClicked={() => player.next()}
-                        visible={bind(player, "canGoNext")}>
+                        visible={createBinding(player, "canGoNext")}>
                         <label label="󰒭" />
                     </button>
                 </box>
-                <box className="timer">
+                <box class="timer">
                     <label
-                        className="position"
+                        class="position"
                         hexpand
                         halign={Gtk.Align.START}
-                        visible={bind(player, "length").as(l => l > 0)}
-                        label={bind(player, "position").as(lengthStr)}
+                        visible={createBinding(player, "length").as(l => l > 0)}
+                        label={createBinding(player, "position").as(lengthStr)}
                     />
                     <label
-                        className="length"
+                        class="length"
                         hexpand
                         halign={Gtk.Align.END}
-                        visible={bind(player, "length").as(l => l > 0)}
-                        label={bind(player, "length").as(l => l > 0 ? lengthStr(l) : "0:00")}
+                        visible={createBinding(player, "length").as(l => l > 0)}
+                        label={createBinding(player, "length").as(l => l > 0 ? lengthStr(l) : "0:00")}
                     />
                 </box>
                 <slider
-                    visible={bind(player, "length").as(l => l > 0)}
-                    onDragged={({ value }) => player.position = value * player.length}
+                    visible={createBinding(player, "length").as(l => l > 0)}
+                    onChangeValue={({ value }) => { player.position = value * player.length }}
                     value={position}
                 />
             </box>
         </box>
     </Popover>
 
-    return <eventbox onClick={() => visible1.set(true)} onHover={() => showSlider.set(true)} onHoverLost={() => showSlider.set(false)}>
-        <box className="MediaPlayer" tooltipText={title_full}>
-            <box className="cover-art" css={coverArt} />
-            <box className="title">
-                <label truncate hexpand halign={Gtk.Align.START} label={title_short} />
-                <icon icon={playerIcon} />
+    return <box class="MediaPlayer" tooltipText={title_full}
+        $={(self) => {
+            const keyController = new Gtk.EventControllerMotion();
+
+            keyController.connect('enter', () => {
+                setshowSlider(true)
+            })
+            keyController.connect('leave', () => {
+                setshowSlider(false)
+            })
+
+            self.add_controller(keyController)
+        }}
+    >
+        <box
+            $={(self) => {
+                const clickController = new Gtk.GestureClick();
+                clickController.set_button(0)
+
+                clickController.connect('pressed', (_controller) => {
+                    const button = _controller.get_current_button();
+                    if (button === 1) { // 1 = left click
+                        setvisible1(true)
+                    }
+
+                    // not sure why this is needed, otherwise left clicks only work once
+                    _controller.reset()
+                });
+                self.add_controller(clickController)
+            }}
+        >
+            <box class="cover-art" css={coverArt} />
+            <box class="title">
+                <label label={title_short} />
+                <image iconName={playerIcon} />
             </box>
-            <revealer
-                setup={(self) => {
-                    showSlider.subscribe((value) => {
-                        self.revealChild = value;
-                    })
-                }}
-                transitionType={Gtk.RevealerTransitionType.SLIDE_LEFT}>
-                <box className="controller">
-                    <button
-                        onClicked={() => player.previous()}
-                        visible={bind(player, "canGoPrevious")}>
-                        <label label="󰒮" />
-                    </button>
-                    <button
-                        onClicked={() => player.play_pause()}
-                        visible={bind(player, "canControl")}>
-                        <label label={playIcon} />
-                    </button>
-                    <button
-                        onClicked={() => player.next()}
-                        visible={bind(player, "canGoNext")}>
-                        <label label="󰒭" />
-                    </button>
-                </box>
-            </revealer>
         </box>
-    </eventbox>
+
+        <revealer
+            revealChild={showSlider}
+            transitionType={Gtk.RevealerTransitionType.SLIDE_LEFT}>
+            <box class="controller">
+                <button
+                    onClicked={() => player.previous()}
+                    visible={createBinding(player, "canGoPrevious")}>
+                    <label label="󰒮" />
+                </button>
+                <button
+                    onClicked={() => player.play_pause()}
+                    visible={createBinding(player, "canControl")}>
+                    <label label={playIcon} />
+                </button>
+                <button
+                    onClicked={() => player.next()}
+                    visible={createBinding(player, "canGoNext")}>
+                    <label label="󰒭" />
+                </button>
+            </box>
+        </revealer>
+    </box>
 }
 
-function playerSetup(player: Mpris.Player, showPlayer: Variable<Mpris.Player>, players: Array<Mpris.Player>) {
-    bind(player, "available").subscribe((available) => {
-        if (available === true) {
-            showPlayer.set(player)
+function playerSetup(player: Mpris.Player, setShowPlayer: Setter<Mpris.Player>, players: Array<Mpris.Player>) {
+    createBinding(player, "available").subscribe(() => {
+        if (player.get_available() === true) {
+            setShowPlayer(player)
         } else {
-            showPlayer.set(players.filter((val) => (val.get_bus_name() != player.get_bus_name())).at(0) ?? Mpris.Player.new("none"))
+            setShowPlayer(players.filter((val) => (val.get_bus_name() != player.get_bus_name())).at(0) ?? Mpris.Player.new("none"))
         }
     })
-    bind(player, "playbackStatus").subscribe((status) => {
-        if (status === Mpris.PlaybackStatus.PLAYING) {
-            showPlayer.set(player)
+    createBinding(player, "playbackStatus").subscribe(() => {
+        if (player.get_playback_status() === Mpris.PlaybackStatus.PLAYING) {
+            setShowPlayer(player)
         }
     })
+
+    if (player.get_available() === true) {
+        setShowPlayer(player)
+    }
+
+    if (player.get_playback_status() === Mpris.PlaybackStatus.PLAYING) {
+        setShowPlayer(player)
+    }
 }
 
 export default function MprisPlayers() {
-    const showPlayer = Variable(Mpris.Player.new("none"))
+    const [showPlayer, setShowPlayer] = createState(Mpris.Player.new("none"))
 
     const players = [
         Mpris.Player.new("spotify"),
         Mpris.Player.new("spotify_player"),
-        Mpris.Player.new("io.bassi.Amberol"),
     ]
 
-    for (const player of players) {
-        if (player.available) {
-            showPlayer.set(player);
-            break;
-        }
-    }
-
     players.forEach(player => {
-        playerSetup(player, showPlayer, players)
+        playerSetup(player, setShowPlayer, players)
     });
 
     return <box>
-        {bind(showPlayer).as(player => {
-            if (player.available) {
-                return <revealer setup={(self) => setTimeout(() => self.revealChild = true, 100)} transitionType={Gtk.RevealerTransitionType.CROSSFADE}>
-                    <MediaPlayer player={player} />
-                </revealer>
-            } else {
-                return <box />
-            }
-        })}
+        <With value={showPlayer}>
+            {(player) => {
+                if (player.available) {
+                    return <revealer $={(self) => setTimeout(() => self.revealChild = true, 100)} transitionType={Gtk.RevealerTransitionType.CROSSFADE}>
+                        <MediaPlayer player={player} />
+                    </revealer>
+                } else {
+                    return <box />
+                }
+            }}
+        </With>
     </box>
 }

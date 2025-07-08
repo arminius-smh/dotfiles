@@ -1,69 +1,95 @@
 import Wp from "gi://AstalWp"
-import { Gtk, Gdk } from "astal/gtk3"
-import { exec, execAsync, Variable, bind } from "astal"
+import { Gtk } from "ags/gtk4"
+import { execAsync } from "ags/process"
+import { createState, createBinding } from "ags"
+import GLib from "gi://GLib"
 
 export default function AudioSlider() {
     const speaker = Wp.get_default()?.audio.defaultSpeaker!
 
-    let homeDir = exec(["bash", "-c", "echo $HOME"]) // howto env var
+    const HOME = GLib.getenv("HOME")
 
 
-    let showSlider = Variable(false)
+    let [showSlider, setshowSlider] = createState(false)
 
     function volumeAsPercent(vol: number) {
         return `${Math.round(vol * 100)}%`;
     }
 
-    return <eventbox onHover={() => showSlider.set(true)} onHoverLost={() => showSlider.set(false)} onScroll={(_, event) => {
-        if (event.delta_y >= 0) {
-            speaker.volume = speaker.volume - 0.01 <= 0 ? 0 : speaker.volume - 0.01
-        } else {
-            speaker.volume = speaker.volume + 0.01 >= 1 ? 1 : speaker.volume + 0.01
-        }
-    }}>
-        <box className="AudioSlider" tooltipText={bind(speaker, "volume").as(vol => volumeAsPercent(vol))} >
+    return <box
+        $={(self) => {
+            const keyController = new Gtk.EventControllerMotion();
+            const scrollController = new Gtk.EventControllerScroll();
+
+            scrollController.set_flags(Gtk.EventControllerScrollFlags.VERTICAL);
+
+            keyController.connect('enter', () => {
+                setshowSlider(true)
+            })
+            keyController.connect('leave', () => {
+                setshowSlider(false)
+            })
+
+            scrollController.connect('scroll', (_controller, _, dy) => {
+                if (dy >= 0) { // scroll-down
+                    speaker.volume = speaker.volume - 0.01 <= 0 ? 0 : speaker.volume - 0.01
+                } else {
+                    speaker.volume = speaker.volume + 0.01 >= 1 ? 1 : speaker.volume + 0.01
+                }
+            });
+
+            self.add_controller(keyController)
+            self.add_controller(scrollController)
+        }}
+    >
+        <box class="AudioSlider" tooltipText={createBinding(speaker, "volume").as(vol => volumeAsPercent(vol))} >
             <revealer
-                setup={(self) => {
-                    showSlider.subscribe((value) => {
-                        self.revealChild = value;
-                    })
-                }}
+                revealChild={showSlider}
                 transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT}>
+                <label label="heeey" />
                 <slider
                     widthRequest={100}
-                    hexpand
-                    onDragged={({ value }) => speaker.volume = value}
-                    onScroll-Event={(self) => {
-                        speaker.volume = self.value
-                    }}
-                    value={bind(speaker, "volume")}
+                    onChangeValue={({ value }) => { speaker.volume = value }}
+                    value={createBinding(speaker, "volume")}
                 />
             </revealer>
-            <button onClick={(_, event) => {
-                if (event.button == 1) { // left-click
-                    execAsync(["bash", "-c", "pwvucontrol"])
-                } else if (event.button == 3) { // right-click
-                    speaker.set_mute(!speaker.get_mute())
-                }
-            }}>
-                <icon className="volume-icon" icon={bind(speaker, "volume_icon").as(vol_icon => {
+            <button
+                $={(self) => {
+                    const clickController = new Gtk.GestureClick();
+                    clickController.set_button(0)
+                    clickController.connect('pressed', (_controller) => {
+                        const button = _controller.get_current_button();
+                        if (button === 1) { // 1 = left click
+                            execAsync(["bash", "-c", "pwvucontrol"])
+                        }
+                        if (button === 3) { // 3 = right click
+                            speaker.set_mute(!speaker.get_mute())
+                        }
+
+                        // not sure why this is needed, otherwise left clicks only work once
+                        _controller.reset()
+                    });
+                    self.add_controller(clickController);
+                }}
+            >
+                <image class="volume-icon" pixelSize={20} file={createBinding(speaker, "volume_icon").as(vol_icon => {
                     switch (vol_icon) {
                         case 'audio-volume-low-symbolic':
-                            return `${homeDir}/dotfiles/assets/pics/volume-low.svg`
+                            return `${HOME}/dotfiles/assets/pics/volume-low.svg`
                         case 'audio-volume-medium-symbolic':
-                            return `${homeDir}/dotfiles/assets/pics/volume-medium.svg`
+                            return `${HOME}/dotfiles/assets/pics/volume-medium.svg`
                         case 'audio-volume-high-symbolic':
-                            return `${homeDir}/dotfiles/assets/pics/volume-high.svg`
+                            return `${HOME}/dotfiles/assets/pics/volume-high.svg`
                         case 'audio-volume-overamplified-symbolic':
-                            return `${homeDir}/dotfiles/assets/pics/volume-high.svg`
+                            return `${HOME}/dotfiles/assets/pics/volume-high.svg`
                         case 'audio-volume-muted-symbolic':
-                            return `${homeDir}/dotfiles/assets/pics/volume-mute.svg`
+                            return `${HOME}/dotfiles/assets/pics/volume-mute.svg`
                         default:
-                            return `${homeDir}/dotfiles/assets/pics/volume-low.svg`
+                            return `${HOME}/dotfiles/assets/pics/volume-low.svg`
                     }
                 })} />
             </button>
         </box>
-    </eventbox >
+    </box >
 }
 

@@ -1,46 +1,38 @@
-import { execAsync, exec, bind, Variable } from "astal"
-import { Gtk } from "astal/gtk3"
+import { Astal, Gtk } from "ags/gtk4";
 import Popover from "./Popover"
+import { createState } from "ags"
 
-export default function Home() {
-    const idleInitStatus = Number(exec(['bash', '-c', "systemctl --user is-active --quiet hypridle && echo '1' || echo '0'"]))
-    const idleActive = Variable<number>(0).poll(5000, (['bash', '-c', "systemctl --user is-active --quiet hypridle && echo '1' || echo '0'"]))
-    const idleInit = Variable(true);
+import { exec, execAsync } from "ags/process"
 
-    if (idleInitStatus == 0) {
-        idleInit.set(false)
+import { createPoll } from "ags/time"
+
+const { TOP, LEFT } = Astal.WindowAnchor
+
+const idleInitStatus = exec(['bash', '-c', "systemctl --user is-active --quiet hypridle && echo '1' || echo '0'"])
+const idleActive = createPoll(idleInitStatus, 5000, ['bash', '-c', "systemctl --user is-active --quiet hypridle && echo '1' || echo '0'"]).as(state => {
+    if (state === "0") {
+        return false
+    } else {
+        return true
     }
+})
 
-    const visible1 = Variable(false);
+const [visible1, setvisible1] = createState(false);
 
-
-    const _popover1 = <Popover
-        onClose={() => visible1.set(false)}
-        visible={visible1()}
-        marginTop={50}
-        marginLeft={10}
-        valign={Gtk.Align.START}
-        halign={Gtk.Align.START}
-    >
-        <box className="HomePopup" vertical>
-            <label className="Heading" label="Home" />
-            <box className="Settings" halign={Gtk.Align.CENTER}>
-                <label className="Idle" label="Idle" />
-                <switch state={bind(idleActive).as(state => {
-                    if (state == 0) {
-                        return false
-                    } else {
-                        return true
-                    }
-                })} onNotifyActive={self => {
-                    // ignore initial setting
-                    // if I would use systemctl --user x hypridle directly
-                    // it will execute again, not sure how I can only listen to mouseClick events
-                    if (idleInit.get() == true) {
-                        idleInit.set(false)
-                        return
-                    }
-
+<Popover
+    anchor={TOP | LEFT}
+    marginTop={10}
+    marginLeft={10}
+    visible={visible1}
+    setvisible={setvisible1}
+>
+    <box class="HomePopup" orientation={Gtk.Orientation.VERTICAL}>
+        <label class="Heading" label="Home" />
+        <box class="Settings" halign={Gtk.Align.CENTER}>
+            <label class="Idle" label="Idle" />
+            <switch
+                active={idleActive}
+                onNotifyActive={self => {
                     // check if hypridle is active before starting
                     // to mitigiate multiple-monitors(bars) and multiple executions when state changes
                     if (self.active) {
@@ -59,31 +51,35 @@ export default function Home() {
                         `]);
                     }
                 }} />
-            </box>
-            <label className="horziontalLine"/>
-            <box className="Powermenu">
-                <button
-                    className="PowerButton"
-                    label={"󰐥"}
-                    onClick={() => { execAsync(["bash", "-c", "shutdown now"]) }}
-                />
-                <button
-                    className="LockButton"
-                    label={""}
-                    onClick={() => { execAsync(["bash", "-c", "loginctl lock-session"]) }}
-                />
-                <button
-                    className="RestartButton"
-                    label={"󰜉"}
-                    onClick={() => { execAsync(["bash", "-c", "restart"]) }}
-                />
-            </box>
         </box>
-    </Popover>
+        <label class="horziontalLine" />
+        {/* TODO: Gjs-Console-CRITICAL **: Error: out of tracking context: will not be able to cleanup (exec stuff, idk) */}
+        <box class="Powermenu">
+            <button
+                class="PowerButton"
+                label={"󰐥"}
+                onClicked={() => { execAsync(["bash", "-c", "shutdown now"]) }}
+            />
+            <button
+                class="LockButton"
+                label={""}
+                onClicked={() => { execAsync(["bash", "-c", "loginctl lock-session"]) }}
+            />
+            <button
+                class="RestartButton"
+                label={"󰜉"}
+                onClicked={() => { execAsync(["bash", "-c", "reboot"]) }}
+            />
+        </box>
+    </box>
+</Popover>
 
-    return <box className="Home">
+export default function Home() {
+    return <box class="Home">
         <button
-            onClick={() => visible1.set(true)}
+            onClicked={() => {
+                setvisible1(true)
+            }}
             label={" "}
         />
     </box>

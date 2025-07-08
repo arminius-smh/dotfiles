@@ -43,7 +43,7 @@
       wireguard-tools # vpn wireguard
       distrobox # container wrapper for using distros
       vlc # media player
-      chromium # web apps
+      (pkgs.chromium.override { enableWideVine = true; }) # web apps
 
       asahi-bless # switch boot partition on ARM Mac
       asahi-wifisync # sync wifi passwords on ARM Mac

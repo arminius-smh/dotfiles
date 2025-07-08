@@ -29,6 +29,9 @@
         // lib.optionalAttrs (systemName == "phoenix") {
           vo = "gpu-next";
           gpu-api = "vulkan";
+        }
+        // lib.optionalAttrs (systemName == "discovery") {
+          gpu-api = "opengl";
         };
       scriptOpts = {
         modernz = {

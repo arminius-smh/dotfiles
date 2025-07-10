@@ -130,18 +130,11 @@ in
           };
           extensions = {
             force = true;
-            settings =
-              {
-                "{d559f111-ba90-4646-8d28-5e8a3da53fe9}" = {
-                  settings = import ./config/videospeed.nix;
-                };
-              }
-              // config.secrets.firefox.extensions.settings
-              // lib.optionalAttrs (systemName == "discovery") {
-                "{a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7}" = {
-                  settings = import ./config/user-agent-switcher.nix;
-                };
+            settings = {
+              "{d559f111-ba90-4646-8d28-5e8a3da53fe9}" = {
+                settings = import ./config/videospeed.nix;
               };
+            } // config.secrets.firefox.extensions.settings;
             packages = with addons; [
               bitwarden
               catppuccin-web-file-icons
@@ -155,7 +148,6 @@ in
               stylus
               torrent-control
               ublock-origin
-              user-agent-string-switcher
               violentmonkey
               yomitan
               zotero-connector
@@ -204,28 +196,34 @@ in
               }
             ];
           };
-          settings = {
-            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          settings =
+            {
+              "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
-            "privacy.history.custom" = true;
+              "privacy.history.custom" = true;
 
-            "browser.aboutConfig.showWarning" = false;
-            "browser.formfill.enable" = false;
-            "browser.startup.page" = 3;
-            "browser.startup.homepage" = config.secrets.ip.homepage;
-            "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-            "browser.newtabpage.activity-stream.feeds.topsites" = false;
-            "browser.storageManager.pressureNotification.usageThresholdGB" = 10;
-            "browser.translations.neverTranslateLanguages" = "de";
+              "browser.aboutConfig.showWarning" = false;
+              "browser.formfill.enable" = false;
+              "browser.startup.page" = 3;
+              "browser.startup.homepage" = config.secrets.ip.homepage;
+              "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+              "browser.newtabpage.activity-stream.feeds.topsites" = false;
+              "browser.storageManager.pressureNotification.usageThresholdGB" = 10;
+              "browser.translations.neverTranslateLanguages" = "de";
 
-            "app.normandy.first_run" = false;
+              "app.normandy.first_run" = false;
 
-            "extensions.update.enabled" = false;
-            "extensions.autoDisableScopes" = 0;
+              "extensions.update.enabled" = false;
+              "extensions.autoDisableScopes" = 0;
 
-            "media.eme.enabled" = true;
-            "extensions.webextensions.ExtensionStorageIDB.enabled" = false;
-          };
+              "media.eme.enabled" = true;
+              "extensions.webextensions.ExtensionStorageIDB.enabled" = false;
+            }
+
+            // lib.optionalAttrs (systemName == "discovery") {
+              "general.useragent.override" =
+                "Mozilla/5.0 (X11; CrOS aarch64 15236.80.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5414.125 Safari/537.36"; # Netflix, pls...
+            };
         };
       };
     };

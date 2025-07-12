@@ -12,14 +12,14 @@ if [[ "$1" == "interactive" ]]; then
     # grimblast rarely bugged out
     # grimblast save area "$screenshot_path"
 
-    hyprshot -m region -f "$screenshot_name" -s
+    hyprshot -m "$2" -f "$screenshot_name" -s
     # make sure file is saved before the file check
     sleep 0.1
     if [[ -f "$screenshot_path" ]]; then
-        notify-send --transient -t 3000 --icon "$screenshot_path" "Screenshot saved" "Image saved in $screenshot_path"
+        notify-send --transient -t 1500 --icon "$screenshot_path" "Screenshot saved" "Image saved in $screenshot_path"
     else
         echo "$RESULT"
-        notify-send --transient -t 3000 --icon=dialog-error "Screenshot canceled" "$RESULT"
+        notify-send --transient -t 1500 --icon=dialog-error "Screenshot canceled" "$RESULT"
     fi
 elif [[ "$1" == "immediate" ]]; then
     # grimblast save output "$screenshot_path"
@@ -27,10 +27,10 @@ elif [[ "$1" == "immediate" ]]; then
     hyprshot -m output -m active -f "$screenshot_name" -s
     sleep 0.1
     if [[ -f "$screenshot_path" ]]; then
-        notify-send --transient -t 3000 --icon "$screenshot_path" "Screenshot saved" "Image saved in $screenshot_path"
+        notify-send --transient -t 1500 --icon "$screenshot_path" "Screenshot saved" "Image saved in $screenshot_path"
     else
         echo "$RESULT"
-        notify-send --transient -t 3000 --icon=dialog-error "Screenshot canceled" "$RESULT"
+        notify-send --transient -t 1500 --icon=dialog-error "Screenshot canceled" "$RESULT"
     fi
 fi
 

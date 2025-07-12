@@ -39,14 +39,14 @@ const [visible1, setvisible1] = createState(false);
                         execAsync(["bash", "-c", `
                             if ! systemctl --user is-active --quiet hypridle; then
                                 systemctl --user start hypridle &&
-                                notify-send -e 'NixOS' 'Hypridle started' --icon=/home/armin/dotfiles/assets/pics/NixOS.png -t 2000
+                                notify-send -e 'NixOS' 'Hypridle started' --icon=/home/armin/dotfiles/assets/pics/NixOS.png -t 1000
                             fi
                         `]);
                     } else {
                         execAsync(["bash", "-c", `
                             if systemctl --user is-active --quiet hypridle; then
                                 systemctl --user stop hypridle &&
-                                notify-send -e 'NixOS' 'Hypridle stopped' --icon=/home/armin/dotfiles/assets/pics/NixOS.png -t 2000
+                                notify-send -e 'NixOS' 'Hypridle stopped' --icon=/home/armin/dotfiles/assets/pics/NixOS.png -t 1000
                             fi
                         `]);
                     }

@@ -50,6 +50,10 @@ in
       krisp_patcher = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
         DISCORD_PATH="${config.home.homeDirectory}/.config/discord"
 
+        if [[ ! -d "$DISCORD_PATH" ]]; then
+          return 0 # discord has not been started
+        fi
+
         VERSION_DIR=$(ls "$DISCORD_PATH" | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -n 1)
 
         KRISP_PATH="$DISCORD_PATH/$VERSION_DIR/modules/discord_krisp/discord_krisp.node"

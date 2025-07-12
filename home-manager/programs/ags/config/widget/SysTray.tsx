@@ -11,6 +11,22 @@ export default function SysTray() {
         .sort((a, b) => a.id.localeCompare(b.id))
     )
 
+    function activate(item: Tray.TrayItem) {
+        item.activate(0, 0)
+    }
+
+    function showMenu(item: Tray.TrayItem, widget: Gtk.Widget) {
+        // TODO: Right Click 2 Times: Gtk-WARNING **: Broken accounting of active state for widget 0x10d1a10(GtkImage)
+
+        // idk, generated gtk4 version of the gtk3 code I don't understand
+        let popover = Gtk.PopoverMenu.new_from_model(item.menuModel);
+        popover.insert_action_group("dbusmenu", item.actionGroup);
+        popover.set_has_arrow(false)
+        popover.set_parent(widget);
+        popover.set_autohide(true)
+        popover.popup();
+    }
+
     return <box class="SysTray">
         <For each={trayitems}>
             {item => <button
@@ -19,19 +35,19 @@ export default function SysTray() {
                     clickController.set_button(0)
                     clickController.connect('pressed', (_controller) => {
                         const button = _controller.get_current_button();
-                        if (button === 1) { // 1 = left click
-                            item.activate(0, 0)
-                        }
-                        if (button === 3) { // 3 = right click
-                            // TODO: Right Click 2 Times: Gtk-WARNING **: Broken accounting of active state for widget 0x10d1a10(GtkImage)
 
-                            // idk, generated gtk4 version of the gtk3 code I don't understand
-                            let popover = Gtk.PopoverMenu.new_from_model(item.menuModel);
-                            popover.insert_action_group("dbusmenu", item.actionGroup);
-                            popover.set_has_arrow(false)
-                            popover.set_parent(self);
-                            popover.set_autohide(true)
-                            popover.popup();
+                        if (item.is_menu) {
+
+                        }
+
+                        if (button === 1) { // 1 = left click
+                            if (item.is_menu) {
+                                showMenu(item, self)
+                            } else {
+                                activate(item)
+                            }
+                        } else if (button === 3) { // 3 = right click
+                            showMenu(item, self)
                         }
 
                         // not sure why this is needed, otherwise left clicks only work once

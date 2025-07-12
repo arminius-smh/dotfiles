@@ -17,6 +17,7 @@
   boot.initrd.availableKernelModules = [
     "ahci"
     "xhci_pci"
+    "usb_storage"
     "usbhid"
     "sd_mod"
   ];
@@ -25,26 +26,18 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/045d3618-4d7d-4840-a8f6-3a2bd1aa54c6";
+    device = "/dev/disk/by-uuid/852bdc41-4736-473f-bf39-2118a75df8b9";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."luks-b91591a1-8d2c-4a6a-ad2f-4dee03a8677e".device =
-    "/dev/disk/by-uuid/b91591a1-8d2c-4a6a-ad2f-4dee03a8677e";
-
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/82F2-921C";
+    device = "/dev/disk/by-uuid/3EA0-2A65";
     fsType = "vfat";
     options = [
       "fmask=0077"
       "dmask=0077"
     ];
   };
-
-  # fileSystems."/home/armin/Mount/Storage" = {
-  #   device = "/dev/disk/by-uuid/9c2ad12b-da06-4ed6-b34f-6589ce3d21a4";
-  #   fsType = "ext4";
-  # };
 
   swapDevices = [ ];
 
@@ -53,7 +46,6 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp11s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

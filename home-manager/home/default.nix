@@ -97,7 +97,7 @@
       dir-structure = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
         directories=(
           "$HOME/projects/dev/misc"
-          "$HOME/projects/dev/jupyter"
+          "$HOME/projects/dev/misc/jupyter"
           "$HOME/projects/dev/scratch"
           "$HOME/misc/themes"
         )

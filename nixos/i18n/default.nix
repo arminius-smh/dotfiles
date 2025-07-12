@@ -8,6 +8,7 @@
   catppuccin = {
     fcitx5 = {
       enable = true;
+      enableRounded = true;
     };
   };
 

@@ -28,6 +28,7 @@
           isDefault = true;
           settings = {
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+            "mailnews.default_sort_order" = 1;
           };
           userChrome = ''
             * {

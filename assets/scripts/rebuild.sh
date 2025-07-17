@@ -87,8 +87,8 @@ if [[ "$interactive" == true ]]; then
 fi
 
 pushd "$HOME/dotfiles" || { echo "[$DATE] Failed to cd into dotfiles directory"; exit 1; }
-git pull
-git submodule update --recursive
+git pull --recurse-submodules
+git submodule update --remote --merge
 
 # skip formatting for excelsior due to version differences in nixfmt
 if [[ "$hostname" != "excelsior" ]]; then

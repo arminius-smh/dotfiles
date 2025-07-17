@@ -40,23 +40,4 @@ in
       };
     };
   };
-
-  # xdg = {
-  #   desktopEntries = {
-  #     heroic-gamescope = {
-  #       name = "Heroic Games Launcher (Gamescope)";
-  #       exec = "gamescope -- heroic %u";
-  #       terminal = false;
-  #       categories = [
-  #         "Game"
-  #       ];
-  #       mimeType = [
-  #         "x-scheme-handler/heroic"
-  #       ];
-  #       type = "Application";
-  #       icon = "com.heroicgameslauncher.hgl";
-  #       prefersNonDefaultGPU = true;
-  #     };
-  #   };
-  # };
 }

@@ -4,14 +4,13 @@
     ./appimage
     ./dconf
     ./gamemode
-    ./gamescope
+    # ./gamescope
     ./git
     ./gnupg
     ./hyprland
     ./neovim
     # ./nh
     ./nix-ld
-    ./regreet # greetd frontend
     ./steam
     # ./sway
     ./thunar

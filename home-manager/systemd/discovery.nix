@@ -2,10 +2,10 @@
 {
 
   imports = [
-    ./battery-alert.nix
-    # ./bluelight-filter.nix
-    # ./clear-nohl.nix
-    ./clear-trash.nix
+    ./services/battery-alert.nix
+    # ./services/bluelight-filter.nix
+    # ./services/clear-nohl.nix
+    ./services/clear-trash.nix
   ];
 
   systemd = {

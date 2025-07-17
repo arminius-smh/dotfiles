@@ -81,11 +81,9 @@
             ];
           };
 
-          debug = {
-            # disable_logs = false;
-            # fixes gamescope https://github.com/hyprwm/Hyprland/issues/9064
-            full_cm_proto = 1;
-          };
+          # debug = {
+          #   disable_logs = false;
+          # };
 
           misc = {
             vrr = 1;
@@ -123,36 +121,36 @@
     };
   };
 
-  # systemd = {
-  #   user = {
-  #     services = {
-  #       hypr_handle_events = {
-  #         Unit = {
-  #           PartOf = [ config.wayland.systemd.target ];
-  #           After = [ config.wayland.systemd.target ];
-  #         };
-  #
-  #         Service = {
-  #           ExecStart = "${config.home.homeDirectory}/dotfiles/home-manager/programs/hyprland/scripts/handle_events.sh";
-  #           Restart = "on-failure";
-  #           KillMode = "mixed";
-  #           Environment = [
-  #             "PATH=$PATH:${
-  #               lib.makeBinPath [
-  #                 pkgs.bash
-  #                 pkgs.socat
-  #                 pkgs.toybox
-  #                 pkgs.hyprland
-  #               ]
-  #             }"
-  #           ];
-  #         };
-  #
-  #         Install = {
-  #           WantedBy = [ config.wayland.systemd.target ];
-  #         };
-  #       };
-  #     };
-  #   };
-  # };
+  systemd = {
+    user = {
+      services = {
+        hypr_handle_events = {
+          Unit = {
+            PartOf = [ config.wayland.systemd.target ];
+            After = [ config.wayland.systemd.target ];
+          };
+
+          Service = {
+            ExecStart = "${config.home.homeDirectory}/dotfiles/home-manager/programs/hyprland/scripts/handle_events.sh";
+            Restart = "on-failure";
+            KillMode = "mixed";
+            Environment = [
+              "PATH=$PATH:${
+                lib.makeBinPath [
+                  pkgs.bash
+                  pkgs.socat
+                  pkgs.toybox
+                  pkgs.hyprland
+                ]
+              }"
+            ];
+          };
+
+          Install = {
+            WantedBy = [ config.wayland.systemd.target ];
+          };
+        };
+      };
+    };
+  };
 }

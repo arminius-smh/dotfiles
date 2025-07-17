@@ -1,5 +1,4 @@
 {
-  systemName,
   lib,
   config,
   ...
@@ -14,11 +13,7 @@
           hyprland = {
             prettyName = "Hyprland";
             comment = "Hyprland compositor managed by UWSM";
-            binPath =
-              if (systemName == "phoenix") then
-                "/run/current-system/sw/bin/Hyprland &>/dev/null"
-              else
-                "/run/current-system/sw/bin/Hyprland";
+            binPath = "/run/current-system/sw/bin/Hyprland";
           };
         }
         // lib.optionalAttrs (config.programs.sway.enable == true) {

@@ -11,9 +11,10 @@
   ];
   home = {
     packages = with pkgs; [
-      umu-launcher # unified launcher for windows games on linux
-
-      protonplus # manage different proton versions
+      # umu-launcher # unified launcher for windows games on linux
+      # protonplus # manage different proton versions
+      # wineWowPackages.stable
+      # winetricks
 
       r2modman # game mod manager
       (prismlauncher.override {
@@ -43,10 +44,6 @@
       ))
       retroarch-assets
       retroarch-joypad-autoconfig
-
-      # wine
-      wineWowPackages.stable
-      winetricks
     ];
 
     activation = {

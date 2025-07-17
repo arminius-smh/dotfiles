@@ -13,6 +13,7 @@
         "notification-icon-size" = 64;
         "notification-body-image-height" = 100;
         "notification-body-image-width" = 200;
+        "cssPriority" = "user";
         timeout = 10;
         "timeout-low" = 5;
         "timeout-critical" = 0;
@@ -29,13 +30,15 @@
         "notification-visibility" = {
           "hide-spotify-from-cc" = {
             state = "transient";
-            urgency = "Low";
             "app-name" = "Spotify";
           };
           "hide-spotify_player-from-cc" = {
             state = "transient";
-            urgency = "Low";
             "app-name" = "spotify_player";
+          };
+          "hide-heroic-from-cc" = {
+            state = "transient";
+            "app-name" = "heroic";
           };
         };
         widgets = [
@@ -80,19 +83,12 @@
             color: @noti-fg;
         }
 
-        .notification-row {
-            outline: none;
-        }
-
-        .notification-row:focus,
-        .notification-row:hover {
-            background: @noti-bg-focus;
-        }
-
         .notification {
             border-radius: 12px;
             margin: 6px 12px;
-            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7),
+            box-shadow:
+                0 0 0 1px rgba(0, 0, 0, 0.3),
+                0 1px 3px 1px rgba(0, 0, 0, 0.7),
                 0 2px 6px 2px rgba(0, 0, 0, 0.3);
             padding: 0;
         }
@@ -102,7 +98,6 @@
             padding: 2px;
             border-radius: 12px;
         }
-
 
         .notification-content {
             background: transparent;
@@ -131,8 +126,7 @@
             border: none;
         }
 
-        .notification-default-action,
-        .notification-action {
+        .notification-default-action {
             padding: 4px;
             margin: 0;
             box-shadow: none;
@@ -141,26 +135,32 @@
             color: white;
         }
 
-        .notification-default-action:hover,
-        .notification-action:hover {
+        .notification-action {
+            padding: 4px;
+            margin: 0;
+            box-shadow: none;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        .notification-alt-actions {
+            background: @noti-bg;
+            border: none;
+            box-shadow: none;
+        }
+
+        .notification-alt-actions button:hover {
+            background: @noti-bg-hover;
+        }
+
+        .notification-default-action:hover {
             -gtk-icon-effect: none;
             background: @noti-bg-hover;
         }
 
         .notification-default-action {
             border-radius: 12px;
-        }
-
-        /* When alternative actions are visible */
-        .notification-default-action:not(:only-child) {
-            border-bottom-left-radius: 0px;
-            border-bottom-right-radius: 0px;
-        }
-
-        .notification-action {
-            border-radius: 0px;
-            border-top: none;
-            border-right: none;
         }
 
         /* add bottom border radius to eliminate clipping */
@@ -170,10 +170,11 @@
 
         .notification-action:last-child {
             border-bottom-right-radius: 10px;
-            border-right: 1px solid @noti-border-color;
+            /* border-right: 1px solid @noti-border-color; */
         }
 
-        .image {}
+        .image {
+        }
 
         .body-image {
             margin-top: 6px;
@@ -217,7 +218,9 @@
             border-radius: 10px;
             background-clip: border-box;
             padding: 4px;
-            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7),
+            box-shadow:
+                0 0 0 1px rgba(0, 0, 0, 0.3),
+                0 1px 3px 1px rgba(0, 0, 0, 0.7),
                 0 2px 6px 2px rgba(0, 0, 0, 0.3);
             color: @noti-bg-alt;
             border: 2px solid @noti-bg-hover;
@@ -244,7 +247,7 @@
             font-size: 1.5rem;
         }
 
-        .widget-title>button {
+        .widget-title > button {
             font-size: initial;
             color: white;
             text-shadow: none;
@@ -254,7 +257,7 @@
             border-radius: 12px;
         }
 
-        .widget-title>button:hover {
+        .widget-title > button:hover {
             background: @noti-bg-hover;
         }
 
@@ -264,7 +267,7 @@
             font-size: 1.1rem;
         }
 
-        .widget-dnd>switch {
+        .widget-dnd > switch {
             font-size: initial;
             border-radius: 12px;
             background: @noti-bg;
@@ -272,11 +275,11 @@
             box-shadow: none;
         }
 
-        .widget-dnd>switch:checked {
+        .widget-dnd > switch:checked {
             background: @bg-selected;
         }
 
-        .widget-dnd>switch slider {
+        .widget-dnd > switch slider {
             background: @noti-bg-hover;
             border-radius: 12px;
         }

@@ -23,7 +23,6 @@
     ./discord # voice and text chat
     ./obs-studio # video recording
 
-    ./nwg-dock-hyprland # hyprland dock
     # ./nwg-bar # button bar
     ./starship # shell prompt
     ./libinput-gestures # multitouch gestures

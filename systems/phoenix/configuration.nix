@@ -103,13 +103,16 @@
   };
 
   hardware = {
-    xone = {
-      enable = true;
-    };
+    enableAllFirmware = true;
+    # NOTE: xbox one and xbox series x|s accessories
+    # xone = {
+    #   enable = true;
+    # };
 
-    xpad-noone = {
-      enable = true;
-    };
+    # NOTE: xpad driver without xbox one support to enable xone driver
+    # xpad-noone = {
+    #   enable = true;
+    # };
 
     amdgpu = {
       opencl = {
@@ -123,7 +126,7 @@
         enableGraphical = true;
       };
     };
-    enableAllFirmware = true;
+
     bluetooth = {
       enable = true;
       powerOnBoot = true;

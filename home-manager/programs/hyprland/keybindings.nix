@@ -44,7 +44,7 @@
             # Exec
             "$mainMod, RETURN, exec, uwsm app -- kitty"
             "$mainMod SHIFT, F, exec, uwsm app -- firefox"
-            "$mainMod SHIFT, A, exec, uwsm app -- thunar"
+            "$mainMod, A, exec, uwsm app -- thunar"
             "$mainMod, D, exec, rofi -show drun"
             "$mainMod CONTROL, D, exec, uuctl"
             "$mainMod, N, exec, $HOME/dotfiles/assets/scripts/focus.sh"

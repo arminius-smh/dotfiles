@@ -1,7 +1,5 @@
 {
   config,
-  lib,
-  systemName,
   ...
 }:
 let
@@ -44,22 +42,5 @@ in
         "x-scheme-handler/mailto" = mail;
       };
     };
-    # desktopEntries = lib.optionalAttrs (systemName == "phoenix") {
-    #   steam-gamescope = {
-    #     name = "Steam (Gamescope)";
-    #     exec = "gamescope --steam -- steam %U";
-    #     terminal = false;
-    #     categories = [
-    #       "Game"
-    #     ];
-    #     # mimeType = [
-    #     #   "x-scheme-handler/steam"
-    #     #   "x-scheme-handler/steamlink"
-    #     # ];
-    #     type = "Application";
-    #     icon = "steam";
-    #     prefersNonDefaultGPU = true;
-    #   };
-    # };
   };
 }

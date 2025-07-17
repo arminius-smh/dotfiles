@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-HIDE_DOCK_SIGNAL="pkill -37 -f nwg-dock-hyprland"
-SHOW_DOCK_SIGNAL="pkill -36 -f nwg-dock-hyprland"
-
 handle_windowtitlev2 () {
     # Description: emitted when a window title changes.
     # Format: `WINDOWADDRESS,WINDOWTITLE`
@@ -28,29 +25,6 @@ handle_windowtitlev2 () {
     esac
 }
 
-handle_fullscreen () {
-    # Description: emitted when a fullscreen status of a window changes.
-    # Format: `0/1 (exit fullscreen / enter fulllscreen)`
-    fullscreen_state=${1}
-
-    # nwg-dock-hyprland sometimes stays open after exiting
-    # fullscreen app, not sure why but this simply works around it
-    if [[ $fullscreen_state == 0 ]]; then
-        $HIDE_DOCK_SIGNAL
-    fi
-}
-
-handle_workspacev2() {
-    # Description: emitted on workspace change. Is emitted ONLY when a user requests a workspace change, and is not emitted on mouse movements (see focusedmon)
-    # Format: `WORKSPACEID,WORKSPACENAME`
-    workspaceid=${1%,*}
-    workspacename=${1#*,}
-
-    # same issue as handle_fullscreen for nwg-dock-hyprland
-    # workaround
-    $HIDE_DOCK_SIGNAL
-}
-
 handle_monitoraddedv2() {
     # Description: emitted when a monitor is added (connected)
     # Format: `MONITORID,MONITORNAME,MONITORDESCRIPTION`
@@ -68,11 +42,9 @@ handle() {
 
     case $event in
         windowtitlev2) handle_windowtitlev2 "$data" ;;
-        fullscreen) handle_fullscreen "$data" ;;
-        workspacev2) handle_workspacev2 "$data" ;;
         monitoraddedv2) handle_monitoraddedv2 "$data" ;;
-            #   anyotherevent) handle_otherevent "$data" ;;
-        *) echo "unhandled event: $event" ;;
+        #   anyotherevent) handle_otherevent "$data" ;;
+        *) : ;;
     esac
 }
 

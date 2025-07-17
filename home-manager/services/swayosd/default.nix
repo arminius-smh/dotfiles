@@ -14,7 +14,7 @@
               padding: 0px 10px;
               border-radius: 25px;
               border: 10px;
-              background: alpha(#1e1e2e, 0.99);
+              background: alpha(#1e1e2e, 0.8);
           }
 
           #container {

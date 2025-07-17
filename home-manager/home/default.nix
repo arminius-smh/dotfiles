@@ -35,11 +35,6 @@
     sessionVariables = {
       QT_IM_MODULE = "fcitx"; # NOTE: fcitx5.waylandFrontend = false sets this together with GTK_IM_MODULE (which should be unset)
 
-      # NOTE: gamescope doesn't import wayland keyboard layout https://github.com/ValveSoftware/gamescope/issues/203
-      XKB_DEFAULT_LAYOUT = "de";
-      XKB_DEFAULT_VARIANT = "deadtilde";
-
-      UWSM_USE_SESSION_SLICE = "true";
       MONITOR_PRIMARY =
         if (systemName == "phoenix") then
           "HDMI-A-1"

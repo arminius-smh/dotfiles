@@ -9,8 +9,8 @@
     ./flatpak
     ./fstrim
     ./fwupd # firmware update
-    # ./getty
-    ./greetd # display manager daemon
+    ./getty
+    # ./greetd # display manager daemon
     ./gvfs
     ./jupyter
     # ./kubo

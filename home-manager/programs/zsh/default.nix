@@ -92,6 +92,13 @@
 
           fastfetch
         '';
+
+      profileExtra = ''
+        if uwsm check may-start; then
+        	exec uwsm start hyprland-uwsm.desktop >/dev/null 2>&1
+        fi
+      '';
+
       shellAliases = lib.mkIf (systemName == "phoenix" || systemName == "discovery") {
         zath = "zathura";
         wget = "wget --hsts-file=${config.xdg.dataHome}/wget-hsts";

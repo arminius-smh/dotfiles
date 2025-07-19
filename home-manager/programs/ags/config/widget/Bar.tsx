@@ -22,7 +22,7 @@ function Separator() {
 export default function Bar(gdkmonitor: Gdk.Monitor) {
     const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
 
-    let hostname = exec(["bash", "-c", "hostname"])
+    let hostname = exec("hostname")
 
     return (
         <window

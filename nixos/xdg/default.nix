@@ -4,6 +4,15 @@
 }:
 {
   xdg = {
+    terminal-exec = {
+      enable = true;
+      settings = {
+        default = [
+          "kitty.desktop"
+        ];
+      };
+    };
+
     portal = {
       enable = true;
       xdgOpenUsePortal = true;

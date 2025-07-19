@@ -103,6 +103,7 @@
             background: transparent;
             padding: 6px;
             border-radius: 12px;
+            border: none;
         }
 
         .close-button {
@@ -131,7 +132,7 @@
             margin: 0;
             box-shadow: none;
             background: @noti-bg;
-            border: 1px solid @noti-border-color;
+            border-bottom: none;
             color: white;
         }
 
@@ -150,6 +151,10 @@
             box-shadow: none;
         }
 
+        .notification-alt-actions button {
+            background: @noti-bg-alt;
+        }
+
         .notification-alt-actions button:hover {
             background: @noti-bg-hover;
         }
@@ -161,6 +166,13 @@
 
         .notification-default-action {
             border-radius: 12px;
+        }
+
+        /* When alternative actions are visible */
+        .notification-default-action:not(:only-child) {
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            border-bottom: 1px solid @noti-border-color;
         }
 
         /* add bottom border radius to eliminate clipping */

@@ -99,7 +99,7 @@ in
 
           Service = {
             # otherwise discord isn't shown in ags, idk why
-            ExecStartPre = lib.mkIf (discord_option == "discord") "${pkgs.coreutils}/bin/sleep 15";
+            ExecStartPre = "${pkgs.coreutils}/bin/sleep 15";
 
             ExecStart =
               if (discord_option == "discord") then

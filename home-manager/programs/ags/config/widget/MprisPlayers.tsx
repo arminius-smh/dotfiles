@@ -15,15 +15,15 @@ function lengthStr(length: number) {
 }
 
 function MediaPlayer({ player }: { player: Mpris.Player }) {
-    const title_short = createBinding(player, "title").as(t => {
-        if (t.length > 38) {
-            t = t.substring(0, 35) + "...";
+    const title_short = createBinding(player, "title").as(t_short => {
+        if (t_short != null && t_short.length > 38) {
+            t_short = t_short.substring(0, 35) + "...";
         }
-        return t || "Unknown Track"
+        return t_short || "Unknown Track"
     })
 
-    const title_full = createBinding(player, "title").as(t => {
-        return t || "Unknown Track"
+    const title_full = createBinding(player, "title").as(t_long => {
+        return t_long || "Unknown Track"
     })
 
     const artist = createBinding(player, "artist").as(a =>
@@ -31,8 +31,13 @@ function MediaPlayer({ player }: { player: Mpris.Player }) {
 
     const coverArt = createBinding(player, "coverArt").as(c => `background-image: url("file://${c}");`)
 
-    const playerIcon = createBinding(player, "entry").as(e =>
-        e != null ? e : "audio-x-generic-symbolic")
+    const playerIcon = createBinding(player, "entry").as(e => {
+        if (player.get_bus_name().includes("spotify_player")) {
+            return "spotify"
+        } else {
+            return e != null ? e : "audio-x-generic-symbolic"
+        }
+    })
 
     const playIcon = createBinding(player, "playbackStatus").as(s =>
         s === Mpris.PlaybackStatus.PLAYING
@@ -166,12 +171,22 @@ function MediaPlayer({ player }: { player: Mpris.Player }) {
     </box>
 }
 
-function playerSetup(player: Mpris.Player, setShowPlayer: Setter<Mpris.Player>, players: Array<Mpris.Player>) {
+function playerSetup(player: Mpris.Player, nonePlayer: Mpris.Player, setShowPlayer: Setter<Mpris.Player>, players: Array<Mpris.Player>) {
     createBinding(player, "available").subscribe(() => {
         if (player.get_available() === true) {
             setShowPlayer(player)
         } else {
-            setShowPlayer(players.filter((val) => (val.get_bus_name() != player.get_bus_name())).at(0) ?? Mpris.Player.new("none"))
+            // if player is closed, let mprisplayer disappear, or display other available player
+            let found = false;
+            for (let other_player of players.filter((p) => p != player)) {
+                if (other_player.get_available() === true) {
+                    setShowPlayer(other_player)
+                    found = true
+                }
+            }
+            if (!found) {
+                setShowPlayer(nonePlayer)
+            }
         }
     })
     createBinding(player, "playbackStatus").subscribe(() => {
@@ -180,6 +195,7 @@ function playerSetup(player: Mpris.Player, setShowPlayer: Setter<Mpris.Player>, 
         }
     })
 
+    // player is already opened
     if (player.get_available() === true) {
         setShowPlayer(player)
     }
@@ -190,7 +206,9 @@ function playerSetup(player: Mpris.Player, setShowPlayer: Setter<Mpris.Player>, 
 }
 
 export default function MprisPlayers() {
-    const [showPlayer, setShowPlayer] = createState(Mpris.Player.new("none"))
+    let nonePlayer = Mpris.Player.new("none")
+
+    const [showPlayer, setShowPlayer] = createState(nonePlayer)
 
     const players = [
         Mpris.Player.new("spotify"),
@@ -198,13 +216,13 @@ export default function MprisPlayers() {
     ]
 
     players.forEach(player => {
-        playerSetup(player, setShowPlayer, players)
+        playerSetup(player, nonePlayer, setShowPlayer, players)
     });
 
     return <box>
         <With value={showPlayer}>
             {(player) => {
-                if (player.available) {
+                if (player != nonePlayer) {
                     return <revealer $={(self) => setTimeout(() => self.revealChild = true, 100)} transitionType={Gtk.RevealerTransitionType.CROSSFADE}>
                         <MediaPlayer player={player} />
                     </revealer>

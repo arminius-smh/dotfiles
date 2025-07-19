@@ -22,22 +22,22 @@ function Separator() {
 export default function Bar(gdkmonitor: Gdk.Monitor) {
     const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
 
-    let hostname = exec(["bash", "-c", "hostname"])
+    let hostname = exec("hostname")
 
     return (
         <window
+            layer={Astal.Layer.BOTTOM}
             visible
             name="bar"
             class="Bar"
             namespace="ags"
             gdkmonitor={gdkmonitor}
             exclusivity={Astal.Exclusivity.EXCLUSIVE}
-            layer={Astal.Layer.BOTTOM}
             anchor={TOP | LEFT | RIGHT}
             application={app}
         >
             <centerbox cssName="centerbox">
-                <box  $type="start">
+                <box $type="start">
                     <Home />
                     <Workspaces />
                     {hostname === "discovery" && <MprisPlayers />}

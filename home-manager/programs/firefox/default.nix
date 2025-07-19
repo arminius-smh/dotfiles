@@ -218,12 +218,12 @@ in
 
               "media.eme.enabled" = true;
               "extensions.webextensions.ExtensionStorageIDB.enabled" = false;
-            }
-
-            // lib.optionalAttrs (systemName == "discovery") {
-              "general.useragent.override" =
-                "Mozilla/5.0 (X11; CrOS aarch64 15236.80.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5414.125 Safari/537.36"; # Netflix, pls...
             };
+
+            # // lib.optionalAttrs (systemName == "discovery") {
+            #   "general.useragent.override" =
+            #     "Mozilla/5.0 (X11; CrOS aarch64 15236.80.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5414.125 Safari/537.36"; # Netflix, pls...
+            # };
         };
       };
     };

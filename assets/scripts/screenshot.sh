@@ -14,7 +14,7 @@ if [[ "$1" == "interactive" ]]; then
 
     hyprshot -m "$2" -f "$screenshot_name" -s
     # make sure file is saved before the file check
-    sleep 0.3
+    sleep 0.4
     if [[ -f "$screenshot_path" ]]; then
         ACTION=$(notify-send --transient -t 1500 --icon "$screenshot_path" "Screenshot saved" "Image saved in $screenshot_path" --action Edit)
     else
@@ -25,7 +25,7 @@ elif [[ "$1" == "immediate" ]]; then
     # grimblast save output "$screenshot_path"
 
     hyprshot -m output -m active -f "$screenshot_name" -s
-    sleep 0.3
+    sleep 0.4
     if [[ -f "$screenshot_path" ]]; then
         ACTION=$(notify-send --transient -t 1500 --icon "$screenshot_path" "Screenshot saved" "Image saved in $screenshot_path" --action Edit)
     else

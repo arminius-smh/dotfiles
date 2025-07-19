@@ -43,7 +43,7 @@ handle() {
     case $event in
         windowtitlev2) handle_windowtitlev2 "$data" ;;
         monitoraddedv2) handle_monitoraddedv2 "$data" ;;
-        #   anyotherevent) handle_otherevent "$data" ;;
+            #   anyotherevent) handle_otherevent "$data" ;;
         *) : ;;
     esac
 }

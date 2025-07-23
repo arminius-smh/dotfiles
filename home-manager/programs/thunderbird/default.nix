@@ -3,6 +3,7 @@
   catppuccin = {
     thunderbird = {
       enable = true;
+      profile = "armin";
     };
   };
 

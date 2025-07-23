@@ -39,6 +39,8 @@
 
           permission = [
             "${pkgs.grim}/bin/grim, screencopy, allow"
+            "${pkgs.hyprlock}/bin/hyprlock, screencopy, allow"
+            "${pkgs.hyprpicker}/bin/hyprpicker, screencopy, allow"
             "${pkgs.xdg-desktop-portal-hyprland}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
           ];
 
@@ -78,6 +80,8 @@
               "workspacesOut, 1, 3, easeInOutSine, slidefade"
               "specialWorkspaceIn, 1, 3, easeInOutSine, slidevert"
               "specialWorkspaceOut, 1, 3, easeInOutSine, slidevert"
+              # disable swayosd fadeIn
+              "layersIn, 0"
             ];
           };
 

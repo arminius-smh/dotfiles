@@ -1,9 +1,7 @@
 {
   inputs,
-  systemName,
   config,
   pkgs,
-  lib,
   ...
 }:
 let
@@ -134,7 +132,8 @@ in
               "{d559f111-ba90-4646-8d28-5e8a3da53fe9}" = {
                 settings = import ./config/videospeed.nix;
               };
-            } // config.secrets.firefox.extensions.settings;
+            }
+            // config.secrets.firefox.extensions.settings;
             packages = with addons; [
               bitwarden
               catppuccin-web-file-icons
@@ -196,34 +195,44 @@ in
               }
             ];
           };
-          settings =
-            {
-              "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          userContent = ''
+            @-moz-document url("about:home"), url("about:newtab") {
+                :root {
+                    --newtab-text-primary-color: #cad3f5 !important;
+                    --newtab-background-color-secondary: #24273a !important;
+                }
+                body {
+                    --newtab-wallpaper: url("https://i.imgur.com/o1ERpAl.jpeg") !important;
+                }
+            }
+          '';
+          settings = {
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
-              "privacy.history.custom" = true;
+            "privacy.history.custom" = true;
 
-              "browser.aboutConfig.showWarning" = false;
-              "browser.formfill.enable" = false;
-              "browser.startup.page" = 3;
-              "browser.startup.homepage" = config.secrets.ip.homepage;
-              "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-              "browser.newtabpage.activity-stream.feeds.topsites" = false;
-              "browser.storageManager.pressureNotification.usageThresholdGB" = 10;
-              "browser.translations.neverTranslateLanguages" = "de";
+            "browser.aboutConfig.showWarning" = false;
+            "browser.formfill.enable" = false;
+            "browser.startup.page" = 3;
+            "browser.startup.homepage" = config.secrets.ip.homepage;
+            "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+            "browser.newtabpage.activity-stream.feeds.topsites" = false;
+            "browser.storageManager.pressureNotification.usageThresholdGB" = 10;
+            "browser.translations.neverTranslateLanguages" = "de";
 
-              "app.normandy.first_run" = false;
+            "app.normandy.first_run" = false;
 
-              "extensions.update.enabled" = false;
-              "extensions.autoDisableScopes" = 0;
+            "extensions.update.enabled" = false;
+            "extensions.autoDisableScopes" = 0;
 
-              "media.eme.enabled" = true;
-              "extensions.webextensions.ExtensionStorageIDB.enabled" = false;
-            };
+            "media.eme.enabled" = true;
+            "extensions.webextensions.ExtensionStorageIDB.enabled" = false;
+          };
 
-            # // lib.optionalAttrs (systemName == "discovery") {
-            #   "general.useragent.override" =
-            #     "Mozilla/5.0 (X11; CrOS aarch64 15236.80.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5414.125 Safari/537.36"; # Netflix, pls...
-            # };
+          # // lib.optionalAttrs (systemName == "discovery") {
+          #   "general.useragent.override" =
+          #     "Mozilla/5.0 (X11; CrOS aarch64 15236.80.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5414.125 Safari/537.36"; # Netflix, pls...
+          # };
         };
       };
     };

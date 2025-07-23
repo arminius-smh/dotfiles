@@ -1,6 +1,6 @@
 {
   pkgs,
-  systemName,
+  config,
   ...
 }:
 {
@@ -12,16 +12,11 @@
 
   xdg = {
     configFile = {
-      "waypaper/config.ini" = {
-        text = ''
-          [Settings]
-          language = en
-          folder = ~/dotfiles/assets/wallpapers/desktop
-          backend = swww
-          swww_transition_type = center
-          use_xdg_state = True
-          ${if (systemName == "discovery") then "zen_mode = True" else ""}
-        '';
+      waypaper = {
+        source =
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}"
+          + /dotfiles/home-manager/programs/waypaper/config;
+        recursive = true;
       };
     };
   };

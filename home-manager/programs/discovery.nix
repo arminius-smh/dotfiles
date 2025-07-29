@@ -3,12 +3,6 @@
   imports = [
     ./home-manager # manage user environment
     ./zsh # shell
-    ./hyprland # wayland window manager
-    ./hyprlock # screen locker
-
-    ./ags # status bar + widgets
-    # ./sway # wayland window manager
-    # ./swaylock # screen locker
 
     # ./waybar # status bar
 
@@ -23,9 +17,7 @@
     ./discord # voice and text chat
     ./obs-studio # video recording
 
-    # ./nwg-bar # button bar
     ./starship # shell prompt
-    ./libinput-gestures # multitouch gestures
   ];
 
   home = {
@@ -38,7 +30,6 @@
       obsidian # markdown notes
       pamixer # audio mixer
       pwvucontrol # pipewire volume control
-      swayidle # idle manager
       wireguard-tools # vpn wireguard
       distrobox # container wrapper for using distros
       vlc # media player

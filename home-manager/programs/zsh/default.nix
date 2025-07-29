@@ -25,7 +25,7 @@
       autosuggestion = {
         enable = true;
       };
-      dotDir = ".config/zsh";
+      dotDir = "${config.xdg.configHome}/zsh";
       history = {
         path = "${config.xdg.dataHome}/zsh/history";
         size = 10000000;

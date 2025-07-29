@@ -137,8 +137,10 @@ in
             packages = with addons; [
               bitwarden
               catppuccin-web-file-icons
-              refined-github
+              csgo-trader-steam-trading
+              csgofloat
               multi-account-containers
+              refined-github
               return-youtube-dislikes
               seventv
               simple-translate
@@ -216,9 +218,11 @@ in
             "browser.startup.page" = 3;
             "browser.startup.homepage" = config.secrets.ip.homepage;
             "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-            "browser.newtabpage.activity-stream.feeds.topsites" = false;
+            "browser.newtabpage.activity-stream.feeds.topsites" = true;
             "browser.storageManager.pressureNotification.usageThresholdGB" = 10;
             "browser.translations.neverTranslateLanguages" = "de";
+            "browser.newtabpage.pinned" =
+              ''[{"url":"https://letterboxd.com/","label":"Letterboxd","baseDomain":"letterboxd.com"},{"url":"https://www.goodreads.com/","label":"Goodreads"},{"url":"https://www.serializd.com/","label":"Serializd"},{"url":"https://howlongtobeat.com/","label":"HowLongToBeat"}]'';
 
             "app.normandy.first_run" = false;
 

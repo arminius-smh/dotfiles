@@ -8,7 +8,6 @@
     ./nix
     ./nixpkgs
     ./programs
-    # ./qt
     # ./security
     ./services
     # ./swapDevices

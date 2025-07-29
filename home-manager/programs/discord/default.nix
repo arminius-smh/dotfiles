@@ -90,16 +90,19 @@ in
           Unit = {
             Description = "${pkgs.discord.meta.description}";
             Documentation = "${pkgs.discord.meta.homepage}";
-            PartOf = [ config.wayland.systemd.target ];
-            After = [
-              config.wayland.systemd.target
-              "ags.service"
+            Requires = [
+              "tray.target"
             ];
+            After = [
+              "graphical-session.target"
+              "tray.target"
+            ];
+            PartOf = [ "graphical-session.target" ];
           };
 
           Service = {
             # otherwise discord isn't shown in ags, idk why
-            ExecStartPre = "${pkgs.coreutils}/bin/sleep 15";
+            ExecStartPre = "${pkgs.coreutils}/bin/sleep 3";
 
             ExecStart =
               if (discord_option == "discord") then
@@ -117,7 +120,7 @@ in
           };
 
           Install = {
-            WantedBy = [ config.wayland.systemd.target ];
+            WantedBy = [ "graphical-session.target" ];
           };
         };
       };

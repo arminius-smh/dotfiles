@@ -1,0 +1,403 @@
+// Catppuccin Mocha Colors
+$rosewater: #f5e0dc;
+$flamingo: #f2cdcd;
+$pink: #f5c2e7;
+$mauve: #cba6f7;
+$red: #f38ba8;
+$maroon: #eba0ac;
+$peach: #fab387;
+$yellow: #f9e2af;
+$green: #a6e3a1;
+$teal: #94e2d5;
+$sky: #89dceb;
+$sapphire: #74c7ec;
+$blue: #89b4fa;
+$lavender: #b4befe;
+
+$text: #cdd6f4;
+$subtext1: #bac2de;
+$subtext0: #a6adc8;
+
+$overlay2: #9399b2;
+$overlay1: #7f849c;
+$overlay0: #6c7086;
+
+$surface2: #585b70;
+$surface1: #45475a;
+$surface0: #313244;
+
+$base: #1e1e2e;
+$mantle: #181825;
+$crust: #11111b;
+
+menubutton button {
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+
+window.Bar {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: $text;
+    font-family: Inter;
+    font-size: 12px;
+
+    .Separator {
+        // increase default height of bar
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        font-size: 18px;
+        color: $surface0;
+    }
+
+    .Home {
+        button {
+            padding: 0px 0px 0px 8px;
+            font-size: 22px;
+            color: $blue;
+            background: none;
+            box-shadow: none;
+            border: none;
+        }
+    }
+
+    .Workspaces {
+        button {
+            padding: 0px 4px;
+            background: none;
+            box-shadow: none;
+            border: none;
+        }
+        button:hover {
+            color: $maroon;
+        }
+    }
+
+    .Time {
+        padding: 0px 10px 0px 5px;
+        font-size: 14px;
+    }
+
+    .SysTray {
+        margin-right: 5px;
+        button {
+            background: none;
+            padding: 0px 2px;
+            box-shadow: none;
+            border: none;
+            icon {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .AudioSlider {
+        slider {
+            background-color: $overlay0;
+        }
+        button {
+            background: none;
+            padding: 0px 0px 0px 8px;
+            box-shadow: none;
+            border: none;
+        }
+    }
+
+    .SwayNC {
+        color: $lavender;
+        font-size: 16px;
+        padding: 0px 0px 0px 8px;
+    }
+
+    .BluetoothStatus {
+        .bluetooth-icon {
+            font-size: 18px;
+            color: $blue;
+        }
+        button {
+            background: none;
+            padding: 0px 0px 0px 4px;
+            box-shadow: none;
+            border: none;
+        }
+    }
+
+    .Status {
+        .RAM {
+            margin: 0px 5px;
+            circularprogress {
+                color: $peach;
+                background-color: $surface0;
+                font-size: 3px;
+                margin: 2px;
+                min-width: 22px;
+            }
+        }
+
+        .CPU {
+            margin: 0px 5px;
+            circularprogress {
+                color: $blue;
+                background-color: $surface0;
+                font-size: 3px;
+                margin: 2px;
+                min-width: 22px;
+            }
+        }
+
+        .BatteryStatus {
+            margin: 0px 5px;
+            circularprogress {
+                color: $green;
+                background-color: $surface0;
+                font-size: 3px;
+                margin: 2px;
+                min-width: 22px;
+            }
+        }
+    }
+
+    .MediaPlayer {
+        background: none;
+        margin-left: 5px;
+
+        .cover-art {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            min-width: 32px;
+            min-height: 32px;
+            border-radius: 16px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .title {
+            padding: 0.6rem;
+            label {
+                margin-right: 0.4rem;
+            }
+            icon {
+                font-size: 14px;
+            }
+        }
+
+        .controller {
+            button {
+                background: none;
+                box-shadow: none;
+                border: none;
+                padding: 4px;
+                label {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
+popover {
+    border: none;
+}
+
+.StatusPopup {
+    background: $base;
+    color: $text;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 2px 3px 7px 6px rgba(0, 0, 0, 0.4);
+
+    .CPUStatusPopup {
+        margin-left: 10px;
+        margin-bottom: 10px;
+        circularprogress {
+            color: $blue;
+            background-color: $surface0;
+            font-size: 6px;
+            min-width: 60px;
+            icon {
+                font-size: 22px;
+            }
+        }
+        .CPUStatusBox {
+            margin-left: 30px;
+            margin-right: 20px;
+            margin-top: 15px;
+            .Heading {
+                font-weight: bold;
+                color: $blue;
+            }
+            .Text {
+                margin-top: 5px;
+                font-size: 12px;
+                color: $text;
+            }
+        }
+    }
+    .RAMStatusPopup {
+        margin-left: 10px;
+        margin-bottom: 10px;
+        circularprogress {
+            color: $peach;
+            background-color: $surface0;
+            font-size: 6px;
+            min-width: 60px;
+            icon {
+                font-size: 22px;
+            }
+        }
+        .RAMStatusBox {
+            margin-left: 30px;
+            margin-right: 20px;
+            margin-top: 15px;
+            .Heading {
+                font-weight: bold;
+                color: $peach;
+            }
+            .Text {
+                margin-top: 5px;
+                font-size: 12px;
+                color: $text;
+            }
+        }
+    }
+    .BatteryStatusPopup {
+        margin-left: 10px;
+        circularprogress {
+            color: $green;
+            background-color: $surface0;
+            font-size: 6px;
+            min-width: 60px;
+            icon {
+                font-size: 22px;
+            }
+        }
+        .BatteryStatusBox {
+            margin-left: 30px;
+            margin-right: 20px;
+            margin-top: 15px;
+            .Heading {
+                font-weight: bold;
+                color: $green;
+            }
+            .Text {
+                margin-top: 5px;
+                font-size: 12px;
+                color: $text;
+            }
+        }
+    }
+}
+
+.MediaPlayerPopup {
+    background-color: $base;
+    padding: 1.2rem;
+    border-radius: 12px;
+
+    .cover-art {
+        min-width: 150px;
+        min-height: 150px;
+        border-radius: 12px;
+        margin-right: 0.6rem;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .title {
+        label {
+            padding-left: 1.2rem;
+            padding-right: 1.2rem;
+            margin-top: 5px;
+            font-weight: bold;
+            font-size: 1.1em;
+            font-size: 14px;
+        }
+    }
+    .artist {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+
+    .actionButtons {
+        margin-top: 10px;
+        button {
+            min-width: 0;
+            min-height: 0;
+            padding: 0.4rem;
+            margin: 0 0.2rem;
+            font-size: 22px;
+            background: none;
+            box-shadow: none;
+            border: none;
+        }
+    }
+
+    .timer {
+        font-size: 12px;
+        min-width: 220px;
+        .position {
+            margin-left: 22px;
+        }
+        .length {
+            margin-right: 22px;
+        }
+    }
+
+    scale {
+        padding: 0;
+        margin: 0.4rem 0;
+        margin-left: 20px;
+        margin-right: 20px;
+
+        trough {
+            min-height: 10px;
+        }
+
+        highlight {
+            background-color: $mauve;
+        }
+
+        slider {
+            all: unset;
+        }
+    }
+}
+
+.HomePopup {
+    background: $base;
+    color: $text;
+    border-radius: 12px;
+    padding: 12px;
+    .Heading {
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: $blue;
+    }
+
+    .Idle {
+        margin-right: 10px;
+    }
+
+    .Powermenu {
+        font-size: 28px;
+        button {
+            padding: 4px 4px 0px 4px;
+            margin: 4px 8px 0px 8px;
+            background: none;
+            box-shadow: none;
+            border: none;
+            color: $blue;
+        }
+        button:hover {
+            color: $lavender;
+        }
+    }
+}
+
+.horziontalLine {
+    font-size: 0px;
+    margin: 6px 0px 0px 0px;
+    border-top: 2px solid black;
+    border-color: $blue;
+}

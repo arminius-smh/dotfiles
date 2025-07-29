@@ -29,7 +29,10 @@
           isDefault = true;
           settings = {
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
             "mailnews.default_sort_order" = 1;
+            "mail.biff.play_sound" = false;
+            "intl.regional_prefs.use_os_locales" = true; # Date and Time Formatting: Regional settings locale
           };
           userChrome = ''
             * {

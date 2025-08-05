@@ -30,6 +30,7 @@ const [visible1, setvisible1] = createState(false);
         <label class="Heading" label="Home" />
         <box class="Settings" halign={Gtk.Align.CENTER}>
             <label class="Idle" label="Idle" />
+            {/* TODO: Gjs-Console-CRITICAL **: Error: out of tracking context: will not be able to cleanup (switch stuff)*/}
             <switch
                 active={idleActive}
                 onNotifyActive={self => {
@@ -50,28 +51,68 @@ const [visible1, setvisible1] = createState(false);
                             fi
                         `]);
                     }
-                }} />
+                }}
+            />
         </box>
         <label class="horziontalLine" />
-        {/* TODO: Gjs-Console-CRITICAL **: Error: out of tracking context: will not be able to cleanup (exec stuff, idk) */}
+        {/* NO idea why, but onClicked= leads to
+        Gjs-Console-CRITICAL **: Error: out of tracking context: will not be able to cleanup
+        $ - does not.
+        */}
         <box class="Powermenu">
             <button
                 class="PowerButton"
                 label={"󰐥"}
                 tooltipText="Power off"
-                onClicked={() => { execAsync("shutdown now") }}
+                $={(self) => {
+                    const clickController = new Gtk.GestureClick();
+                    clickController.set_button(0)
+                    clickController.connect('pressed', (_controller) => {
+                        const button = _controller.get_current_button();
+                        if (button === 1) { // 1 = left click
+                            execAsync("shutdown now")
+                        }
+                        // not sure why this is needed, otherwise left clicks only work once
+                        _controller.reset()
+                    });
+                    self.add_controller(clickController);
+                }}
             />
             <button
                 class="LockButton"
                 label={""}
                 tooltipText="Lock"
-                onClicked={() => { execAsync("loginctl lock-session") }}
+                $={(self) => {
+                    const clickController = new Gtk.GestureClick();
+                    clickController.set_button(0)
+                    clickController.connect('pressed', (_controller) => {
+                        const button = _controller.get_current_button();
+                        if (button === 1) { // 1 = left click
+                            execAsync("loginctl lock-session")
+                        }
+                        // not sure why this is needed, otherwise left clicks only work once
+                        _controller.reset()
+                    });
+                    self.add_controller(clickController);
+                }}
             />
             <button
                 class="RestartButton"
                 label={"󰜉"}
                 tooltipText="Restart"
-                onClicked={() => { execAsync("reboot") }}
+                $={(self) => {
+                    const clickController = new Gtk.GestureClick();
+                    clickController.set_button(0)
+                    clickController.connect('pressed', (_controller) => {
+                        const button = _controller.get_current_button();
+                        if (button === 1) { // 1 = left click
+                            execAsync("reboot")
+                        }
+                        // not sure why this is needed, otherwise left clicks only work once
+                        _controller.reset()
+                    });
+                    self.add_controller(clickController);
+                }}
             />
         </box>
         <box class="Powermenu">
@@ -79,19 +120,55 @@ const [visible1, setvisible1] = createState(false);
                 class="HibernateButton"
                 label={""}
                 tooltipText="Hibernate"
-                onClicked={() => { execAsync("systemctl hibernate") }}
+                $={(self) => {
+                    const clickController = new Gtk.GestureClick();
+                    clickController.set_button(0)
+                    clickController.connect('pressed', (_controller) => {
+                        const button = _controller.get_current_button();
+                        if (button === 1) { // 1 = left click
+                            execAsync("systemctl hibernate")
+                        }
+                        // not sure why this is needed, otherwise left clicks only work once
+                        _controller.reset()
+                    });
+                    self.add_controller(clickController);
+                }}
             />
             <button
                 class="LogoutButton"
                 label={"󰗽"}
                 tooltipText="Logout"
-                onClicked={() => { execAsync("uwsm stop") }}
+                $={(self) => {
+                    const clickController = new Gtk.GestureClick();
+                    clickController.set_button(0)
+                    clickController.connect('pressed', (_controller) => {
+                        const button = _controller.get_current_button();
+                        if (button === 1) { // 1 = left click
+                            execAsync("uwsm stop")
+                        }
+                        // not sure why this is needed, otherwise left clicks only work once
+                        _controller.reset()
+                    });
+                    self.add_controller(clickController);
+                }}
             />
             <button
                 class="SuspendButton"
                 label={"󰤄"}
                 tooltipText="Suspend"
-                onClicked={() => { execAsync("systemctl suspend") }}
+                $={(self) => {
+                    const clickController = new Gtk.GestureClick();
+                    clickController.set_button(0)
+                    clickController.connect('pressed', (_controller) => {
+                        const button = _controller.get_current_button();
+                        if (button === 1) { // 1 = left click
+                            execAsync("systemctl suspend")
+                        }
+                        // not sure why this is needed, otherwise left clicks only work once
+                        _controller.reset()
+                    });
+                    self.add_controller(clickController);
+                }}
             />
         </box>
     </box>

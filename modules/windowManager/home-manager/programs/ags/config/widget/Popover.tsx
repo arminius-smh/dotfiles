@@ -36,7 +36,6 @@ export default function Popover({
 }: PopoverProps): GObject.Object {
 
 
-    // TODO: Gjs-Console-CRITICAL **: Error: out of tracking context: will not be able to cleanup (prob releated to the 'visible' stuff?)
     return <Astal.Window
         {...props}
         exclusivity={Astal.Exclusivity.NORMAL}
@@ -49,7 +48,7 @@ export default function Popover({
                 margin-bottom: ${marginBottom}px;
                 background-color: transparent;
             }`}
-        visible={visible}
+        visible={false}
         $={(self) => {
             const keyController = Gtk.EventControllerKey.new();
             const clickController = new Gtk.GestureClick();
@@ -60,18 +59,26 @@ export default function Popover({
 
                 // TODO: Gtk-WARNING **: Broken accounting of active state for widget
                 if (x > width || y > heigth || x < 0 || y < 0) {
-                    setvisible(false);
+                    setvisible(false)
                 }
             })
 
             keyController.connect("key-pressed", (_, keyval) => {
                 if (keyval === Gdk.KEY_Escape) {
-                    setvisible(false);
+                    setvisible(false)
                 }
 
             })
             self.add_controller(keyController);
             self.add_controller(clickController);
+
+            visible?.subscribe(() => {
+                if (visible.get()) {
+                    self.set_visible(true)
+                } else {
+                    self.set_visible(false)
+                }
+            })
         }}
     >
 

@@ -36,10 +36,6 @@ export default function SysTray() {
                     clickController.connect('pressed', (_controller) => {
                         const button = _controller.get_current_button();
 
-                        if (item.is_menu) {
-
-                        }
-
                         if (button === 1) { // 1 = left click
                             if (item.is_menu) {
                                 showMenu(item, self)

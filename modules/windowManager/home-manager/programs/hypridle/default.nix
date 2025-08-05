@@ -35,5 +35,6 @@
     };
   };
 
-  systemd.user.services.hypridle.Unit.ConditionEnvironment = lib.mkForce "XDG_SESSION_DESKTOP=Hyprland";
+  systemd.user.services.hypridle.Unit.ConditionEnvironment =
+    lib.mkForce "XDG_SESSION_DESKTOP=Hyprland";
 }

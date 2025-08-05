@@ -79,6 +79,7 @@
           bindn = [
             # pass mouse5 to discord
             ", mouse:276, pass, class:^(discord)$"
+            ", F11, pass, class:^(discord)$"
           ];
 
           # m -> mouse

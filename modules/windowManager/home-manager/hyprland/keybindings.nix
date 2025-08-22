@@ -43,7 +43,7 @@
 
             # Exec
             "$mainMod, RETURN, exec, uwsm app -- kitty"
-            "$mainMod SHIFT, F, exec, uwsm app -- firefox"
+            "$mainMod SHIFT, F, exec, uwsm app -- librewolf"
             "$mainMod, A, exec, uwsm app -- thunar"
             "$mainMod, D, exec, rofi -show drun"
             "$mainMod CONTROL, D, exec, uuctl"

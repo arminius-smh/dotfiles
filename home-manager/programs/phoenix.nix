@@ -10,7 +10,8 @@
     ./_collections/coding.nix # packages for programming
     ./_collections/utils.nix # common system utils
 
-    ./firefox # browser
+    # ./firefox # browser
+    ./librewolf # browser
     ./thunderbird # mail client
     ./spotify # music streaming
     # ./spotify-player # spotify streaming
@@ -41,7 +42,6 @@
       mkvtoolnix-cli # mkv tools
       lolcat # rainbow text
       hyprpicker # wayland color picker
-      trezor-suite # manage crypto
       # libpst # convert pst to mbox
     ];
   };

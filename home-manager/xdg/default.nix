@@ -3,7 +3,7 @@
   ...
 }:
 let
-  browser = [ "firefox.desktop" ];
+  browser = [ "librewolf.desktop" ];
   editor = [ "nvim.desktop" ];
   imageViewer = [ "imv.desktop" ];
   imageViewer2 = [ "feh.desktop" ];

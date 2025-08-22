@@ -24,7 +24,7 @@
       # emulation
       dolphin-emu # gcn, wii
       cemu # wiiu
-      ryujinx # switch
+      ryubing # switch
 
       wiimms-iso-tools # wbfs tools
       (retroarch.withCores (

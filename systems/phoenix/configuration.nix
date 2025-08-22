@@ -12,22 +12,9 @@
     ../../secrets/secrets.nix
     inputs.catppuccin.nixosModules.catppuccin
     ../../modules/module-list.nix
-  ];
 
-  custom = {
-    windowManager = {
-      enable = true;
-    };
-    gaming = {
-      enable = true;
-    };
-    ui-styling = {
-      enable = true;
-    };
-    embedded-software = {
-      enable = false;
-    };
-  };
+    ../custom.nix
+  ];
 
   catppuccin = {
     flavor = "mocha";

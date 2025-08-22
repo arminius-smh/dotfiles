@@ -238,6 +238,10 @@
             border: 2px solid @noti-bg-hover;
         }
 
+        .notification-group {
+            background: @noti-bg-alt-alpha;
+        }
+
         .control-center-list {
             background: transparent;
         }

@@ -9,6 +9,8 @@
     ../../assets/modules/secrets.nix
     ../../secrets/secrets.nix
     inputs.catppuccin.nixosModules.catppuccin
+
+    ../custom.nix
   ];
 
   fileSystems = {

@@ -12,6 +12,7 @@
     ./_collections/utils.nix # common system utils
 
     ./firefox # browser
+    ./librewolf # browser
     ./thunderbird # mail client
     ./spotify-player # spotify streaming
     ./discord # voice and text chat

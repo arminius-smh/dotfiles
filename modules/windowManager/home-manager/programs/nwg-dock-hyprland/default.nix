@@ -15,7 +15,7 @@
     file = {
       ".cache/nwg-dock-pinned" = {
         text = ''
-          firefox
+          librewolf
           obsidian
           Jellyfin Media Player
           ${if (systemName == "phoenix") then "steam" else ""}

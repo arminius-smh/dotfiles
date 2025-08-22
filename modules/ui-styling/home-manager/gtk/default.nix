@@ -25,6 +25,14 @@
     };
   };
 
+  dconf = {
+    settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
+  };
+
   xdg = {
     configFile = {
       "gtk-3.0/bookmarks" = {

@@ -27,8 +27,8 @@ mode_off(){
     # fix weird audio stuttering bug
     # that occurs when switching secondary and tertiary monitor on again,
     # probably related to me using the audio input on the monitor
-    hyprctl dispatch dpms off "$MONITOR_PRIMARY"
-    hyprctl dispatch dpms on "$MONITOR_PRIMARY"
+    # hyprctl dispatch dpms off "$MONITOR_PRIMARY"
+    # hyprctl dispatch dpms on "$MONITOR_PRIMARY"
 
     systemctl --user start hypridle
     swaync-client --dnd-off

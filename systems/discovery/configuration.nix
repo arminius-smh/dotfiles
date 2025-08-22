@@ -14,22 +14,9 @@
     # NOTE: Include the necessary packages and configuration for Apple Silicon support
     inputs.nixos-apple-silicon.nixosModules.default
     ../../modules/module-list.nix
-  ];
 
-  custom = {
-    windowManager = {
-      enable = true;
-    };
-    gaming = {
-      enable = false;
-    };
-    ui-styling = {
-      enable = true;
-    };
-    embedded-software = {
-      enable = false;
-    };
-  };
+    ../custom.nix
+  ];
 
   catppuccin = {
     flavor = "mocha";

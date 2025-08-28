@@ -14,7 +14,7 @@
     ./firefox # browser
     ./librewolf # browser
     ./thunderbird # mail client
-    ./spotify-player # spotify streaming
+    # ./spotify-player # spotify streaming
     ./discord # voice and text chat
     ./obs-studio # video recording
 
@@ -35,6 +35,7 @@
       distrobox # container wrapper for using distros
       vlc # media player
       (pkgs.chromium.override { enableWideVine = true; }) # web apps
+      telegram-desktop # message app
 
       asahi-bless # switch boot partition on ARM Mac
       asahi-wifisync # sync wifi passwords on ARM Mac

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   services = {
     displayManager = {
@@ -6,7 +6,10 @@
       sddm = {
         enable = true;
         package = pkgs.kdePackages.sddm;
-        theme = "catppuccin-sddm-corners";
+        theme = "sddm-astronaut-theme";
+        extraPackages = with pkgs; [
+          kdePackages.qtmultimedia
+        ];
         settings = {
           Theme = {
             FacesDir = "/var/lib/AccountsService/icons/";
@@ -23,7 +26,15 @@
 
   environment = {
     systemPackages = with pkgs; [
-      catppuccin-sddm-corners
+      (sddm-astronaut.override {
+        embeddedTheme = "black_hole";
+        themeConfig = {
+          Background = pkgs.fetchurl {
+            url = "http://${config.secrets.ip.excelsior}:9024/sddm_background.jpg";
+            sha256 = "sha256-2XYh0V99mQsKBsSTc9O9nWMlXGyMX16+Dg2kKGDz7RM=";
+          };
+        };
+      })
       catppuccin-cursors.macchiatoDark
     ];
   };

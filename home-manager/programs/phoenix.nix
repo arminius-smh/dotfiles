@@ -38,6 +38,7 @@
       killall # kill processes by name
       pwvucontrol # pipewire volume control
       tradingview # stock tracker
+      telegram-desktop # message app
 
       mkvtoolnix-cli # mkv tools
       lolcat # rainbow text

@@ -16,6 +16,7 @@
 
       (lib.mkIf (systemName == "discovery") [
         (import ./firefox.nix)
+        (import ./librewolf.nix)
       ])
 
       (lib.mkIf (systemName == "phoenix") [

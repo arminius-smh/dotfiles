@@ -56,7 +56,7 @@
               if (systemName == "phoenix") then
                 "${pkgs.nwg-dock-hyprland}/bin/nwg-dock-hyprland -d -c 'nwg-drawer' -hd 0 -i 38 -x -mb 5 -hl top"
               else
-                "${pkgs.nwg-dock-hyprland}/bin/nwg-dock-hyprland -d -c 'nwg-drawer' -hd 0 -i 38 -x -mb 5 ";
+                "${pkgs.nwg-dock-hyprland}/bin/nwg-dock-hyprland -d -c 'nwg-drawer' -hd 0 -i 32 -x -mb 5 -hl top";
             Restart = "on-failure";
             KillMode = "mixed";
           };

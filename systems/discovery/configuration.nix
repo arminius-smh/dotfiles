@@ -95,7 +95,6 @@
     asahi = {
       enable = true;
       peripheralFirmwareDirectory = ./firmware;
-      useExperimentalGPUDriver = true;
     };
     graphics = {
       enable = true;

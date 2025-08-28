@@ -51,9 +51,6 @@
               "move onscreen 6% 88%,class:^(cava)$"
             ])
             (lib.mkIf (systemName == "discovery") [
-              "float,class:^(spotify)$"
-              "size 1000 550,class:^(spotify)$"
-              "move onscreen 10% 20%,class:^(spotify)$"
             ])
           ];
           layerrule = [

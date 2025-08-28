@@ -38,7 +38,6 @@
           type = "fcitx5";
           fcitx5 = {
             waylandFrontend = true;
-            plasma6Support = true;
             addons = with pkgs; [
               fcitx5-mozc
               fcitx5-lua
@@ -70,7 +69,7 @@
                   Layout = "";
                 };
                 "Groups/0/Items/2" = {
-                  Name = "keyboard-de-ru-recom";
+                  Name = "keyboard-de-ru-translit";
                   Layout = "";
                 };
                 "GroupOrder" = {

@@ -181,6 +181,11 @@ in
 
             "browser.startup.page" = 3;
             "browser.startup.homepage" = config.secrets.ip.homepage;
+
+            "media.eme.enabled" = true;
+            "media.gmp-widevinecdm.visible" = true;
+            "media.gmp-widevinecdm.enabled" = true;
+            "media.gmp-provider.enabled" = true;
           };
         };
       };

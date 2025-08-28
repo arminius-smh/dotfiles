@@ -104,6 +104,7 @@
             (lib.mkIf true [
               # "hyprctl dismissnotify" # hide plugin startup notification
               "uwsm app -- fumon"
+              "uwsm app -- Telegram -startintray"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "waypaper --random"
@@ -117,7 +118,8 @@
             ])
             (lib.mkIf (systemName == "discovery") [
               "waypaper --restore"
-              "[workspace special:spotify silent] uwsm app -- kitty -o background_opacity=1 --class spotify --session spotify_player"
+              # this is so stupid
+              "[workspace special:spotify silent] uwsm app -- chromium --enable-features=UseOzonePlatform --ozone-platform=wayland --profile-directory=Default --app-id=pjibgclleladliembfgfagdaldikeohf"
             ])
           ];
         };

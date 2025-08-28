@@ -29,6 +29,12 @@
         "https://nix-community.cachix.org"
       ];
 
+      trusted-substituters = [
+        "https://catppuccin.cachix.org"
+        "https://hyprland.cachix.org"
+        "https://nix-community.cachix.org"
+      ];
+
       trusted-public-keys = [
         "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU="
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="

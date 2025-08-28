@@ -26,6 +26,9 @@ in
     mimeApps = {
       enable = true;
       defaultApplications = {
+        "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
+        "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
+
         "application/pdf" = pdfViewer;
         "audio/flac" = audioPlayer;
         "audio/mpeg" = audioPlayer;

@@ -1,12 +1,8 @@
 {
-  inputs,
   config,
   pkgs,
   ...
 }:
-let
-  addons = inputs.firefox-addons.packages.${pkgs.system};
-in
 {
   programs = {
     firefox = {
@@ -16,17 +12,6 @@ in
         DisableFirefoxAccounts = true;
         DontCheckDefaultBrowser = true;
         PasswordManagerEnabled = false;
-        ExtensionSettings = {
-          "{76aabc99-c1a8-4c1e-832b-d4f2941d5a7a}" = {
-            install_url = "https://github.com/catppuccin/firefox/releases/download/old/catppuccin_mocha_mauve.xpi";
-            installation_mode = "force_installed";
-          };
-          # own fork of videospeed with local storage
-          "{d559f111-ba90-4646-8d28-5e8a3da53fe9}" = {
-            install_url = "https://github.com/arminius-smh/videospeed/releases/download/release/video_speed_controller.xpi";
-            installation_mode = "force_installed";
-          };
-        };
       };
       profiles = {
         armin = {
@@ -129,31 +114,20 @@ in
           extensions = {
             force = true;
             settings = {
-              "{d559f111-ba90-4646-8d28-5e8a3da53fe9}" = {
-                settings = import ./config/videospeed.nix;
-              };
             }
             // config.secrets.firefox.extensions.settings;
-            packages = with addons; [
+            packages = with pkgs.firefox-addons; [
               bitwarden
               catppuccin-web-file-icons
-              csgo-trader-steam-trading
-              csgofloat
-              multi-account-containers
-              refined-github
+              firefox-color
+              frankerfacez
               return-youtube-dislikes
-              seventv
               simple-translate
-              simplelogin
-              sponsorblock
-              stylus
               torrent-control
               ublock-origin
               violentmonkey
               yomitan
-              zotero-connector
-
-              addons."2fas-two-factor-authentication"
+              pkgs.firefox-addons."2fas-two-factor-authentication"
             ];
           };
           bookmarks = {
@@ -189,6 +163,10 @@ in
                       {
                         name = "lain";
                         url = "https://fauux.neocities.org";
+                      }
+                      {
+                        name = "julian_glander";
+                        url = "https://glander.co";
                       }
                     ];
                   }

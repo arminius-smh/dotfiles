@@ -1,12 +1,8 @@
 {
-  inputs,
   config,
   pkgs,
   ...
 }:
-let
-  addons = inputs.firefox-addons.packages.${pkgs.system};
-in
 {
   programs = {
     librewolf = {
@@ -78,16 +74,16 @@ in
             };
           };
           extensions = {
-            packages = with addons; [
+            packages = with pkgs.firefox-addons; [
               bitwarden
               firefox-color
               return-youtube-dislikes
-              seventv
+              frankerfacez
               simple-translate
               violentmonkey
               yomitan
 
-              addons."2fas-two-factor-authentication"
+              pkgs.firefox-addons."2fas-two-factor-authentication"
             ];
           };
           bookmarks = {
@@ -157,6 +153,10 @@ in
                       {
                         name = "lain";
                         url = "https://fauux.neocities.org";
+                      }
+                      {
+                        name = "julian_glander";
+                        url = "https://glander.co";
                       }
                     ];
                   }

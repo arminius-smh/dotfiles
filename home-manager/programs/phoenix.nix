@@ -10,8 +10,8 @@
     ./_collections/coding.nix # packages for programming
     ./_collections/utils.nix # common system utils
 
-    # ./firefox # browser
-    ./librewolf # browser
+    ./firefox # browser
+    # ./librewolf # browser
     ./thunderbird # mail client
     ./spotify # music streaming
     # ./spotify-player # spotify streaming
@@ -23,12 +23,12 @@
   home = {
     packages = with pkgs; [
       zoom-us # video conference
-      jellyfin-media-player # media player
+      # jellyfin-media-player # media player
       vlc # media player
       obsidian # markdown notes
       element-desktop # matrix client
       ausweisapp # eid-client
-      chromium # web apps
+      (pkgs.chromium.override { enableWideVine = true; }) # web apps
       koreader # ebook reader
 
       OVMF # UEFI support for qemu

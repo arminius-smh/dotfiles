@@ -1,6 +1,7 @@
 {
   lib,
   systemName,
+  inputs,
   ...
 }:
 {
@@ -12,6 +13,7 @@
     overlays = lib.mkMerge [
       (lib.mkIf true [
         (import ../../../assets/pkgs)
+        inputs.firefox-addons.overlays.default
       ])
 
       (lib.mkIf (systemName == "discovery") [

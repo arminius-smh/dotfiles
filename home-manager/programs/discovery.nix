@@ -27,7 +27,7 @@
       muvm # microVM
       anki # flashcard
       brightnessctl # brightness controller
-      jellyfin-media-player # media player
+      # jellyfin-media-player # media player
       obsidian # markdown notes
       pamixer # audio mixer
       pwvucontrol # pipewire volume control

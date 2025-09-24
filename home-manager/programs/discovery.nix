@@ -28,7 +28,7 @@
       anki # flashcard
       brightnessctl # brightness controller
       # jellyfin-media-player # media player
-      obsidian # markdown notes
+      joplin-desktop # markdown notes
       pamixer # audio mixer
       pwvucontrol # pipewire volume control
       wireguard-tools # vpn wireguard

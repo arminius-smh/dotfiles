@@ -16,7 +16,7 @@ mode_on(){
     hyprctl dispatch dpms off "$MONITOR_TERTIARY"
     # crashes when specified monitors are turned off
     systemctl --user stop hypridle
-    swaync-client --dnd-on
+    # swaync-client --dnd-on
 }
 
 mode_off(){
@@ -31,7 +31,7 @@ mode_off(){
     # hyprctl dispatch dpms on "$MONITOR_PRIMARY"
 
     systemctl --user start hypridle
-    swaync-client --dnd-off
+    # swaync-client --dnd-off
 }
 
 

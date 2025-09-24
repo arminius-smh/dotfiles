@@ -114,7 +114,7 @@
               "[workspace 9 silent] uwsm app -- thunderbird"
               "[workspace special:spotify silent] uwsm app -- spotify"
               "[workspace special:spotify silent] uwsm app -- kitty --class cava cava"
-              "[workspace special:obsidian silent] uwsm app -- obsidian --disable-gpu"
+              "[workspace special:notes silent] uwsm app -- joplin-desktop"
             ])
             (lib.mkIf (systemName == "discovery") [
               "waypaper --restore"

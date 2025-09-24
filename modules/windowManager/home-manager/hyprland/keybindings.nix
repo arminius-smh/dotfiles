@@ -65,7 +65,7 @@
 
               # Special Workspace
               "$mainMod SHIFT, N, toggleSpecialWorkspace, spotify"
-              "$mainMod SHIFT, O, toggleSpecialWorkspace, obsidian"
+              "$mainMod SHIFT, O, toggleSpecialWorkspace, notes"
 
               # Fullscreen
               "$mainMod, F, fullscreen"

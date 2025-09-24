@@ -102,7 +102,7 @@ in
 
           Service = {
             # otherwise discord isn't shown in ags, idk why
-            ExecStartPre = "${pkgs.coreutils}/bin/sleep 3";
+            ExecStartPre = "${pkgs.coreutils}/bin/sleep 15";
 
             ExecStart =
               if (discord_option == "discord") then

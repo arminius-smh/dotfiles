@@ -154,6 +154,40 @@
                     url = "https://catppuccin.com/palette";
                   }
                   {
+                    name = "TU Berlin";
+                    bookmarks = [
+                      {
+                        name = "ISIS";
+                        url = "https://isis.tu-berlin.de/";
+                      }
+                      {
+                        name = "Moses";
+                        url = "https://moseskonto.tu-berlin.de";
+                      }
+                    ];
+                  }
+                  {
+                    name = "Logged";
+                    bookmarks = [
+                      {
+                        name = "Letterboxd";
+                        url = "https://letterboxd.com/";
+                      }
+                      {
+                        name = "Goodreads";
+                        url = "https://www.goodreads.com/";
+                      }
+                      {
+                        name = "Serializd";
+                        url = "https://www.serializd.com/";
+                      }
+                      {
+                        name = "HowLongToBeat";
+                        url = "https://howlongtobeat.com/";
+                      }
+                    ];
+                  }
+                  {
                     name = "aesthetic";
                     bookmarks = [
                       {
@@ -167,6 +201,10 @@
                       {
                         name = "julian_glander";
                         url = "https://glander.co";
+                      }
+                      {
+                        name = "elora_pautrat";
+                        url = "https://www.elorapautrat.com";
                       }
                     ];
                   }

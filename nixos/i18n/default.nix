@@ -89,7 +89,7 @@
         target = "xdg/fcitx5/conf/clipboard.conf";
         text = ''
           [TriggerKey]
-          0=Control+comma
+          0=Super+comma
         '';
       };
     };

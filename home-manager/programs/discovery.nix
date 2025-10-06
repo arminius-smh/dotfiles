@@ -17,6 +17,7 @@
     # ./spotify-player # spotify streaming
     ./discord # voice and text chat
     ./obs-studio # video recording
+    ./anki # repetition flashcard
 
     ./starship # shell prompt
   ];

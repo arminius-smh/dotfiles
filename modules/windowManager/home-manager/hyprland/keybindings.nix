@@ -72,7 +72,7 @@
 
               # screenshot button on controller executes windows screenshot
               # replicate keybindg kinda-ish
-              "$mainMod ALT, Alt_L, exec, $HOME/dotfiles/assets/scripts/screenshot.sh immediate"
+              # "$mainMod ALT, Alt_L, exec, $HOME/dotfiles/assets/scripts/screenshot.sh immediate"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "$mainMod, N, exec, $HOME/dotfiles/assets/scripts/focus.sh"

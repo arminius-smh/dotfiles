@@ -16,7 +16,7 @@
       ".cache/nwg-dock-pinned" = {
         text = ''
           firefox
-          joplin-desktop
+          joplin
           Jellyfin Media Player
           ${if (systemName == "phoenix") then "steam" else ""}
           ${if (systemName == "phoenix") then "cs2" else ""}

@@ -123,6 +123,8 @@
               frankerfacez
               return-youtube-dislikes
               simple-translate
+              stylus
+              sponsorblock
               torrent-control
               ublock-origin
               violentmonkey
@@ -224,10 +226,17 @@
                 }
             }
           '';
+          userChrome = ''
+            /* Remove close button*/ 
+            .titlebar-buttonbox-container{ display:none }
+          '';
           settings = {
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
             "privacy.history.custom" = true;
+
+            "sidebar.verticalTabs" = true;
+            "sidebar.verticalTabs.dragToPinPromo.dismissed" = true;
 
             "browser.aboutConfig.showWarning" = false;
             "browser.formfill.enable" = false;

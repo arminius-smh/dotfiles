@@ -17,6 +17,8 @@
     # ./spotify-player # spotify streaming
     ./obs-studio # video recording
     ./discord # discord enhancement
+    ./anki # repetition flashcard
+
     ./starship # shell prompt
   ];
 
@@ -33,7 +35,6 @@
 
       OVMF # UEFI support for qemu
       zotero # citation manager
-      anki-bin # flashcard
       krita # image manipulation
       killall # kill processes by name
       pwvucontrol # pipewire volume control

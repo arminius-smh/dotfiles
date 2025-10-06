@@ -82,6 +82,14 @@ with lib;
           };
         };
       };
+      anki = {
+        username = mkOption {
+          type = types.str;
+        };
+        key = mkOption {
+          type = types.str;
+        };
+      };
     };
   };
 }

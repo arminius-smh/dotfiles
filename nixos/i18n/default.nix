@@ -53,6 +53,10 @@
                 "Hotkey/EnumerateBackwardKeys" = {
                   "0" = "Super+Shift+space";
                 };
+
+                "Behaviour" = {
+                  "ShareInputState" = "All";
+                };
               };
               inputMethod = {
                 "Groups/0" = {

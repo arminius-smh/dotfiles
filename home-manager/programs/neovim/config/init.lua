@@ -94,4 +94,30 @@ vim.filetype.add({
     pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
 })
 
+-- fcitx5 state fix
+local fcitx5_state = 0
+
+if vim.fn.executable("fcitx5-remote") == 1 then
+  vim.api.nvim_create_autocmd("InsertLeave", {
+    pattern = "*",
+    callback = function()
+      -- read current state, store it, then close IM
+      local out = vim.fn.system("fcitx5-remote")
+      fcitx5_state = tonumber(out) or 0
+      vim.fn.system("fcitx5-remote -c")
+    end,
+  })
+
+  vim.api.nvim_create_autocmd("InsertEnter", {
+    pattern = "*",
+    callback = function()
+      -- if it was previously on (2), turn it back on
+      if fcitx5_state == 2 then
+        vim.fn.system("fcitx5-remote -o")
+      end
+    end,
+  })
+end
+
+
 require("after") -- post-nvim configuration

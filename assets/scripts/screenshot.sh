@@ -5,7 +5,8 @@ border_rounding=$(hyprctl getoption decoration:rounding -j | jq .int)
 # disable border roundings
 hyprctl keyword decoration:rounding 0
 
-screenshot_name="$(date +'%Y-%m-%d_%H-%M-%S_screenshot.png')"
+screenshot_name="$(date +'screenshot_%Y-%m-%d_%H-%M-%S.png')"
+satty_name="$(date +'satty_%Y-%m-%d_%H-%M-%S.png')"
 screenshot_path="$HOME/$screenshot_name"
 
 timeout_time="2500"
@@ -39,7 +40,7 @@ fi
 hyprctl keyword decoration:rounding "$border_rounding"
 
 if [[ "$ACTION" == "0" ]]; then
-    satty -f "$screenshot_path"
+    satty -f "$screenshot_path" -o "$satty_name"
 elif [[ "$ACTION" == "1" ]]; then
     rm "$screenshot_path"
 fi

@@ -1,0 +1,8 @@
+{ ... }:
+{
+  services = {
+    dnsmasq = {
+      enable = true;
+    };
+  };
+}

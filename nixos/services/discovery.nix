@@ -6,6 +6,7 @@
     ./blueman
     ./dbus
     ./displayManager
+    ./dnsmasq
     ./flatpak
     # ./fstrim
     # ./fwupd # firmware update
@@ -14,6 +15,7 @@
     ./gvfs
     ./jupyter
     # ./kubo
+    ./logind
     # ./minecraft-server
     # ./mysql
     # ./openssh

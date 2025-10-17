@@ -105,6 +105,7 @@
               # "hyprctl dismissnotify" # hide plugin startup notification
               "uwsm app -- fumon"
               "uwsm app -- Telegram -startintray"
+              "[workspace special:notes silent] uwsm app -- joplin-desktop"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "waypaper --random"
@@ -114,7 +115,6 @@
               "[workspace 9 silent] uwsm app -- thunderbird"
               "[workspace special:spotify silent] uwsm app -- spotify"
               "[workspace special:spotify silent] uwsm app -- kitty --class cava cava"
-              "[workspace special:notes silent] uwsm app -- joplin-desktop"
             ])
             (lib.mkIf (systemName == "discovery") [
               "waypaper --restore"

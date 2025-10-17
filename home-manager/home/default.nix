@@ -33,8 +33,6 @@
         "";
 
     sessionVariables = {
-      QT_IM_MODULE = "fcitx"; # NOTE: fcitx5.waylandFrontend = false sets this together with GTK_IM_MODULE (which should be unset)
-
       MONITOR_PRIMARY =
         if (systemName == "phoenix") then
           "HDMI-A-1"

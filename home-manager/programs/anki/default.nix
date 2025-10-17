@@ -76,6 +76,9 @@
             hash = "sha256-I5FjE7h2CaHzUuPFSK8DA91CJB+ngBs8ZF1UJo9gdNM=";
           };
         }))
+
+        # 2055492159
+        anki-connect
       ];
     };
   };

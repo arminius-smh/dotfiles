@@ -1,0 +1,8 @@
+{ ... }:
+{
+  services = {
+    envfs = {
+      enable = true;
+    };
+  };
+}

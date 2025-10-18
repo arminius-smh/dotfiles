@@ -21,6 +21,11 @@
           path = ./empty;
           description = "Empty flake template";
         };
+
+        default = {
+          path = ./empty;
+          description = "Empty flake template";
+        };
       };
     };
 }

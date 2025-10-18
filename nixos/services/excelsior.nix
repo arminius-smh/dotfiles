@@ -7,6 +7,7 @@
     # ./dbus
     # ./displayManager
     # ./dnsmasq
+    # ./envfs
     # ./flatpak
     # ./fstrim
     # ./fwupd # firmware update

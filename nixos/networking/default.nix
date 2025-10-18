@@ -22,7 +22,7 @@
     hostId = lib.mkIf (systemName == "excelsior") "235f276f";
     networkmanager = {
       enable = true;
-      insertNameservers = [ "9.9.9.9 #quad9.net" ];
+      appendNameservers = [ "9.9.9.9 #quad9.net" ];
       wifi = {
         backend = "wpa_supplicant"; # iwd
         scanRandMacAddress = false;

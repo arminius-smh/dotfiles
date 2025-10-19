@@ -13,9 +13,10 @@
   };
 
   i18n = {
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = "ru_RU.UTF-8";
     supportedLocales = [
       "en_US.UTF-8/UTF-8"
+      "ru_RU.UTF-8/UTF-8"
       "de_DE.UTF-8/UTF-8"
       "ja_JP.UTF-8/UTF-8"
     ];

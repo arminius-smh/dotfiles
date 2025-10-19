@@ -14,6 +14,7 @@
           "input"
           "uinput"
           "libvirtd"
+          "vboxusers"
           "networkmanager"
           "tty"
           "video"

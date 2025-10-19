@@ -7,7 +7,8 @@
 
   # Flake outputs
   outputs =
-    { self, nixpkgs }:
+    { self, ... }@inputs:
+
     let
       # The systems supported for this flake
       supportedSystems = [
@@ -20,10 +21,10 @@
       # Helper to provide system-specific attributes
       forEachSupportedSystem =
         f:
-        nixpkgs.lib.genAttrs supportedSystems (
+        inputs.nixpkgs.lib.genAttrs supportedSystems (
           system:
           f {
-            pkgs = import nixpkgs { inherit system; };
+            pkgs = import inputs.nixpkgs { inherit system; };
           }
         );
     in
@@ -31,7 +32,7 @@
       devShells = forEachSupportedSystem (
         { pkgs }:
         {
-          default = pkgs.mkShell {
+          default = pkgs.mkShellNoCC {
             # The Nix packages provided in the environment
             # Add any you need here
             packages = with pkgs; [ ];

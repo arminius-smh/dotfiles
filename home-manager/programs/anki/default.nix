@@ -9,6 +9,7 @@
   programs = {
     anki = {
       enable = true;
+      language = "ru_RU";
       sync = {
         usernameFile = "${config.home.homeDirectory}/misc/anki/username";
         keyFile = "${config.home.homeDirectory}/misc/anki/key";
@@ -43,27 +44,6 @@
 
         # 1771074083
         review-heatmap
-
-        # 1933645497
-        (
-          (pkgs.anki-utils.buildAnkiAddon (finalAttrs: {
-            pname = "fill-the-blanks";
-            version = "25.3-3";
-            src = pkgs.fetchFromGitHub {
-              owner = "ssricardo";
-              repo = "anki-plugins";
-              rev = "044a4894343f2af4c01ca6a4dc172458678cdee5";
-              sparseCheckout = [ "fill-the-blanks/src" ];
-              hash = "sha256-t8mkA/1yCH6bp4bY9OQNq/GYF4YlJkdyWEMVHH3jpFk=";
-            };
-            sourceRoot = "source/fill-the-blanks/src";
-          })).withConfig
-          {
-            config = {
-              feedback-enabled = false;
-            };
-          }
-        )
 
         # 738807903
         (pkgs.anki-utils.buildAnkiAddon (finalAttrs: {

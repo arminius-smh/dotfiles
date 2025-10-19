@@ -31,35 +31,35 @@ in
           {
             type = "os";
             format = "{3}";
-            key = "os    ";
+            key = "ОП           ";
             keyColor = "blue";
           }
           {
             type = "wm";
             format = "{1} {5}";
-            key = "wm    ";
+            key = "менеджер окон";
             keyColor = "blue";
           }
           {
             type = "host";
-            key = "host  ";
+            key = "хост         ";
             keyColor = "blue";
           }
           {
             type = "kernel";
             format = "{2}";
-            key = "kernel";
+            key = "ядро         ";
             keyColor = "blue";
           }
           {
             type = "uptime";
             format = "{2}h {3}m";
-            key = "uptime";
+            key = "рабочее время";
             keyColor = "blue";
           }
           {
             type = "memory";
-            key = "memory";
+            key = "память       ";
             format = "{1} / {2}";
             keyColor = "blue";
           }

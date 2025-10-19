@@ -207,12 +207,15 @@ function playerSetup(player: Mpris.Player, nonePlayer: Mpris.Player, setShowPlay
 
 export default function MprisPlayers() {
     let nonePlayer = Mpris.Player.new("none")
+    let spotifyChromiumPlayer = exec(["bash", "-c", "busctl --user list | grep org.mpris.MediaPlayer2.chromium | cut -d' ' -f1 | cut -d'.' -f4,5"])
 
     const [showPlayer, setShowPlayer] = createState(nonePlayer)
+
 
     const players = [
         Mpris.Player.new("spotify"),
         Mpris.Player.new("spotify_player"),
+        Mpris.Player.new(spotifyChromiumPlayer)
     ]
 
     players.forEach(player => {

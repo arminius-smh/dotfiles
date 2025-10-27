@@ -3,6 +3,7 @@
   imports = [
     ./zsh # shell
     ./git # version control
+    ./delta # git pager highlight
     ./ssh # remote shell
     ./btop # process viewer
     ./direnv # environment manager

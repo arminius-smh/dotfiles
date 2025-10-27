@@ -6,7 +6,7 @@
     ./blueman
     ./dbus
     # ./displayManager
-    ./dnsmasq
+    # ./dnsmasq
     ./envfs
     ./flatpak
     ./fstrim

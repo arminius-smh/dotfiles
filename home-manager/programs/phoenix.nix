@@ -18,6 +18,8 @@
     ./obs-studio # video recording
     ./discord # discord enhancement
     ./anki # repetition flashcard
+    ./k9s # kubernetes cli manager
+    ./delta # git pager highlight
 
     ./starship # shell prompt
   ];

@@ -18,6 +18,7 @@
     ./discord # voice and text chat
     ./obs-studio # video recording
     ./anki # repetition flashcard
+    ./delta # git pager highlight
 
     ./starship # shell prompt
   ];

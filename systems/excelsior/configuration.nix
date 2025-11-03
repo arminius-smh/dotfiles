@@ -9,6 +9,7 @@
     ../../assets/modules/secrets.nix
     ../../secrets/secrets.nix
     inputs.catppuccin.nixosModules.catppuccin
+    ../../modules/module-list.nix
 
     ../custom.nix
   ];

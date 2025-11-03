@@ -20,6 +20,9 @@ in
     configHome = "${config.home.homeDirectory}/.config";
     dataHome = "${config.home.homeDirectory}/.local/share";
     stateHome = "${config.home.homeDirectory}/.local/state";
+    userDirs = {
+      enable = true;
+    };
     mime = {
       enable = true;
     };

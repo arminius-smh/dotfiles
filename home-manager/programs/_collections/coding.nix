@@ -61,6 +61,7 @@
       uncrustify # formatter c, c++, c#, objectivec, d, java, pawn, vala
       stylelint-lsp # linter css
       stylua # lua formatter
+      pylint # linter python
     ];
   };
 }

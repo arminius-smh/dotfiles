@@ -6,6 +6,18 @@
 }:
 {
   networking = {
+    extraHosts = ''
+      127.0.0.1 notls-quarkus-example.test
+      127.0.0.1 quarkus-example.test
+      127.0.0.1 keycloak.test
+    '';
+    interfaces = lib.mkIf (systemName == "phoenix") {
+      enp11s0 = {
+        wakeOnLan = {
+          enable = true;
+        };
+      };
+    };
     firewall = {
       enable = if (systemName == "discovery") then true else false;
 
@@ -22,8 +34,7 @@
     hostId = lib.mkIf (systemName == "excelsior") "235f276f";
     networkmanager = {
       enable = true;
-      insertNameservers = lib.mkIf (systemName == "excelsior") [ "9.9.9.9 #quad9.net" ];
-      appendNameservers = [ "9.9.9.9 #quad9.net" ];
+      insertNameservers = [ "1.1.1.1" "9.9.9.9" ];
       wifi = {
         backend = "wpa_supplicant"; # iwd
         scanRandMacAddress = false;

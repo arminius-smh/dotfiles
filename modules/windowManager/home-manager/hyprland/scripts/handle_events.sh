@@ -8,7 +8,7 @@ handle_windowtitlev2 () {
 
     # https://github.com/hyprwm/Hyprland/issues/3835
     case $windowtitle in
-        *"(Bitwarden"*"Password Manager) - Bitwarden"*)
+        *"(Bitwarden"*"Password Manager) - Bitwarden"*|*"(Bitwarden - Менеджер паролей) - Bitwarden"*)
             if [ "$host" == "discovery" ]; then
                 x="40%"
                 y="70%"

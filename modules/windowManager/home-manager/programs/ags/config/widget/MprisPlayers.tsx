@@ -19,11 +19,12 @@ function MediaPlayer({ player }: { player: Mpris.Player }) {
         if (t_short != null && t_short.length > 38) {
             t_short = t_short.substring(0, 35) + "...";
         }
-        return t_short || "Unknown Track"
+        // just show nothing if name is not available anyway
+        return t_short || ""
     })
 
     const title_full = createBinding(player, "title").as(t_long => {
-        return t_long || "Unknown Track"
+        return t_long || ""
     })
 
     const artist = createBinding(player, "artist").as(a =>

@@ -6,7 +6,7 @@
     ./blueman
     ./dbus
     ./displayManager
-    ./dnsmasq
+    # ./dnsmasq
     ./envfs
     ./flatpak
     # ./fstrim
@@ -21,7 +21,7 @@
     # ./mysql
     # ./openssh
     ./pipewire
-    # ./printing
+    ./printing
     # ./psd # https://wiki.archlinux.org/title/Profile-sync-daemon
     # ./scx
     ./tumbler # filemanager thumbnail generator

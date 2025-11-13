@@ -101,6 +101,7 @@
 
       shellAliases = lib.mkIf (systemName == "phoenix" || systemName == "discovery") {
         zath = "zathura";
+        x = "wl-copy";
         wget = "wget --hsts-file=${config.xdg.dataHome}/wget-hsts";
         svim = "sudo -E -s nvim";
         yarn = "yarn --use-yarnrc ${config.xdg.configHome}/yarn/config";

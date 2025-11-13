@@ -30,7 +30,6 @@
       # jellyfin-media-player # media player
       vlc # media player
       joplin-desktop # notes
-      element-desktop # matrix client
       ausweisapp # eid-client
       (pkgs.chromium.override { enableWideVine = true; }) # web apps
       koreader # ebook reader

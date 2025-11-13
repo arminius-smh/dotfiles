@@ -7,7 +7,7 @@
     ./gnupg
     ./neovim
     # ./nh
-    # ./nix-ld
+    ./nix-ld
     ./thunar
     # ./virt-manager
     ./zsh

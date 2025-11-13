@@ -25,6 +25,13 @@
 
   home = {
     packages = with pkgs; [
+      (prismlauncher.override {
+        jdks = [
+          temurin-jre-bin-8
+          temurin-jre-bin-17
+          temurin-jre-bin-21
+        ];
+      }) # minecraft launcher
       # fex # x86 and x86-64 usermode emulator
       # muvm # microVM
       brightnessctl # brightness controller

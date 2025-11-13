@@ -7,7 +7,7 @@ hyprctl keyword decoration:rounding 0
 
 screenshot_name="$(date +'screenshot_%Y-%m-%d_%H-%M-%S.png')"
 satty_name="$(date +'satty_%Y-%m-%d_%H-%M-%S.png')"
-screenshot_path="$HOME/$screenshot_name"
+screenshot_path="$XDG_PICTURES_DIR/$screenshot_name"
 
 timeout_time="2500"
 
@@ -16,8 +16,14 @@ if [[ "$1" == "interactive" ]]; then
     # grimblast save area "$screenshot_path"
 
     hyprshot -m "$2" -f "$screenshot_name" -s
-    # make sure file is saved before the file check
-    sleep 0.4
+
+    timeout=5
+    count=0
+    while [[ ! -f "$screenshot_path" && $count -lt $timeout ]]; do
+        sleep 0.2
+        ((count++))
+    done
+
     if [[ -f "$screenshot_path" ]]; then
         ACTION=$(notify-send --transient -t "$timeout_time" --icon "$screenshot_path" "Screenshot saved" "Image saved in $screenshot_path" --action Edit --action Delete)
     else

@@ -90,6 +90,11 @@
               nix flake init -t "path:$HOME/dotfiles/assets/devenvs#$LANGUAGE"
           }
 
+          zath() {
+              nohup zathura "$@" >/dev/null 2>&1 &
+              disown
+          }
+
           fastfetch
         '';
 
@@ -100,7 +105,6 @@
       '';
 
       shellAliases = lib.mkIf (systemName == "phoenix" || systemName == "discovery") {
-        zath = "zathura";
         x = "wl-copy";
         wget = "wget --hsts-file=${config.xdg.dataHome}/wget-hsts";
         svim = "sudo -E -s nvim";

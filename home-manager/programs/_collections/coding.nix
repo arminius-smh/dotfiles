@@ -45,7 +45,6 @@
       nodePackages_latest.typescript-language-server # language server typescript
       marksman # language server markdown
       clang-tools # language server c/c++
-      ccls # language server c/c++
       vala-language-server # language server vala
       mesonlsp # language server meson
       tinymist # language server typst

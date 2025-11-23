@@ -15,7 +15,7 @@
           input = {
             kb_layout = "de";
             kb_variant = "deadtilde";
-            kb_options = "caps:none";
+            kb_options = "caps:none,shift:both_capslock";
             follow_mouse = 1;
             touchpad = {
               natural_scroll = true;
@@ -27,14 +27,15 @@
           general = {
             gaps_in = 5;
             gaps_out = 10;
+            border_size = 2;
             "col.active_border" = "$teal $accent 135deg";
             "col.inactive_border" = "$surface0";
-            border_size = 2;
-            layout = "dwindle";
+            layout = "scrolling";
           };
 
           ecosystem = {
             enforce_permissions = true;
+            no_donation_nag = true;
           };
 
           permission = [
@@ -105,7 +106,7 @@
               # "hyprctl dismissnotify" # hide plugin startup notification
               "uwsm app -- fumon"
               "uwsm app -- Telegram -startintray"
-              "[workspace special:notes silent] uwsm app -- joplin-desktop"
+              "uwsm app -- joplin-desktop"
             ])
             (lib.mkIf (systemName == "phoenix") [
               "waypaper --random"

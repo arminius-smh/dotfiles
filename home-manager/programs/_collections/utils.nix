@@ -57,6 +57,7 @@
       gnome-disk-utility # disk management utility
       simple-scan # scan documents
       satty # screenshot annotation
+      freetube # youtube app
 
       # file compression
       zip

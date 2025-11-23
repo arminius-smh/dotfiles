@@ -14,7 +14,7 @@
     ./getty
     # ./greetd # display manager daemon
     ./gvfs
-    ./jupyter
+    # ./jupyter
     # ./kubo
     # ./logind
     # ./minecraft-server

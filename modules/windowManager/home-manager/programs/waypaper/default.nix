@@ -8,6 +8,7 @@
     packages = with pkgs; [
       waypaper
       swww # wallpaper backend
+      swaybg # wallpaper backend
     ];
   };
 

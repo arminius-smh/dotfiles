@@ -94,7 +94,19 @@
         target = "xdg/fcitx5/conf/clipboard.conf";
         text = ''
           [TriggerKey]
-          0=Super+comma
+          0=Super+semicolon
+        '';
+      };
+      # remove default trigger key to use for clipboard
+      "quickphrases.conf" = {
+        target = "xdg/fcitx5/conf/quickphrases.conf";
+        text = ''
+          Choose Modifier=None
+          Spell=True
+          FallbackSpellLanguage=en
+
+          [TriggerKey]
+          0=Super+grave
         '';
       };
     };

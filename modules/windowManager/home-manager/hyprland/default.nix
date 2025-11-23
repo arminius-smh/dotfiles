@@ -1,12 +1,13 @@
 { pkgs, ... }:
 {
   imports = [
-    # ./plugins.nix
+    ./plugins.nix
     ./settings.nix
     ./keybindings.nix
     ./rules.nix
 
-    ../programs/ags # status bar + widgets
+    # ../programs/ags # status bar + widgets
+    ../programs/quickshell # status bar + widgets
     ../programs/hypridle # idle manager
     ../programs/hyprlock # screen locker
     ../programs/hyprpolkitagent # polkit agent

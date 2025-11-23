@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-if systemctl --user is-active --quiet ags; then
-    systemctl --user stop ags
+if systemctl --user is-active --quiet quickshell; then
+    systemctl --user stop quickshell
 else
-    systemctl --user start ags
+    systemctl --user start quickshell
 fi

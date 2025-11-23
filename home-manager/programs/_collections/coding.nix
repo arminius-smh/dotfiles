@@ -36,6 +36,7 @@
       typst # typst
 
       # lsp-config
+      kdePackages.qtdeclarative # language server qml
       bash-language-server # language server bash
       svelte-language-server # language server svelte
       lua-language-server # langugae server lua

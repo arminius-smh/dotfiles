@@ -3,6 +3,7 @@
   fonts = {
     fontconfig = {
       enable = true;
+      useEmbeddedBitmaps = true;
     };
     fontDir = {
       enable = true;
@@ -12,6 +13,8 @@
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-color-emoji
+
+      lexend
 
       (google-fonts.override {
         fonts = [

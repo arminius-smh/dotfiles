@@ -23,6 +23,7 @@ M.config = function()
         "bashls",
         "clangd",
         "denols",
+        "qmlls",
         "eslint",
         "gopls",
         "html",
@@ -52,6 +53,10 @@ M.config = function()
         if server == "ts_ls" then
             config.root_markers = { "package.json" }
             config.single_file_support = false
+        end
+
+        if server == "qmlls" then
+            config.cmd = { "qmlls", "-E" }
         end
 
         if server == "lua_ls" then

@@ -15,7 +15,7 @@ in
 
     programs = {
       gdk-pixbuf = {
-        # fixes some svg stuff? at least fcitx5 can load svg's 
+        # fixes some svg stuff? at least fcitx5 can load svg's
         modulePackages = [ pkgs.librsvg ];
       };
     };

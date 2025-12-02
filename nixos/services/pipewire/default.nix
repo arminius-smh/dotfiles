@@ -13,6 +13,19 @@
       wireplumber = {
         enable = true;
       };
+
+      extraConfig = {
+        pipewire-pulse = {
+          "10-switch-on-connect" = {
+            "pulse.cmd" = [
+              {
+                cmd = "load-module";
+                args = "module-switch-on-connect";
+              }
+            ];
+          };
+        };
+      };
     };
   };
 }

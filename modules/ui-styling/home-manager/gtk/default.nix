@@ -17,8 +17,8 @@
     # Papirus | pkgs.papirus-icon-theme
     # kora | pkgs.kora-icon-theme
     iconTheme = {
-      name = "kora";
-      package = pkgs.kora-icon-theme;
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
     };
     gtk2 = {
       configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";

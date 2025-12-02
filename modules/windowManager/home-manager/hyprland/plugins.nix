@@ -12,12 +12,10 @@
           with pkgs;
           lib.mkIf (systemName == "phoenix") [
             hyprlandPlugins.hyprscrolling
-            hyprlandPlugins.hyprsplit
           ];
         settings = {
           permission = [
             "${pkgs.hyprlandPlugins.hyprscrolling}/lib/libhyprscrolling.so, plugin, allow"
-            "${pkgs.hyprlandPlugins.hyprsplit}/lib/libhyprsplit.so, plugin, allow"
           ];
           plugin = {
             hyprscrolling = {

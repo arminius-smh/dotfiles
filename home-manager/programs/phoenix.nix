@@ -26,7 +26,6 @@
 
   home = {
     packages = with pkgs; [
-      zoom-us # video conference
       # jellyfin-media-player # media player
       vlc # media player
       joplin-desktop # notes

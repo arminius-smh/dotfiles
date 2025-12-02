@@ -40,6 +40,10 @@
             state = "transient";
             "app-name" = "heroic";
           };
+          "hide-spotify-from-blueman" = {
+            state = "transient";
+            "app-name" = "blueman";
+          };
         };
         widgets = [
           "title"

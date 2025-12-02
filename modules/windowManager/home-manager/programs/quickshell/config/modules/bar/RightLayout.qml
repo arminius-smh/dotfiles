@@ -10,6 +10,8 @@ RowLayout {
     }
     SysTrayLocal {}
 
+    NotificationLocal {}
+
     AudioLocal {}
 
     ClockLocal {}

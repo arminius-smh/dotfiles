@@ -41,8 +41,8 @@ Rectangle {
                     let icon = "";
                     if (modelData.focused) {
                         icon = "";
-                    // } else if (modelData.name == "mail") {
-                    //     icon = "";
+                    } else if (modelData.id == 9) {
+                        icon = "";
                     } else {
                         icon = "";
                     }

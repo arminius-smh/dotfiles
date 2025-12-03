@@ -108,8 +108,7 @@ RowLayout {
         IconImage {
             id: audioIcon
             source: getVolumeIcon(root.defaultSink)
-            implicitWidth: 25
-            implicitHeight: 25
+            implicitSize: 25
 
             MouseArea {
                 acceptedButtons: Qt.LeftButton | Qt.RightButton

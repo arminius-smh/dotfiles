@@ -10,6 +10,8 @@ RowLayout {
     }
     SysTrayLocal {}
 
+    BatteryLocal {}
+
     NotificationLocal {}
 
     AudioLocal {}

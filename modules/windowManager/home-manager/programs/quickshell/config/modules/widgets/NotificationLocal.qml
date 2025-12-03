@@ -49,7 +49,7 @@ Item {
             } else if (last.alt == "dnd-notification" || last.alt == "dnd-none") {
                 icon = "󰂛 ";
             } else {
-                icon = "ERR";
+                icon = "";
             }
 
             return icon;

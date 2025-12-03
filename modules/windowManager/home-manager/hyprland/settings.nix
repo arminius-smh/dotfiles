@@ -120,7 +120,7 @@
             (lib.mkIf (systemName == "discovery") [
               "waypaper --restore"
               # this is so stupid
-              "[workspace special:spotify silent] uwsm app -- chromium --enable-features=UseOzonePlatform --ozone-platform=wayland --profile-directory=Default --app-id=pjibgclleladliembfgfagdaldikeohf"
+              "[workspace special:spotify silent] uwsm app -- chromium --profile-directory=Default --app-id=pjibgclleladliembfgfagdaldikeohf"
             ])
           ];
         };

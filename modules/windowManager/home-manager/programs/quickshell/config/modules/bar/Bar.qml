@@ -1,6 +1,7 @@
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Io
 
 import "../widgets"
 
@@ -13,6 +14,7 @@ Scope {
         PanelWindow {
             id: toplevel
             required property var modelData
+            property var hostname
 
             screen: modelData
             aboveWindows: false
@@ -27,28 +29,25 @@ Scope {
 
             color: "#1e1e2e"
 
-            RowLayout {
-                anchors {
-                    left: parent.left
-                    leftMargin: 12
-                    verticalCenter: parent.verticalCenter
-                }
-
-                HyprlandWorkspaces {
-                    screenName: toplevel.modelData.name
-                }
+            LeftLayout {
+                toplevel: toplevel
+                hostname: toplevel.hostname
             }
 
-            RowLayout {
-                anchors {
-                    horizontalCenter: parent.horizontalCenter
-                    verticalCenter: parent.verticalCenter
-                }
-
-                MprisPlayerLocal {}
+            MiddleLayout {
+                hostname: toplevel.hostname
             }
 
             RightLayout {}
+
+            Process {
+                running: true
+                command: ["hostname"]
+                stdout: StdioCollector {
+                    id: hostnameCollector
+                    onStreamFinished: toplevel.hostname = this.text.trim()
+                }
+            }
         }
     }
 }

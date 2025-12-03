@@ -3,8 +3,10 @@ import QtQuick.Layouts
 import Quickshell.Hyprland
 
 Rectangle {
-    width: rowLayout.implicitWidth + 20
-    height: 25
+    id: root
+    implicitWidth: rowLayout.implicitWidth + 20
+    implicitHeight: 25
+    Layout.rightMargin: 5
     color: "#313244"
     radius: height / 2
 
@@ -15,7 +17,7 @@ Rectangle {
         anchors.centerIn: parent
 
         Repeater {
-            model: Hyprland.workspaces.values.filter(item => item.id > 0).filter(item => screenName === item.monitor?.name)
+            model: Hyprland.workspaces.values.filter(item => item.id > 0).filter(item => root.screenName === item.monitor?.name)
 
             Text {
                 id: workspaceText

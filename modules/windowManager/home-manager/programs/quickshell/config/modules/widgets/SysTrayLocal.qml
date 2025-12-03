@@ -20,34 +20,63 @@ RowLayout {
                 id: trayIcon
                 visible: itemSysTrayContainer.modelData.icon !== null
                 source: itemSysTrayContainer.modelData.icon
-                implicitWidth: 20
-                implicitHeight: 20
+                implicitSize: 20
                 anchors.fill: parent
             }
 
-            ToolTip {
-                // TODO: open Tooltip under Icon
-                text: toolTipText(itemSysTrayContainer.modelData)
-                visible: tooltipMouse.containsMouse
-                delay: 800
-                topMargin: 15
+            PopupWindow {
+                id: tooltipPopup
+                anchor.item: trayIcon
+                anchor.rect.y: trayIcon.implicitHeight + 12
+                anchor.rect.x: trayIcon.x + trayIcon.width / 2 - implicitWidth / 2
+                implicitWidth: percentageText.width + 16
+                implicitHeight: percentageText.height + 4
+                Rectangle {
+                    anchors.fill: parent
+                    radius: 6
+                    Text {
+                        id: percentageText
+                        anchors.centerIn: parent
+                        text: toolTipText(itemSysTrayContainer.modelData)
+                        color: "#cdd6f4"
 
-                function toolTipText(tooltipData) {
-                    if (tooltipData.tooltipTitle != 0) {
-                        return tooltipData.tooltipTitle;
-                    } else if (tooltipData.tooltipDescription != 0) {
-                        return tooltipData.tooltipDescription;
-                    } else {
-                        return tooltipData.title;
+                        function toolTipText(tooltipData) {
+                            if (tooltipData.tooltipTitle != 0) {
+                                return tooltipData.tooltipTitle;
+                            } else if (tooltipData.tooltipDescription != 0) {
+                                return tooltipData.tooltipDescription;
+                            } else {
+                                return tooltipData.title;
+                            }
+                        }
                     }
+                    color: "#313244"
+                    border.color: "#b4befe"
                 }
+                color: "transparent"
+                visible: false
             }
+
             MouseArea {
                 id: tooltipMouse
                 acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
                 implicitHeight: parent.height
                 implicitWidth: parent.width
                 hoverEnabled: true
+
+                onEntered: timer.running = true
+                onExited: {
+                    timer.running = false;
+                    tooltipPopup.visible = false;
+                }
+
+                Timer {
+                    id: timer
+                    interval: 400
+                    repeat: false
+                    onTriggered: if (tooltipMouse.containsMouse)
+                        tooltipPopup.visible = true
+                }
 
                 onClicked: mouse => {
                     if (itemSysTrayContainer.modelData.onlyMenu) {

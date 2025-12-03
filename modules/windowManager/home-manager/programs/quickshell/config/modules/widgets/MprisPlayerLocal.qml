@@ -5,12 +5,28 @@ import Quickshell.Widgets
 import QtQuick.Layouts
 
 Repeater {
+    id: root
     model: Mpris.players
+
+    required property bool show
 
     RowLayout {
         id: mprisContainer
         required property MprisPlayer modelData
-        visible: mprisContainer.modelData.dbusName == "org.mpris.MediaPlayer2.spotify"
+        visible: getSpotify(mprisContainer.modelData)
+
+        function getSpotify(modelData) {
+            if (!root.show) {
+                return false;
+            }
+            if (modelData.dbusName.includes("org.mpris.MediaPlayer2.chromium")) {
+                return true;
+            } else if (modelData.dbusName == "org.mpris.MediaPlayer2.spotify") {
+                return true;
+            } else {
+                return false;
+            }
+        }
 
         states: [
             State {

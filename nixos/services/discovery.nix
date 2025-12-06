@@ -24,6 +24,7 @@
     # ./printing
     # ./psd # https://wiki.archlinux.org/title/Profile-sync-daemon
     # ./scx
+    # ./sunshine
     ./tumbler # filemanager thumbnail generator
     ./udev
     # ./udisks2

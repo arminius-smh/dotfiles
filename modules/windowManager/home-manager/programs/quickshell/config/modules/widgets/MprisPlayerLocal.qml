@@ -19,9 +19,7 @@ Repeater {
             if (!root.show) {
                 return false;
             }
-            if (modelData.dbusName.includes("org.mpris.MediaPlayer2.chromium")) {
-                return true;
-            } else if (modelData.dbusName == "org.mpris.MediaPlayer2.spotify") {
+            if (modelData.dbusName == "org.mpris.MediaPlayer2.spotify") {
                 return true;
             } else {
                 return false;

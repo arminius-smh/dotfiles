@@ -34,7 +34,7 @@
           };
 
           ecosystem = {
-            enforce_permissions = true;
+            enforce_permissions = false;
             no_donation_nag = true;
           };
 

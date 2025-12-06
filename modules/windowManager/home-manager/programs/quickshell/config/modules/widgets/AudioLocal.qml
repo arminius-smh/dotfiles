@@ -40,8 +40,74 @@ RowLayout {
         }
     }
     Item {
+        id: audioIconRoot
         Layout.preferredWidth: audioIcon.implicitWidth
         Layout.preferredHeight: audioIcon.implicitHeight
+
+        PopupWindow {
+            id: audioPopup
+            anchor.item: audioIconRoot
+            anchor.rect.y: audioIconRoot.implicitHeight + 34
+            anchor.rect.x: audioIconRoot.x + audioIconRoot.width / 2 - implicitWidth / 2
+            implicitWidth: colLayout.width
+            implicitHeight: colLayout.height + 4
+
+            HoverHandler {
+                id: test
+                onHoveredChanged: (timer.running = true)
+            }
+            Rectangle {
+                anchors.fill: parent
+                radius: 6
+                ColumnLayout {
+                    id: colLayout
+                    Layout.alignment: Qt.AlignVCenter
+
+                    Timer {
+                        id: timer
+                        interval: 1500
+                        repeat: false
+                        onTriggered: {
+                            if (!test.hovered)
+                                audioPopup.visible = false;
+                        }
+                    }
+
+                    Repeater {
+                        model: Pipewire.nodes.values.filter(node => node.isStream == false && node.isSink == true)
+
+                        Text {
+                            id: rootA
+                            Layout.leftMargin: 15
+                            Layout.bottomMargin: 5
+                            Layout.rightMargin: 15
+                            required property PwNode modelData
+                            text: modelData.nickname
+
+                            color: "#cdd6f4"
+
+                            MouseArea {
+                                acceptedButtons: Qt.LeftButton | Qt.RightButton
+                                implicitHeight: parent.height
+                                implicitWidth: parent.width
+
+                                onClicked: mouse => {
+                                    Pipewire.preferredDefaultAudioSink = rootA.modelData;
+                                }
+                            }
+
+                            PwObjectTracker {
+                                objects: [rootA.modelData.audio]
+                            }
+                        }
+                    }
+                }
+                color: "#313244"
+                border.color: "#b4befe"
+            }
+            color: "transparent"
+            visible: false
+        }
 
         Rectangle {
             anchors.right: parent.right
@@ -117,7 +183,8 @@ RowLayout {
 
                 onClicked: mouse => {
                     if (mouse.button == Qt.LeftButton) {
-                        Quickshell.execDetached(["pwvucontrol"]);
+                        audioPopup.visible = true;
+                        timer.running = true;
                     } else {
                         root.defaultSink.audio.muted = !root.defaultSink.audio.muted;
                     }

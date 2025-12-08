@@ -7,7 +7,7 @@
 }:
 {
   home = {
-    packages = with pkgs;[
+    packages = with pkgs; [
       inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
       # quickshell
     ];

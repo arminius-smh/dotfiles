@@ -11,7 +11,7 @@ RowLayout {
 
     IconImage {
         id: batteryIcon
-        source: "image://icon/" + root.defaultPower.iconName
+        source: "image://icon/" + (root.defaultPower.iconName == "" ? "cancel" : root.defaultPower.iconName)
         implicitSize: 20
 
         PopupWindow {

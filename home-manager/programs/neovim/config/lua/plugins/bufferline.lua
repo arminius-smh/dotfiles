@@ -8,7 +8,7 @@ local M = {
 M.config = function()
     require("bufferline").setup({
         options = {
-            themeable = true,
+            themeable = false,
             offsets = {
                 {
                     filetype = "NvimTree",

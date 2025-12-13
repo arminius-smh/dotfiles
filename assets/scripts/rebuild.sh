@@ -90,10 +90,6 @@ pushd "$HOME/dotfiles" || { echo "[$DATE] Failed to cd into dotfiles directory";
 git pull --recurse-submodules
 git submodule update --remote --merge
 
-# skip formatting for excelsior due to version differences in nixfmt
-if [[ "$hostname" != "excelsior" ]]; then
-    treefmt
-fi
 echo "NixOS Rebuilding..."
 
 git add --all # add all files for the rebuild

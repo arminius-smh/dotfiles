@@ -11,7 +11,7 @@ end
 
 -- CUSTOM KEYBINDINGS
 map("n", "<esc>", "<CMD>noh<CR>") -- clear selectino on esc press
-map("i", "<C-c>", "copilot#Accept('<CR>')", { expr = true }) -- accept copilot suggestion
+map("t", "<esc>", "<CMD>ToggleTerm<CR>") -- close toggleterm on esc press
 -- move around in insert mode
 map("i", "<C-h>", "<Left>")
 map("i", "<C-l>", "<Right>")

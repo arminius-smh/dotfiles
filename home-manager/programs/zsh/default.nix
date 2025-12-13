@@ -95,7 +95,9 @@
               disown
           }
 
-          fastfetch
+          if [ -z "$NVIM" ]; then
+              fastfetch
+          fi
         '';
 
       profileExtra = ''

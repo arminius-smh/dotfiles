@@ -23,6 +23,7 @@
         update_check_interval = 0;
         tab_bar_style = "powerline";
         enable_audio_bell = "no";
+        clipboard_control = "write-clipboard read-clipboard";
       };
       keybindings = {
         "ctrl+shift+t" = "new_tab_with_cwd";

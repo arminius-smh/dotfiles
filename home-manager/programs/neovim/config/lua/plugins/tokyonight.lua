@@ -9,7 +9,7 @@ M.config = function()
     require("tokyonight").setup({
         style = "storm",
         transparent = true,
-        styles = { sidebars = "transparent", floats = "transparent" },
+        styles = { sidebars = "transparent", floats = "transparent", comments = { italic = true } },
     })
 end
 

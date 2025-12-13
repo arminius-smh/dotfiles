@@ -4,9 +4,7 @@ local M = {
 }
 
 M.config = function()
-    require("notify").setup({
-        background_colour = "#000000",
-    })
+    require("notify").setup()
     vim.notify = require("notify")
 end
 

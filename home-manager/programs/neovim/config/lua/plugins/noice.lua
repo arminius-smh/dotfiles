@@ -15,7 +15,6 @@ M.config = function()
             override = {
                 ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
                 ["vim.lsp.util.stylize_markdown"] = true,
-                ["cmp.entry.get_documentation"] = true,
             },
         },
         views = {
@@ -27,16 +26,6 @@ M.config = function()
             cmdline_popupmenu = {
                 position = {
                     row = 21,
-                },
-            },
-        },
-        cmdline = {
-            format = {
-                IncRename = {
-                    opts = {
-                        relative = "editor",
-                        position = { row = 18, col = "50%" },
-                    },
                 },
             },
         },

@@ -1,25 +1,32 @@
 -- syntax highlighting
 local M = {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    branch = "main",
     build = ":TSUpdate",
-    event = "VeryLazy",
 }
 
 M.config = function()
-    require("nvim-treesitter.configs").setup({
-        auto_install = true,
-        indent = { enable = true },
-        highlight = {
-            enable = true,
-            -- disable slow treesitter highlight for large files
-            disable = function(_, buf)
-                local max_filesize = 200 * 1024 -- 200 KB
-                local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(buf))
-                if ok and stats and stats.size > max_filesize then
-                    return true
+    local parsers = {
+        "lua",
+        "nix",
+    }
+    require("nvim-treesitter").install(parsers)
+
+    local exclude_parsers = {}
+    vim.api.nvim_create_autocmd("FileType", {
+        group = vim.api.nvim_create_augroup("dotvim_treesitter-auto_install", { clear = true }),
+        callback = function()
+            local ft = vim.bo.filetype
+            for _, parser in ipairs(exclude_parsers) do
+                if ft == parser then
+                    return
                 end
-            end,
-        },
+            end
+            if not parsers[ft] then
+                require("nvim-treesitter").install(ft)
+            end
+        end,
     })
 end
 

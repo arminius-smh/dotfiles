@@ -8,6 +8,10 @@ vim.opt.conceallevel = 3 -- conceal format text
 vim.opt.number = true -- absolute side numbers
 vim.opt.relativenumber = true -- relative side numbers
 vim.opt.clipboard = "unnamedplus" -- clipboard copy
+-- copy/paste for ssh
+if os.getenv("SSH_TTY") ~= nil then
+    vim.g.clipboard = "osc52"
+end
 vim.opt.cmdheight = 2 -- disables "Press ENTER or type command to continue" for large cmd output
 vim.opt.expandtab = true -- use spaces instead of tabs
 vim.opt.shiftwidth = 4 -- amount of spaces for each indentation
@@ -20,7 +24,7 @@ vim.opt.smartcase = true --override ignorecase for uppercase characters
 vim.opt.mouse = "a" -- enable mouse support
 vim.opt.breakindent = true -- wrapped line will continue visually indented
 vim.opt.scrolloff = 8 -- start scrolling 8 lines before the edge
-
+vim.opt.mousemoveevent = true
 vim.opt.list = true -- show symbols for tabs, trailing spaces and non-breakable space
 -- vim.opt.listchars:append "space:⋅" -- dots instead of spaces
 vim.opt.listchars:append("eol:↴") -- arrow at eol
@@ -62,11 +66,7 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.api.nvim_cmd({ cmd = "colorscheme", args = { "tokyonight" } }, {})
 -- transparent
 vim.g.transparent_enabled = true
--- copilot
-vim.g.copilot_filetypes = {
-    markdown = false,
-    norg = false,
-}
+
 -- automatically update nix fetchgit
 vim.cmd([[
     function! Preserve(command)
@@ -119,4 +119,5 @@ if vim.fn.executable("fcitx5-remote") == 1 then
     })
 end
 
+require("code") -- format, lsp, lint configuration
 require("after") -- post-nvim configuration

@@ -43,18 +43,13 @@
   };
 
   virtualisation = {
-    virtualbox = {
-      host = {
-        enable = true;
-      };
-    };
     libvirtd = {
       enable = true;
       qemu = {
         vhostUserPackages = [ pkgs.virtiofsd ];
       };
     };
-    docker = {
+    podman = {
       enable = true;
     };
   };

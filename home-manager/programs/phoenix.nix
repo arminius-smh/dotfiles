@@ -18,8 +18,9 @@
     ./obs-studio # video recording
     ./discord # discord enhancement
     ./anki # repetition flashcard
-    ./k9s # kubernetes cli manager
+    # ./k9s # kubernetes cli manager
     ./delta # git pager highlight
+    ./vlc # media player
 
     ./starship # shell prompt
   ];
@@ -27,7 +28,6 @@
   home = {
     packages = with pkgs; [
       # jellyfin-media-player # media player
-      vlc # media player
       joplin-desktop # notes
       ausweisapp # eid-client
       (pkgs.chromium.override { enableWideVine = true; }) # web apps

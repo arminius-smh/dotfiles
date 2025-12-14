@@ -6,12 +6,6 @@
 }:
 {
   networking = {
-    extraHosts = ''
-      127.0.0.1 notls-quarkus-example.test
-      127.0.0.1 quarkus-example.test
-      127.0.0.1 keycloak.test
-      127.0.0.1 group01.traffic-control-center.test
-    '';
     interfaces = lib.mkIf (systemName == "phoenix") {
       enp11s0 = {
         wakeOnLan = {

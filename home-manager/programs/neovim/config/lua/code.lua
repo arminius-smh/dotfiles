@@ -87,6 +87,8 @@ vim.lsp.config("qmlls", {
 })
 vim.lsp.enable("qmlls")
 
+-- java
+vim.lsp.enable("jdtls")
 -- POST
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextChanged", "TextChangedI" }, {
     callback = function()

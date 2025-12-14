@@ -28,6 +28,18 @@ M.config = function()
             end
         end,
     })
+    vim.api.nvim_create_autocmd("FileType", {
+        group = vim.api.nvim_create_augroup("EnableTreesitter", { clear = true }),
+        desc = "Try to enable tree-sitter highlighting and folds",
+        pattern = "*", -- run on *all* filetypes
+        callback = function()
+            pcall(function()
+                vim.treesitter.start()
+                vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+                vim.wo[0][0].foldmethod = "expr"
+            end)
+        end,
+    })
 end
 
 return M

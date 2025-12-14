@@ -41,19 +41,6 @@
           DISABLE_MAGIC_FUNCTIONS=true
           ZSH_HIGHLIGHT_STYLES[comment]="fg=245"
 
-          ${
-            if (systemName == "phoenix" || systemName == "discovery") then
-              ''
-                # NVIM-JDTLS - https://github.com/mfussenegger/nvim-jdtls
-                export NVIM_LOMBOK="${pkgs.lombok}/share/java/lombok.jar"
-                export NVIM_JDT_LANGUAGE_SERVER_JAR=$(fd --base-directory ${config.home.homeDirectory}/projects/dev/.jdtls/plugins -a "org.eclipse.equinox.launcher_" 2> /dev/null) # NOTE: this may break
-                export NVIM_JAVA_CONFIG_DIR="${config.home.homeDirectory}/projects/dev/.jdtls/config_linux"
-                export NVIM_JAVA_WORKSPACE_DIR="${config.home.homeDirectory}/projects/dev/.jdtls/data"
-              ''
-            else
-              ""
-          }
-
           # Source private stuff
           if [ -f $HOME/.config/zsh/.priv.zsh ]; then
               source $HOME/.config/zsh/.priv.zsh
@@ -125,6 +112,7 @@
         rebuild = "rebuild.sh";
         json2nix = "nix run github:sempruijs/json2nix";
         nm2nix = ''sudo su -c "cd /etc/NetworkManager/system-connections && nix --extra-experimental-features 'nix-command flakes' run github:Janik-Haag/nm2nix | nix --extra-experimental-features 'nix-command flakes' run nixpkgs#nixfmt-rfc-style"'';
+        s = "kitten ssh";
       };
     };
   };

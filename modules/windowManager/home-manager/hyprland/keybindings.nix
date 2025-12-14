@@ -12,20 +12,20 @@
           bind = lib.mkMerge [
             (lib.mkIf true [
               # Move focus
-              "$mainMod, H, movefocus, l"
-              "$mainMod, L, movefocus, r"
-              "$mainMod, K, movefocus, u"
-              "$mainMod, J, movefocus, d"
+              "$mainMod, H, layoutmsg, focus l"
+              "$mainMod, L, layoutmsg, focus r"
+              "$mainMod, K, layoutmsg, focus u"
+              "$mainMod, J, layoutmsg, focus d"
 
               # Move windows to monitor
-              "$mainMod SHIFT, H, movewindow, mon:l"
-              "$mainMod SHIFT, L, movewindow, mon:r"
+              "$mainMod CTRL, H, focusmonitor, l"
+              "$mainMod CTRL, L, focusmonitor, r"
 
               # Move windows
-              "$mainMod CTRL, H, layoutmsg, movewindowto l"
-              "$mainMod CTRL, L, layoutmsg, movewindowto r"
-              "$mainMod CTRL, K, layoutmsg, movewindowto u"
-              "$mainMod CTRL, J, layoutmsg, movewindowto d"
+              "$mainMod SHIFT, H, layoutmsg, movewindowto l"
+              "$mainMod SHIFT, L, layoutmsg, movewindowto r"
+              "$mainMod SHIFT, K, layoutmsg, movewindowto u"
+              "$mainMod SHIFT, J, layoutmsg, movewindowto d"
 
               # Switch workspaces
               "$mainMod, 1, workspace, 1"
@@ -50,10 +50,6 @@
               "$mainMod SHIFT, 8, movetoworkspace, 8"
               "$mainMod SHIFT, 9, movetoworkspace, 9"
               "$mainMod SHIFT, 0, movetoworkspace, 10"
-
-              "$mainMod CTRL, 1, focusmonitor, ${config.home.sessionVariables.MONITOR_SECONDARY}"
-              "$mainMod CTRL, 2, focusmonitor, ${config.home.sessionVariables.MONITOR_PRIMARY}"
-              "$mainMod CTRL, 3, focusmonitor, ${config.home.sessionVariables.MONITOR_TERTIARY}"
 
               # Exec
               "$mainMod, RETURN, exec, uwsm app -- kitty"

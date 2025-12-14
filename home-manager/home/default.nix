@@ -101,18 +101,6 @@
           fi
         done
       '';
-      nvim-jdtls = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        # https://github.com/eclipse-jdtls/eclipse.jdt.ls#installation
-        if [ ! -d "$HOME/projects/dev/.jdtls/" ]; then
-            FILENAME="jdt-language-server.tar.gz"
-            LINK="https://download.eclipse.org/jdtls/milestones/1.36.0/jdt-language-server-1.36.0-202405301306.tar.gz"
-
-            mkdir -p "$HOME/projects/dev/.jdtls/data" && cd "$_/.." || exit
-            ${pkgs.wget}/bin/wget --hsts-file=${config.xdg.dataHome}/wget-hsts -O "$FILENAME" "$LINK"
-            ${pkgs.busybox}/bin/tar -zxvf "$HOME/projects/dev/.jdtls/$FILENAME" -C "$HOME/projects/dev/.jdtls"
-            rm "$FILENAME"
-        fi
-      '';
     };
   };
 }

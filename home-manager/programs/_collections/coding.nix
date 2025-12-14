@@ -1,5 +1,11 @@
-{ pkgs, ... }:
 {
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    ../java
+  ];
   home = {
     packages = with pkgs; [
       # bash

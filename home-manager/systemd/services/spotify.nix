@@ -31,7 +31,30 @@ in
 
           Service = {
             ExecStart = "${config.programs.spicetify.spicedSpotify}/bin/spotify";
-            ExecStartPost = "${pkgs.kitty}/bin/kitty --class cava cava";
+            Restart = "on-failure";
+            KillMode = "mixed";
+          };
+
+          Install = {
+            WantedBy = [ "graphical-session.target" ];
+          };
+        };
+        spotify-cava = {
+          Unit = {
+            Description = "${pkgs.cava.meta.description}";
+            Documentation = "${pkgs.cava.meta.homepage}";
+            Requires = [
+              "tray.target"
+            ];
+            After = [
+              "graphical-session.target"
+              "tray.target"
+            ];
+            PartOf = [ "graphical-session.target" ];
+          };
+
+          Service = {
+            ExecStart = "${pkgs.kitty}/bin/kitty --class cava ${pkgs.cava}/bin/cava";
             Restart = "on-failure";
             KillMode = "mixed";
           };

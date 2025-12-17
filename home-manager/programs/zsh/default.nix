@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }:
@@ -49,7 +50,7 @@ in
 
             # , alias for nix(nom) shell
             ,() {
-              cmd="nom shell"
+              cmd="${pkgs.nix-output-monitor}/bin/nom shell"
               for arg in "$@"; do
                 cmd="$cmd nixpkgs#$arg"
               done

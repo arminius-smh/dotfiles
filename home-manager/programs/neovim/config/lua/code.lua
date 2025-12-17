@@ -8,11 +8,8 @@ local dotfiles_path = os.getenv("HOME") .. "/dotfiles"
 format.setup()
 
 -- bash
-vim.lsp.enable("bashls")
+vim.lsp.enable("bashls") -- uses shellcheck for linting
 format.formatters_by_ft.sh = { "shfmt" }
-lint.linters_by_ft = {
-    sh = { "shellcheck" },
-}
 
 -- zsh
 format.formatters_by_ft.zsh = { "shfmt" } -- not intended

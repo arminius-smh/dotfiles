@@ -1,7 +1,13 @@
-{ config, inputs, ... }:
+{
+  pkgs,
+  config,
+  inputs,
+  ...
+}:
 {
   imports = [
     inputs.catppuccin.homeModules.catppuccin
+    inputs.spicetify.homeManagerModules.default
     ../../private
 
     ../../home-manager
@@ -22,6 +28,15 @@
     username = "armin";
     homeDirectory = "/home/armin";
     stateVersion = "24.05";
+
+    packages = with pkgs; [
+      jq
+      ripgrep
+      fd
+      gtrash
+      (chromium.override { enableWideVine = true; })
+      open-desktop-file
+    ];
 
     pointerCursor = {
       size = 24;
@@ -74,7 +89,6 @@
       zsh.enable = true;
       firefox.enable = true;
       zathura.enable = true;
-      vlc.enable = true;
       ssh.enable = true;
       kitty = {
         enable = true;

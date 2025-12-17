@@ -39,6 +39,10 @@
       ripgrep
       fd
       gtrash
+      jq
+      chromium
+      hyprshot
+      libnotify
     ];
 
     sessionVariables = {

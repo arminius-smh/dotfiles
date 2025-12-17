@@ -1,17 +1,25 @@
-{
-  systemName,
-  ...
-}:
-let
-  options = {
-    phoenix = ./phoenix.nix;
-    excelsior = ./excelsior.nix;
-    discovery = ./discovery.nix;
-  };
-  services = builtins.getAttr systemName options;
-in
+{ ... }:
 {
   imports = [
-    services
+    ./avahi
+    ./blueman
+    ./dbus
+    ./displayManager
+    ./envfs
+    ./flatpak
+    ./fstrim
+    ./getty
+    ./gvfs
+    ./logind
+    ./openssh
+    ./pipewire
+    ./printing
+    ./sunshine
+    ./tumbler
+    ./udev
+    ./udisks2
+    ./upower
+    ./xserver
+    ./zfs
   ];
 }

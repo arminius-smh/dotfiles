@@ -1,33 +1,23 @@
 {
-  lib,
   config,
-  systemName,
+  lib,
   ...
 }:
+let
+  cfg = config.cave.services.syncthing;
+in
 {
-  services = {
-    syncthing = {
-      enable = true;
-      overrideFolders = false;
-      overrideDevices = true;
-      settings = {
-        devices = {
-          "excelsior" = lib.mkIf (systemName != "excelsior") {
-            id = config.secrets.syncthing.excelsior;
-            addresses = [
-              "tcp://${config.secrets.ip.excelsior}:22000"
-            ];
-            autoAcceptFolders = true;
-          };
-          "phoenix" = lib.mkIf (systemName != "phoenix") {
-            id = config.secrets.syncthing.phoenix;
-            autoAcceptFolders = true;
-          };
-          "discovery" = lib.mkIf (systemName != "discovery") {
-            id = config.secrets.syncthing.discovery;
-            autoAcceptFolders = true;
-          };
-        };
+  options.cave = {
+    services.syncthing.enable = lib.mkEnableOption "enable services.syncthing config";
+  };
+
+  config = lib.mkIf cfg.enable {
+
+    services = {
+      syncthing = {
+        enable = true;
+        overrideFolders = false;
+        overrideDevices = false;
       };
     };
   };

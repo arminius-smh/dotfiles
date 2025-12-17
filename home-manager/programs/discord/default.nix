@@ -1,12 +1,11 @@
 {
   config,
   pkgs,
-  systemName,
   lib,
   ...
 }:
 let
-  discord_option = if (systemName == "phoenix") then "discord" else "vesktop";
+  cfg = config.cave.programs.discord;
 
   krisp-patcher =
     pkgs.writers.writePython3Bin "krisp-patcher"
@@ -29,99 +28,45 @@ let
           }
         )
       );
-in
 
+in
 {
-  home = {
-    packages = lib.mkMerge [
-      (lib.mkIf (discord_option == "discord") [
-        # krisp-patcher ~/.config/discord/0.0.XX/modules/discord_krisp/discord_krisp.node
+  options.cave = {
+    programs.discord.enable = lib.mkEnableOption "enable programs.discord config";
+  };
+
+  config = lib.mkIf cfg.enable {
+    home = {
+      packages = [
         krisp-patcher
         (pkgs.discord.override {
           withVencord = true;
         })
-      ])
-      (lib.mkIf (discord_option == "vesktop") [
-        pkgs.vesktop # no aarch64-linux package for discord
-      ])
-    ];
+      ];
 
-    activation = lib.mkIf (discord_option == "discord") {
-      krisp_patcher = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        DISCORD_PATH="${config.home.homeDirectory}/.config/discord"
+      activation = {
+        krisp_patcher = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+          DISCORD_PATH="${config.home.homeDirectory}/.config/discord"
 
-        if [[ ! -d "$DISCORD_PATH" ]]; then
-          return 0 # discord has not been started
-        fi
+          if [[ ! -d "$DISCORD_PATH" ]]; then
+            return 0 # discord has not been started yet
+          fi
 
-        VERSION_DIR=$(ls "$DISCORD_PATH" | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -n 1)
+          VERSION_DIR=$(ls "$DISCORD_PATH" | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -n 1)
 
-        KRISP_PATH="$DISCORD_PATH/$VERSION_DIR/modules/discord_krisp/discord_krisp.node"
+          KRISP_PATH="$DISCORD_PATH/$VERSION_DIR/modules/discord_krisp/discord_krisp.node"
 
-        ${krisp-patcher}/bin/krisp-patcher "$KRISP_PATH"
-      '';
+          ${krisp-patcher}/bin/krisp-patcher "$KRISP_PATH"
+        '';
+      };
     };
-  };
 
-  xdg = {
-    configFile =
-      { }
-      // lib.optionalAttrs (discord_option == "discord") {
+    xdg = {
+      configFile = {
         "Vencord/settings/settings.json" = {
           source =
             config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}"
             + /dotfiles/home-manager/programs/discord/config/settings/settings.json;
-
-        };
-      }
-      // lib.optionalAttrs (discord_option == "vesktop") {
-        "vesktop/settings/settings.json" = {
-          source =
-            config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}"
-            + /dotfiles/home-manager/programs/discord/config/settings/settings.json;
-        };
-      };
-  };
-
-  systemd = {
-    user = {
-      services = {
-        discord = {
-          Unit = {
-            Description = "${pkgs.discord.meta.description}";
-            Documentation = "${pkgs.discord.meta.homepage}";
-            Requires = [
-              "tray.target"
-            ];
-            After = [
-              "graphical-session.target"
-              "tray.target"
-            ];
-            PartOf = [ "graphical-session.target" ];
-          };
-
-          Service = {
-            # otherwise discord isn't shown in ags, idk why
-            ExecStartPre = "${pkgs.coreutils}/bin/sleep 15";
-
-            ExecStart =
-              if (discord_option == "discord") then
-                "${pkgs.discord}/bin/discord --start-minimized"
-              else
-                "${pkgs.vesktop}/bin/vesktop --start-minimized";
-            Restart = "on-failure";
-            KillMode = "mixed";
-
-            # remove x11 variable settings when discord/hyprland idk? allows to set keybindings in wayland discord
-            Environment = lib.mkIf (discord_option == "discord") [
-              "NIXOS_OZONE_WL="
-              "ELECTRON_OZONE_PLATFORM_HINT="
-            ];
-          };
-
-          Install = {
-            WantedBy = [ "graphical-session.target" ];
-          };
         };
       };
     };

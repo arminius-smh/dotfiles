@@ -1,8 +1,0 @@
-{ ... }:
-{
-  services = {
-    hyprpolkitagent = {
-      enable = true;
-    };
-  };
-}

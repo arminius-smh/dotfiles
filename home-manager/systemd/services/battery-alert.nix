@@ -1,7 +1,19 @@
-{ ... }:
 {
-  systemd = {
-    user = {
+  config,
+  lib,
+  ...
+}:
+let
+  cfg = config.cave.systemd.services.battery-alert;
+in
+{
+  options.cave = {
+    systemd.services.battery-alert.enable = lib.mkEnableOption "enable systemd.services.battery-alert config";
+  };
+
+  config = lib.mkIf cfg.enable {
+
+    systemd.user = {
       services = {
         "battery-alert" = {
           Unit = {

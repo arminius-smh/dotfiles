@@ -1,14 +1,17 @@
-{ systemName, ... }:
-let
-  config = {
-    phoenix = ./phoenix.nix;
-    excelsior = ./excelsior.nix;
-    discovery = ./discovery.nix;
-  };
-  settings = builtins.getAttr systemName config;
-in
+{ ... }:
 {
   imports = [
-    settings
+    ./console
+    ./fonts
+    ./i18n
+    ./networking
+    ./nix
+    ./nixpkgs
+    ./programs
+    ./security
+    ./services
+    ./swapDevices
+    ./users
+    ./xdg
   ];
 }

@@ -1,6 +1,6 @@
-[submodule "secrets"]
-	path = secrets
-	url = git@192.168.16.10:arminius-smh/secrets.git
 [submodule "assets/wallpapers"]
 	path = assets/wallpapers
 	url = git@192.168.16.10:arminius-smh/wallpapers.git
+[submodule "private"]
+	path = private
+	url = ssh://git@192.168.16.10/arminius-smh/private.git

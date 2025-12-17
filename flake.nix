@@ -62,14 +62,14 @@
           };
           modules = [
             # > Our main nixos configuration file <
-            ./systems/phoenix/configuration.nix
+            ./hosts/phoenix/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true; # use global nixpkgs instead of home-manager's own
                 useUserPackages = true; # install packages to /etc/profiles/ instead of $HOME/.nix-profile
                 users = {
-                  "armin" = import ./systems/phoenix/home.nix;
+                  "armin" = import ./hosts/phoenix/home.nix;
                 };
                 extraSpecialArgs = {
                   inherit inputs;
@@ -85,14 +85,14 @@
             systemName = "excelsior";
           };
           modules = [
-            ./systems/excelsior/configuration.nix
+            ./hosts/excelsior/configuration.nix
             home-manager-stable.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users = {
-                  "armin" = import ./systems/excelsior/home.nix;
+                  "armin" = import ./hosts/excelsior/home.nix;
                 };
                 extraSpecialArgs = {
                   inherit inputs;
@@ -108,14 +108,14 @@
             systemName = "discovery";
           };
           modules = [
-            ./systems/discovery/configuration.nix
+            ./hosts/discovery/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users = {
-                  "armin" = import ./systems/discovery/home.nix;
+                  "armin" = import ./hosts/discovery/home.nix;
                 };
                 extraSpecialArgs = {
                   inherit inputs;

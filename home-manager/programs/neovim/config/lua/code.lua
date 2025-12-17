@@ -83,7 +83,7 @@ vim.lsp.enable("hyprls")
 
 -- qml
 vim.lsp.config("qmlls", {
-    cmd = { "qmlls", "-E" }
+    cmd = { "qmlls", "-E" },
 })
 vim.lsp.enable("qmlls")
 

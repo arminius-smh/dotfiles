@@ -1,54 +1,42 @@
-{
-  systemName,
-  config,
-  ...
-}:
-let
-  options = {
-    phoenix = ./phoenix.nix;
-    excelsior = ./excelsior.nix;
-    discovery = ./discovery.nix;
-  };
-  programs = builtins.getAttr systemName options;
-in
+{ ... }:
 {
   imports = [
-    programs
+    ./_collections
+    ./mpv
+    ./imv
+    ./git
+    ./eza
+    ./feh
+    ./discord
+    ./vesktop
+    ./direnv
+    ./bat
+    ./delta
+    ./anki
+    ./btop
+    ./rofi
+    ./vlc
+    ./ssh
+    ./kitty
+    ./zsh
+    ./firefox
+    ./lazygit
+    ./neovim
+    ./zathura
+    ./cava
+    ./fastfetch
+    ./spotify
+    ./starship
+    ./obs-studio
+    ./thunderbird
+    ./quickshell
+    ./trezor-suite
+    ./mangohud
+    ./heroic
+    ./nwg-displays
+    ./libinput-gestures
+    ./nwg-dock-hyprland
+    ./hyprlock
+    ./waypaper
   ];
-
-  xdg = {
-    configFile = {
-      "uwsm/env" = {
-        text = ''
-          . "${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh"
-        '';
-      };
-
-      python = {
-        source = ./files/python;
-        recursive = true;
-      };
-
-      prettier = {
-        source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}"
-          + /dotfiles/home-manager/programs/files/prettier;
-        recursive = true;
-      };
-
-      clang-format = {
-        source = ./files/clang-format;
-        recursive = true;
-      };
-
-      uncrustify = {
-        source = ./files/uncrustify;
-        recursive = true;
-      };
-
-      "Thunar/uca.xml" = {
-        source = ./files/Thunar/uca.xml;
-      };
-    };
-  };
 }

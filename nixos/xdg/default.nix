@@ -1,33 +1,44 @@
 {
+  config,
+  lib,
   pkgs,
   ...
 }:
+let
+  cfg = config.cave.xdg;
+in
 {
-  xdg = {
-    terminal-exec = {
-      enable = true;
-      settings = {
-        default = [
-          "kitty.desktop"
-        ];
-      };
-    };
+  options.cave = {
+    xdg.enable = lib.mkEnableOption "enable xdg config";
+  };
 
-    portal = {
-      enable = true;
-      xdgOpenUsePortal = true;
-
-      config = {
-        common.default = [ "gtk" ];
-        hyprland.default = [
-          "gtk"
-          "hyprland"
-        ];
+  config = lib.mkIf cfg.enable {
+    xdg = {
+      terminal-exec = {
+        enable = true;
+        settings = {
+          default = [
+            "kitty.desktop"
+          ];
+        };
       };
 
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
-      ];
+      portal = {
+        enable = true;
+        xdgOpenUsePortal = true;
+
+        config = {
+          common.default = [ "gtk" ];
+          hyprland.default = [
+            "gtk"
+            "hyprland"
+          ];
+        };
+
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-gtk
+        ];
+      };
     };
   };
 }

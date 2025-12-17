@@ -1,8 +1,11 @@
 {
   config,
+  lib,
   ...
 }:
 let
+  cfg = config.cave.xdg;
+
   browser = [ "firefox.desktop" ];
   editor = [ "nvim.desktop" ];
   imageViewer = [ "imv.desktop" ];
@@ -14,38 +17,44 @@ let
   mail = [ "thunderbird.desktop" ];
 in
 {
-  xdg = {
-    enable = true;
-    cacheHome = "${config.home.homeDirectory}/.cache";
-    configHome = "${config.home.homeDirectory}/.config";
-    dataHome = "${config.home.homeDirectory}/.local/share";
-    stateHome = "${config.home.homeDirectory}/.local/state";
-    userDirs = {
-      enable = true;
-    };
-    mime = {
-      enable = true;
-    };
-    mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
-        "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
+  options.cave = {
+    xdg.enable = lib.mkEnableOption "enable xdg config";
+  };
 
-        "application/pdf" = pdfViewer;
-        "audio/flac" = audioPlayer;
-        "audio/mpeg" = audioPlayer;
-        "image/gif" = imageViewer;
-        "image/jpeg" = imageViewer;
-        "image/png" = imageViewer;
-        "image/webp" = imageViewer2;
-        "inode/directory" = fileManager;
-        "text/html" = browser;
-        "text/plain" = editor;
-        "video/x-matroska" = videoPlayer;
-        "x-scheme-handler/http" = browser;
-        "x-scheme-handler/https" = browser;
-        "x-scheme-handler/mailto" = mail;
+  config = lib.mkIf cfg.enable {
+    xdg = {
+      enable = true;
+      cacheHome = "${config.home.homeDirectory}/.cache";
+      configHome = "${config.home.homeDirectory}/.config";
+      dataHome = "${config.home.homeDirectory}/.local/share";
+      stateHome = "${config.home.homeDirectory}/.local/state";
+      userDirs = {
+        enable = true;
+      };
+      mime = {
+        enable = true;
+      };
+      mimeApps = {
+        enable = true;
+        defaultApplications = {
+          "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
+          "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
+
+          "application/pdf" = pdfViewer;
+          "audio/flac" = audioPlayer;
+          "audio/mpeg" = audioPlayer;
+          "image/gif" = imageViewer;
+          "image/jpeg" = imageViewer;
+          "image/png" = imageViewer;
+          "image/webp" = imageViewer2;
+          "inode/directory" = fileManager;
+          "text/html" = browser;
+          "text/plain" = editor;
+          "video/x-matroska" = videoPlayer;
+          "x-scheme-handler/http" = browser;
+          "x-scheme-handler/https" = browser;
+          "x-scheme-handler/mailto" = mail;
+        };
       };
     };
   };

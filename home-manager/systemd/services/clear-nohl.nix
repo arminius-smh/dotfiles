@@ -1,7 +1,19 @@
-{ pkgs, ... }:
 {
-  systemd = {
-    user = {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  cfg = config.cave.systemd.services.clear.nohl;
+in
+{
+  options.cave = {
+    systemd.services.clear.nohl.enable = lib.mkEnableOption "enable systemd.services.clear.nohl config";
+  };
+
+  config = lib.mkIf cfg.enable {
+    systemd.user = {
       services = {
         "clear-nohl" = {
           Unit = {
@@ -43,5 +55,4 @@
       };
     };
   };
-
 }

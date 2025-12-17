@@ -1,22 +1,36 @@
-{ ... }:
 {
-  programs = {
-    starship = {
-      enable = true;
-      settings = {
-        add_newline = false;
-        format = "$directory$git_branch$git_status$character";
-        right_format = "\${custom.nix}";
-        command_timeout = 5000;
+  config,
+  lib,
+  ...
+}:
+let
+  cfg = config.cave.programs.starship;
+in
+{
+  options.cave = {
+    programs.starship.enable = lib.mkEnableOption "enable programs.starship config";
+  };
 
-        character = {
-          success_symbol = "[›](bold green)";
-          error_symbol = "[›](bold red)";
-        };
+  config = lib.mkIf cfg.enable {
 
-        custom.nix = {
-          format = "[ ](bold blue)";
-          when = "test $SHLVL -gt 2";
+    programs = {
+      starship = {
+        enable = true;
+        settings = {
+          add_newline = false;
+          format = "$directory$git_branch$git_status$character";
+          right_format = "\${custom.nix}";
+          command_timeout = 5000;
+
+          character = {
+            success_symbol = "[›](bold green)";
+            error_symbol = "[›](bold red)";
+          };
+
+          custom.nix = {
+            format = "[ ](bold blue)";
+            when = "test $SHLVL -gt 2";
+          };
         };
       };
     };

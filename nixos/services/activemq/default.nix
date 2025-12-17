@@ -1,8 +1,0 @@
-{ ... }:
-{
-  services = {
-    activemq = {
-      enable = true;
-    };
-  };
-}

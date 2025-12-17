@@ -1,7 +1,19 @@
-{ pkgs, ... }:
 {
-  systemd = {
-    user = {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  cfg = config.cave.systemd.services.clear-trash;
+in
+{
+  options.cave = {
+    systemd.services.clear-trash.enable = lib.mkEnableOption "enable systemd.services.clear-trash config";
+  };
+
+  config = lib.mkIf cfg.enable {
+    systemd.user = {
       services = {
         "clear-trash" = {
           Unit = {

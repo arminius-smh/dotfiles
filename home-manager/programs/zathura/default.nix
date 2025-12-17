@@ -1,23 +1,34 @@
-{ ... }:
 {
-  catppuccin = {
-    zathura = {
-      enable = true;
-    };
+  config,
+  lib,
+  ...
+}:
+let
+  cfg = config.cave.programs.zathura;
+in
+{
+  options.cave = {
+    programs.zathura.enable = lib.mkEnableOption "enable programs.zathura config";
   };
 
-  programs = {
-    zathura = {
-      enable = true;
-      mappings = {
-        i = "recolor";
-        D = "set 'first-page-column 1:1'";
-        "<C-d>" = "set 'first-page-column 1:2'";
+  config = lib.mkIf cfg.enable {
+    catppuccin = {
+      zathura = {
+        enable = true;
       };
-      options = {
-        selection-clipboard = "clipboard";
-        window-title-basename = true;
-        recolor = false;
+    };
+
+    programs = {
+      zathura = {
+        enable = true;
+        mappings = {
+          i = "recolor";
+        };
+        options = {
+          selection-clipboard = "clipboard";
+          window-title-basename = true;
+          recolor = false;
+        };
       };
     };
   };

@@ -1,7 +1,7 @@
 { pkgs }:
 
 pkgs.writeShellApplication {
-  name = "open-desktop-file";
+  name = "cave-open-desktop-file";
 
   runtimeInputs = with pkgs; [ toybox ];
 

@@ -3,8 +3,8 @@
 EMULATION_PATH=$1
 
 if [ -z "$EMULATION_PATH" ]; then
-  echo "Error: EMULATION_PATH is not set."
-  exit 1
+    echo "Error: EMULATION_PATH is not set."
+    exit 1
 fi
 
 # clean old retroarch playlist dir
@@ -25,18 +25,37 @@ for console_path in "$EMULATION_PATH"/*; do
 
     lpl_game=""
 
+    core_name="DETECT"
+    core_path="DETECT"
+
+    if [[ "$console_name" == "Nintendo - Nintendo Entertainment System" ]]; then
+        core_name="Nintendo - NES / Famicom (Mesen)"
+        core_path="/etc/profiles/per-user/armin/lib/retroarch/cores/mesen_libretro.so"
+    elif [[ "$console_name" == "Nintendo - Super Nintendo Entertainment System" ]]; then
+        core_name="Nintendo - SNES / SFC / Game Boy / Color (Mesen-S)"
+        core_path="/etc/profiles/per-user/armin/lib/retroarch/cores/mesen-s_libretro.so"
+    elif [[ "$console_name" == "Nintendo - Nintendo 64" ]]; then
+        core_name="Nintendo - Nintendo 64 (Mupen64Plus-Next)"
+        core_path="/etc/profiles/per-user/armin/lib/retroarch/cores/mupen64plus_next_libretro.so"
+    elif [[ "$console_name" == "Nintendo - GameCube" ]]; then
+        core_name="Nintendo - GameCube / Wii (Dolphin)"
+        core_path="/etc/profiles/per-user/armin/lib/retroarch/cores/dolphin_libretro.so"
+    fi
+
     for game_path in "$console_path"/*; do
         game_name=$(basename "$game_path")
         game_name_noext="${game_name%.*}"
+
         lpl_game="$lpl_game
     {
       \"path\": \"$game_path\",
       \"label\": \"$game_name_noext\",
-      \"core_path\": \"DETECT\",
-      \"core_name\": \"DETECT\",
+      \"core_path\": \"$core_path\",
+      \"core_name\": \"$core_name\",
       \"crc32\": \"DETECT\",
       \"db_name\": \"$console_name.lpl\"
     },"
+
     done
     lpl_game=${lpl_game%?} # remove last ,
     lpl="$lpl$lpl_game"
@@ -45,6 +64,6 @@ for console_path in "$EMULATION_PATH"/*; do
   ]
 }"
 
-    echo "$lpl" > "$HOME/.config/retroarch/playlists/$console_name.lpl"
+    echo "$lpl" >"$HOME/.config/retroarch/playlists/$console_name.lpl"
     echo "created retroarch playlist: $console_name.lpl"
 done

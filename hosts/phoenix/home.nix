@@ -41,8 +41,8 @@
       gtrash
       jq
       chromium
-      hyprshot
       libnotify
+      file-roller
     ];
 
     sessionVariables = {

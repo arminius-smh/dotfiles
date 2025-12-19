@@ -169,8 +169,8 @@ in
 
               #  -t https://github.com/marty-oehme/bemoji/issues/34
               "$mainMod SHIFT, M, exec, bemoji -cn && echo key ctrl+v | dotool"
-              "$mainMod SHIFT, D, exec, $HOME/dotfiles/assets/scripts/screenshot.sh interactive region"
-              "$mainMod SHIFT, S, exec, $HOME/dotfiles/assets/scripts/screenshot.sh interactive window"
+              "$mainMod SHIFT, D, exec, ${pkgs.cave-screenshot}/bin/cave-screenshot area"
+              "$mainMod SHIFT, S, exec, ${pkgs.cave-wl-ocr}/bin/cave-wl-ocr"
 
               "$mainMod CONTROL, Q, killactive"
 
@@ -182,7 +182,7 @@ in
 
               # Special Workspace
               "$mainMod SHIFT, N, toggleSpecialWorkspace, spotify"
-              "$mainMod SHIFT, O, exec, joplin-desktop"
+              "$mainMod SHIFT, O, exec, ${pkgs.joplin-desktop}/bin/joplin-desktop"
 
               # Fullscreen
               "$mainMod, F, fullscreen"
@@ -190,9 +190,7 @@ in
               # Hyprscrolling
               "$mainMod, comma, layoutmsg, colresize -conf"
               "$mainMod, period, layoutmsg, colresize +conf"
-              # screenshot button on controller executes windows screenshot
-              # replicate keybindg kinda-ish
-              # "$mainMod ALT, Alt_L, exec, $HOME/dotfiles/assets/scripts/screenshot.sh immediate"
+
               "$mainMod, N, exec, $HOME/dotfiles/assets/scripts/focus.sh"
             ];
 

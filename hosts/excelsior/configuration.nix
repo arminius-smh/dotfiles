@@ -44,6 +44,9 @@
       enable = true;
       enableOnBoot = false;
     };
+    podman = {
+      enable = true;
+    };
   };
 
   system = {

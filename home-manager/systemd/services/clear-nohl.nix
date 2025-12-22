@@ -5,11 +5,11 @@
   ...
 }:
 let
-  cfg = config.cave.systemd.services.clear.nohl;
+  cfg = config.cave.systemd.services.clear-nohl;
 in
 {
   options.cave = {
-    systemd.services.clear.nohl.enable = lib.mkEnableOption "enable systemd.services.clear.nohl config";
+    systemd.services.clear-nohl.enable = lib.mkEnableOption "enable systemd.services.clear-nohl config";
   };
 
   config = lib.mkIf cfg.enable {

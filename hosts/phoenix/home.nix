@@ -89,7 +89,22 @@
     programs = {
       collections = {
         coding.enable = true;
-        gaming.enable = true;
+        gaming = {
+          enable = true;
+          minecraft.enable = true;
+          emulation = {
+            enable = true;
+            nes = true;
+            snes = true;
+            gb = true;
+            n64 = true;
+            gc_wii = true;
+            nds = true;
+            "3ds" = true;
+            wiiu = true;
+            switch = true;
+          };
+        };
       };
       zathura.enable = true;
       neovim.enable = true;

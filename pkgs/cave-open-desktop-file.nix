@@ -13,7 +13,8 @@ pkgs.writeShellApplication {
             if [[ "$NAME_APP" == "$NAME" ]]; then
                 EXEC=$(grep "Exec" "$f" | cut -d "=" -f 2-)
                 # shellcheck disable=SC2086
-                nohup $EXEC >/dev/null 2>&1 &
+                # nohup $EXEC >/dev/null 2>&1 &
+                $EXEC
             fi
     done
   '';

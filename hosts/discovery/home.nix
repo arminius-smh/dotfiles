@@ -35,7 +35,6 @@
       fd
       gtrash
       (chromium.override { enableWideVine = true; })
-      open-desktop-file
     ];
 
     pointerCursor = {
@@ -64,6 +63,7 @@
         vesktop.enable = true;
         telegram.enable = true;
         joplin-desktop.enable = true;
+        libinput-gestures.enable = true;
         waypaper = {
           enable = true;
           cmd = "--restore";
@@ -72,6 +72,7 @@
         nwg-dock-hyprland.enable = true;
         quickshell.enable = true;
         thunderbird.enable = true;
+        spotify.enable = true;
       };
     };
     services = {
@@ -85,6 +86,16 @@
     programs = {
       collections = {
         coding.enable = true;
+        gaming = {
+          minecraft.enable = true;
+          emulation = {
+            enable = true;
+            nes = true;
+            snes = true;
+            gb = true;
+            n64 = true;
+          };
+        };
       };
       zsh.enable = true;
       firefox.enable = true;

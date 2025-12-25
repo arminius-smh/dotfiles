@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  systemName,
   ...
 }:
 let
@@ -30,7 +31,12 @@ in
           };
 
           Service = {
-            ExecStart = "${config.programs.spicetify.spicedSpotify}/bin/spotify";
+            ExecStart =
+              if (systemName == "phoenix") then
+                "${config.programs.spicetify.spicedSpotify}/bin/spotify"
+              else
+                "${pkgs.cave-open-desktop-file}/bin/cave-open-desktop-file Spotify";
+
             Restart = "on-failure";
             KillMode = "mixed";
           };
@@ -39,7 +45,7 @@ in
             WantedBy = [ "graphical-session.target" ];
           };
         };
-        spotify-cava = {
+        spotify-cava = lib.mkIf (systemName == "phoenix") {
           Unit = {
             Description = "${pkgs.cava.meta.description}";
             Documentation = "${pkgs.cava.meta.homepage}";

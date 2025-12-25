@@ -278,6 +278,7 @@ in
 
               "workspace 9 silent, class:^(thunderbird)$"
               "workspace special:spotify silent, class:^(spotify)$"
+              "workspace special:spotify silent, title:Spotify"
               "workspace special:spotify silent, class:^(cava)$"
 
               "float,class:^(spotify)$"
@@ -295,6 +296,7 @@ in
 
             exec-once = [
               "uwsm app -- fumon"
+              "hyprctl dismissnotify" # hide plugin loaded notification
             ];
           };
         };

@@ -17,5 +17,6 @@
     ./quickshell.nix
     ./thunderbird.nix
     ./spotify.nix
+    ./libinput-gestures.nix
   ];
 }

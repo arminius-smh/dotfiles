@@ -37,6 +37,12 @@ in
         # java
         jdt-language-server # language server
 
+        # web
+        nodejs # tool
+        vscode-langservers-extracted # language server html,css
+        svelte-language-server # language server svelte
+        typescript-language-server # language server typscript
+
         # TOOLS
         gnumake
       ];

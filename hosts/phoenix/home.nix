@@ -43,6 +43,9 @@
       chromium
       libnotify
       file-roller
+      jellyfin-desktop
+      ffmpeg
+      tree
     ];
 
     sessionVariables = {

@@ -274,6 +274,8 @@ in
               "norounding 1,class:^(cs2|cstrike_linux64)$"
               "fullscreen,class:^(cs2|cstrike_linux64)$"
 
+              "workspace 1, class:^(org.jellyfin.JellyfinDesktop)$"
+
               "workspace 9 silent, class:^(thunderbird)$"
               "workspace special:spotify silent, class:^(spotify)$"
               "workspace special:spotify silent, class:^(cava)$"

@@ -84,6 +84,16 @@ vim.lsp.config("qmlls", {
 })
 vim.lsp.enable("qmlls")
 
+---- WEB
+-- html
+vim.lsp.enable("html")
+-- css
+vim.lsp.enable("cssls")
+-- svelte
+vim.lsp.enable("svelte")
+
+-- typescript
+vim.lsp.enable("ts_ls")
 -- java
 vim.lsp.enable("jdtls")
 -- POST

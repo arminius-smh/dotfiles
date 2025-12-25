@@ -55,8 +55,8 @@ in
         scripts = with pkgs; [
           mpvScripts.modernz
           mpvScripts.thumbfast
-          # bookmarker-menu
-          # subs_to_clipboard
+          cave-bookmarker-menu
+          cave-subs_to_clipboard
         ];
       };
     };

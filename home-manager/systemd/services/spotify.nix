@@ -37,8 +37,10 @@ in
               else
                 "${pkgs.cave-open-desktop-file}/bin/cave-open-desktop-file Spotify";
 
-            Restart = "on-failure";
-            KillMode = "mixed";
+            # spotify very stubborn to shut down
+            KillMode = "control-group";
+            SendSIGKILL = true;
+            Restart = "no";
           };
 
           Install = {

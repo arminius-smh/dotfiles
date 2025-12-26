@@ -36,6 +36,20 @@
     };
   };
 
+  systemd.services.podman-network-online-dummy = {
+    description = "This service simply activates network-online.target";
+
+    after = [ "network-online.target" ];
+    wants = [ "network-online.target" ];
+
+    serviceConfig = {
+      ExecStart = "${pkgs.coreutils}/bin/echo Activating network-online.target";
+      Type = "oneshot";
+    };
+
+    wantedBy = [ "multi-user.target" ];
+  };
+
   virtualisation = {
     libvirtd = {
       enable = true;

@@ -61,7 +61,7 @@ in
           ++ lib.optionals cfg.snes [ mesen-s ]
           ++ lib.optionals cfg.gb [ mgba ]
           ++ lib.optionals cfg.n64 [ mupen64plus ]
-          ++ lib.optionals cfg.gc_wii [ dolphin-emu ]
+          ++ lib.optionals cfg.gc_wii [ dolphin ]
           ++ lib.optionals cfg.nds [ melonds ]
           ++ lib.optionals cfg."3ds" [ citra ]
         ))
@@ -75,7 +75,7 @@ in
         cemu
       ]
       ++ lib.optionals cfg.switch [
-        ryujinx
+        ryubing
       ];
 
     xdg = {

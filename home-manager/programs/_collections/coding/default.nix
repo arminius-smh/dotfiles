@@ -37,14 +37,29 @@ in
         # java
         jdt-language-server # language server
 
+        # rust 
+        cargo # tool
+        rustc # tool
+        rust-analyzer # language server
+        rustfmt # formatter
+
         # web
         nodejs # tool
         vscode-langservers-extracted # language server html,css
         svelte-language-server # language server svelte
         typescript-language-server # language server typscript
 
+        # docker
+        dockerfile-language-server # language server dockerfile
+        hadolint # linter dockerfile
+
+        # yaml
+        yaml-language-server # language server
+
         # TOOLS
         gnumake
+        cmake
+        gcc
       ];
     };
 

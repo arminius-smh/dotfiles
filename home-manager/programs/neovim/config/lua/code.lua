@@ -84,6 +84,12 @@ vim.lsp.config("qmlls", {
 })
 vim.lsp.enable("qmlls")
 
+-- rust
+vim.lsp.enable("rust_analyzer")
+
+-- yaml
+vim.lsp.enable("yamlls")
+
 ---- WEB
 -- html
 vim.lsp.enable("html")
@@ -91,11 +97,19 @@ vim.lsp.enable("html")
 vim.lsp.enable("cssls")
 -- svelte
 vim.lsp.enable("svelte")
-
 -- typescript
 vim.lsp.enable("ts_ls")
+----
+
 -- java
 vim.lsp.enable("jdtls")
+
+-- docker
+vim.lsp.enable("dockerls")
+linters.linters_by_ft = {
+    dockerfile = { "hadolint" },
+}
+
 -- POST
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextChanged", "TextChangedI" }, {
     callback = function()

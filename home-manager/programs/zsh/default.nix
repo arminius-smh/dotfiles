@@ -62,6 +62,10 @@ in
                 disown
             }
 
+            vmssh() {
+              kitten ssh armin@$(sudo virsh domifaddr $1 | grep ipv4 | awk '{print $4}' | cut -d '/' -f1)
+            }
+
             if [ -z "$NVIM" ]; then
                 fastfetch
             fi

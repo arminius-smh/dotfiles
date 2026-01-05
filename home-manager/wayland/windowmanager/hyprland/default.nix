@@ -28,9 +28,9 @@ in
             enable = false;
           };
 
-          plugins = with pkgs; [
-            hyprlandPlugins.hyprscrolling
-          ];
+          # plugins = with pkgs; [
+          #   hyprlandPlugins.hyprscrolling
+          # ];
           settings = {
             "$mainMod" = "SUPER";
             plugin = {
@@ -120,20 +120,32 @@ in
 
             bind = [
               # Move focus
-              "$mainMod, H, layoutmsg, focus l"
-              "$mainMod, L, layoutmsg, focus r"
-              "$mainMod, K, layoutmsg, focus u"
-              "$mainMod, J, layoutmsg, focus d"
+              # hyprscrolling
+              # "$mainMod, H, layoutmsg, focus l"
+              # "$mainMod, L, layoutmsg, focus r"
+              # "$mainMod, K, layoutmsg, focus u"
+              # "$mainMod, J, layoutmsg, focus d"
+              # normal
+              "$mainMod, left, movefocus, l"
+              "$mainMod, right, movefocus, r"
+              "$mainMod, up, movefocus, u"
+              "$mainMod, down, movefocus, d"
 
               # Move windows to monitor
               "$mainMod CTRL, H, focusmonitor, l"
               "$mainMod CTRL, L, focusmonitor, r"
 
               # Move windows
-              "$mainMod SHIFT, H, layoutmsg, movewindowto l"
-              "$mainMod SHIFT, L, layoutmsg, movewindowto r"
-              "$mainMod SHIFT, K, layoutmsg, movewindowto u"
-              "$mainMod SHIFT, J, layoutmsg, movewindowto d"
+              # hyprscrolling
+              # "$mainMod SHIFT, H, layoutmsg, movewindowto l"
+              # "$mainMod SHIFT, L, layoutmsg, movewindowto r"
+              # "$mainMod SHIFT, K, layoutmsg, movewindowto u"
+              # "$mainMod SHIFT, J, layoutmsg, movewindowto d"
+              # normal
+              "$mainMod SHIFT, H, movewindow, l"
+              "$mainMod SHIFT, L, movewindow, r"
+              "$mainMod SHIFT, K, movewindow, u"
+              "$mainMod SHIFT, J, movewindow, d"
 
               # Switch workspaces
               "$mainMod, 1, workspace, 1"
@@ -238,65 +250,57 @@ in
             ];
 
             windowrule = [
-              "fullscreen,class:^(TradingView)$"
-              "float,class:^(gamescope)$"
-              "norounding 1,class:^(gamescope)$"
-              "float,class:^(feh)$"
-              "norounding 1,class:^(feh)$"
-              "float,class:^(waypaper)$"
-              "float,class:^(imv)$"
-              "norounding 1,class:^(imv)$"
-              "float,class:^(com.saivert.pwvucontrol)$"
-              "float,class:^(nm-connection-editor)$"
-              "float,class:^(nwg-displays)$"
-              "float,class:^(org.gnome.font-viewer)$"
-              "float,class:^(io.bassi.Amberol)$"
-              "float,class:^(xdg-desktop-portal-gtk)$"
-              "float,class:^(.blueman-manager-wrapped)$"
-              "float,class:^(io.missioncenter.MissionCenter)$"
-              "size 1050 650,class:^(io.missioncenter.MissionCenter)$"
-              "float,class:^(org.kde.kdeconnect.daemon)$"
-              "float,class:^(org.fcitx.)$"
-              "float,class:^(gnome-disks)$"
-              "float,class:^(zoom)$"
-              "float,class:^(anki)$"
-              "tile,class:^(anki)$,title:^(User 1 - Anki)$"
-              "float, class:^(org.gnome.FileRoller)$"
+              "fullscreen on, match:class ^(TradingView)$"
+              "float on, match:class feh"
+              "rounding 0, match:class feh"
+              "float on, match:class waypaper"
+              "float on, match:class imv"
+              "rounding 0, match:class imv"
+              "float on,match:class com.saivert.pwvucontrol"
+              "float on,match:class nm-connection-editor"
+              "float on,match:class nwg-displays"
+              "float on,match:class org.gnome.font-viewer"
+              "float on,match:class io.bassi.Amberol"
+              "float on,match:class xdg-desktop-portal-gtk"
+              "float on,match:class .blueman-manager-wrapped"
+              "float on,match:class io.missioncenter.MissionCenter"
+              "size 1050 650, match:class io.missioncenter.MissionCenter"
+              "float on,match:class org.kde.kdeconnect.daemon"
+              "float on,match:class gnome-disks"
+              "float on,match:class zoom"
+              "float on,match:class anki"
+              "tile on,match:class anki, match:title User 1 - Anki"
+              "float on,match:class org.gnome.FileRoller"
               # main window tiled, popups floating
-              "float,class:^(steam)$"
-              "tile,class:^(steam)$,title:^(Steam)"
+              "float on,match:class steam"
+              "tile on, match:class steam, match:title Steam"
 
-              "float,class:^(thunar)$"
-              "tile,class:^(thunar)$,title:^(armin - Thunar)"
+              "float on,match:class thunar"
+              "tile on,match:class thunar, match:title armin - Thunar"
 
-              "norounding 1,class:^(steam_app_.*)$"
-              "float,class:^(steam_app_.*)$"
-              "norounding 1,class:^(cs2|cstrike_linux64)$"
-              "fullscreen,class:^(cs2|cstrike_linux64)$"
+              "rounding 0,match:class ^(steam_app_.*)$"
+              "float on,match:class ^(steam_app_.*)$"
+              "rounding 0,match:class ^(cs2|cstrike_linux64)$"
+              "fullscreen on,match:class ^(cs2|cstrike_linux64)$"
 
-              "workspace 1, class:^(org.jellyfin.JellyfinDesktop)$"
+              "workspace 1, match:class org.jellyfin.JellyfinDesktop"
 
-              "workspace 9 silent, class:^(thunderbird)$"
-              "workspace special:spotify silent, class:^(spotify)$"
-              "workspace special:spotify silent, title:Spotify"
-              "workspace special:spotify silent, class:^(cava)$"
+              "workspace 9 silent, match:class thunderbird"
+              "workspace special:spotify silent, match:class spotify"
+              "workspace special:spotify silent, match:title Spotify"
+              "workspace special:spotify silent, match:class cava"
 
-              "float,class:^(spotify)$"
-              "size 1700 890,class:^(spotify)$"
-              "move onscreen 6% 4%,class:^(spotify)$"
-              "float,class:^(cava)$"
-              "size 1700 100,class:^(cava)$"
-              "move onscreen 6% 88%,class:^(cava)$"
-            ];
-            layerrule = [
-              "blur, waybar"
-              "blur, ags"
-              "blur, nwg-drawer"
+              "float on, match:class spotify"
+              "size 1700 890, match:class spotify"
+              "move 2050 50, match:class spotify"
+              "float on, match:class cava"
+              "size 1700 100, match:class cava"
+              "move 2050 960,match:class cava"
             ];
 
             exec-once = [
               "uwsm app -- fumon"
-              "hyprctl dismissnotify" # hide plugin loaded notification
+              "hyprctl dismissnotify all" # hide plugin loaded notification
             ];
           };
         };

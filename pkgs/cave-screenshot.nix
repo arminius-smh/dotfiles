@@ -23,7 +23,7 @@ pkgs.writeShellApplication {
 
     timeout_time="2500"
 
-    grimblast copysave "$1" "$screenshot_path"
+    grimblast copysave "$1" "$screenshot_path" || hyprctl keyword decoration:rounding "$border_rounding"
 
     timeout=5
     count=0
@@ -32,14 +32,14 @@ pkgs.writeShellApplication {
         ((count++))
     done
 
+    hyprctl keyword decoration:rounding "$border_rounding"
+
     if [[ -f "$screenshot_path" ]]; then
         ACTION=$(notify-send --transient -t "$timeout_time" --icon "$screenshot_path" "Screenshot saved" "Image saved in $screenshot_path" --action Edit --action Delete)
     else
         echo "$RESULT"
         notify-send --transient -t "$timeout_time" --icon=dialog-error "Screenshot canceled" "$RESULT"
     fi
-
-    hyprctl keyword decoration:rounding "$border_rounding"
 
     if [[ "$ACTION" == "0" ]]; then
         satty -f "$screenshot_path" -o "$satty_name"

@@ -44,8 +44,10 @@
       libnotify
       file-roller
       jellyfin-desktop
+      feishin
       ffmpeg
       tree
+      droidcam
     ];
 
     sessionVariables = {

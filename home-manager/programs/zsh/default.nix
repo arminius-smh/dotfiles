@@ -1,4 +1,5 @@
 {
+  systemName,
   config,
   pkgs,
   lib,
@@ -71,9 +72,10 @@ in
             fi
           '';
 
-        profileExtra = ''
+        # TODO: https://github.com/NixOS/nixpkgs/issues/476375
+        profileExtra = lib.mkIf (systemName == "phoenix" || systemName == "discovery") ''
           if uwsm check may-start; then
-          	exec uwsm start hyprland-uwsm.desktop >/dev/null 2>&1
+          	exec uwsm start -eD Hyprland hyprland-uwsm.desktop >/dev/null 2>&1
           fi
         '';
 
@@ -81,7 +83,7 @@ in
           x = "wl-copy";
           svim = "sudo -E -s nvim";
           cat = "bat --paging=never";
-          rm = "gtrash put --rm-mode";
+          rm = lib.mkIf (systemName == "phoenix" || systemName == "discovery") "gtrash put --rm-mode";
           man = "batman";
           shutdown = "shutdown --no-wall";
           reboot = "reboot --no-wall";
@@ -90,6 +92,12 @@ in
           json2nix = "nix run github:sempruijs/json2nix";
           nm2nix = ''sudo su -c "cd /etc/NetworkManager/system-connections && nix --extra-experimental-features 'nix-command flakes' run github:Janik-Haag/nm2nix | nix --extra-experimental-features 'nix-command flakes' run nixpkgs#nixfmt-rfc-style"'';
           s = "kitten ssh";
+          start = "systemctl start";
+          ustart = "systemctl --user start";
+          stop = "systemctl stop";
+          ustop = "systemctl --user stop";
+          restart = "systemctl restart";
+          urestart = "systemctl --user restart";
         };
       };
     };

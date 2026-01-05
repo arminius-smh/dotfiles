@@ -1,3 +1,5 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Effects
 import Quickshell.Services.Mpris
@@ -6,23 +8,37 @@ import QtQuick.Layouts
 
 Repeater {
     id: root
-    model: Mpris.players
+    model: Mpris.players.values.filter(pl => pl.dbusName == "org.mpris.MediaPlayer2.spotify" || pl.dbusName == "org.mpris.MediaPlayer2.Feishin")
 
     required property bool show
+    property string lastActivePlayer: "org.mpris.MediaPlayer2.spotify"
 
     RowLayout {
         id: mprisContainer
         required property MprisPlayer modelData
-        visible: getSpotify(mprisContainer.modelData)
+        visible: root.show && root.lastActivePlayer === modelData.dbusName
 
-        function getSpotify(modelData) {
-            if (!root.show) {
-                return false;
-            }
-            if (modelData.dbusName == "org.mpris.MediaPlayer2.spotify") {
-                return true;
-            } else {
-                return false;
+        Connections {
+            target: mprisContainer.modelData
+            function onIsPlayingChanged() {
+                const lastActive = root.model.find(item => item.dbusName === root.lastActivePlayer);
+                const actives = root.model.filter(item => item.isPlaying === true).filter(pl => pl.dbusName != lastActive.dbusName);
+
+                let playback = mprisContainer.modelData.isPlaying;
+
+                if (playback == true) {
+                    // if new player is playing, dont display change if last active player is still active
+                    if (!lastActive.isPlaying) {
+                        root.lastActivePlayer = mprisContainer.modelData.dbusName;
+                    }
+                } else if (root.lastActivePlayer === mprisContainer.modelData.dbusName) {
+                    // if the active player was stopped,
+                    // check if another one is still active and use that
+                    // in case two players are active
+                    if (!lastActive.isPlaying && actives.length > 0) {
+                        root.lastActivePlayer = actives[0].dbusName;
+                    }
+                }
             }
         }
 
@@ -107,18 +123,18 @@ Repeater {
             }
         }
 
-        function songTitle(title) {
-            if (title.length > 38) {
-                title = title.substring(0, 35) + "...";
-            }
-            return title;
-        }
-
         Text {
             color: "#cdd6f4"
             text: songTitle(mprisContainer.modelData.trackTitle)
             leftPadding: 5
             font.family: "Lexend"
+
+            function songTitle(title) {
+                if (title.length > 38) {
+                    title = title.substring(0, 35) + "...";
+                }
+                return title;
+            }
 
             MouseArea {
                 acceptedButtons: Qt.LeftButton
@@ -152,6 +168,15 @@ Repeater {
                 font.pointSize: 14
                 rightPadding: 5
                 text: playbackIcon(mprisContainer.modelData.playbackState)
+
+                function playbackIcon(playback) {
+                    if (playback == MprisPlaybackState.Playing) {
+                        return "󰏤";
+                    } else {
+                        return "󰐊";
+                    }
+                }
+
                 MouseArea {
                     acceptedButtons: Qt.LeftButton
                     implicitHeight: parent.height
@@ -171,14 +196,6 @@ Repeater {
 
                     onClicked: mprisContainer.modelData.next()
                 }
-            }
-        }
-
-        function playbackIcon(playback) {
-            if (playback == MprisPlaybackState.Playing) {
-                return "󰏤";
-            } else {
-                return "󰐊";
             }
         }
     }

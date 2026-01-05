@@ -17,7 +17,7 @@ in
       printing = {
         enable = true;
         drivers = with pkgs; [
-          cnijfilter2
+          # cnijfilter2
         ];
       };
     };

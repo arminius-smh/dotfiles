@@ -6,14 +6,6 @@
 }:
 let
   cfg = config.cave.programs.vlc;
-
-  libbluray = pkgs.libbluray.override {
-    withAACS = true;
-    withBDplus = true;
-    withJava = true;
-  };
-  vlcBluray = pkgs.vlc.override { inherit libbluray; };
-
 in
 {
   options.cave = {
@@ -22,8 +14,8 @@ in
 
   config = lib.mkIf cfg.enable {
     home = {
-      packages = [
-        vlcBluray
+      packages = with pkgs; [
+        vlc
       ];
 
       file = {

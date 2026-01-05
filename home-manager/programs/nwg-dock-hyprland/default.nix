@@ -24,8 +24,10 @@ in
         ".cache/nwg-dock-pinned" = {
           text = ''
             firefox
+            chromium
             joplin
-            Jellyfin Media Player
+            org.jellyfin.JellyfinDesktop
+            feishin
             anki
             thunderbird
           '';

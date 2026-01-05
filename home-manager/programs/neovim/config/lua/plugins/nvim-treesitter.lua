@@ -13,7 +13,7 @@ M.config = function()
     }
     require("nvim-treesitter").install(parsers)
 
-    local exclude_parsers = {}
+    local exclude_parsers = { "notify", "TelescopePrompt", "Telescope" }
     vim.api.nvim_create_autocmd("FileType", {
         group = vim.api.nvim_create_augroup("EnableTreesitter", { clear = true }),
         desc = "Try to enable tree-sitter",
@@ -27,7 +27,10 @@ M.config = function()
                     end
                 end
                 if not parsers[ft] then
-                    require("nvim-treesitter").install(ft):await()
+                    local available = vim.g.ts_available or require("nvim-treesitter").get_available()
+                    if vim.tbl_contains(available, ft) then
+                        require("nvim-treesitter").install(ft):await()
+                    end
                 end
 
                 -- Highlights

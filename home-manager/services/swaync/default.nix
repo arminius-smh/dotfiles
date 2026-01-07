@@ -48,6 +48,10 @@ in
               state = "transient";
               "app-name" = "spotify_player";
             };
+            "hide-feishin-from-cc" = {
+              state = "transient";
+              "app-name" = "feishin";
+            };
             "hide-heroic-from-cc" = {
               state = "transient";
               "app-name" = "heroic";

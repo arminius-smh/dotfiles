@@ -31,8 +31,10 @@ in
 
           Service = {
             ExecStart = "${pkgs.feishin}/bin/feishin";
-            Restart = "on-failure";
-            KillMode = "mixed";
+
+            KillMode = "control-group";
+            SendSIGKILL = true;
+            Restart = "no";
           };
 
           Install = {

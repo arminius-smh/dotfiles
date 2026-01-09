@@ -126,10 +126,10 @@ in
               # "$mainMod, K, layoutmsg, focus u"
               # "$mainMod, J, layoutmsg, focus d"
               # normal
-              "$mainMod, left, movefocus, l"
-              "$mainMod, right, movefocus, r"
-              "$mainMod, up, movefocus, u"
-              "$mainMod, down, movefocus, d"
+              "$mainMod, H, movefocus, l"
+              "$mainMod, L, movefocus, r"
+              "$mainMod, K, movefocus, u"
+              "$mainMod, J, movefocus, d"
 
               # Move windows to monitor
               "$mainMod CTRL, H, focusmonitor, l"
@@ -288,14 +288,6 @@ in
               "workspace 9 silent, match:class thunderbird"
               "workspace special:spotify silent, match:class spotify"
               "workspace special:spotify silent, match:title Spotify"
-              "workspace special:spotify silent, match:class cava"
-
-              "float on, match:class spotify"
-              "size 1700 890, match:class spotify"
-              "move 2050 50, match:class spotify"
-              "float on, match:class cava"
-              "size 1700 100, match:class cava"
-              "move 2050 960,match:class cava"
             ];
 
             exec-once = [

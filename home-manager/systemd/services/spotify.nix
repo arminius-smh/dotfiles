@@ -47,30 +47,6 @@ in
             WantedBy = [ "graphical-session.target" ];
           };
         };
-        spotify-cava = lib.mkIf (systemName == "phoenix") {
-          Unit = {
-            Description = "${pkgs.cava.meta.description}";
-            Documentation = "${pkgs.cava.meta.homepage}";
-            Requires = [
-              "tray.target"
-            ];
-            After = [
-              "graphical-session.target"
-              "tray.target"
-            ];
-            PartOf = [ "graphical-session.target" ];
-          };
-
-          Service = {
-            ExecStart = "${pkgs.kitty}/bin/kitty --class cava ${pkgs.cava}/bin/cava";
-            Restart = "on-failure";
-            KillMode = "mixed";
-          };
-
-          Install = {
-            WantedBy = [ "graphical-session.target" ];
-          };
-        };
       };
     };
   };

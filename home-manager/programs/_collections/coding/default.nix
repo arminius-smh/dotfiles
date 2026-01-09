@@ -26,7 +26,7 @@ in
 
         # nix
         nixd # language server
-        nixfmt-rfc-style # formatter
+        nixfmt # formatter
 
         # hypr
         hyprls # language server hypr

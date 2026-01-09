@@ -51,10 +51,12 @@ in
 
             # , alias for nix(nom) shell
             ,() {
-              cmd="${pkgs.nix-output-monitor}/bin/nom shell"
+              cmd="NIXPKGS_ALLOW_UNFREE=1 ${pkgs.nix-output-monitor}/bin/nom shell"
               for arg in "$@"; do
                 cmd="$cmd nixpkgs#$arg"
               done
+
+              cmd="$cmd --impure"
               eval "$cmd"
             }
 
@@ -90,7 +92,7 @@ in
           nix-edit = "nix-edit.sh";
           rebuild = "rebuild.sh";
           json2nix = "nix run github:sempruijs/json2nix";
-          nm2nix = ''sudo su -c "cd /etc/NetworkManager/system-connections && nix --extra-experimental-features 'nix-command flakes' run github:Janik-Haag/nm2nix | nix --extra-experimental-features 'nix-command flakes' run nixpkgs#nixfmt-rfc-style"'';
+          nm2nix = ''sudo su -c "cd /etc/NetworkManager/system-connections && nix --extra-experimental-features 'nix-command flakes' run github:Janik-Haag/nm2nix | nix --extra-experimental-features 'nix-command flakes' run nixpkgs#nixfmt"'';
           s = "kitten ssh";
           start = "systemctl start";
           ustart = "systemctl --user start";

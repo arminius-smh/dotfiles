@@ -15,7 +15,6 @@ in
   config = lib.mkIf cfg.enable {
     services = {
       displayManager = {
-        defaultSession = "hyprland-uwsm";
         sddm = {
           enable = true;
           package = pkgs.kdePackages.sddm;

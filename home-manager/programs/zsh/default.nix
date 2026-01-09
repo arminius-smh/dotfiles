@@ -73,7 +73,7 @@ in
           '';
 
         # TODO: https://github.com/NixOS/nixpkgs/issues/476375
-        profileExtra = lib.mkIf (systemName == "phoenix" || systemName == "discovery") ''
+        profileExtra = lib.mkIf (systemName == "phoenix") ''
           if uwsm check may-start; then
           	exec uwsm start -eD Hyprland hyprland-uwsm.desktop >/dev/null 2>&1
           fi

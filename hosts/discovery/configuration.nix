@@ -164,7 +164,6 @@
       gnupg.enable = true;
       neovim.enable = true;
       nix-ld.enable = true;
-      thunar.enable = true;
       zsh.enable = true;
     };
   };

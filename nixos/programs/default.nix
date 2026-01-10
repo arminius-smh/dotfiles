@@ -7,7 +7,6 @@
     ./gnupg
     ./neovim
     ./nix-ld
-    ./thunar
     ./virt-manager
     ./zsh
     ./gamemode

@@ -212,7 +212,6 @@
       gnupg.enable = true;
       neovim.enable = true;
       nix-ld.enable = true;
-      thunar.enable = true;
       virt-manager.enable = true;
       zsh.enable = true;
     };

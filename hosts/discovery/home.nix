@@ -130,6 +130,7 @@
       nwg-displays.enable = true;
       libinput-gestures.enable = true;
       nwg-dock-hyprland.enable = true;
+      thunar.enable = true;
       waypaper.enable = true;
       hyprlock.enable = true;
       quickshell.enable = true;

@@ -14,6 +14,8 @@ RowLayout {
         verticalCenter: parent.verticalCenter
     }
 
+    SysMenu {}
+
     HyprlandWorkspaces {
         screenName: row.toplevel.modelData.name
     }

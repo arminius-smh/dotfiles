@@ -2,6 +2,7 @@
 {
   imports = [
     ./_collections
+    ./thunar
     ./mpv
     ./imv
     ./git

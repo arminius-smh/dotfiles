@@ -4,7 +4,6 @@ import Quickshell
 import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell.Widgets
-import QtQuick.Effects
 import "utils.js" as Utils
 
 PopupWindow {

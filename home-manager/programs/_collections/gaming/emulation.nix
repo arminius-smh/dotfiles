@@ -47,6 +47,14 @@ in
       type = lib.types.bool;
       default = false;
     };
+    ps1 = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
+    ps2 = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -64,6 +72,8 @@ in
           ++ lib.optionals cfg.gc_wii [ dolphin ]
           ++ lib.optionals cfg.nds [ melonds ]
           ++ lib.optionals cfg."3ds" [ citra ]
+          ++ lib.optionals cfg.ps1 [ beetle-psx ]
+          ++ lib.optionals cfg.ps2 [ pcsx2 ]
         ))
         retroarch-assets
         retroarch-joypad-autoconfig

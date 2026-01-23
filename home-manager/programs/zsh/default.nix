@@ -66,7 +66,13 @@ in
             }
 
             vmssh() {
-              kitten ssh armin@$(sudo virsh domifaddr $1 | grep ipv4 | awk '{print $4}' | cut -d '/' -f1)
+              ip=$(sudo virsh domifaddr "$1" | awk '/ipv4/ {split($4, a, "/"); print a[1]}')
+
+              if [ -n "$KITTY_WINDOW_ID" ]; then
+                kitten ssh armin@"$ip"
+              else
+                ssh armin@"$ip"
+              fi
             }
 
             if [ -z "$NVIM" ]; then

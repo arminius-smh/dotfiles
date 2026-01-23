@@ -106,6 +106,8 @@
             "3ds" = true;
             wiiu = true;
             switch = true;
+            ps1 = true;
+            ps2 = true;
           };
         };
       };

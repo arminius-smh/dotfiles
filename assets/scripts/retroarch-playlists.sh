@@ -40,6 +40,12 @@ for console_path in "$EMULATION_PATH"/*; do
     elif [[ "$console_name" == "Nintendo - GameCube" ]]; then
         core_name="Nintendo - GameCube / Wii (Dolphin)"
         core_path="/etc/profiles/per-user/armin/lib/retroarch/cores/dolphin_libretro.so"
+    elif [[ "$console_name" == "Sony - PlayStation" ]]; then
+        core_name="Sony - PlayStation (Beetle PSX)"
+        core_path="/etc/profiles/per-user/armin/lib/retroarch/cores/mednafen_psx_libretro.so"
+    elif [[ "$console_name" == "Sony - PlayStation 2" ]]; then
+        core_name="Sony - PlayStation 2 (LRPS2)"
+        core_path="/etc/profiles/per-user/armin/lib/retroarch/cores/pcsx2_libretro.so"
     fi
 
     for game_path in "$console_path"/*; do

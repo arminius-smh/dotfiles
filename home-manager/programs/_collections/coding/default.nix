@@ -36,6 +36,7 @@ in
 
         # java
         jdt-language-server # language server
+        maven # build tool
 
         # rust 
         cargo # tool
@@ -55,6 +56,13 @@ in
 
         # yaml
         yaml-language-server # language server
+
+        # python
+        python3 # tool
+        pyright # language server
+        black # formatter
+        isort # sort imports
+
 
         # TOOLS
         gnumake

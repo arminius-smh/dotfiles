@@ -63,6 +63,9 @@ in
         black # formatter
         isort # sort imports
 
+        # csharp
+        dotnet-sdk_10
+        csharp-ls
 
         # TOOLS
         gnumake

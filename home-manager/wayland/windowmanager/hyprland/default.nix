@@ -194,6 +194,7 @@ in
 
               # Special Workspace
               "$mainMod SHIFT, N, toggleSpecialWorkspace, spotify"
+              "$mainMod SHIFT, M, toggleSpecialWorkspace, feishin"
               "$mainMod SHIFT, O, exec, ${pkgs.joplin-desktop}/bin/joplin-desktop"
 
               # Fullscreen
@@ -288,6 +289,8 @@ in
               "workspace 9 silent, match:class thunderbird"
               "workspace special:spotify silent, match:class spotify"
               "workspace special:spotify silent, match:title Spotify"
+
+              "workspace special:feishin silent, match:class feishin"
             ];
 
             exec-once = [

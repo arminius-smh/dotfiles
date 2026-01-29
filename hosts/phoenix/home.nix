@@ -48,6 +48,7 @@
       ffmpeg
       tree
       droidcam
+      picard
     ];
 
     sessionVariables = {

@@ -114,6 +114,9 @@ linters.linters_by_ft = {
 vim.lsp.enable("pyright")
 format.formatters_by_ft.python = { "isort", "black" }
 
+-- csharp
+vim.lsp.enable("csharp_ls")
+
 -- POST
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextChanged", "TextChangedI" }, {
     callback = function()

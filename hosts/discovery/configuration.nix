@@ -63,7 +63,7 @@
       "quiet"
       "splash"
       "boot.shell_on_fail"
-      "apple_dcp.show_notch=1"
+      "appledrm.show_notch=1"
       "vt.cur_default=1" # hide blinking _ cursor during boot
       "loglevel=3"
       "rd.systemd.show_status=false"

@@ -22,6 +22,11 @@ Repeater {
             target: mprisContainer.modelData
             function onIsPlayingChanged() {
                 const lastActive = root.model.find(item => item.dbusName === root.lastActivePlayer);
+                if (lastActive === undefined) {
+                    // if (e.g. at startup) lastActive is not started/closed, use current one as player
+                    root.lastActivePlayer = mprisContainer.modelData.dbusName;
+                    return;
+                }
                 const actives = root.model.filter(item => item.isPlaying === true).filter(pl => pl.dbusName != lastActive.dbusName);
 
                 let playback = mprisContainer.modelData.isPlaying;

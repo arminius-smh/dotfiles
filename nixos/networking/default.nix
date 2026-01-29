@@ -27,10 +27,12 @@ in
         # NOTE:
         # syncthing = 22000tcp/udp
         # syncthing discovery = 21027udp
-        allowedTCPPorts = [ 22000 ];
+        # localsend = 53317tcp/udp
+        allowedTCPPorts = [ 22000 53317 ];
         allowedUDPPorts = [
           22000
           21027
+          53317
         ];
       };
       hostName = systemName;

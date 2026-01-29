@@ -34,6 +34,7 @@
       ripgrep
       fd
       gtrash
+      jellyfin-desktop
       (chromium.override { enableWideVine = true; })
     ];
 
@@ -73,6 +74,7 @@
         quickshell.enable = true;
         thunderbird.enable = true;
         spotify.enable = true;
+        feishin.enable = true;
       };
     };
     services = {

@@ -49,6 +49,9 @@
       tree
       droidcam
       picard
+      sshfs
+      simple-scan
+      localsend
     ];
 
     sessionVariables = {

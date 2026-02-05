@@ -5,6 +5,7 @@
     ./dconf
     ./git
     ./gnupg
+    ./kdeconnect
     ./neovim
     ./nix-ld
     ./virt-manager

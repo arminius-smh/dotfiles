@@ -59,6 +59,9 @@
         vhostUserPackages = [ pkgs.virtiofsd ];
       };
     };
+    docker = {
+      enable = true;
+    };
     podman = {
       enable = true;
     };

@@ -112,6 +112,11 @@ in
               disable_hyprland_logo = true;
               enable_anr_dialog = false; # enable when window rules exists to ignore it
             };
+            
+            render = {
+              # disable auto switch monitor when using mpv in fullscreen
+              cm_enabled = false;
+            };
 
             source = [
               "${config.xdg.configHome}/hypr/monitors.conf"
@@ -285,7 +290,6 @@ in
               "fullscreen on,match:class ^(cs2|cstrike_linux64)$"
 
               "workspace 1, match:class org.jellyfin.JellyfinDesktop"
-
               "workspace 9 silent, match:class thunderbird"
               "workspace special:spotify silent, match:class spotify"
               "workspace special:spotify silent, match:title Spotify"

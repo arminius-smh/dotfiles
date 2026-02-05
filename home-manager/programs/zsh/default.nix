@@ -82,8 +82,12 @@ in
 
         # TODO: https://github.com/NixOS/nixpkgs/issues/476375
         profileExtra = lib.mkIf (systemName == "phoenix") ''
-          if uwsm check may-start; then
-          	exec uwsm start -eD Hyprland hyprland-uwsm.desktop >/dev/null 2>&1
+          if [[ -z "$UWSM_TRIED" ]]; then
+            export UWSM_TRIED=1
+            if uwsm check may-start; then
+              uwsm start -eD Hyprland ${pkgs.hyprland}/share/wayland-sessions/hyprland.desktop \
+                >/dev/null 2>&1 || true
+            fi
           fi
         '';
 

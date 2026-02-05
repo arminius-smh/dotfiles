@@ -4,17 +4,16 @@
   ...
 }:
 let
-  cfg = config.cave.programs.steam;
+  cfg = config.cave.programs.kdeconnect;
 in
 {
   options.cave = {
-    programs.steam.enable = lib.mkEnableOption "enable programs.steam config";
+    programs.kdeconnect.enable = lib.mkEnableOption "enable programs.kdeconnect config";
   };
 
   config = lib.mkIf cfg.enable {
-
     programs = {
-      steam = {
+      kdeconnect = {
         enable = true;
       };
     };

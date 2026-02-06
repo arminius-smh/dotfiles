@@ -27,7 +27,7 @@ RowLayout {
                 Text {
                     id: percentageText
                     anchors.centerIn: parent
-                    text: root.defaultPower.percentage * 100 + "%"
+                    text: Math.round(root.defaultPower.percentage * 100) + "%"
                     color: "#cdd6f4"
                 }
                 color: "#313244"

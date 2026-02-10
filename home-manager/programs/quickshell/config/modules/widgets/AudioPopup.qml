@@ -34,13 +34,33 @@ PopupWindow {
                 Layout.topMargin: 5
 
                 Button {
+                    id: managerButton
+                    checked: true
+                    text: "Audio"
+                    onClicked: {
+                        stack.currentIndex = 2;
+                        outputButton.checked = false;
+                        inputButton.checked = false;
+                        managerButton.checked = true;
+                    }
+                    background: Rectangle {
+                        implicitWidth: 70
+                        implicitHeight: 30
+                        color: "#45475a"
+                        border.color: managerButton.checked ? "#b4befe" : "#313244"
+                        border.width: 1
+                        radius: 4
+                    }
+                }
+
+                Button {
                     id: outputButton
                     text: "Output"
-                    checked: true
                     onClicked: {
                         stack.currentIndex = 0;
                         outputButton.checked = true;
                         inputButton.checked = false;
+                        managerButton.checked = false;
                     }
                     background: Rectangle {
                         implicitWidth: 70
@@ -59,6 +79,7 @@ PopupWindow {
                         stack.currentIndex = 1;
                         outputButton.checked = false;
                         inputButton.checked = true;
+                        managerButton.checked = false;
                     }
                     background: Rectangle {
                         implicitWidth: 70
@@ -74,12 +95,12 @@ PopupWindow {
             StackLayout {
                 id: stack
                 Layout.alignment: Qt.AlignVCenter
-                currentIndex: 0
+                currentIndex: 2
 
                 ColumnLayout {
                     id: output
                     Layout.alignment: Qt.AlignVCenter
-                    visible: true
+                    visible: false
 
                     Repeater {
                         model: Pipewire.nodes.values.filter(node => node.isStream == false && node.type == 17).sort((a, b) => a.id - b.id)
@@ -218,6 +239,99 @@ PopupWindow {
                                     onClicked: mouse => {
                                         Pipewire.preferredDefaultAudioSource = rootB.modelData;
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+                ColumnLayout {
+                    id: manager
+                    Layout.alignment: Qt.AlignVCenter
+                    visible: false
+
+                    Repeater {
+                        model: Pipewire.nodes.values.filter(node => node.isStream == true).sort((a, b) => Utils.getAnyText(a).localeCompare(Utils.getAnyText(b)))
+                        ColumnLayout {
+                            id: rootC
+                            required property PwNode modelData
+                            RowLayout {
+                                PwObjectTracker {
+                                    objects: [rootC.modelData]
+                                }
+
+                                Layout.leftMargin: 15
+                                Layout.rightMargin: 15
+
+                                IconImage {
+                                    id: volumeIconManager
+                                    source: getIconVolumeOutput(rootC.modelData.audio)
+                                    implicitSize: 20
+
+                                    function getIconVolumeOutput(audio) {
+                                        let icon = "";
+                                        if (audio.muted) {
+                                            icon = "audio-volume-muted";
+                                        } else {
+                                            icon = "audio-volume-high";
+                                        }
+                                        return "image://icon/" + icon;
+                                    }
+                                }
+
+                                Text {
+                                    text: Utils.getAnyText(rootC.modelData)
+
+                                    color: "#cdd6f4"
+
+                                    MouseArea {
+                                        acceptedButtons: Qt.LeftButton | Qt.RightButton
+                                        implicitHeight: parent.height
+                                        implicitWidth: parent.width
+
+                                        onClicked: mouse => {
+                                            if (mouse.button === Qt.LeftButton) {
+                                                rootC.modelData.audio.muted = !rootC.modelData.audio.muted;
+                                            } else if (mouse.button === Qt.RightButton) {
+                                                rootC.modelData.audio.volume = 1;
+                                                rootC.modelData.audio.muted = false;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            RowLayout {
+                                Layout.leftMargin: 15
+                                Layout.bottomMargin: 5
+                                Layout.rightMargin: 15
+
+                                Slider {
+                                    id: slider
+                                    from: 0.00
+                                    to: 1.50
+
+                                    stepSize: 0.01
+
+                                    value: {
+                                        rootC.modelData.audio.volume;
+                                    }
+
+                                    handle: Rectangle {
+                                        x: slider.leftPadding + slider.visualPosition * (slider.availableWidth - width)
+                                        y: slider.topPadding + slider.availableHeight / 2 - height / 2
+                                        implicitWidth: 12
+                                        implicitHeight: 12
+                                        radius: implicitWidth / 2
+                                        color: "#6c7086"
+                                    }
+
+                                    onMoved: {
+                                        rootC.modelData.audio.volume = slider.value;
+                                    }
+                                }
+
+                                Text {
+                                    text: Math.round(rootC.modelData.audio.volume * 100) + "%"
+                                    color: "#cdd6f4"
                                 }
                             }
                         }

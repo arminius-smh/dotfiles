@@ -61,7 +61,6 @@
       services = {
         clear-trash.enable = true;
         battery-alert.enable = true;
-        vesktop.enable = true;
         telegram.enable = true;
         joplin-desktop.enable = true;
         libinput-gestures.enable = true;

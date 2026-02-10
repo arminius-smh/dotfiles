@@ -71,7 +71,6 @@
       services = {
         feishin.enable = true;
         clear-trash.enable = true;
-        discord.enable = true;
         telegram.enable = true;
         joplin-desktop.enable = true;
         steam.enable = true;

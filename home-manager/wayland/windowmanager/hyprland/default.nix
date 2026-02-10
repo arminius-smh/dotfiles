@@ -210,14 +210,13 @@ in
               "$mainMod, period, layoutmsg, colresize +conf"
 
               "$mainMod, N, exec, $HOME/dotfiles/assets/scripts/focus.sh"
+
+              ", F9, sendshortcut, CTRL SHIFT, M, class:^(discord)$"
+              ", F10, sendshortcut, CTRL SHIFT, D, class:^(discord)$"
             ];
 
             # n -> non-consuming, key/mouse events will be passed to the active window in addition to triggering the dispatcher.
-            bindn = [
-              # pass mouse5 to discord
-              ", mouse:276, pass, class:^(discord)$"
-              ", F11, pass, class:^(discord)$"
-            ];
+            bindn = [];
 
             # m -> mouse
             bindm = [

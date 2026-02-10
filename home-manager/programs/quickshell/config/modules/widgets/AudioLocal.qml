@@ -1,7 +1,6 @@
 import QtQuick
 import Quickshell.Services.Pipewire
 import Quickshell.Widgets
-import Quickshell
 import QtQuick.Layouts
 import QtQuick.Controls
 

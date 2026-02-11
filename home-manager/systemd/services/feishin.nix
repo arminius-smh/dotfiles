@@ -13,6 +13,11 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    home = {
+      packages = with pkgs; [
+        feishin
+      ];
+    };
     systemd.user = {
       services = {
         feishin = {

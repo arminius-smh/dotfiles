@@ -15,5 +15,6 @@
     ./hyprland
     ./steam
     ./uwsm
+    ./throne
   ];
 }

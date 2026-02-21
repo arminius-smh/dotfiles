@@ -51,6 +51,9 @@
       sshfs
       simple-scan
       localsend
+      pdfarranger
+      ausweisapp
+      dnsutils
     ];
 
     sessionVariables = {

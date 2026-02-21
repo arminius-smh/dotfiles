@@ -209,6 +209,7 @@
       hyprland.enable = true;
       uwsm.enable = true;
 
+      throne.enable = true;
       appimage.enable = true;
       dconf.enable = true;
       git.enable = true;

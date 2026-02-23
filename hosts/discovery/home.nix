@@ -36,6 +36,7 @@
       gtrash
       jellyfin-desktop
       (chromium.override { enableWideVine = true; })
+      localsend
     ];
 
     pointerCursor = {

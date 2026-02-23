@@ -8,7 +8,7 @@
 let
   cfg = config.cave.programs.spotify;
 
-  spicePkgs = inputs.spicetify.legacyPackages.${pkgs.system};
+  spicePkgs = inputs.spicetify.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
 {
   options.cave = {

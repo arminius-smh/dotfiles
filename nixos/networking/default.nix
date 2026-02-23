@@ -39,11 +39,6 @@ in
       hostId = lib.mkIf (systemName == "excelsior") "235f276f";
       networkmanager = {
         enable = true;
-        insertNameservers = [
-          "8.8.8.8"
-          "1.1.1.1"
-          "9.9.9.9"
-        ];
         wifi = {
           backend = "wpa_supplicant"; # iwd
           scanRandMacAddress = false;

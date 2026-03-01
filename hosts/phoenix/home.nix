@@ -48,12 +48,15 @@
       tree
       droidcam
       picard
+      flac
       sshfs
       simple-scan
       localsend
       pdfarranger
       ausweisapp
       dnsutils
+      nix-output-monitor
+      dtop
     ];
 
     sessionVariables = {

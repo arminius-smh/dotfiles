@@ -37,6 +37,7 @@
       jellyfin-desktop
       (chromium.override { enableWideVine = true; })
       localsend
+      nix-output-monitor
     ];
 
     pointerCursor = {

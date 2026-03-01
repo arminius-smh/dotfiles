@@ -43,6 +43,12 @@ in
                 on-resume = "hyprctl dispatch dpms on";
               }
             ])
+            (lib.mkIf (systemName == "discovery") [
+              {
+                timeout = 900;
+                on-timeout = "systemctl suspend";
+              }
+            ])
           ];
         };
       };

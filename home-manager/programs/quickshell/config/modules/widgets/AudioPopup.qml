@@ -109,10 +109,6 @@ PopupWindow {
                             id: rootA
                             required property PwNode modelData
 
-                            PwObjectTracker {
-                                objects: [rootA.modelData]
-                            }
-
                             Layout.leftMargin: 15
                             Layout.bottomMargin: 5
                             Layout.rightMargin: 15
@@ -183,10 +179,6 @@ PopupWindow {
                         RowLayout {
                             id: rootB
                             required property PwNode modelData
-
-                            PwObjectTracker {
-                                objects: [rootB.modelData]
-                            }
 
                             Layout.leftMargin: 15
                             Layout.bottomMargin: 5

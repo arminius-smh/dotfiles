@@ -18,9 +18,13 @@ in
       anki = {
         enable = true;
         language = "ru_RU";
-        sync = {
-          usernameFile = "${config.home.homeDirectory}/misc/anki/username";
-          keyFile = "${config.home.homeDirectory}/misc/anki/key";
+        profiles = {
+          "User 1" = {
+            sync = {
+              usernameFile = "${config.home.homeDirectory}/misc/anki/username";
+              keyFile = "${config.home.homeDirectory}/misc/anki/key";
+            };
+          };
         };
         videoDriver = "vulkan";
         addons = with pkgs.ankiAddons; [

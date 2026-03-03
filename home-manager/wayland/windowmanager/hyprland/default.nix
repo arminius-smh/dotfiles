@@ -29,7 +29,7 @@ in
           };
 
           # plugins = with pkgs; [
-          #   hyprlandPlugins.hyprscrolling
+          #   hyprlandPlugins.hyprexpo
           # ];
           settings = {
             "$mainMod" = "SUPER";
@@ -58,7 +58,7 @@ in
               border_size = 2;
               "col.active_border" = "$teal $accent 135deg";
               "col.inactive_border" = "$surface0";
-              layout = "scrolling";
+              layout = "dwindle";
             };
 
             ecosystem = {
@@ -112,7 +112,7 @@ in
               disable_hyprland_logo = true;
               enable_anr_dialog = false; # enable when window rules exists to ignore it
             };
-            
+
             render = {
               # disable auto switch monitor when using mpv in fullscreen
               cm_enabled = false;
@@ -209,14 +209,16 @@ in
               "$mainMod, comma, layoutmsg, colresize -conf"
               "$mainMod, period, layoutmsg, colresize +conf"
 
-              "$mainMod, N, exec, $HOME/dotfiles/assets/scripts/focus.sh"
+              "$mainMod, N, exec, $HOME/dotfiles/assets/scripts/focus.sh -2 -3"
+
+              "$mainMod, B, exec, $HOME/dotfiles/assets/scripts/focus.sh -1 -2"
 
               ", F9, sendshortcut, CTRL SHIFT, M, class:^(discord)$"
               ", F10, sendshortcut, CTRL SHIFT, D, class:^(discord)$"
             ];
 
             # n -> non-consuming, key/mouse events will be passed to the active window in addition to triggering the dispatcher.
-            bindn = [];
+            bindn = [ ];
 
             # m -> mouse
             bindm = [

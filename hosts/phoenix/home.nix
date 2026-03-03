@@ -57,6 +57,7 @@
       dnsutils
       nix-output-monitor
       dtop
+      bubblewrap
     ];
 
     sessionVariables = {

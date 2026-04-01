@@ -11,6 +11,7 @@
     ./hyprland
     ./kdeconnect
     ./neovim
+    ./niri
     ./nix-ld
     ./steam
     ./throne

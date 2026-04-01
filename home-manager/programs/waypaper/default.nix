@@ -16,7 +16,7 @@ in
     home = {
       packages = with pkgs; [
         waypaper
-        swww # wallpaper backend
+        awww # wallpaper backend
         swaybg # wallpaper backend
       ];
     };

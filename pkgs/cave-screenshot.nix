@@ -9,6 +9,7 @@ pkgs.writeShellApplication {
     hyprland
     satty
     jq
+    xdg-user-dirs
   ];
 
   text = ''
@@ -19,7 +20,7 @@ pkgs.writeShellApplication {
 
     screenshot_name="$(date +'screenshot_%Y-%m-%d_%H-%M-%S.png')"
     satty_name="$(date +'satty_%Y-%m-%d_%H-%M-%S.png')"
-    screenshot_path="$XDG_PICTURES_DIR/$screenshot_name"
+    screenshot_path="$(xdg-user-dir PICTURES)/$screenshot_name"
 
     timeout_time="2500"
 

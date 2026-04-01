@@ -30,6 +30,7 @@ in
       stateHome = "${config.home.homeDirectory}/.local/state";
       userDirs = {
         enable = true;
+        setSessionVariables = false;
       };
       mime = {
         enable = true;

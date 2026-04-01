@@ -89,6 +89,7 @@
     };
     consoleLogLevel = 0;
     kernelParams = [
+      "video=1920x1080"
       "boot.shell_on_fail"
       "plymouth.use-simpledrm"
       # Silent Boot
@@ -112,6 +113,7 @@
         useOSProber = false;
         efiSupport = true;
         device = "nodev";
+        gfxmodeEfi = "1920x1080";
       };
 
       efi = {
@@ -187,6 +189,11 @@
         gamecube.enable = true;
         trezor-suite.enable = true;
       };
+      displayManager = {
+        enable = true;
+        type = "ly";
+      };
+
       blueman.enable = true;
       dbus.enable = true;
       envfs.enable = true;
@@ -207,6 +214,7 @@
       steam.enable = true;
       gdk-pixbuf.enable = true;
       hyprland.enable = true;
+      niri.enable = true;
       uwsm.enable = true;
 
       throne.enable = true;

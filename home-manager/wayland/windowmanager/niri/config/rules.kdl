@@ -1,0 +1,61 @@
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+    open-maximized-to-edges false
+    open-maximized true
+}
+
+window-rule {
+    match is-floating=true
+    focus-ring {
+        off
+    }
+    border {
+        on
+        width 3
+        active-color "#E69875"
+        inactive-color "#E69875"
+    }
+}
+
+window-rule {
+    match app-id="kitty"
+    match app-id="thunar"
+    open-maximized false
+}
+
+window-rule {
+    match app-id="thunderbird"
+    open-on-workspace "mail"
+}
+
+window-rule {
+    match at-startup=true app-id="feishin"
+    open-on-workspace "feishin"
+}
+
+window-rule {
+    match at-startup=true app-id="spotify"
+    open-on-workspace "spotify"
+}
+
+window-rule {
+    match app-id=r#"^org\.telegram\.desktop$"# title="^Media viewer$"
+
+    open-fullscreen false
+    open-floating true
+
+    default-column-width { fixed 1200; }
+    default-window-height { fixed 800; }
+}
+
+layer-rule {
+    shadow {
+        off
+    }
+}
+
+layer-rule {
+    match namespace="awww-daemon"
+    place-within-backdrop true
+}

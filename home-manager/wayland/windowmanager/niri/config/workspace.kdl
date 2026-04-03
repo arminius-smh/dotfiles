@@ -1,0 +1,11 @@
+workspace "mail" {
+    open-on-output "DP-2"
+}
+
+workspace "spotify" {
+    open-on-output "DP-2"
+}
+
+workspace "feishin" {
+    open-on-output "DP-2"
+}

@@ -1,0 +1,129 @@
+binds {
+    Mod+Return { spawn-sh "uwsm app -- kitty"; }
+    Mod+D { spawn "rofi" "-show" "drun"; }
+    Mod+Shift+F { spawn-sh "uwsm app -- firefox"; }
+    Mod+A { spawn-sh "uwsm app -- thunar"; }
+
+    Mod+W {spawn-sh "waypaper --random";}
+
+    Mod+N {spawn-sh "$HOME/dotfiles/assets/scripts/focus.sh -2 -3";}
+
+    Mod+Shift+N { spawn-sh "niri msg action focus-workspace spotify"; }
+    Mod+Shift+M { spawn-sh "niri msg action focus-workspace feishin"; }
+    Mod+8 { spawn-sh "niri msg action focus-workspace mail"; }
+
+
+    // --input-volume mute-toggle not working: https://github.com/ErikReider/SwayOSD/issues/225
+    Mod+F11 { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && (wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED && swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --custom-message 'Microphone' --custom-icon 'source-volume-muted-symbolic' || swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --custom-message 'Microphone' --custom-icon 'source-volume-high-symbolic')";}
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --output-volume +2"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --output-volume -2"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\"  --output-volume mute-toggle"; }
+
+    XF86AudioPlay        allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --playerctl play-pause"; }
+    XF86AudioStop        allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --playerctl play-pause"; }
+    XF86AudioPrev        allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --playerctl prev"; }
+    XF86AudioNext        allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --playerctl next"; }
+
+    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --device apple-panel-bl --brightness +5"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --device apple-panel-bl --brightness -5"; }
+
+    Mod+XF86MonBrightnessUp allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --device kbd_backlight --brightness +5"; }
+    Mod+XF86MonBrightnessDown allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --device kbd_backlight --brightness -5"; }
+
+
+    Mod+O repeat=false { toggle-overview; }
+
+    Mod+Control+Q repeat=false { close-window; }
+
+    Mod+R { spawn-sh "niri msg action set-window-width 100%"; }
+    Mod+E { spawn-sh "niri msg action set-window-width 50%"; }
+
+    Mod+Shift+E { spawn-sh "niri msg action set-window-width 25%"; }
+    Mod+Shift+R { spawn-sh "niri msg action set-window-width 75%"; }
+
+
+    Mod+V       { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Plus { set-column-width "+10%"; }
+
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Plus { set-window-height "+10%"; }
+
+    Mod+C { center-column; }
+
+    Mod+F { fullscreen-window; }
+
+
+    Mod+Left  { focus-column-or-monitor-left; }
+    Mod+Down  { focus-window-or-workspace-down; }
+    Mod+Up    { focus-window-or-workspace-up; }
+    Mod+Right { focus-column-or-monitor-right; }
+    Mod+H     { focus-column-or-monitor-left; }
+    Mod+J     { focus-window-or-workspace-down; }
+    Mod+K     { focus-window-or-workspace-up; }
+    Mod+L     { focus-column-or-monitor-right; }
+
+    Mod+U  { focus-monitor-left; }
+    Mod+I  { focus-monitor-right; }
+
+    Mod+Shift+Left  { move-column-left-or-to-monitor-left; }
+    Mod+Shift+Down  { move-window-down-or-to-workspace-down; }
+    Mod+Shift+Up    { move-window-up-or-to-workspace-up; }
+    Mod+Shift+Right { move-column-right-or-to-monitor-right; }
+    Mod+Shift+H     { move-column-left-or-to-monitor-left; }
+    Mod+Shift+J     { move-window-down-or-to-workspace-down; }
+    Mod+Shift+K     { move-window-up-or-to-workspace-up; }
+    Mod+Shift+L     { move-column-right-or-to-monitor-right; }
+
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+    Mod+Shift+Home { move-column-to-first; }
+    Mod+Shift+End  { move-column-to-last; }
+
+    Mod+Page_Down      { focus-workspace-down; }
+    Mod+Page_Up        { focus-workspace-up; }
+
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+
+    Mod+Ctrl+H  { consume-or-expel-window-left; }
+    Mod+Ctrl+K  { move-window-down; }
+    Mod+Ctrl+J { move-window-up; }
+    Mod+Ctrl+L { consume-or-expel-window-right; }
+
+
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+WheelScrollRight      { focus-column-right; }
+    Mod+WheelScrollLeft       { focus-column-left; }
+
+    Mod+Shift+WheelScrollDown      { focus-column-or-monitor-right; }
+    Mod+Shift+WheelScrollUp        { focus-column-or-monitor-left; }
+
+
+
+
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+}

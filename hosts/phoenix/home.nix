@@ -71,6 +71,7 @@
 
   cave = {
     wayland.windowmanager.hyprland.enable = true;
+    wayland.windowmanager.niri.enable = true;
     gtk.enable = true;
     qt.enable = true;
     xdg.enable = true;
@@ -85,6 +86,7 @@
         heroic.enable = true;
         waypaper.enable = true;
         hypr_handle_events.enable = true;
+        niri_handle_events.enable = true;
         nwg-dock-hyprland.enable = true;
         quickshell.enable = true;
         solaar.enable = true;

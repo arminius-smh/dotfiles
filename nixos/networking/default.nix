@@ -40,11 +40,8 @@ in
       networkmanager = {
         enable = true;
         wifi = {
-          backend = "wpa_supplicant"; # iwd
+          backend = "iwd";
           scanRandMacAddress = false;
-        };
-        ensureProfiles = lib.mkIf (systemName == "discovery") {
-          profiles = config.private.wifi.profiles;
         };
       };
     };

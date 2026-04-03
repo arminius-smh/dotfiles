@@ -1,0 +1,20 @@
+input {
+    keyboard {
+        xkb {
+            layout "de";
+            variant "deadtilde";
+            options "caps:none,shift:both_capslock";
+        }
+    }
+
+    mouse {
+        accel-speed 0.5
+        accel-profile "flat"
+    }
+
+    warp-mouse-to-focus mode="center-xy"
+
+    focus-follows-mouse max-scroll-amount="0%"
+    workspace-auto-back-and-forth
+}
+

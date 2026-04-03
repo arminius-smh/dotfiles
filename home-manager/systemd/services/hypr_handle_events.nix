@@ -20,7 +20,7 @@ in
             Unit = {
               PartOf = [ config.wayland.systemd.target ];
               After = [ config.wayland.systemd.target ];
-              ConditionEnvironment = "XDG_SESSION_DESKTOP=Hyprland";
+              ConditionEnvironment = "XDG_CURRENT_DESKTOP=Hyprland";
             };
 
             Service = {

@@ -1,0 +1,20 @@
+layout {
+    gaps 10
+    center-focused-column "never"
+    always-center-single-column
+    background-color "transparent"
+
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        on
+        width 3
+        inactive-color "#7A8478"
+        active-gradient from="#7FBBB3" to="#A7C080" angle=135
+        urgent-color "#E67E80"
+    }
+
+    insert-hint {
+        color "#A7C080"
+    }
+}

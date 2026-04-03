@@ -26,7 +26,7 @@ while getopts "123" opt; do
 done
 shift $((OPTIND - 1))
 
-echo "Selected monitors: ${monitor_array[@]}"
+echo "Selected monitors: ${monitor_array[*]}"
 
 initialize() {
     if [[ ! -f "$VAR_FILE" ]]; then
@@ -38,7 +38,11 @@ initialize() {
 mode_on() {
     # turn montiors off
     for mon in "${monitor_array[@]}"; do
-        hyprctl dispatch dpms off "$mon"
+        if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]; then
+            hyprctl dispatch dpms off "$mon"
+        elif [ -n "$NIRI_SOCKET" ]; then
+            niri msg output "$mon" off
+        fi
     done
     # crashes when specified monitors are turned off
     systemctl --user stop hypridle
@@ -48,7 +52,11 @@ mode_on() {
 mode_off() {
     # turn monitors on again
     for mon in "${monitor_array[@]}"; do
-        hyprctl dispatch dpms on "$mon"
+        if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]; then
+            hyprctl dispatch dpms on "$mon"
+        elif [ -n "$NIRI_SOCKET" ]; then
+            niri msg output "$mon" on
+        fi
     done
 
     # fix weird audio stuttering bug

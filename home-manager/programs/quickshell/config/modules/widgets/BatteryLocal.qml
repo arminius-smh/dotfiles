@@ -7,7 +7,6 @@ import Quickshell
 RowLayout {
     id: root
     property UPowerDevice defaultPower: UPower.displayDevice
-    visible: defaultPower.isPresent
 
     IconImage {
         id: batteryIcon

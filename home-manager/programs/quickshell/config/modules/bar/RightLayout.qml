@@ -2,7 +2,11 @@ import QtQuick
 import QtQuick.Layouts
 
 import "../widgets"
+
 RowLayout {
+    id: row
+    required property var hostname
+
     anchors {
         right: parent.right
         rightMargin: 12
@@ -10,7 +14,10 @@ RowLayout {
     }
     SysTrayLocal {}
 
-    BatteryLocal {}
+    Loader {
+        active: row.hostname === "discovery"
+        sourceComponent: BatteryLocal {}
+    }
 
     NotificationLocal {}
 

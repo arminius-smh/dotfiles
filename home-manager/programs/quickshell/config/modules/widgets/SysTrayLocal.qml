@@ -2,7 +2,6 @@ import Quickshell
 import QtQuick
 import Quickshell.Services.SystemTray
 import Quickshell.Widgets
-import QtQuick.Controls
 import QtQuick.Layouts
 
 RowLayout {

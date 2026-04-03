@@ -15,6 +15,7 @@ in
         type = lib.types.enum [
           "sddm"
           "ly"
+          "lemurs"
         ];
         default = "sddm";
       };
@@ -60,6 +61,12 @@ in
         services.displayManager.ly = {
           enable = true;
           x11Support = false;
+        };
+      })
+
+      (lib.mkIf (cfg.type == "lemurs") {
+        services.displayManager.lemurs = {
+          enable = true;
         };
       })
 

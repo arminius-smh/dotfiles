@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -18,5 +19,9 @@ in
         useNautilus = false;
       };
     };
+
+    environment.systemPackages = with pkgs; [
+      xwayland-satellite
+    ];
   };
 }

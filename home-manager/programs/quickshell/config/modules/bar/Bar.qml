@@ -15,9 +15,10 @@ Scope {
             id: toplevel
             required property var modelData
             property var hostname
+            property string desktop: Quickshell.env("XDG_CURRENT_DESKTOP")
 
             screen: modelData
-            aboveWindows: false
+            aboveWindows: true
 
             anchors {
                 top: true
@@ -32,13 +33,16 @@ Scope {
             LeftLayout {
                 toplevel: toplevel
                 hostname: toplevel.hostname
+                desktop: toplevel.desktop
             }
 
             MiddleLayout {
                 hostname: toplevel.hostname
             }
 
-            RightLayout {}
+            RightLayout {
+                hostname: toplevel.hostname
+            }
 
             Process {
                 running: true

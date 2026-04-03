@@ -44,8 +44,8 @@ RowLayout {
         Layout.preferredHeight: audioIcon.implicitHeight
 
         AudioPopup {
-            id: audioPopup
             audioIconRoot: audioIconRoot
+            id: audioPopup
         }
 
         Rectangle {

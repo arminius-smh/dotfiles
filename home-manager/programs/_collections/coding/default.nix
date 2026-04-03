@@ -67,6 +67,9 @@ in
         dotnet-sdk_10
         csharp-ls
 
+        # kdl
+        kdlfmt # formatter
+
         # TOOLS
         gnumake
         cmake

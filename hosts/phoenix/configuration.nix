@@ -189,10 +189,6 @@
         gamecube.enable = true;
         trezor-suite.enable = true;
       };
-      displayManager = {
-        enable = true;
-        type = "ly";
-      };
 
       blueman.enable = true;
       dbus.enable = true;
@@ -217,7 +213,6 @@
       niri.enable = true;
       uwsm.enable = true;
 
-      throne.enable = true;
       appimage.enable = true;
       dconf.enable = true;
       git.enable = true;

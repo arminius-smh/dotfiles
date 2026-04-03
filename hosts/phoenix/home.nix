@@ -58,6 +58,8 @@
       nix-output-monitor
       dtop
       bubblewrap
+      cave-screenshot
+      inputs.qml-niri.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
     sessionVariables = {

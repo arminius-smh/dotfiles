@@ -19,7 +19,6 @@ in
           quickshell = {
             Unit = {
               X-SwitchMethod = "restart";
-              ConditionEnvironment = "XDG_SESSION_DESKTOP=Hyprland";
 
               PartOf = lib.mkForce [
                 config.wayland.systemd.target

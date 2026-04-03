@@ -23,6 +23,7 @@ in
             "audio"
             "dialout"
             "docker"
+            "seat"
             "gamemode"
             "input"
             "uinput"

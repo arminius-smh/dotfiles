@@ -39,8 +39,8 @@ in
             (lib.mkIf (systemName == "discovery") [
               {
                 timeout = 600;
-                on-timeout = "hyprctl dispatch dpms off";
-                on-resume = "hyprctl dispatch dpms on";
+                on-timeout = "hyprctl dispatch dpms off || niri msg action power-off-monitors";
+                on-resume = "hyprctl dispatch dpms on || niri msg action power-on-monitors";
               }
             ])
             (lib.mkIf (systemName == "discovery") [

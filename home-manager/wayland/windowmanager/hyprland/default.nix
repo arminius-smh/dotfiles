@@ -192,7 +192,7 @@ in
               "$mainMod CONTROL, Q, killactive"
 
               # "$mainMod, M, exec, pkill -USR1 waybar"
-              "$mainMod, M, exec, $HOME/dotfiles/assets/scripts/toggle-ags.sh"
+              "$mainMod, M, exec, $HOME/dotfiles/assets/scripts/toggle-bar.sh"
 
               ''$mainMod SHIFT, E, exec, bash -c "[[ $(hyprland-dialog --title 'Exiting Hyprland' --text 'Are you sure?' --buttons 'Yes;No') == 'Yes' ]] && uwsm stop"''
               "$mainMod, V, togglefloating"

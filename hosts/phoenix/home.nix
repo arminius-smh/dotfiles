@@ -40,7 +40,7 @@
       fd
       gtrash
       jq
-      chromium
+      (chromium.override { enableWideVine = true; })
       libnotify
       file-roller
       jellyfin-desktop
@@ -60,6 +60,7 @@
       bubblewrap
       cave-screenshot
       inputs.qml-niri.packages.${pkgs.stdenv.hostPlatform.system}.default
+      eddie
     ];
 
     sessionVariables = {

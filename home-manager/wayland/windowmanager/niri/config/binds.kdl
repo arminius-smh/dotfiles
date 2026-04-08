@@ -1,16 +1,16 @@
 binds {
     Mod+Return { spawn-sh "uwsm app -- kitty"; }
     Mod+D { spawn "rofi" "-show" "drun"; }
-    Mod+Shift+F { spawn-sh "uwsm app -- firefox"; }
+    Mod+G { spawn-sh "uwsm app -- firefox"; }
     Mod+A { spawn-sh "uwsm app -- thunar"; }
 
     Mod+W {spawn-sh "waypaper --random";}
 
     Mod+N {spawn-sh "$HOME/dotfiles/assets/scripts/focus.sh -2 -3";}
+    Mod+M {spawn-sh "$HOME/dotfiles/assets/scripts/toggle-bar.sh";}
 
     Mod+Shift+N { spawn-sh "niri msg action focus-workspace spotify"; }
     Mod+Shift+M { spawn-sh "niri msg action focus-workspace feishin"; }
-    Mod+8 { spawn-sh "niri msg action focus-workspace mail"; }
 
 
     // --input-volume mute-toggle not working: https://github.com/ErikReider/SwayOSD/issues/225
@@ -34,7 +34,7 @@ binds {
 
     Mod+O repeat=false { toggle-overview; }
 
-    Mod+Control+Q repeat=false { close-window; }
+    Mod+Q repeat=false { close-window; }
 
     Mod+R { spawn-sh "niri msg action set-window-width 100%"; }
     Mod+E { spawn-sh "niri msg action set-window-width 50%"; }
@@ -66,8 +66,10 @@ binds {
     Mod+K     { focus-window-or-workspace-up; }
     Mod+L     { focus-column-or-monitor-right; }
 
-    Mod+U  { focus-monitor-left; }
-    Mod+I  { focus-monitor-right; }
+    Mod+Y  { focus-monitor-left; }
+    Mod+X  { focus-monitor-right; }
+    Mod+Shift+Y  { move-window-to-monitor-left; }
+    Mod+Shift+X  { move-window-to-monitor-right; }
 
     Mod+Shift+Left  { move-column-left-or-to-monitor-left; }
     Mod+Shift+Down  { move-window-down-or-to-workspace-down; }
@@ -94,6 +96,7 @@ binds {
     Mod+5 { focus-workspace 5; }
     Mod+6 { focus-workspace 6; }
     Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace "mail"; }
     Mod+9 { focus-workspace 9; }
     Mod+Shift+1 { move-column-to-workspace 1; }
     Mod+Shift+2 { move-column-to-workspace 2; }

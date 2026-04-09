@@ -16,7 +16,7 @@ in
       uwsm = {
         enable = true;
         waylandCompositors = {
-          "uwsm-niri" = {
+          "niri" = {
             prettyName = "Niri (uwsm)";
             comment = "A scrollable-tiling Wayland compositor";
             binPath = "/run/current-system/sw/bin/niri-session";

@@ -42,6 +42,7 @@ window-rule {
 window-rule {
     match app-id="waypaper"
     match app-id=r"thunar" title=r#"^Переименовать.*"#
+    match app-id="nm-connection-editor"
 
     open-floating true
 }

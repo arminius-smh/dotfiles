@@ -26,6 +26,7 @@ in
     lib.mkMerge [
 
       (lib.mkIf (cfg.type == "sddm") {
+        services.displayManager.defaultSession="niri-uwsm";
         services.displayManager.sddm = {
           enable = true;
           package = pkgs.kdePackages.sddm;

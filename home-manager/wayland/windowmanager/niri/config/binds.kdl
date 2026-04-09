@@ -1,7 +1,7 @@
 binds {
     Mod+Return { spawn-sh "uwsm app -- kitty"; }
     Mod+D { spawn "rofi" "-show" "drun"; }
-    Mod+G { spawn-sh "uwsm app -- firefox"; }
+    Mod+S { spawn-sh "uwsm app -- firefox"; }
     Mod+A { spawn-sh "uwsm app -- thunar"; }
 
     Mod+W {spawn-sh "waypaper --random";}

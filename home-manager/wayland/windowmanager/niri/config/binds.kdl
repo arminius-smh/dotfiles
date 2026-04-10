@@ -12,6 +12,10 @@ binds {
     Mod+Shift+N { spawn-sh "niri msg action focus-workspace spotify"; }
     Mod+Shift+M { spawn-sh "niri msg action focus-workspace feishin"; }
 
+    Mod+Shift+D { spawn-sh "cave-screenshot area"; }
+    Mod+Ctrl+D { spawn-sh "cave-screenshot window"; }
+    // controller binding
+    Alt+Print { spawn-sh "cave-screenshot window"; }
 
     // --input-volume mute-toggle not working: https://github.com/ErikReider/SwayOSD/issues/225
     Mod+F11 { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && (wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED && swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --custom-message 'Microphone' --custom-icon 'source-volume-muted-symbolic' || swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --custom-message 'Microphone' --custom-icon 'source-volume-high-symbolic')";}
@@ -122,11 +126,4 @@ binds {
 
     Mod+Shift+WheelScrollDown      { focus-column-or-monitor-right; }
     Mod+Shift+WheelScrollUp        { focus-column-or-monitor-left; }
-
-
-
-
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
 }

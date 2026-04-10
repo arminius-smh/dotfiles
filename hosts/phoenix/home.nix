@@ -61,6 +61,8 @@
       cave-screenshot
       inputs.qml-niri.packages.${pkgs.stdenv.hostPlatform.system}.default
       eddie
+      gnome-calculator
+      cave-screenshot
     ];
 
     sessionVariables = {

@@ -38,6 +38,7 @@
       (chromium.override { enableWideVine = true; })
       localsend
       nix-output-monitor
+      cave-screenshot
     ];
 
     pointerCursor = {

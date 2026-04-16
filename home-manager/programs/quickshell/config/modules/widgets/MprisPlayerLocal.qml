@@ -10,43 +10,42 @@ RowLayout {
     id: root
 
     property bool show: false
-    property string lastActivePlayer: "org.mpris.MediaPlayer2.spotify"
 
     Repeater {
         id: mprisRepeater
         model: Mpris.players.values.filter(pl => pl.dbusName == "org.mpris.MediaPlayer2.spotify" || pl.dbusName == "org.mpris.MediaPlayer2.Feishin")
 
-        property string lastActivePlayer: "org.mpris.MediaPlayer2.spotify"
+        property string lastActivePlayer: "org.mpris.MediaPlayer2.Feishin"
 
         RowLayout {
             id: mprisContainer
             required property MprisPlayer modelData
-            visible: root.show && root.lastActivePlayer === modelData.dbusName
+            visible: root.show && mprisRepeater.lastActivePlayer === modelData.dbusName
 
             Connections {
                 target: mprisContainer.modelData
                 function onIsPlayingChanged() {
-                    const lastActive = root.model.find(item => item.dbusName === root.lastActivePlayer);
+                    const lastActive = mprisRepeater.model.find(item => item.dbusName === mprisRepeater.lastActivePlayer);
                     if (lastActive === undefined) {
                         // if (e.g. at startup) lastActive is not started/closed, use current one as player
-                        root.lastActivePlayer = mprisContainer.modelData.dbusName;
+                        mprisRepeater.lastActivePlayer = mprisContainer.modelData.dbusName;
                         return;
                     }
-                    const actives = root.model.filter(item => item.isPlaying === true).filter(pl => pl.dbusName != lastActive.dbusName);
+                    const actives = mprisRepeater.model.filter(item => item.isPlaying === true).filter(pl => pl.dbusName != lastActive.dbusName);
 
                     let playback = mprisContainer.modelData.isPlaying;
 
                     if (playback == true) {
                         // if new player is playing, dont display change if last active player is still active
                         if (!lastActive.isPlaying) {
-                            root.lastActivePlayer = mprisContainer.modelData.dbusName;
+                            mprisRepeater.lastActivePlayer = mprisContainer.modelData.dbusName;
                         }
-                    } else if (root.lastActivePlayer === mprisContainer.modelData.dbusName) {
+                    } else if (mprisRepeater.lastActivePlayer === mprisContainer.modelData.dbusName) {
                         // if the active player was stopped,
                         // check if another one is still active and use that
                         // in case two players are active
                         if (!lastActive.isPlaying && actives.length > 0) {
-                            root.lastActivePlayer = actives[0].dbusName;
+                            mprisRepeater.lastActivePlayer = actives[0].dbusName;
                         }
                     }
                 }

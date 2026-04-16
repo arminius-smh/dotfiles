@@ -16,6 +16,9 @@ in
     programs = {
       neovim = {
         enable = true;
+        withRuby = true;
+        withPython3 = true;
+
         extraPackages = with pkgs; [
           imagemagick
           tree-sitter
@@ -26,9 +29,8 @@ in
     xdg = {
       configFile = {
         nvim = {
-          source =
-            config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/programs/neovim/config";
-            recursive = true;
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/programs/neovim/config";
+          recursive = true;
         };
       };
     };

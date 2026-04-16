@@ -49,8 +49,31 @@ window-rule {
     match app-id=r"thunar" title=r#"^Переименовать.*"#
     match app-id="nm-connection-editor"
     match app-id="org.gnome.Calculator"
-
+    match app-id="feishin"
     open-floating true
+}
+
+window-rule {
+    match app-id="feishin"
+    open-floating true
+    default-column-width { proportion 0.85; }
+    default-window-height { proportion 0.85; }
+}
+
+window-rule {
+    match app-id="org.telegram.desktop"
+    open-floating true
+    default-column-width { proportion 0.9; }
+    default-window-height { proportion 0.9; }
+}
+
+window-rule {
+    match app-id="anki"
+    open-floating true
+}
+window-rule {
+    match app-id="anki" title="User 1 - Anki"
+    open-floating false
 }
 
 window-rule {

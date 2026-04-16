@@ -6,6 +6,7 @@ pkgs.writeShellApplication {
   runtimeInputs = with pkgs; [
     grim
     slurp
+    wl-clipboard
     libnotify
     satty
     xdg-user-dirs
@@ -31,9 +32,10 @@ pkgs.writeShellApplication {
         notify-send --transient -t "$timeout_time_notif" --icon=dialog-error "Screenshot canceled"
         exit 0
     else
-        grim -g "$screenshot" "$screenshot_path"
+        grim -g "$screenshot" "$screenshot_path" | wl-copy
 
         if [[ -f "$screenshot_path" ]]; then
+            wl-copy < "$screenshot_path"
             ACTION=$(notify-send --transient -t "$timeout_time_notif" --icon "$screenshot_path" "Screenshot saved" "Image saved in $screenshot_path" --action Edit --action Delete)
         else
             notify-send --transient -t "$timeout_time_notif" --icon=dialog-error "Something went wrong"

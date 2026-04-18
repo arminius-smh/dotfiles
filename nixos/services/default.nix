@@ -10,6 +10,7 @@
     ./fstrim
     ./getty
     ./gvfs
+    ./jupyter
     ./logind
     ./openssh
     ./pipewire

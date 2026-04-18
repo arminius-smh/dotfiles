@@ -55,19 +55,17 @@
       verbose = false;
     };
     consoleLogLevel = 0;
-    # https://github.com/tpwrules/nixos-apple-silicon/pull/273
     kernelParams = [
       "quiet"
       "splash"
-      "boot.shell_on_fail"
-      #   "appledrm.show_notch=1"
-      #   "vt.cur_default=1" # hide blinking _ cursor during boot
       "loglevel=3"
       "rd.systemd.show_status=auto"
-      "rd.udev.log_level=3"
-      #   "udev.log_priority=3"
+
+      "appledrm.show_notch=1"
+      "vt.cur_default=1" # hide blinking _ cursor during boot
       # zswap
       "zswap.enabled=1"
+      "zswap.compressor=zstd"
       "zswap.zpool=zsmalloc"
       "zswap.max_pool_percent=50"
     ];
@@ -129,6 +127,7 @@
     users.enable = true;
     xdg.enable = true;
     services = {
+      jupyter.enable = true;
       avahi.enable = true;
       blueman.enable = true;
       dbus.enable = true;
@@ -149,6 +148,7 @@
     programs = {
       gdk-pixbuf.enable = true;
       hyprland.enable = true;
+      niri.enable = true;
       uwsm.enable = true;
 
       appimage.enable = true;

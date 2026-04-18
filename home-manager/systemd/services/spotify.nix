@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  systemName,
   ...
 }:
 let
@@ -31,11 +30,7 @@ in
           };
 
           Service = {
-            ExecStart =
-              if (systemName == "phoenix") then
-                "${config.programs.spicetify.spicedSpotify}/bin/spotify"
-              else
-                "${pkgs.cave-open-desktop-file}/bin/cave-open-desktop-file Spotify";
+            ExecStart = "${config.programs.spicetify.spicedSpotify}/bin/spotify";
 
             # spotify very stubborn to shut down
             KillMode = "control-group";

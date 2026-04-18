@@ -38,7 +38,11 @@
       (chromium.override { enableWideVine = true; })
       localsend
       nix-output-monitor
+      inputs.qml-niri.packages.${pkgs.stdenv.hostPlatform.system}.default
       cave-screenshot
+      asahi-nvram
+      tree
+      trilium-desktop
     ];
 
     pointerCursor = {
@@ -56,6 +60,7 @@
 
   cave = {
     wayland.windowmanager.hyprland.enable = true;
+    wayland.windowmanager.niri.enable = true;
     gtk.enable = true;
     qt.enable = true;
     xdg.enable = true;
@@ -65,17 +70,15 @@
         clear-trash.enable = true;
         battery-alert.enable = true;
         telegram.enable = true;
-        joplin-desktop.enable = true;
-        libinput-gestures.enable = true;
         waypaper = {
           enable = true;
           cmd = "--restore";
         };
         hypr_handle_events.enable = true;
+        niri_handle_events.enable = true;
         nwg-dock-hyprland.enable = true;
         quickshell.enable = true;
         thunderbird.enable = true;
-        spotify.enable = true;
         feishin.enable = true;
       };
     };

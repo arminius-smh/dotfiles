@@ -3,6 +3,7 @@ binds {
     Mod+D { spawn "rofi" "-show" "drun"; }
     Mod+S { spawn-sh "uwsm app -- firefox"; }
     Mod+A { spawn-sh "uwsm app -- thunar"; }
+    Mod+Shift+A { spawn-sh "$HOME/dotfiles/home-manager/wayland/windowmanager/niri/scripts/scratchpad-ish.sh trilium trilium"; }
     Mod+W { spawn-sh "$HOME/dotfiles/home-manager/wayland/windowmanager/niri/scripts/scratchpad-ish.sh feishin feishin"; }
     Mod+Shift+W { spawn-sh "$HOME/dotfiles/home-manager/wayland/windowmanager/niri/scripts/scratchpad-ish.sh org.telegram.desktop Telegram"; }
 

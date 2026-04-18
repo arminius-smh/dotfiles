@@ -63,6 +63,7 @@
       eddie
       gnome-calculator
       cave-screenshot
+      trilium-desktop
     ];
 
     sessionVariables = {
@@ -84,7 +85,6 @@
         feishin.enable = true;
         clear-trash.enable = true;
         telegram.enable = true;
-        joplin-desktop.enable = true;
         steam.enable = true;
         heroic.enable = true;
         waypaper.enable = true;

@@ -190,6 +190,10 @@
         trezor-suite.enable = true;
       };
 
+      resolved.enable = true;
+      dnsmasq.enable = true;
+      caddy.enable = true;
+      jupyter.enable = true;
       blueman.enable = true;
       dbus.enable = true;
       envfs.enable = true;

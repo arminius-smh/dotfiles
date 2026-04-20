@@ -18,8 +18,12 @@ in
         enable = true;
         user = "armin";
         port = 8888;
-        notebookDir = "~/dev/jupyter";
+        notebookDir = "/home/armin/dev/jupyter";
         password = "argon2:$argon2id$v=19$m=10240,t=10,p=8$snCBlMr3Un7WfNc5u/Gmxg$y8S5y/g2URIpJ8Y5i7Z1bSEnK88f23goOMlkRQzabWs";
+        # reverse-proxy access
+        notebookConfig = ''
+          c.NotebookApp.allow_remote_access = True
+        '';
         kernels = {
           python3 =
             let
@@ -29,6 +33,7 @@ in
                     ipykernel
                     numpy
                     matplotlib
+                    pandas
                   ]
                 )
               );

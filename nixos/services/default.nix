@@ -3,8 +3,10 @@
   imports = [
     ./avahi
     ./blueman
+    ./caddy
     ./dbus
     ./displayManager
+    ./dnsmasq
     ./envfs
     ./flatpak
     ./fstrim
@@ -15,6 +17,7 @@
     ./openssh
     ./pipewire
     ./printing
+    ./resolved
     ./sunshine
     ./tumbler
     ./udev

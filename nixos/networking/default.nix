@@ -28,7 +28,10 @@ in
         # syncthing = 22000tcp/udp
         # syncthing discovery = 21027udp
         # localsend = 53317tcp/udp
-        allowedTCPPorts = [ 22000 53317 ];
+        allowedTCPPorts = [
+          22000
+          53317
+        ];
         allowedUDPPorts = [
           22000
           21027

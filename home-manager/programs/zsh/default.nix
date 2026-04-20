@@ -46,6 +46,8 @@ in
 
             export PATH="$HOME/dotfiles/assets/scripts:$PATH"
 
+            export TSDK_PATH="${pkgs.typescript}/lib/node_modules/typescript/lib"
+
             # color --help with bat
             alias -g -- --help='--help 2>&1 | bat --paging=never --language=help --style=plain'
 

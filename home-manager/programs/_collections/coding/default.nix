@@ -38,7 +38,7 @@ in
         jdt-language-server # language server
         maven # build tool
 
-        # rust 
+        # rust
         cargo # tool
         rustc # tool
         rust-analyzer # language server
@@ -49,6 +49,8 @@ in
         vscode-langservers-extracted # language server html,css
         svelte-language-server # language server svelte
         typescript-language-server # language server typscript
+        astro-language-server # language server astro
+        typescript # needed for astro-ls
 
         # docker
         dockerfile-language-server # language server dockerfile
@@ -71,6 +73,8 @@ in
         kdlfmt # formatter
 
         # TOOLS
+        prettier # general formatter
+        tree-sitter
         gnumake
         cmake
         gcc

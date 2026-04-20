@@ -3,6 +3,7 @@ local linters = require("lint").linters
 local format = require("conform")
 
 local dotfiles_path = os.getenv("HOME") .. "/dotfiles"
+local tsdk_path = os.getenv("TSDK_PATH")
 
 -- setup
 format.setup()
@@ -99,6 +100,17 @@ vim.lsp.enable("cssls")
 vim.lsp.enable("svelte")
 -- typescript
 vim.lsp.enable("ts_ls")
+-- astro
+format.formatters_by_ft.astro = { "prettier" }
+
+vim.lsp.config["astro"] = {
+    init_options = {
+        typescript = {
+            tsdk = tsdk_path,
+        },
+    },
+}
+vim.lsp.enable("astro")
 ----
 
 -- java
@@ -118,7 +130,7 @@ format.formatters_by_ft.python = { "isort", "black" }
 vim.lsp.enable("csharp_ls")
 
 -- kdl
-format.formatters_by_ft.kdl = ("kdlfmt")
+format.formatters_by_ft.kdl = { "kdlfmt" }
 
 -- POST
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextChanged", "TextChangedI" }, {

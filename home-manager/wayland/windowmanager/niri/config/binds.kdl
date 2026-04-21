@@ -31,7 +31,7 @@ binds {
     XF86AudioNext        allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --playerctl next"; }
 
     XF86MonBrightnessUp allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --device apple-panel-bl --brightness +5"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --device apple-panel-bl --brightness -5"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --device apple-panel-bl --brightness -5"; }
 
     Mod+XF86MonBrightnessUp allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --device kbd_backlight --brightness +5"; }
     Mod+XF86MonBrightnessDown allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --device kbd_backlight --brightness -5"; }

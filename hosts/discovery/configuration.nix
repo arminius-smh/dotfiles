@@ -127,6 +127,9 @@
     users.enable = true;
     xdg.enable = true;
     services = {
+      resolved.enable = true;
+      dnsmasq.enable = true;
+      caddy.enable = true;
       jupyter.enable = true;
       avahi.enable = true;
       blueman.enable = true;
@@ -158,6 +161,7 @@
       neovim.enable = true;
       nix-ld.enable = true;
       zsh.enable = true;
+      wireshark.enable = true;
     };
   };
 }

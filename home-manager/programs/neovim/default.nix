@@ -16,6 +16,7 @@ in
     programs = {
       neovim = {
         enable = true;
+        sideloadInitLua = true;
         withRuby = true;
         withPython3 = true;
 

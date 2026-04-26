@@ -64,6 +64,7 @@
       gnome-calculator
       cave-screenshot
       trilium-desktop
+      jan
     ];
 
     sessionVariables = {

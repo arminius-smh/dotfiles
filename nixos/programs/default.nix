@@ -17,6 +17,7 @@
     ./throne
     ./uwsm
     ./virt-manager
+    ./wireshark
     ./zsh
   ];
 }

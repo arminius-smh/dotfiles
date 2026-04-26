@@ -34,6 +34,7 @@ in
             "video"
             "wheel"
             "minecraft"
+            "wireshark"
           ];
         };
       };

@@ -36,12 +36,15 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    programs.discord = {
+      enable = true;
+      package = pkgs.discord.override {
+        withVencord = true;
+      };
+    };
     home = {
       packages = [
         krisp-patcher
-        (pkgs.discord.override {
-          withVencord = true;
-        })
       ];
 
       activation = {

@@ -36,7 +36,7 @@ in
           size = cfg.fontSize;
         };
         settings = {
-          background_opacity = "0.92";
+          background_opacity = "0.85";
           window_padding_width = "0 5 5 5";
           update_check_interval = 0;
           tab_bar_style = "powerline";

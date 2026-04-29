@@ -1,5 +1,4 @@
 local lint = require("lint")
-local linters = require("lint").linters
 local format = require("conform")
 
 local dotfiles_path = os.getenv("HOME") .. "/dotfiles"
@@ -118,7 +117,7 @@ vim.lsp.enable("jdtls")
 
 -- docker
 vim.lsp.enable("dockerls")
-linters.linters_by_ft = {
+lint.linters_by_ft = {
     dockerfile = { "hadolint" },
 }
 

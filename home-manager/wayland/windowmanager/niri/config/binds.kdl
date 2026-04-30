@@ -18,8 +18,7 @@ binds {
     // controller binding
     Alt+Print { spawn-sh "cave-screenshot window"; }
 
-    // --input-volume mute-toggle not working: https://github.com/ErikReider/SwayOSD/issues/225
-    Mod+F11 { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && (wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED && swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --custom-message 'Microphone' --custom-icon 'source-volume-muted-symbolic' || swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --custom-message 'Microphone' --custom-icon 'source-volume-high-symbolic')";}
+    Mod+F11 { spawn-sh  "$HOME/dotfiles/assets/scripts/toggle-mic.sh";}
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --output-volume +2"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --output-volume -2"; }

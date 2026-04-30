@@ -4,12 +4,10 @@ window-rule {
     open-maximized-to-edges false
     open-maximized true
 }
-
 window-rule {
     match is-window-cast-target=true
     geometry-corner-radius 0
 }
-
 window-rule {
     match is-floating=true
     focus-ring {
@@ -22,52 +20,52 @@ window-rule {
         inactive-color "#E69875"
     }
 }
-
 window-rule {
     match app-id="kitty"
     match app-id="thunar"
     open-maximized false
 }
-
 window-rule {
     match app-id="thunderbird"
     open-on-workspace "mail"
 }
-
 window-rule {
     match at-startup=true app-id="feishin"
     open-on-workspace "feishin"
 }
-
 window-rule {
     match at-startup=true app-id="spotify"
     open-on-workspace "spotify"
 }
-
 window-rule {
     match app-id="waypaper"
-    match app-id=r"thunar" title=r#"^Переименовать.*"#
+    match app-id="thunar" title="^Переименовать.*"
     match app-id="nm-connection-editor"
     match app-id="org.gnome.Calculator"
     match app-id="feishin"
     match app-id=".blueman-manager-wrapped"
     open-floating true
 }
-
 window-rule {
     match app-id="feishin"
     open-floating true
-    default-column-width { proportion 0.85; }
-    default-window-height { proportion 0.85; }
+    default-column-width {
+        proportion 0.85
+    }
+    default-window-height {
+        proportion 0.85
+    }
 }
-
 window-rule {
     match app-id="org.telegram.desktop"
     open-floating true
-    default-column-width { proportion 0.9; }
-    default-window-height { proportion 0.9; }
+    default-column-width {
+        proportion 0.9
+    }
+    default-window-height {
+        proportion 0.9
+    }
 }
-
 window-rule {
     match app-id="anki"
     open-floating true
@@ -76,7 +74,6 @@ window-rule {
     match app-id="anki" title="User 1 - Anki"
     open-floating false
 }
-
 window-rule {
     match app-id="steam"
     open-floating true
@@ -85,32 +82,38 @@ window-rule {
     match app-id="steam" title="^Steam$"
     open-floating false
 }
-
 window-rule {
-    match app-id=r#"^org\.telegram\.desktop$"# title="^Media viewer$"
-
+    match app-id="^org\\.telegram\\.desktop$" title="^Media viewer$"
     open-fullscreen false
     open-floating true
-
-    default-column-width { fixed 1200; }
-    default-window-height { fixed 800; }
+    default-column-width {
+        fixed 1200
+    }
+    default-window-height {
+        fixed 800
+    }
 }
-
 window-rule {
     match app-id="^kitty$"
-
     background-effect {
         blur true
     }
 }
-
+layer-rule {
+    match namespace="^rofi$"
+    background-effect {
+        blur true
+        xray false
+    }
+    geometry-corner-radius 12
+}
 layer-rule {
     shadow {
         off
     }
 }
-
 layer-rule {
     match namespace="awww-daemon"
     place-within-backdrop true
 }
+

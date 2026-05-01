@@ -13,6 +13,9 @@ in
 
   config = lib.mkIf cfg.enable {
     security = {
+      pki = {
+        certificates = config.private.certs;
+      };
       sudo = {
         enable = true;
         extraConfig = ''

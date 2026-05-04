@@ -44,6 +44,7 @@ window-rule {
     match app-id="org.gnome.Calculator"
     match app-id="feishin"
     match app-id=".blueman-manager-wrapped"
+    match app-id="xdg-desktop-portal-gtk"
     open-floating true
 }
 window-rule {

@@ -96,6 +96,7 @@
         solaar.enable = true;
         thunderbird.enable = true;
         spotify.enable = true;
+        discord.enable = true;
       };
     };
     services = {

@@ -30,18 +30,9 @@ in
           };
 
           Service = {
-            # otherwise discord isn't shown in ags, idk why
-            ExecStartPre = "${pkgs.coreutils}/bin/sleep 15";
-
-            ExecStart = "${pkgs.discord}/bin/discord --start-minimized";
+            ExecStart = "${pkgs.vesktop}/bin/vesktop --start-minimized";
             Restart = "on-failure";
             KillMode = "mixed";
-
-            # remove x11 variable settings when discord/hyprland idk? allows to set keybindings in wayland discord
-            Environment = [
-              "NIXOS_OZONE_WL="
-              "ELECTRON_OZONE_PLATFORM_HINT="
-            ];
           };
 
           Install = {

@@ -84,6 +84,37 @@ in
     };
 
     accounts = {
+      contact = {
+        accounts = {
+          "Home" = {
+            thunderbird = {
+              enable = true;
+              profiles = [ "armin" ];
+            };
+            remote = {
+              type = "carddav";
+              userName = config.private.accounts.userName;
+              url = config.private.accounts.url;
+            };
+          };
+        };
+      };
+      calendar = {
+        accounts = {
+          "Home" = {
+            thunderbird = {
+              enable = true;
+              profiles = [ "armin" ];
+            };
+            primary = true;
+            remote = {
+              type = "caldav";
+              userName = config.private.calendar.userName;
+              url = config.private.calendar.url;
+            };
+          };
+        };
+      };
       email = {
         accounts = {
           ${config.private.mail.personal} = {

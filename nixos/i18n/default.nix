@@ -65,7 +65,7 @@ in
                     "0" = "Super+Shift+space";
                   };
 
-                  "Behaviour" = {
+                  "Behavior" = {
                     "ShareInputState" = "All";
                   };
                 };

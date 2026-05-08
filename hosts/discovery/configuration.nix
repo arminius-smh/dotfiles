@@ -161,7 +161,6 @@
       neovim.enable = true;
       nix-ld.enable = true;
       zsh.enable = true;
-      wireshark.enable = true;
     };
   };
 }

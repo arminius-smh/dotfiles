@@ -115,7 +115,6 @@ in
             ublock-origin
             violentmonkey
             yomitan
-            pkgs.firefox-addons."2fas-two-factor-authentication"
           ];
         };
         bookmarks = {

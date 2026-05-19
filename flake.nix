@@ -33,14 +33,9 @@
     catppuccin = {
       url = "github:catppuccin/nix";
     };
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/quickshell/quickshell?rev=0baa81aa03559ca315668e5a306364cddf1a6f49";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     qml-niri = {
       url = "github:imiric/qml-niri/main";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.quickshell.follows = "quickshell";
     };
 
     # hyprland.url = "github:hyprwm/Hyprland";

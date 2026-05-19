@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 let
@@ -15,9 +14,8 @@ in
 
   config = lib.mkIf cfg.enable {
     home = {
-      packages = [
-        inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
-        # quickshell
+      packages = with pkgs; [
+        quickshell
       ];
     };
   };

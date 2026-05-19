@@ -16,7 +16,7 @@ in
       ssh = {
         enable = true;
         enableDefaultConfig = false;
-        matchBlocks = {
+        settings = {
           "github.com" = {
             hostname = "github.com";
             identityFile = "${config.home.homeDirectory}/.ssh/git";

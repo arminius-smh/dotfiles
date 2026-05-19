@@ -129,7 +129,8 @@ format.formatters_by_ft.python = { "isort", "black" }
 vim.lsp.enable("csharp_ls")
 
 -- kdl
-format.formatters_by_ft.kdl = { "kdlfmt" }
+-- removes stuff from niri config
+-- format.formatters_by_ft.kdl = { "kdlfmt" }
 
 -- POST
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextChanged", "TextChangedI" }, {

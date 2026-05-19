@@ -213,7 +213,6 @@
       gamemode.enable = true;
       steam.enable = true;
       gdk-pixbuf.enable = true;
-      hyprland.enable = true;
       niri.enable = true;
       uwsm.enable = true;
 

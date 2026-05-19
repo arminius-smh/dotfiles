@@ -70,7 +70,7 @@ in
         csharp-ls
 
         # kdl
-        kdlfmt # formatter
+        # kdlfmt # formatter - removes stuff from niri config
 
         # TOOLS
         prettier # general formatter

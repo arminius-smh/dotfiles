@@ -11,8 +11,6 @@ binds {
     Mod+N {spawn-sh "$HOME/dotfiles/assets/scripts/focus.sh -2 -3";}
     Mod+M {spawn-sh "$HOME/dotfiles/assets/scripts/toggle-bar.sh";}
 
-    Mod+Shift+N { spawn-sh "niri msg action focus-workspace spotify"; }
-
     Mod+Shift+D { spawn-sh "cave-screenshot area"; }
     Mod+Ctrl+D { spawn-sh "cave-screenshot window"; }
     // controller binding

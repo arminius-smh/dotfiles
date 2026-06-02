@@ -26,7 +26,6 @@
     ./zathura
     ./cava
     ./fastfetch
-    ./spotify
     ./starship
     ./obs-studio
     ./thunderbird

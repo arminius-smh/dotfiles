@@ -13,7 +13,7 @@ RowLayout {
 
     Repeater {
         id: mprisRepeater
-        model: Mpris.players.values.filter(pl => pl.dbusName == "org.mpris.MediaPlayer2.spotify" || pl.dbusName == "org.mpris.MediaPlayer2.Feishin")
+        model: Mpris.players.values.filter(pl => pl.dbusName == "org.mpris.MediaPlayer2.Feishin")
 
         property string lastActivePlayer: "org.mpris.MediaPlayer2.Feishin"
 

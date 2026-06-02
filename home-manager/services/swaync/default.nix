@@ -40,14 +40,6 @@ in
           "hide-on-action" = true;
           "script-fail-notify" = true;
           "notification-visibility" = {
-            "hide-spotify-from-cc" = {
-              state = "transient";
-              "app-name" = "Spotify";
-            };
-            "hide-spotify_player-from-cc" = {
-              state = "transient";
-              "app-name" = "spotify_player";
-            };
             "hide-feishin-from-cc" = {
               state = "transient";
               "app-name" = "feishin";
@@ -55,10 +47,6 @@ in
             "hide-heroic-from-cc" = {
               state = "transient";
               "app-name" = "heroic";
-            };
-            "hide-spotify-from-blueman" = {
-              state = "transient";
-              "app-name" = "blueman";
             };
           };
           widgets = [

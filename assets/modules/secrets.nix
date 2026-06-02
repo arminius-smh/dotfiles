@@ -56,9 +56,6 @@ with lib;
           type = types.str;
         };
       };
-      spotifyId = mkOption {
-        type = types.str;
-      };
       minecraft = {
         whitelist = mkOption {
           type = types.attrs;

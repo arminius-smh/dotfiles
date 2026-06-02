@@ -26,10 +26,6 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    spicetify = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     catppuccin = {
       url = "github:catppuccin/nix";
     };
@@ -37,8 +33,6 @@
       url = "github:imiric/qml-niri/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs =

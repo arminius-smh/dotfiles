@@ -34,10 +34,6 @@ window-rule {
     open-on-workspace "feishin"
 }
 window-rule {
-    match at-startup=true app-id="spotify"
-    open-on-workspace "spotify"
-}
-window-rule {
     match app-id="waypaper"
     match app-id="thunar" title="^Переименовать.*"
     match app-id="nm-connection-editor"

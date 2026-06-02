@@ -7,7 +7,6 @@
 {
   imports = [
     inputs.catppuccin.homeModules.catppuccin
-    inputs.spicetify.homeManagerModules.default
     ../../private
 
     ../../home-manager
@@ -100,7 +99,6 @@
         quickshell.enable = true;
         solaar.enable = true;
         thunderbird.enable = true;
-        spotify.enable = true;
         discord.enable = true;
       };
     };
@@ -152,7 +150,6 @@
       feh.enable = true;
       eza.enable = true;
       git.enable = true;
-      spotify.enable = true;
       lazygit.enable = true;
       btop = {
         enable = true;

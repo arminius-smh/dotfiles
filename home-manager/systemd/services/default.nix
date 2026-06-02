@@ -14,7 +14,6 @@
     ./nwg-dock-hyprland.nix
     ./quickshell.nix
     ./solaar.nix
-    ./spotify.nix
     ./steam.nix
     ./telegram.nix
     ./thunderbird.nix

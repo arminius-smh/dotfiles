@@ -2,7 +2,6 @@
 {
   imports = [
     inputs.catppuccin.homeModules.catppuccin
-    inputs.spicetify.homeManagerModules.default
     ../../private
 
     ../../home-manager

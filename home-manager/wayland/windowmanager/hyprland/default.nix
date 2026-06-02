@@ -198,7 +198,6 @@ in
               "$mainMod, V, togglefloating"
 
               # Special Workspace
-              "$mainMod SHIFT, N, toggleSpecialWorkspace, spotify"
               "$mainMod SHIFT, M, toggleSpecialWorkspace, feishin"
               "$mainMod SHIFT, O, exec, ${pkgs.joplin-desktop}/bin/joplin-desktop"
 
@@ -292,8 +291,6 @@ in
 
               "workspace 1, match:class org.jellyfin.JellyfinDesktop"
               "workspace 9 silent, match:class thunderbird"
-              "workspace special:spotify silent, match:class spotify"
-              "workspace special:spotify silent, match:title Spotify"
 
               "workspace special:feishin silent, match:class feishin"
             ];

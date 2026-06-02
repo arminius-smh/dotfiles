@@ -15,6 +15,8 @@
   catppuccin = {
     flavor = "mocha";
     accent = "mauve";
+    autoEnable = false;
+    enable = true;
     grub = {
       enable = true;
     };

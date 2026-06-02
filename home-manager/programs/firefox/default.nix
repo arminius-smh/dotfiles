@@ -15,6 +15,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.firefox = {
       enable = true;
+      package = pkgs.firefox-bin;
       configPath = "${config.xdg.configHome}/mozilla/firefox";
       policies = {
         DisablePocket = true;

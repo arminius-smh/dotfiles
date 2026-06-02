@@ -16,6 +16,8 @@
   catppuccin = {
     flavor = "mocha";
     accent = "mauve";
+    autoEnable = false;
+    enable = true;
 
     cursors = {
       enable = true;
@@ -65,6 +67,11 @@
       cave-screenshot
       trilium-desktop
       jan
+      gum
+      p7zip
+      file
+      sox
+      parallel
     ];
 
     sessionVariables = {

@@ -25,6 +25,9 @@ in
         enable = true;
         syntaxHighlighting = {
           enable = true;
+          styles = {
+            comment = "fg=245";
+          };
         };
         autosuggestion = {
           enable = true;
@@ -42,7 +45,6 @@ in
           # bash
           ''
             DISABLE_MAGIC_FUNCTIONS=true
-            ZSH_HIGHLIGHT_STYLES[comment]="fg=245"
 
             export PATH="$HOME/dotfiles/assets/scripts:$PATH"
 
@@ -82,10 +84,9 @@ in
             fi
           '';
 
-        # TODO: https://github.com/NixOS/nixpkgs/issues/476375
         profileExtra = lib.mkIf (systemName == "phoenix") ''
-          if uwsm check may-start && uwsm select; then
-            exec uwsm start default
+          if uwsm check may-start; then
+            exec uwsm start niri-uwsm.desktop > /dev/null
           fi
         '';
 

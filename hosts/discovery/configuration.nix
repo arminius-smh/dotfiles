@@ -152,7 +152,6 @@
     };
     programs = {
       gdk-pixbuf.enable = true;
-      hyprland.enable = true;
       niri.enable = true;
       uwsm.enable = true;
 

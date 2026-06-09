@@ -4,7 +4,6 @@
     ./battery-alert.nix
     ./clear-nohl.nix
     ./clear-trash.nix
-    ./discord.nix
     ./feishin.nix
     ./heroic.nix
     ./hypr_handle_events.nix

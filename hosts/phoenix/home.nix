@@ -99,7 +99,7 @@
         quickshell.enable = true;
         solaar.enable = true;
         thunderbird.enable = true;
-        discord.enable = true;
+        vesktop.enable = true;
       };
     };
     services = {
@@ -145,7 +145,7 @@
       bat.enable = true;
       delta.enable = true;
       starship.enable = true;
-      discord.enable = true;
+      vesktop.enable = true;
       direnv.enable = true;
       feh.enable = true;
       eza.enable = true;

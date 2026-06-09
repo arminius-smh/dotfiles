@@ -8,7 +8,6 @@
     ./git
     ./eza
     ./feh
-    ./discord
     ./vesktop
     ./direnv
     ./bat

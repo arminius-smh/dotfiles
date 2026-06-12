@@ -185,6 +185,7 @@
     users.enable = true;
     xdg.enable = true;
     services = {
+      avahi.enable = true;
       udev = {
         enable = true;
         wii.enable = true;

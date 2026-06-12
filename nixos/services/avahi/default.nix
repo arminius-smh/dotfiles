@@ -22,6 +22,7 @@ in
         publish = {
           enable = true;
           domain = true;
+          userServices = true;
         };
       };
     };

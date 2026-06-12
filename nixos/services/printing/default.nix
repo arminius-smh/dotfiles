@@ -18,7 +18,12 @@ in
         enable = true;
         drivers = with pkgs; [
           cnijfilter2
+          epson-escpr2
         ];
+        allowFrom = [ "all" ];
+        defaultShared = true;
+        browsing = false;
+        browsed.enable = false;
       };
     };
   };

@@ -16,10 +16,6 @@ in
     fonts = {
       fontconfig = {
         enable = true;
-        useEmbeddedBitmaps = true;
-      };
-      fontDir = {
-        enable = true;
       };
       packages = with pkgs; [
         noto-fonts

@@ -8,8 +8,7 @@ RowLayout {
     required property var hostname
 
     anchors {
-        right: parent.right
-        rightMargin: 12
+        horizontalCenter: parent.horizontalCenter
         verticalCenter: parent.verticalCenter
     }
     SysTrayLocal {}

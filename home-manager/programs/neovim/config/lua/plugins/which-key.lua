@@ -37,8 +37,8 @@ M.config = function()
         { "<leader>dm", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Definition" },
         { "<leader>dh", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "Hover" },
         { "<leader>dc", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code Action" },
-        { "<leader>dd", "<cmd>lua vim.diagnostic.goto_next()<CR>", desc = "Next Diagnostic" },
-        { "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", desc = "Previous Diagnostic" },
+        { "<leader>dd", "<cmd>lua vim.diagnostic.jump({count = 1, float = true})<CR>", desc = "Next Diagnostic" },
+        { "<leader>dp", "<cmd>lua vim.diagnostic.jump({count = -1, float = true})<CR>", desc = "Previous Diagnostic" },
 
         { "<leader>f", group = "Telescope" },
         { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find Files" },

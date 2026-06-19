@@ -28,20 +28,52 @@ Scope {
 
             implicitHeight: 40
 
-            color: "#1e1e2e"
+            color: "#00000000"
 
-            LeftLayout {
-                toplevel: toplevel
-                hostname: toplevel.hostname
-                desktop: toplevel.desktop
+            Rectangle {
+                id: borderleft
+                width: left.width + 20
+                height: 35
+
+                color: Qt.alpha("#272E33", 0.8)
+                radius: border.height / 2
+
+                anchors {
+                    left: parent.left
+                    leftMargin: 12
+                    verticalCenter: parent.verticalCenter
+                }
+
+                LeftLayout {
+                    id: left
+                    toplevel: toplevel
+                    hostname: toplevel.hostname
+                    desktop: toplevel.desktop
+                }
             }
 
             MiddleLayout {
                 hostname: toplevel.hostname
             }
 
-            RightLayout {
-                hostname: toplevel.hostname
+            Rectangle {
+                id: border
+                width: right.width + 20
+                height: 35
+
+                color: Qt.alpha("#272E33", 0.8)
+                radius: border.height / 2
+
+                anchors {
+                    right: parent.right
+                    rightMargin: 5
+                    verticalCenter: parent.verticalCenter
+                }
+
+                RightLayout {
+                    id: right
+                    hostname: toplevel.hostname
+                }
             }
 
             Process {

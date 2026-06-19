@@ -18,12 +18,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    catppuccin = {
-      kitty = {
-        enable = true;
-      };
-    };
-
     programs = {
       kitty = {
         enable = true;
@@ -36,13 +30,15 @@ in
           size = cfg.fontSize;
         };
         settings = {
-          background_opacity = "0.85";
+          background_opacity = "0.95";
           window_padding_width = "0 5 5 5";
           update_check_interval = 0;
           tab_bar_style = "powerline";
           enable_audio_bell = "no";
           clipboard_control = "write-clipboard read-clipboard";
           confirm_os_window_close = 0;
+          include = "${config.home.homeDirectory}/dotfiles/home-manager/programs/kitty/theme.conf";
+          auto_reload_config = -1;
         };
         keybindings = {
           "ctrl+shift+t" = "new_tab_with_cwd";

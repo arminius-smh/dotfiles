@@ -6,184 +6,157 @@ import Quickshell.Services.Mpris
 import Quickshell.Widgets
 import QtQuick.Layouts
 
-RowLayout {
-    id: root
-
+Rectangle {
+    id: border
     property bool show: false
+    property string hostname
+    color: hostname == "discovery" ? "#00000000" : Qt.alpha("#272E33", 0.8)
+    implicitWidth: root.width + 15
+    implicitHeight: 35
+    visible: show
+    radius: border.height / 2
+    RowLayout {
+        id: root
 
-    Repeater {
-        id: mprisRepeater
-        model: Mpris.players.values.filter(pl => pl.dbusName == "org.mpris.MediaPlayer2.Feishin")
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            verticalCenter: parent.verticalCenter
+        }
 
-        property string lastActivePlayer: "org.mpris.MediaPlayer2.Feishin"
+        Repeater {
+            id: mprisRepeater
+            model: Mpris.players.values.filter(pl => pl.dbusName == "org.mpris.MediaPlayer2.spotify" || pl.dbusName == "org.mpris.MediaPlayer2.Feishin")
 
-        RowLayout {
-            id: mprisContainer
-            required property MprisPlayer modelData
-            visible: root.show && mprisRepeater.lastActivePlayer === modelData.dbusName
+            property string lastActivePlayer: "org.mpris.MediaPlayer2.Feishin"
 
-            Connections {
-                target: mprisContainer.modelData
-                function onIsPlayingChanged() {
-                    const lastActive = mprisRepeater.model.find(item => item.dbusName === mprisRepeater.lastActivePlayer);
-                    if (lastActive === undefined) {
-                        // if (e.g. at startup) lastActive is not started/closed, use current one as player
-                        mprisRepeater.lastActivePlayer = mprisContainer.modelData.dbusName;
-                        return;
-                    }
-                    const actives = mprisRepeater.model.filter(item => item.isPlaying === true).filter(pl => pl.dbusName != lastActive.dbusName);
-
-                    let playback = mprisContainer.modelData.isPlaying;
-
-                    if (playback == true) {
-                        // if new player is playing, dont display change if last active player is still active
-                        if (!lastActive.isPlaying) {
-                            mprisRepeater.lastActivePlayer = mprisContainer.modelData.dbusName;
-                        }
-                    } else if (mprisRepeater.lastActivePlayer === mprisContainer.modelData.dbusName) {
-                        // if the active player was stopped,
-                        // check if another one is still active and use that
-                        // in case two players are active
-                        if (!lastActive.isPlaying && actives.length > 0) {
-                            mprisRepeater.lastActivePlayer = actives[0].dbusName;
-                        }
-                    }
-                }
-            }
-
-            states: [
-                State {
-                    name: "MprisPlayerHovered"
-                    when: hoverHandlerMpris.hovered
-                    PropertyChanges {
-                        target: playerControls
-                        opacity: 1
-                    }
-                }
-            ]
-            transitions: [
-                Transition {
-                    from: ""
-                    to: "MprisPlayerHovered"
-                    NumberAnimation {
-                        properties: "opacity"
-                        duration: 175
-                        easing.type: Easing.InOutQuad
-                    }
-                },
-                Transition {
-                    from: "MprisPlayerHovered"
-                    to: ""
-                    NumberAnimation {
-                        properties: "opacity"
-                        duration: 175
-                        easing.type: Easing.InOutQuad
-                    }
-                }
-            ]
-
-            // TODO: only margin right needed
-            HoverHandler {
-                id: hoverHandlerMpris
-                margin: playerControls.implicitWidth
-            }
-            // https://forum.qt.io/topic/145956/rounded-image-in-qt6/6
-            Item {
-                Layout.preferredWidth: songImage.implicitWidth
-                Layout.preferredHeight: songImage.implicitHeight
-
-                MouseArea {
-                    acceptedButtons: Qt.LeftButton
-                    implicitHeight: parent.height
-                    implicitWidth: parent.width
-
-                    onClicked: mprisContainer.modelData.togglePlaying()
-                }
-
-                IconImage {
-                    id: songImage
-                    source: mprisContainer.modelData.trackArtUrl
-                    implicitWidth: 30
-                    implicitHeight: 30
-                    visible: false
-                }
-
-                MultiEffect {
-                    source: songImage
-                    anchors.fill: songImage
-                    maskEnabled: true
-                    maskSource: songImageMask
-                    maskThresholdMin: 0.5
-                    maskSpreadAtMin: 1.0
-                }
-
-                Item {
-                    id: songImageMask
-                    width: songImage.width
-                    height: songImage.height
-                    layer.enabled: true
-                    visible: false
-                    Rectangle {
-                        width: songImage.width
-                        height: songImage.height
-                        radius: width / 2
-                        color: "black"
-                    }
-                }
-            }
-
-            Text {
-                color: "#cdd6f4"
-                text: songTitle(mprisContainer.modelData.trackTitle)
-                leftPadding: 5
-                font.family: "Lexend"
-
-                function songTitle(title) {
-                    if (title.length > 38) {
-                        title = title.substring(0, 35) + "...";
-                    }
-                    return title;
-                }
-
-                MouseArea {
-                    acceptedButtons: Qt.LeftButton
-                    implicitHeight: parent.height
-                    implicitWidth: parent.width
-
-                    onClicked: mprisContainer.modelData.togglePlaying()
-                }
-            }
             RowLayout {
-                id: playerControls
-                opacity: 0
-                Layout.preferredWidth: 0
+                id: mprisContainer
+                required property MprisPlayer modelData
+                visible: border.show && mprisRepeater.lastActivePlayer === modelData.dbusName
 
-                Text {
-                    color: "#cdd6f4"
-                    font.pointSize: 14
-                    leftPadding: 3
-                    rightPadding: 5
-                    text: "󰒮"
+                Connections {
+                    target: mprisContainer.modelData
+                    function onIsPlayingChanged() {
+                        const lastActive = mprisRepeater.model.find(item => item.dbusName === mprisRepeater.lastActivePlayer);
+                        if (lastActive === undefined) {
+                            // if (e.g. at startup) lastActive is not started/closed, use current one as player
+                            mprisRepeater.lastActivePlayer = mprisContainer.modelData.dbusName;
+                            return;
+                        }
+                        const actives = mprisRepeater.model.filter(item => item.isPlaying === true).filter(pl => pl.dbusName != lastActive.dbusName);
+
+                        let playback = mprisContainer.modelData.isPlaying;
+
+                        if (playback == true) {
+                            // if new player is playing, dont display change if last active player is still active
+                            if (!lastActive.isPlaying) {
+                                mprisRepeater.lastActivePlayer = mprisContainer.modelData.dbusName;
+                            }
+                        } else if (mprisRepeater.lastActivePlayer === mprisContainer.modelData.dbusName) {
+                            // if the active player was stopped,
+                            // check if another one is still active and use that
+                            // in case two players are active
+                            if (!lastActive.isPlaying && actives.length > 0) {
+                                mprisRepeater.lastActivePlayer = actives[0].dbusName;
+                            }
+                        }
+                    }
+                }
+
+                states: [
+                    State {
+                        name: "MprisPlayerHovered"
+                        when: hoverHandlerMpris.hovered
+                        PropertyChanges {
+                            playerControls.opacity: 1
+                            playerControls.Layout.preferredWidth: 50
+                            playerControls.Layout.rightMargin: 10
+                        }
+                    }
+                ]
+
+                transitions: [
+                    Transition {
+                        from: ""
+                        to: "MprisPlayerHovered"
+                        NumberAnimation {
+                            properties: "opacity"
+                            duration: 325
+                            easing.type: Easing.InCubic
+                        }
+                    },
+                    Transition {
+                        from: "MprisPlayerHovered"
+                        to: ""
+                        NumberAnimation {
+                            properties: "opacity"
+                            duration: 175
+                            easing.type: Easing.InOutQuad
+                        }
+                    }
+                ]
+
+                // TODO: only margin right needed
+                HoverHandler {
+                    id: hoverHandlerMpris
+                    margin: 50
+                }
+                // https://forum.qt.io/topic/145956/rounded-image-in-qt6/6
+                Item {
+                    Layout.preferredWidth: songImage.implicitWidth
+                    Layout.preferredHeight: songImage.implicitHeight
+
                     MouseArea {
                         acceptedButtons: Qt.LeftButton
                         implicitHeight: parent.height
                         implicitWidth: parent.width
 
-                        onClicked: mprisContainer.modelData.previous()
+                        onClicked: mprisContainer.modelData.togglePlaying()
+                    }
+
+                    IconImage {
+                        id: songImage
+                        source: mprisContainer.modelData.trackArtUrl
+                        implicitWidth: 25
+                        implicitHeight: 25
+                        visible: false
+                    }
+
+                    MultiEffect {
+                        source: songImage
+                        anchors.fill: songImage
+                        maskEnabled: true
+                        maskSource: songImageMask
+                        maskThresholdMin: 0.5
+                        maskSpreadAtMin: 1.0
+                    }
+
+                    Item {
+                        id: songImageMask
+                        width: songImage.width
+                        height: songImage.height
+                        layer.enabled: true
+                        visible: false
+                        Rectangle {
+                            width: songImage.width
+                            height: songImage.height
+                            radius: width / 2
+                            color: "black"
+                        }
                     }
                 }
+
                 Text {
                     color: "#cdd6f4"
-                    font.pointSize: 14
-                    rightPadding: 5
-                    text: playbackIcon(mprisContainer.modelData.playbackState)
+                    text: songTitle(mprisContainer.modelData.trackTitle)
+                    leftPadding: 5
+                    font.family: "Lexend"
 
-                    function playbackIcon(playback) {
-                        if (playback == MprisPlaybackState.Playing) {
-                            return "󰏤";
-                        } else {
-                            return "󰐊";
+                    function songTitle(title) {
+                        if (title.length > 38) {
+                            title = title.substring(0, 35) + "...";
                         }
+                        return title;
                     }
 
                     MouseArea {
@@ -194,16 +167,72 @@ RowLayout {
                         onClicked: mprisContainer.modelData.togglePlaying()
                     }
                 }
-                Text {
-                    color: "#cdd6f4"
-                    font.pointSize: 14
-                    text: "󰒭"
-                    MouseArea {
-                        acceptedButtons: Qt.LeftButton
-                        implicitHeight: parent.height
-                        implicitWidth: parent.width
+                RowLayout {
+                    id: playerControls
+                    opacity: 0
+                    Layout.preferredWidth: 0
 
-                        onClicked: mprisContainer.modelData.next()
+                    Behavior on Layout.preferredWidth {
+                        NumberAnimation {
+                            duration: 300
+                            easing.type: Easing.InOutQuad
+                        }
+                    }
+
+                    Behavior on Layout.rightMargin {
+                        NumberAnimation {
+                            duration: 300
+                            easing.type: Easing.InOutQuad
+                        }
+                    }
+
+                    Text {
+                        color: "#cdd6f4"
+                        font.pointSize: 14
+                        leftPadding: 3
+                        rightPadding: 5
+                        text: "󰒮"
+                        MouseArea {
+                            acceptedButtons: Qt.LeftButton
+                            implicitHeight: parent.height
+                            implicitWidth: parent.width
+
+                            onClicked: mprisContainer.modelData.previous()
+                        }
+                    }
+                    Text {
+                        color: "#cdd6f4"
+                        font.pointSize: 14
+                        rightPadding: 5
+                        text: playbackIcon(mprisContainer.modelData.playbackState)
+
+                        function playbackIcon(playback) {
+                            if (playback == MprisPlaybackState.Playing) {
+                                return "󰏤";
+                            } else {
+                                return "󰐊";
+                            }
+                        }
+
+                        MouseArea {
+                            acceptedButtons: Qt.LeftButton
+                            implicitHeight: parent.height
+                            implicitWidth: parent.width
+
+                            onClicked: mprisContainer.modelData.togglePlaying()
+                        }
+                    }
+                    Text {
+                        color: "#cdd6f4"
+                        font.pointSize: 14
+                        text: "󰒭"
+                        MouseArea {
+                            acceptedButtons: Qt.LeftButton
+                            implicitHeight: parent.height
+                            implicitWidth: parent.width
+
+                            onClicked: mprisContainer.modelData.next()
+                        }
                     }
                 }
             }

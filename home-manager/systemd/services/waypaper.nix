@@ -12,7 +12,7 @@ in
     systemd.services.waypaper.enable = lib.mkEnableOption "enable systemd.services.waypaper config";
     systemd.services.waypaper.cmd = lib.mkOption {
       type = lib.types.str;
-      default = "--random";
+      default = "--restore";
     };
   };
 

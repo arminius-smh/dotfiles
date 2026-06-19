@@ -11,8 +11,7 @@ RowLayout {
     required property var desktop
 
     anchors {
-        left: parent.left
-        leftMargin: 12
+        horizontalCenter: parent.horizontalCenter
         verticalCenter: parent.verticalCenter
     }
 
@@ -34,5 +33,6 @@ RowLayout {
 
     MprisPlayerLocal {
         show: row.hostname == "discovery"
+        hostname: row.hostname
     }
 }

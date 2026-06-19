@@ -34,6 +34,7 @@ window-rule {
     open-on-workspace "feishin"
 }
 window-rule {
+    match app-id="betterbird"
     match app-id="waypaper"
     match app-id="thunar" title="^Переименовать.*"
     match app-id="nm-connection-editor"

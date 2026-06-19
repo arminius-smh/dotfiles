@@ -110,7 +110,6 @@ in
             frankerfacez
             return-youtube-dislikes
             simple-translate
-            stylus
             sponsorblock
             torrent-control
             ublock-origin
@@ -204,11 +203,8 @@ in
         userContent = ''
           @-moz-document url("about:home"), url("about:newtab") {
               :root {
-                  --newtab-text-primary-color: #cad3f5 !important;
-                  --newtab-background-color-secondary: #24273a !important;
-              }
-              body {
-                  --newtab-wallpaper: url("https://i.imgur.com/o1ERpAl.jpeg") !important;
+                  --newtab-text-primary-color: #D3C6AA !important;
+                  --newtab-background-color-secondary: #1E2326 !important;
               }
           }
         '';

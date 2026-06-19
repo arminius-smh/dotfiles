@@ -4,10 +4,10 @@ import Niri 0.1
 
 Rectangle {
     id: root
-    implicitWidth: rowLayout.implicitWidth + 20
+    implicitWidth: rowLayout.implicitWidth + 5
     implicitHeight: 25
-    Layout.rightMargin: 5
-    color: "#313244"
+    Layout.rightMargin: 0
+    color: "#00000000"
     radius: height / 2
 
     property var screenName
@@ -37,11 +37,11 @@ Rectangle {
                 function workspaceColorFunc(mod) {
                     let color = "";
                     if (mod.isFocused) {
-                        color = "#74c7ec";
+                        color = "#A7C080";
                     } else if (workspaceMouse.containsMouse) {
-                        color = "#eba0ac";
+                        color = "#E67E80";
                     } else {
-                        color = "#74c7ec";
+                        color = "#A7C080";
                     }
                     return color;
                 }

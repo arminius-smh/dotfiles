@@ -77,7 +77,7 @@
         hypr_handle_events.enable = true;
         niri_handle_events.enable = true;
         quickshell.enable = true;
-        thunderbird.enable = true;
+        # thunderbird.enable = true;
         feishin.enable = true;
       };
     };

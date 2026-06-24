@@ -49,8 +49,8 @@ in
             type = "fcitx5";
             fcitx5 = {
               waylandFrontend = true;
+              ignoreUserConfig = true;
               addons = with pkgs; [
-                fcitx5-mozc
                 fcitx5-lua
               ];
               settings = {
@@ -80,10 +80,6 @@ in
                     Layout = "";
                   };
                   "Groups/0/Items/1" = {
-                    Name = "mozc";
-                    Layout = "";
-                  };
-                  "Groups/0/Items/2" = {
                     Name = "keyboard-de-ru-translit";
                     Layout = "";
                   };
@@ -104,19 +100,7 @@ in
           target = "xdg/fcitx5/conf/clipboard.conf";
           text = ''
             [TriggerKey]
-            0=Super+semicolon
-          '';
-        };
-        # remove default trigger key to use for clipboard
-        "quickphrases.conf" = {
-          target = "xdg/fcitx5/conf/quickphrases.conf";
-          text = ''
-            Choose Modifier=None
-            Spell=True
-            FallbackSpellLanguage=en
-
-            [TriggerKey]
-            0=Super+grave
+            0=Super+comma
           '';
         };
       };

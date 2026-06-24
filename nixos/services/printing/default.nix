@@ -17,7 +17,6 @@ in
       printing = {
         enable = true;
         drivers = with pkgs; [
-          cnijfilter2
           epson-escpr2
         ];
         listenAddresses = [ "*:631" ];

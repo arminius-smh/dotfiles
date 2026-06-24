@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   inputs,
   ...
@@ -14,6 +13,64 @@
     ../../private
     ../../nixos
   ];
+
+  cave = {
+    console.enable = true;
+    fonts.enable = true;
+    swapDevices.enable = true;
+    i18n.enable = true;
+
+    networking.enable = true;
+    nix.enable = true;
+    nixpkgs = {
+      enable = true;
+      overlays = {
+        adi1090x-plymouth-themes.enable = true;
+        firefox-addons.enable = true;
+        firefox.enable = true;
+      };
+    };
+    security.enable = true;
+    users.enable = true;
+    xdg.enable = true;
+
+    services = {
+      printing.enable = true;
+      resolved.enable = true;
+      dnsmasq.enable = true;
+      caddy.enable = true;
+      jupyter.enable = true;
+      avahi.enable = true;
+      blueman.enable = true;
+      dbus.enable = true;
+      displayManager.enable = true;
+      envfs.enable = true;
+      flatpak.enable = true;
+      gvfs.enable = true;
+      logind.enable = true;
+      pipewire.enable = true;
+      tumbler.enable = true;
+      upower.enable = true;
+      xserver.enable = true;
+      udev = {
+        enable = true;
+        power-notification.enable = true;
+      };
+    };
+    programs = {
+      gdk-pixbuf.enable = true;
+      niri.enable = true;
+      uwsm.enable = true;
+
+      appimage.enable = true;
+      dconf.enable = true;
+      git.enable = true;
+      gnupg.enable = true;
+      neovim.enable = true;
+      nix-ld.enable = true;
+      zsh.enable = true;
+    };
+  };
 
   catppuccin = {
     flavor = "mocha";
@@ -108,60 +165,5 @@
 
   system = {
     stateVersion = "24.05";
-  };
-
-  cave = {
-    console.enable = true;
-    fonts.enable = true;
-    i18n.enable = true;
-    networking.enable = true;
-    nix.enable = true;
-    nixpkgs = {
-      enable = true;
-      overlays = {
-        adi1090x-plymouth-themes.enable = true;
-        firefox-addons.enable = true;
-        firefox.enable = true;
-      };
-    };
-    security.enable = true;
-    swapDevices.enable = true;
-    users.enable = true;
-    xdg.enable = true;
-    services = {
-      resolved.enable = true;
-      dnsmasq.enable = true;
-      caddy.enable = true;
-      jupyter.enable = true;
-      avahi.enable = true;
-      blueman.enable = true;
-      dbus.enable = true;
-      displayManager.enable = true;
-      envfs.enable = true;
-      flatpak.enable = true;
-      gvfs.enable = true;
-      logind.enable = true;
-      pipewire.enable = true;
-      tumbler.enable = true;
-      upower.enable = true;
-      xserver.enable = true;
-      udev = {
-        enable = true;
-        power-notification.enable = true;
-      };
-    };
-    programs = {
-      gdk-pixbuf.enable = true;
-      niri.enable = true;
-      uwsm.enable = true;
-
-      appimage.enable = true;
-      dconf.enable = true;
-      git.enable = true;
-      gnupg.enable = true;
-      neovim.enable = true;
-      nix-ld.enable = true;
-      zsh.enable = true;
-    };
   };
 }

@@ -14,7 +14,7 @@ Item {
         textFormat: Text.RichText
         font.pointSize: 16
         leftPadding: 6
-        color: swayNCIcon.text == "󰂛 " ? "#7f849c" :  "#89b4fa" 
+        color: swayNCIcon.text == "󰂛 " ? "#1E2326" :  "#7FBBB3" 
 
         MouseArea {
             acceptedButtons: Qt.LeftButton | Qt.RightButton

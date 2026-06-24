@@ -15,5 +15,6 @@ RowLayout {
 
     MprisPlayerLocal {
         show: row.hostname == "phoenix"
+        hostname: row.hostname ?? ""
     }
 }

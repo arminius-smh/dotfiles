@@ -20,10 +20,15 @@ in
           cnijfilter2
           epson-escpr2
         ];
+        listenAddresses = [ "*:631" ];
         allowFrom = [ "all" ];
+        openFirewall = true;
         defaultShared = true;
-        browsing = false;
+        browsing = true;
         browsed.enable = false;
+        extraConf = ''
+          ServerAlias *
+        '';
       };
     };
   };

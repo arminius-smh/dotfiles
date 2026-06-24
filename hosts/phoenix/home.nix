@@ -98,7 +98,7 @@
         nwg-dock-hyprland.enable = true;
         quickshell.enable = true;
         solaar.enable = true;
-        thunderbird.enable = true;
+        # thunderbird.enable = true;
         vesktop.enable = true;
       };
     };
@@ -162,7 +162,7 @@
       imv.enable = true;
       mpv.enable = true;
       obs-studio.enable = true;
-      thunderbird.enable = true;
+      # thunderbird.enable = true;
       trezor-suite.enable = true;
       heroic.enable = true;
       mangohud.enable = true;

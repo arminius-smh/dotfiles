@@ -1,3 +1,4 @@
+pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
@@ -7,6 +8,8 @@ import "../widgets"
 
 Scope {
     id: root
+    required property var config
+
 
     Variants {
         model: Quickshell.screens
@@ -35,7 +38,7 @@ Scope {
                 width: left.width + 20
                 height: 35
 
-                color: Qt.alpha("#272E33", 0.8)
+                color: Qt.alpha(root.config.colors.bg, 0.8)
                 radius: border.height / 2
 
                 anchors {
@@ -61,7 +64,7 @@ Scope {
                 width: right.width + 20
                 height: 35
 
-                color: Qt.alpha("#272E33", 0.8)
+                color: Qt.alpha(root.config.colors.bg, 0.8)
                 radius: border.height / 2
 
                 anchors {

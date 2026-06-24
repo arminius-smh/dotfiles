@@ -36,7 +36,7 @@ PopupWindow {
                 Button {
                     id: managerButton
                     checked: true
-                    text: "Audio"
+                    text: "<font color='#D3C6AA'>Audio</font>"
                     onClicked: {
                         stack.currentIndex = 2;
                         outputButton.checked = false;
@@ -46,16 +46,14 @@ PopupWindow {
                     background: Rectangle {
                         implicitWidth: 70
                         implicitHeight: 30
-                        color: "#45475a"
-                        border.color: managerButton.checked ? "#b4befe" : "#313244"
-                        border.width: 1
+                        color: managerButton.checked ? "#2E383C" : "#374145"
                         radius: 4
                     }
                 }
 
                 Button {
                     id: outputButton
-                    text: "Output"
+                    text: "<font color='#D3C6AA'>Output</font>"
                     onClicked: {
                         stack.currentIndex = 0;
                         outputButton.checked = true;
@@ -65,16 +63,14 @@ PopupWindow {
                     background: Rectangle {
                         implicitWidth: 70
                         implicitHeight: 30
-                        color: "#45475a"
-                        border.color: outputButton.checked ? "#b4befe" : "#313244"
-                        border.width: 1
+                        color: outputButton.checked ? "#2E383C" : "#374145"
                         radius: 4
                     }
                 }
 
                 Button {
                     id: inputButton
-                    text: "Input"
+                    text: "<font color='#D3C6AA'>Input</font>"
                     onClicked: {
                         stack.currentIndex = 1;
                         outputButton.checked = false;
@@ -84,9 +80,7 @@ PopupWindow {
                     background: Rectangle {
                         implicitWidth: 70
                         implicitHeight: 30
-                        color: "#45475a"
-                        border.color: inputButton.checked ? "#b4befe" : "#313244"
-                        border.width: 1
+                        color: inputButton.checked ? "#2E383C" : "#374145"
                         radius: 4
                     }
                 }
@@ -95,6 +89,7 @@ PopupWindow {
             StackLayout {
                 id: stack
                 Layout.alignment: Qt.AlignVCenter
+                Layout.bottomMargin: 10
                 currentIndex: 2
 
                 ColumnLayout {
@@ -154,7 +149,7 @@ PopupWindow {
                             Text {
                                 text: Utils.getAnyText(rootA.modelData)
 
-                                color: "#cdd6f4"
+                                color: "#D3C6AA"
 
                                 MouseArea {
                                     acceptedButtons: Qt.LeftButton | Qt.RightButton
@@ -229,7 +224,7 @@ PopupWindow {
                             Text {
                                 text: Utils.getAnyText(rootB.modelData)
 
-                                color: "#cdd6f4"
+                                color: "#D3C6AA"
 
                                 MouseArea {
                                     acceptedButtons: Qt.LeftButton | Qt.RightButton
@@ -281,7 +276,7 @@ PopupWindow {
                                 Text {
                                     text: Utils.getAnyText(rootC.modelData)
 
-                                    color: "#cdd6f4"
+                                    color: "#D3C6AA"
 
                                     MouseArea {
                                         acceptedButtons: Qt.LeftButton | Qt.RightButton
@@ -315,13 +310,31 @@ PopupWindow {
                                         rootC.modelData.audio.volume;
                                     }
 
+                                    background: Rectangle {
+                                        x: slider.leftPadding
+                                        y: slider.topPadding + slider.availableHeight / 2 - height / 2
+                                        implicitWidth: 200
+                                        implicitHeight: 4
+                                        width: slider.availableWidth
+                                        height: implicitHeight
+                                        radius: 2
+                                        color: "#495156"
+
+                                        Rectangle {
+                                            width: slider.visualPosition * parent.width
+                                            height: parent.height
+                                            color: "#A7C080"
+                                            radius: 2
+                                        }
+                                    }
+
                                     handle: Rectangle {
                                         x: slider.leftPadding + slider.visualPosition * (slider.availableWidth - width)
                                         y: slider.topPadding + slider.availableHeight / 2 - height / 2
                                         implicitWidth: 12
                                         implicitHeight: 12
                                         radius: implicitWidth / 2
-                                        color: "#6c7086"
+                                        color: "#A7C080"
                                     }
 
                                     onMoved: {
@@ -331,7 +344,7 @@ PopupWindow {
 
                                 Text {
                                     text: Math.round(rootC.modelData.audio.volume * 100) + "%"
-                                    color: "#cdd6f4"
+                                    color: "#D3C6AA"
                                 }
                             }
                         }
@@ -339,8 +352,8 @@ PopupWindow {
                 }
             }
         }
-        color: "#313244"
-        border.color: "#b4befe"
+        color: "#272E33"
+        border.color: "#1E2326"
     }
 
     Timer {

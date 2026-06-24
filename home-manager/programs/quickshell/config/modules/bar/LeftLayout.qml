@@ -33,6 +33,6 @@ RowLayout {
 
     MprisPlayerLocal {
         show: row.hostname == "discovery"
-        hostname: row.hostname
+        hostname: row.hostname ?? ""
     }
 }

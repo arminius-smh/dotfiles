@@ -25,13 +25,31 @@ RowLayout {
         opacity: 0
         wheelEnabled: true
 
+        background: Rectangle {
+            x: slider.leftPadding
+            y: slider.topPadding + slider.availableHeight / 2 - height / 2
+            implicitWidth: 200
+            implicitHeight: 4
+            width: slider.availableWidth
+            height: implicitHeight
+            radius: 2
+            color: "#495156"
+
+            Rectangle {
+                width: slider.visualPosition * parent.width
+                height: parent.height
+                color: "#A7C080"
+                radius: 2
+            }
+        }
+
         handle: Rectangle {
             x: slider.leftPadding + slider.visualPosition * (slider.availableWidth - width)
             y: slider.topPadding + slider.availableHeight / 2 - height / 2
             implicitWidth: 12
             implicitHeight: 12
             radius: implicitWidth / 2
-            color: "#6c7086"
+            color: "#A7C080"
         }
 
         onMoved: {
@@ -44,8 +62,8 @@ RowLayout {
         Layout.preferredHeight: audioIcon.implicitHeight
 
         AudioPopup {
-            audioIconRoot: audioIconRoot
             id: audioPopup
+            audioIconRoot: audioIconRoot
         }
 
         Rectangle {

@@ -28,6 +28,8 @@ in
         # syncthing = 22000tcp/udp
         # syncthing discovery = 21027udp
         # localsend = 53317tcp/udp
+        # ausweisapp = 24727udp
+        # mdns = 5353udp
         allowedTCPPorts = [
           22000
           53317
@@ -36,6 +38,8 @@ in
           22000
           21027
           53317
+          24727
+          5353
         ];
       };
       hostName = systemName;

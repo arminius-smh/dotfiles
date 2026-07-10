@@ -10,6 +10,13 @@
     ../../private
   ];
 
+  catppuccin = {
+    flavor = "mocha";
+    accent = "mauve";
+    autoEnable = false;
+    enable = true;
+  };
+
   fileSystems = {
     "/" = {
       options = [
@@ -25,7 +32,7 @@
     };
     loader = {
       systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;	
+      efi.canTouchEfiVariables = true;
     };
     kernelParams = [ "nohibernate" ];
     supportedFilesystems = [ "zfs" ];

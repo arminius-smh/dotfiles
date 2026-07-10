@@ -190,6 +190,7 @@
         wii.enable = true;
         gamecube.enable = true;
         trezor-suite.enable = true;
+        wifi-stick.enable = true;
       };
 
       resolved.enable = true;

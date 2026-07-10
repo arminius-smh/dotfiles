@@ -14,7 +14,7 @@ with lib;
         };
       };
       syncthing = {
-        keldav = mkOption {
+        keldon = mkOption {
           type = types.str;
         };
         phoenix = mkOption {
@@ -28,7 +28,7 @@ with lib;
         webdav-selfhost = mkOption {
           type = types.str;
         };
-        keldav = mkOption {
+        keldon = mkOption {
           type = types.str;
         };
         homepage = mkOption {

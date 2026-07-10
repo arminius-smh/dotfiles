@@ -26,6 +26,10 @@ in
       type = lib.types.bool;
       default = false;
     };
+    wifi-stick.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -36,7 +40,7 @@ in
         packages = lib.mkIf cfg.trezor-suite.enable (with pkgs; [ trezor-udev-rules ]);
 
         extraRules = lib.mkMerge [
-          (lib.mkIf true ''
+          (lib.mkIf cfg.wifi-stick.enable ''
             ACTION=="add", \
             	SUBSYSTEM=="usb", \
             	ENV{ID_VENDOR_ID}=="0846", \

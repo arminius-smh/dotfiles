@@ -32,15 +32,15 @@ in
             identityFile = "${config.home.homeDirectory}/.ssh/git";
             identitiesOnly = true;
           };
-          "${config.private.ips.keldav}" = {
-            hostname = "${config.private.ips.keldav}";
+          "${config.private.ips.keldon}" = {
+            hostname = "${config.private.ips.keldon}";
             user = "git";
             port = 222;
             identityFile = "${config.home.homeDirectory}/.ssh/git";
             identitiesOnly = true;
           };
-          "keldav" = {
-            hostname = "${config.private.ips.keldav}";
+          "keldon" = {
+            hostname = "${config.private.ips.keldon}";
             identityFile = "${config.home.homeDirectory}/.ssh/id_ed25519";
             identitiesOnly = true;
           };

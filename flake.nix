@@ -10,10 +10,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs-stable = {
-      url = "github:nixos/nixpkgs/nixos-25.11";
+      url = "github:nixos/nixpkgs/nixos-26.05";
     };
     home-manager-stable = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
@@ -72,24 +72,24 @@
             }
           ];
         };
-        "excelsior" = nixpkgs-stable.lib.nixosSystem {
+        "keldon" = nixpkgs-stable.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
-            systemName = "excelsior";
+            systemName = "keldon";
           };
           modules = [
-            ./hosts/excelsior/configuration.nix
+            ./hosts/keldon/configuration.nix
             home-manager-stable.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users = {
-                  "armin" = import ./hosts/excelsior/home.nix;
+                  "armin" = import ./hosts/keldon/home.nix;
                 };
                 extraSpecialArgs = {
                   inherit inputs;
-                  systemName = "excelsior";
+                  systemName = "keldon";
                 };
               };
             }

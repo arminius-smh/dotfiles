@@ -36,6 +36,15 @@ in
         packages = lib.mkIf cfg.trezor-suite.enable (with pkgs; [ trezor-udev-rules ]);
 
         extraRules = lib.mkMerge [
+          (lib.mkIf true ''
+            ACTION=="add", \
+            	SUBSYSTEM=="usb", \
+            	ENV{ID_VENDOR_ID}=="0846", \
+            	ENV{ID_MODEL_ID}=="9050", \
+            	RUN+="${pkgs.kmod}/bin/modprobe mt7925u", \
+            	RUN+="${pkgs.bash}/bin/sh -c 'echo 0846 9050 > /sys/bus/usb/drivers/mt7925u/new_id'"
+          '')
+
           (lib.mkIf cfg.gamecube.enable ''
             # GameCube Controller Adapter
             SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"

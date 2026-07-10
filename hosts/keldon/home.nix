@@ -12,12 +12,6 @@
     accent = "mauve";
     autoEnable = false;
     enable = true;
-
-    cursors = {
-      enable = true;
-      flavor = "macchiato";
-      accent = "dark";
-    };
   };
 
   home = {
@@ -34,15 +28,7 @@
 
   cave = {
     xdg.enable = true;
-    systemd = {
-      enable = true;
-      services = {
-        clear-nohl.enable = true;
-      };
-    };
 
-    services = {
-    };
     programs = {
       zsh.enable = true;
       ssh.enable = true;

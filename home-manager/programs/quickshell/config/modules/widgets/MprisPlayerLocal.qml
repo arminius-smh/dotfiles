@@ -103,6 +103,10 @@ Rectangle {
                 }
                 // https://forum.qt.io/topic/145956/rounded-image-in-qt6/6
                 Item {
+                    id: artWrapper
+                    visible: artWrapper.hasImage
+                    property bool hasImage: songImage.source !== "" && songImage.status === Image.Ready
+
                     Layout.preferredWidth: songImage.implicitWidth
                     Layout.preferredHeight: songImage.implicitHeight
 

@@ -31,6 +31,7 @@
     stateVersion = "24.11";
 
     pointerCursor = {
+      enable = true;
       size = 24;
       gtk.enable = true;
       hyprcursor.enable = true;

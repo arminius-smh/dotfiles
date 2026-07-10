@@ -14,8 +14,6 @@
     "/" = {
       options = [
         "noatime"
-        "nodiratime"
-        "discard"
       ];
     };
   };
@@ -26,11 +24,8 @@
       cleanOnBoot = true;
     };
     loader = {
-      grub = {
-        enable = true;
-        device = "/dev/disk/by-id/ata-SPCC_Solid_State_Disk_AAAA0000000000005478";
-        useOSProber = false;
-      };
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;	
     };
     kernelParams = [ "nohibernate" ];
     supportedFilesystems = [ "zfs" ];
@@ -44,13 +39,10 @@
       enable = true;
       enableOnBoot = false;
     };
-    podman = {
-      enable = true;
-    };
   };
 
   system = {
-    stateVersion = "23.11";
+    stateVersion = "26.05";
   };
 
   cave = {

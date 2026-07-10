@@ -43,7 +43,7 @@ in
         ];
       };
       hostName = systemName;
-      hostId = lib.mkIf (systemName == "excelsior") "235f276f";
+      hostId = lib.mkIf (systemName == "keldon") "235f276f";
       networkmanager = {
         enable = true;
         wifi = {

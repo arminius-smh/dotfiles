@@ -35,7 +35,6 @@
       ripgrep
       fd
       gtrash
-      jellyfin-desktop
       (chromium.override { enableWideVine = true; })
       localsend
       nix-output-monitor
@@ -95,13 +94,6 @@
         coding.enable = true;
         gaming = {
           minecraft.enable = true;
-          emulation = {
-            enable = true;
-            nes = true;
-            snes = true;
-            gb = true;
-            n64 = true;
-          };
         };
       };
       zsh.enable = true;

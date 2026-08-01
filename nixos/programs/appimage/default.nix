@@ -21,6 +21,7 @@ in
           extraPkgs = pkgs: [
             pkgs.libepoxy
             pkgs.zstd
+            pkgs.squashfsTools
           ];
         };
       };

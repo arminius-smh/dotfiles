@@ -45,7 +45,6 @@
       (chromium.override { enableWideVine = true; })
       libnotify
       file-roller
-      jellyfin-desktop
       ffmpeg
       tree
       droidcam
@@ -72,6 +71,7 @@
       file
       sox
       parallel
+      fladder
     ];
 
     sessionVariables = {
@@ -119,17 +119,8 @@
           minecraft.enable = true;
           emulation = {
             enable = true;
-            nes = true;
-            snes = true;
-            gb = true;
-            n64 = true;
-            gc_wii = true;
-            nds = true;
-            "3ds" = true;
             wiiu = true;
             switch = true;
-            ps1 = true;
-            ps2 = true;
           };
         };
       };

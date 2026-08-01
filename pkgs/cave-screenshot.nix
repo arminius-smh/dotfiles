@@ -11,6 +11,7 @@ pkgs.writeShellApplication {
     satty
     xdg-user-dirs
     niri
+    tesseract5
   ];
 
   text = ''
@@ -36,7 +37,7 @@ pkgs.writeShellApplication {
 
         if [[ -f "$screenshot_path" ]]; then
             wl-copy < "$screenshot_path"
-            ACTION=$(notify-send --transient -t "$timeout_time_notif" --icon "$screenshot_path" "Screenshot saved" "Image saved in $screenshot_path" --action Edit --action Delete)
+            ACTION=$(notify-send --transient -t "$timeout_time_notif" --icon "$screenshot_path" "Screenshot saved" "Image saved in $screenshot_path" --action Edit --action OCR --action Delete)
         else
             notify-send --transient -t "$timeout_time_notif" --icon=dialog-error "Something went wrong"
         fi
@@ -44,6 +45,17 @@ pkgs.writeShellApplication {
         if [[ "$ACTION" == "0" ]]; then
             satty -f "$screenshot_path" -o "$satty_name"
         elif [[ "$ACTION" == "1" ]]; then
+            LANG_OCR=$(notify-send --transient -t "$timeout_time_notif" --icon "$screenshot_path" "OCR" "Select OCR Language" --action Eng --action Deu --action Rus)
+            if [[ "$LANG_OCR" == "0" ]]; then
+              LANG_OCR="eng"
+            elif [[ "$LANG_OCR" == "1" ]]; then
+              LANG_OCR="deu"
+            elif [[ "$LANG_OCR" == "2" ]]; then
+              LANG_OCR="rus"
+            fi
+            tesseract "$screenshot_path" - -l "$LANG_OCR" | wl-copy
+            notify-send --transient -t "$timeout_time_notif" --icon "$screenshot_path" "OCR" "Complete"
+        elif [[ "$ACTION" == "2" ]]; then
             rm "$screenshot_path"
         fi
     fi

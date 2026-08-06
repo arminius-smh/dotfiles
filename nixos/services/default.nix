@@ -14,6 +14,7 @@
     ./gvfs
     ./jupyter
     ./logind
+    ./nfs
     ./openssh
     ./pipewire
     ./printing

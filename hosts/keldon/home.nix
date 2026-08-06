@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     inputs.catppuccin.homeModules.catppuccin
@@ -24,6 +24,25 @@
       MONITOR_SECONDARY = "";
       MONITOR_TERTIARY = "";
     };
+
+    packages = with pkgs; [
+      p7zip
+      nodejs
+      pm2
+      bluetuith
+      tree
+      chromium
+      # apps
+      moonlight-qt
+      fladder
+      gnumake
+      tree-sitter
+      cmake
+      gcc
+      nixd
+      nixfmt
+      ripgrep
+    ];
   };
 
   cave = {
@@ -32,6 +51,7 @@
     programs = {
       zsh.enable = true;
       ssh.enable = true;
+      neovim.enable = true;
       fastfetch = {
         enable = true;
         hostname = "эксельсиор";

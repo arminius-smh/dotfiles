@@ -39,7 +39,6 @@
       resolved.enable = true;
       dnsmasq.enable = true;
       caddy.enable = true;
-      jupyter.enable = true;
       avahi.enable = true;
       blueman.enable = true;
       dbus.enable = true;
@@ -100,7 +99,7 @@
       timeout = 1;
       grub = {
         enable = true;
-        configurationLimit = 25;
+        configurationLimit = 5;
         device = "nodev";
       };
       efi = {

@@ -125,7 +125,7 @@
       lazygit.enable = true;
       mpv.enable = true;
       obs-studio.enable = true;
-      thunderbird.enable = true;
+      # thunderbird.enable = true;
       nwg-displays.enable = true;
       libinput-gestures.enable = true;
       thunar.enable = true;

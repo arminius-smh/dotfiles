@@ -1,11 +1,13 @@
 {
   inputs,
+  pkgs,
   ...
 }:
 {
   imports = [
     inputs.catppuccin.nixosModules.catppuccin
     ./hardware-configuration.nix
+    ./random-plasma-bigscreen-config.nix
     ../../nixos
     ../../private
   ];
@@ -27,6 +29,10 @@
 
   # Bootloader.
   boot = {
+    kernel.sysctl = {
+      "net.ipv4.ip_forward" = 1;
+      "net.ipv6.conf.all.forwarding" = 1;
+    };
     tmp = {
       cleanOnBoot = true;
     };
@@ -44,7 +50,7 @@
   virtualisation = {
     docker = {
       enable = true;
-      enableOnBoot = false;
+      enableOnBoot = true;
     };
   };
 
@@ -52,7 +58,22 @@
     stateVersion = "26.05";
   };
 
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [
+        intel-media-driver
+      ];
+    };
+
+  };
+
   cave = {
+    time.enable = true;
     console.enable = true;
     i18n.enable = true;
     networking.enable = true;
@@ -61,11 +82,14 @@
     security.enable = true;
     users.enable = true;
     xdg.enable = true;
+    nfs.enable = true;
     services = {
       avahi.enable = true;
+      getty.enable = true;
       openssh.enable = true;
       xserver.enable = true;
       zfs.enable = true;
+      pipewire.enable = true;
     };
     programs = {
       neovim.enable = true;

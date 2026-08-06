@@ -167,6 +167,7 @@
   };
 
   cave = {
+    time.enable = true;
     console.enable = true;
     fonts.enable = true;
     i18n.enable = true;

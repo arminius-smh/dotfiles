@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./time
     ./console
     ./fonts
     ./i18n

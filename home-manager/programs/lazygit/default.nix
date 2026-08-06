@@ -20,10 +20,10 @@ in
             showIcons = true;
           };
           git = {
-            pagers = [
+            diffRenderers = [
               {
                 colorArg = "always";
-                pager = "delta --dark --paging=never --features side-by-side";
+                command = "delta --dark --paging=never --features side-by-side";
               }
             ];
             overrideGpg = true;

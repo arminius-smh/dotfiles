@@ -83,11 +83,15 @@ in
             "home-manager options" = {
               urls = [
                 {
-                  template = "https://home-manager-options.extranix.com/?release=master";
+                  template = "https://search.nixos.org/options";
                   params = [
                     {
-                      name = "release";
-                      value = "master";
+                      name = "channel";
+                      value = "unstable";
+                    }
+                    {
+                      name = "source";
+                      value = "home_manager";
                     }
                     {
                       name = "query";

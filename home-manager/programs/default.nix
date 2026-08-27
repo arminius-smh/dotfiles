@@ -37,5 +37,6 @@
     ./nwg-dock-hyprland
     ./hyprlock
     ./waypaper
+    ./yazi
   ];
 }

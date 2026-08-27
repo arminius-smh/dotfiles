@@ -13,6 +13,7 @@
     ./neovim
     ./niri
     ./nix-ld
+    ./solaar
     ./steam
     ./throne
     ./uwsm

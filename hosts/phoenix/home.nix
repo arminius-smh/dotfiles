@@ -65,13 +65,12 @@
       gnome-calculator
       cave-screenshot
       trilium-desktop
-      jan
       gum
-      p7zip
       file
       sox
       parallel
       fladder
+      ouch-rar
     ];
 
     sessionVariables = {
@@ -129,6 +128,7 @@
       firefox.enable = true;
       ssh.enable = true;
       kitty.enable = true;
+      yazi.enable = true;
       vlc.enable = true;
       zsh.enable = true;
       rofi.enable = true;

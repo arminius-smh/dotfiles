@@ -8,7 +8,7 @@ binds {
     Mod+Shift+W { spawn-sh "$HOME/dotfiles/home-manager/wayland/windowmanager/niri/scripts/scratchpad-ish.sh org.telegram.desktop Telegram"; }
 
 
-    Mod+N {spawn-sh "$HOME/dotfiles/assets/scripts/focus.sh -2 -3";}
+    Mod+N {spawn-sh "$HOME/dotfiles/assets/scripts/focus.sh -2";}
     Mod+M {spawn-sh "$HOME/dotfiles/assets/scripts/toggle-bar.sh";}
 
     Mod+Shift+D { spawn-sh "cave-screenshot area"; }

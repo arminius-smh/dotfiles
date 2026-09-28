@@ -75,8 +75,8 @@
 
     sessionVariables = {
       MONITOR_PRIMARY = "HDMI-A-1";
-      MONITOR_SECONDARY = "DP-2";
-      MONITOR_TERTIARY = "DP-3";
+      MONITOR_SECONDARY = "DP-3";
+      MONITOR_TERTIARY = "";
     };
   };
 

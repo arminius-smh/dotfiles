@@ -14,7 +14,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.rofi = {
       enable = true;
-      extraConfig = {
+      settings = {
         modi = "drun,run,filebrowser,window";
         show-icons = true;
         display-drun = " Apps";
@@ -24,8 +24,8 @@ in
         drun-display-format = "{name}";
         window-format = "{w} · {c} · {t}";
         run-command = "uwsm app -- {cmd}";
+        font = "JetBrainsMono Nerd Font 10";
       };
-      font = "JetBrainsMono Nerd Font 10";
       theme = ./theme.rasi;
     };
   };

@@ -118,4 +118,11 @@ layer-rule {
     match namespace="awww-daemon"
     place-within-backdrop true
 }
-
+window-rule {
+    match app-id=r#"^steam_app.*$"#
+    open-fullscreen true
+    open-focused true
+    focus-ring {
+        off
+    }
+}

@@ -17,9 +17,9 @@ in
     nix = {
       package = pkgs.nix;
 
-      nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
       settings = {
+        nix-path = [ "nixpkgs=${inputs.nixpkgs}" ];
         experimental-features = [
           "nix-command"
           "flakes"

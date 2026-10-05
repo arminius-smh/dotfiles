@@ -176,9 +176,6 @@
         wifi-stick.enable = true;
       };
 
-      # resolved.enable = true;
-      # dnsmasq.enable = true;
-      caddy.enable = true;
       blueman.enable = true;
       dbus.enable = true;
       envfs.enable = true;

@@ -15,6 +15,7 @@ in
     security = {
       pki = {
         certificates = config.private.certs;
+        certificateFiles = config.private.certFiles;
       };
       sudo = {
         enable = true;

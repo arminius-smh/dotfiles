@@ -18,6 +18,11 @@ in
       package = pkgs.firefox-bin;
       configPath = "${config.xdg.configHome}/mozilla/firefox";
       policies = {
+        Certificates = {
+          Install = [
+            ../../../private/files/cave_root_ca.crt
+          ];
+        };
         DisablePocket = true;
         DisableFirefoxAccounts = true;
         DontCheckDefaultBrowser = true;

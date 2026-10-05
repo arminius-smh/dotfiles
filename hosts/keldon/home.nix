@@ -32,9 +32,12 @@
       bluetuith
       tree
       chromium
+      dtop
       # apps
       moonlight-qt
       fladder
+      vacuum-tube
+
       gnumake
       tree-sitter
       cmake
@@ -42,6 +45,8 @@
       nixd
       nixfmt
       ripgrep
+      ffmpeg
+      fd
     ];
   };
 

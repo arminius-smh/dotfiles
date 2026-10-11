@@ -32,8 +32,8 @@ in
             identityFile = "${config.home.homeDirectory}/.ssh/git";
             identitiesOnly = true;
           };
-          "${config.private.ips.keldon}" = {
-            hostname = "${config.private.ips.keldon}";
+          "git.cave.home.arpa" = {
+            hostname = "git.cave.home.arpa";
             user = "git";
             port = 222;
             identityFile = "${config.home.homeDirectory}/.ssh/git";

@@ -4,6 +4,11 @@
     { self, ... }:
     {
       templates = {
+        mcu = {
+          path = ./mcu;
+          description = "Simple Microcontroller project";
+        };
+
         rust = {
           path = ./rust;
           description = "Simple Rust project";

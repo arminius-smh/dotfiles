@@ -61,7 +61,6 @@
       bubblewrap
       cave-screenshot
       inputs.qml-niri.packages.${pkgs.stdenv.hostPlatform.system}.default
-      eddie
       gnome-calculator
       cave-screenshot
       trilium-desktop
@@ -71,6 +70,8 @@
       parallel
       fladder
       ouch-rar
+
+      llama-cpp-rocm
     ];
 
     sessionVariables = {

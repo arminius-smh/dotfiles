@@ -14,8 +14,8 @@ in
 
   config = lib.mkIf cfg.enable {
     networking = {
-      interfaces = lib.mkIf (systemName == "phoenix") {
-        enp11s0 = {
+      interfaces = {
+        enp11s0 = lib.mkIf (systemName == "phoenix") {
           wakeOnLan = {
             enable = true;
           };

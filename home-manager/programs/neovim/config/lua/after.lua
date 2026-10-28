@@ -27,3 +27,11 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         vim.api.nvim_win_set_cursor(0, last_cursor_pos)
     end,
 })
+
+-- dont conceal stuff
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = "*.json",
+    callback = function()
+        vim.opt.conceallevel = 0
+    end,
+})

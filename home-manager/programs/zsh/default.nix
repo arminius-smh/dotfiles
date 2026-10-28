@@ -69,6 +69,10 @@ in
                 disown
             }
 
+            devenv(){
+              nix flake init --template /home/armin/dotfiles/assets/devenvs#$1
+            }
+
             vmssh() {
               ip=$(sudo virsh domifaddr "$1" | awk '/ipv4/ {split($4, a, "/"); print a[1]}')
 

@@ -13,16 +13,21 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    services.avahi = {
+      enable = true;
+      nssmdns4 = true;
 
-    services = {
-      avahi = {
-        enable = true;
-        hostName = systemName;
-        nssmdns4 = true;
+      settings = {
+        server = {
+          host-name = systemName;
+        };
+
         publish = {
-          enable = true;
-          domain = true;
-          userServices = true;
+          publish-domain = true;
+          publish-addresses = true;
+
+          disable-publishing = false;
+          disable-user-service-publishing = false;
         };
       };
     };

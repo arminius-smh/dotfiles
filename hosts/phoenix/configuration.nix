@@ -65,12 +65,6 @@
         })
       ];
     };
-    initrd = {
-      systemd = {
-        enable = true;
-      };
-      verbose = false;
-    };
     consoleLogLevel = 0;
     kernelParams = [
       "video=1920x1080"
@@ -105,14 +99,6 @@
       };
     };
     supportedFilesystems = [ "ntfs" ];
-
-    kernelModules = [ "v4l2loopback" ];
-    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
-
-    extraModprobeConfig = ''
-      options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
-    '';
-
   };
 
   hardware = {
@@ -174,6 +160,7 @@
         gamecube.enable = true;
         trezor-suite.enable = true;
         wifi-stick.enable = true;
+        platform-io.enable = true;
       };
 
       blueman.enable = true;

@@ -30,6 +30,10 @@ in
       type = lib.types.bool;
       default = false;
     };
+    platform-io.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -37,7 +41,14 @@ in
       udev = {
         enable = true;
 
-        packages = lib.mkIf cfg.trezor-suite.enable (with pkgs; [ trezor-udev-rules ]);
+        packages =
+          with pkgs;
+          (lib.optionals cfg.trezor-suite.enable [
+            trezor-udev-rules
+          ])
+          ++ (lib.optionals cfg.platform-io.enable [
+            platformio-core.udev
+          ]);
 
         extraRules = lib.mkMerge [
           (lib.mkIf cfg.wifi-stick.enable ''

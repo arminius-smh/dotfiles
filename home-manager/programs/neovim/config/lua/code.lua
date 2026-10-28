@@ -128,6 +128,10 @@ format.formatters_by_ft.python = { "isort", "black" }
 -- csharp
 vim.lsp.enable("csharp_ls")
 
+-- json
+vim.lsp.enable("jsonls")
+format.formatters_by_ft.json = { "prettier" }
+
 -- kdl
 -- removes stuff from niri config
 -- format.formatters_by_ft.kdl = { "kdlfmt" }

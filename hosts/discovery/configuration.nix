@@ -106,12 +106,6 @@
         canTouchEfiVariables = false;
       };
     };
-    initrd = {
-      systemd = {
-        enable = true;
-      };
-      verbose = false;
-    };
     consoleLogLevel = 0;
     kernelParams = [
       "quiet"

@@ -8,9 +8,10 @@
     ./feishin.nix
     ./heroic.nix
     ./hypr_handle_events.nix
-    ./niri_handle_events.nix
     ./joplin.nix
     ./libinput-gestures.nix
+    ./llamacpp.nix
+    ./niri_handle_events.nix
     ./nwg-dock-hyprland.nix
     ./quickshell.nix
     ./solaar.nix

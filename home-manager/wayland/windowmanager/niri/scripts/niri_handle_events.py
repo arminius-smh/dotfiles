@@ -6,10 +6,10 @@ them afterward. This script is like open-float for those windows.
 Usage: fill in the RULES array below, then run the script.
 """
 
-from dataclasses import dataclass, field
 import json
 import os
 import re
+from dataclasses import dataclass, field
 from socket import AF_UNIX, SHUT_WR, socket
 
 
@@ -53,13 +53,11 @@ class Rule:
 RULES = [
     # window-rule {} with one match.
     # Rule([Match(title="Bitwarden", app_id="firefox")]),
-
     # window-rule {} with one match and one exclude.
     # Rule(
     #     [Match(title="rs")],
     #     exclude=[Match(app_id="Alacritty")],
     # ),
-
     # window-rule {} with two matches.
     # Rule(
     #     [
@@ -67,13 +65,15 @@ RULES = [
     #         Match(app_id="^mpv$"),
     #     ]
     # ),
-
     # window-rule {} with one match that sets window size.
     # Rule([Match(title="Bitwarden", app_id="firefox")],
     #      width=500, height=1000),
-
-    Rule([Match(title=r"^Extension:\s*\(Bitwarden Password Manager\)\s*-\s*—\s*Mozilla Firefox$", app_id="firefox")],
-          width=500, height=600, centered=True),
+    Rule(
+        [Match(title=r"Bitwarden Password Manager", app_id="firefox")],
+        width=500,
+        height=600,
+        centered=True,
+    ),
 ]
 
 
@@ -104,26 +104,42 @@ def send(request):
 def float(id: int):
     send({"Action": {"MoveWindowToFloating": {"id": id}}})
 
+
 def set_height(id: int, height: int):
-    send({"Action": {"SetWindowHeight":
-                     {"id": id, "change": {"SetFixed": height}}}})
+    send({"Action": {"SetWindowHeight": {"id": id, "change": {"SetFixed": height}}}})
+
 
 def set_width(id: int, width: int):
-    send({"Action": {"SetWindowWidth":
-                     {"id": id, "change": {"SetFixed": width}}}})
+    send({"Action": {"SetWindowWidth": {"id": id, "change": {"SetFixed": width}}}})
+
 
 def set_centered(id: int, width: int, height: int):
     # move window to center of the screen
-    send({"Action": {"MoveFloatingWindow":
-                     {"id": id,
-                      "x": {"SetProportion": 50.0},
-                      "y": {"SetProportion": 50.0}}}})
+    send(
+        {
+            "Action": {
+                "MoveFloatingWindow": {
+                    "id": id,
+                    "x": {"SetProportion": 50.0},
+                    "y": {"SetProportion": 50.0},
+                }
+            }
+        }
+    )
 
     # adjust for top left origin
-    send({"Action": {"MoveFloatingWindow":
-                     {"id": id,
-                      "x": {"AdjustFixed": -(width / 2)},
-                      "y": {"AdjustFixed": -(height / 2)}}}})
+    send(
+        {
+            "Action": {
+                "MoveFloatingWindow": {
+                    "id": id,
+                    "x": {"AdjustFixed": -(width / 2)},
+                    "y": {"AdjustFixed": -(height / 2)},
+                }
+            }
+        }
+    )
+
 
 def update_matched(win):
     win["matched"] = False

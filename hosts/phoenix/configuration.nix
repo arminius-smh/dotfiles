@@ -39,6 +39,10 @@
   };
 
   virtualisation = {
+    virtualbox = {
+      host.enable = true;
+    };
+
     libvirtd = {
       enable = true;
       onBoot = "ignore";
@@ -53,6 +57,11 @@
   };
 
   boot = {
+    extraModulePackages = with config.boot.kernelPackages; [
+      v4l2loopback
+    ];
+    kernelModules = [ "v4l2loopback" ];
+
     tmp = {
       cleanOnBoot = true;
     };
@@ -102,6 +111,7 @@
   };
 
   hardware = {
+    opentabletdriver.enable = true;
     enableAllFirmware = true;
     amdgpu = {
       opencl = {

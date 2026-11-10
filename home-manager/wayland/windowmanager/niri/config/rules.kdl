@@ -126,3 +126,9 @@ window-rule {
         off
     }
 }
+window-rule {
+    match app-id="^(zoom|us.zoom.Zoom)$"
+    exclude title="^Zoom Workplace - "
+    exclude title="^Meeting$"
+    open-floating true
+}

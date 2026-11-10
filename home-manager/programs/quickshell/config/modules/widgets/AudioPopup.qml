@@ -245,7 +245,7 @@ PopupWindow {
                     visible: false
 
                     Repeater {
-                        model: Pipewire.nodes.values.filter(node => node.isStream == true).sort((a, b) => Utils.getAnyText(a).localeCompare(Utils.getAnyText(b)))
+                        model: Pipewire.nodes.values.filter(node => node.isStream == true && node.isSink == true).sort((a, b) => Utils.getAnyText(a).localeCompare(Utils.getAnyText(b)))
                         ColumnLayout {
                             id: rootC
                             required property PwNode modelData

@@ -4,6 +4,7 @@
     ./battery-alert.nix
     ./clear-nohl.nix
     ./clear-trash.nix
+    ./duckdns-update.nix
     ./feishin.nix
     ./heroic.nix
     ./hypr_handle_events.nix

@@ -4,6 +4,7 @@
     ./avahi
     ./blueman
     ./caddy
+    ./cockpit
     ./dbus
     ./displayManager
     ./dnsmasq

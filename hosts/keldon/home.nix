@@ -33,6 +33,7 @@
       tree
       chromium
       dtop
+      nix-output-monitor
       # apps
       moonlight-qt
       fladder
@@ -47,11 +48,19 @@
       ripgrep
       ffmpeg
       fd
+      jq
     ];
   };
 
   cave = {
     xdg.enable = true;
+
+    systemd = {
+      enable = true;
+      services = {
+        duckdns-update.enable = true;
+      };
+    };
 
     programs = {
       zsh.enable = true;

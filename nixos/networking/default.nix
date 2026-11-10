@@ -46,6 +46,13 @@ in
       hostId = lib.mkIf (systemName == "keldon") "235f276f";
       networkmanager = {
         enable = true;
+        settings = {
+          connection = lib.mkIf (systemName == "keldon") {
+            "ipv6.addr-gen-mode" = "eui64";
+            "ipv6.token" = "::36";
+          };
+        };
+
         wifi = {
           backend = "iwd";
           scanRandMacAddress = false;

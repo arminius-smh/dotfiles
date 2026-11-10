@@ -72,14 +72,14 @@
             }
           ];
         };
-        "keldon" = nixpkgs-stable.lib.nixosSystem {
+        "keldon" = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
             systemName = "keldon";
           };
           modules = [
             ./hosts/keldon/configuration.nix
-            home-manager-stable.nixosModules.home-manager
+            home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;

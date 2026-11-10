@@ -85,6 +85,7 @@
     nfs.enable = true;
     services = {
       avahi.enable = true;
+      cockpit.enable = true;
       getty.enable = true;
       openssh.enable = true;
       xserver.enable = true;

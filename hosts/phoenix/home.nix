@@ -70,8 +70,9 @@
       parallel
       fladder
       ouch-rar
-
+      zoom-us
       llama-cpp-rocm
+      vagrant
     ];
 
     sessionVariables = {
@@ -91,6 +92,7 @@
       services = {
         feishin.enable = true;
         clear-trash.enable = true;
+        llama-cpp.enable = true;
         telegram.enable = true;
         steam.enable = true;
         heroic.enable = true;

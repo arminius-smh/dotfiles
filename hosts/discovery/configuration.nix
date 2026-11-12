@@ -5,8 +5,6 @@
 }:
 {
   imports = [
-    # NOTE: Include the necessary packages and configuration for Apple Silicon support
-    inputs.nixos-apple-silicon.nixosModules.default
     inputs.catppuccin.nixosModules.catppuccin
 
     ./hardware-configuration.nix
@@ -82,7 +80,6 @@
   };
 
   boot = {
-    # NOTE: https://github.com/tpwrules/nixos-apple-silicon/issues/257#issuecomment-2608236190
     plymouth = {
       enable = true;
       theme = "rings";
@@ -101,6 +98,8 @@
         enable = true;
         configurationLimit = 5;
         device = "nodev";
+        efiSupport = true;
+        efiInstallAsRemovable = true;
       };
       efi = {
         canTouchEfiVariables = false;
@@ -131,10 +130,6 @@
     };
     uinput = {
       enable = true;
-    };
-    asahi = {
-      enable = true;
-      peripheralFirmwareDirectory = ./firmware;
     };
     graphics = {
       enable = true;

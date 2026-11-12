@@ -17,11 +17,6 @@
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
-    nixos-apple-silicon = {
-      url = "github:nix-community/nixos-apple-silicon";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -118,6 +113,16 @@
             }
           ];
         };
+        "installer" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+
+          modules = [
+            ./installer/iso.nix
+          ];
+        };
       };
+
+      packages.x86_64-linux.installer-iso =
+        self.nixosConfigurations.installer.config.system.build.isoImage;
     };
 }

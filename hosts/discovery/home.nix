@@ -39,7 +39,6 @@
       nix-output-monitor
       inputs.qml-niri.packages.${pkgs.stdenv.hostPlatform.system}.default
       cave-screenshot
-      asahi-nvram
       tree
       trilium-desktop
       dig

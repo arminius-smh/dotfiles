@@ -8,24 +8,24 @@ binds {
     Mod+Shift+W { spawn-sh "$HOME/dotfiles/home-manager/wayland/windowmanager/niri/scripts/scratchpad-ish.sh org.telegram.desktop Telegram"; }
 
 
-    Mod+N {spawn-sh "$HOME/dotfiles/assets/scripts/focus.sh -2";}
-    Mod+M {spawn-sh "$HOME/dotfiles/assets/scripts/toggle-bar.sh";}
+    Mod+N { spawn-sh "$HOME/dotfiles/assets/scripts/focus.sh -2"; }
+    Mod+M { spawn-sh "$HOME/dotfiles/assets/scripts/toggle-bar.sh"; }
 
     Mod+Shift+D { spawn-sh "cave-screenshot area"; }
     Mod+Ctrl+D { spawn-sh "cave-screenshot window"; }
     // controller binding
     Alt+Print { spawn-sh "cave-screenshot window"; }
 
-    Mod+F11 { spawn-sh  "$HOME/dotfiles/assets/scripts/toggle-mic.sh";}
+    Mod+F11 { spawn-sh "$HOME/dotfiles/assets/scripts/toggle-mic.sh"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --output-volume +2"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --output-volume -2"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\"  --output-volume mute-toggle"; }
+    XF86AudioMute allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\"  --output-volume mute-toggle"; }
 
-    XF86AudioPlay        allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --playerctl play-pause"; }
-    XF86AudioStop        allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --playerctl play-pause"; }
-    XF86AudioPrev        allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --playerctl prev"; }
-    XF86AudioNext        allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --playerctl next"; }
+    XF86AudioPlay allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --playerctl play-pause"; }
+    XF86AudioStop allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --playerctl play-pause"; }
+    XF86AudioPrev allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --playerctl prev"; }
+    XF86AudioNext allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --playerctl next"; }
 
     XF86MonBrightnessUp allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --device intel_backlight --brightness +5 --min-brightness 0"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn-sh "swayosd-client --monitor \"$(niri msg -j focused-output | jq -r .name)\" --device intel_backlight --brightness -5 --min-brightness 0"; }
@@ -117,8 +117,8 @@ binds {
     Mod+Ctrl+L { consume-or-expel-window-right; }
 
 
-    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
     Mod+WheelScrollRight      { focus-column-right; }
     Mod+WheelScrollLeft       { focus-column-left; }
 

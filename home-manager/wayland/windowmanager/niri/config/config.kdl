@@ -1,4 +1,6 @@
 include "rules.kdl"
+
+environment
 include "gestures.kdl"
 include "output.kdl"
 include "binds.kdl"

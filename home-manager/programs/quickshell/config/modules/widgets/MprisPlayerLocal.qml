@@ -3,7 +3,6 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Effects
 import Quickshell.Services.Mpris
-import Quickshell.Widgets
 import QtQuick.Layouts
 
 Rectangle {
@@ -118,11 +117,16 @@ Rectangle {
                         onClicked: mprisContainer.modelData.togglePlaying()
                     }
 
-                    IconImage {
+                    Image {
                         id: songImage
-                        source: mprisContainer.modelData.trackArtUrl
-                        implicitWidth: 25
-                        implicitHeight: 25
+                        source: {
+                            let rawUrl = mprisContainer.modelData.trackArtUrl;
+                            if (!rawUrl.startsWith("https://")) {
+                                return rawUrl.replace("https:", "https://");
+                            }
+                            return rawUrl;
+                        }
+                        sourceSize.width: 25
                         visible: false
                     }
 

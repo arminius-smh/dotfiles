@@ -52,6 +52,8 @@
       udev = {
         enable = true;
         power-notification.enable = true;
+        wii.enable = true;
+        gamecube.enable = true;
       };
     };
     programs = {
@@ -140,6 +142,10 @@
     docker = {
       enable = true;
     };
+  };
+
+  powerManagement = {
+    enable = true;
   };
 
   # hide tty1 from showing before sddm

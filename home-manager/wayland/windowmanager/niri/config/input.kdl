@@ -1,9 +1,11 @@
 input {
     keyboard {
         xkb {
-            layout "de";
-            variant "deadtilde";
-            options "caps:none,shift:both_capslock";
+            layout "de" ;
+
+            variant "deadtilde" ;
+
+            options "caps:none,shift:both_capslock" ;
         }
     }
 
@@ -11,6 +13,8 @@ input {
         tap
         natural-scroll
         dwt
+        accel-speed 0.9
+        accel-profile "flat"
     }
 
     mouse {
@@ -21,5 +25,7 @@ input {
     warp-mouse-to-focus mode="center-xy"
 
     focus-follows-mouse max-scroll-amount="0%"
+
+    trackpoint
 }
 

@@ -13,6 +13,7 @@
   ];
 
   cave = {
+    time.enable = true;
     console.enable = true;
     fonts.enable = true;
     swapDevices.enable = true;
@@ -139,6 +140,9 @@
   };
 
   virtualisation = {
+    virtualbox = {
+      host.enable = true;
+    };
     docker = {
       enable = true;
     };

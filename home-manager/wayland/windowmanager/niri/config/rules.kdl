@@ -103,10 +103,6 @@ window-rule {
 }
 layer-rule {
     match namespace="^rofi$"
-    background-effect {
-        blur true
-        xray false
-    }
     geometry-corner-radius 12
 }
 layer-rule {

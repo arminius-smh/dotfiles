@@ -73,6 +73,10 @@
       zoom-us
       llama-cpp-rocm
       vagrant
+      android-studio
+      android-studio-tools
+      android-tools
+      opencode
     ];
 
     sessionVariables = {

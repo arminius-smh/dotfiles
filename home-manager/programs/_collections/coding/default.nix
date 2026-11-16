@@ -61,6 +61,7 @@ in
 
         # python
         python3 # tool
+        uv # tool
         pyright # language server
         black # formatter
         isort # sort imports

@@ -44,6 +44,7 @@
       dig
       fladder
       pi-coding-agent
+      vagrant
     ];
 
     pointerCursor = {
@@ -78,6 +79,7 @@
         hypr_handle_events.enable = true;
         niri_handle_events.enable = true;
         quickshell.enable = true;
+        libinput-gestures.enable = true;
         # thunderbird.enable = true;
         feishin.enable = true;
       };

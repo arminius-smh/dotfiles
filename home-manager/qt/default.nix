@@ -24,6 +24,7 @@ in
       qt6ctSettings = {
         Appearance = {
           color_scheme_path="${config.home.homeDirectory}/dotfiles/home-manager/qt/catppuccin-mocha-mauve.conf";
+          custom_palette = true;
           icon_theme = "Papirus";
           standard_dialogs = "xdgdesktopportal";
           styke = "kvantum-dark";

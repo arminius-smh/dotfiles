@@ -9,7 +9,6 @@ let
 in
 {
   imports = [
-    ./emulation.nix
     ./minecraft.nix
   ];
 

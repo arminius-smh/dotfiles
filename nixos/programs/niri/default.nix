@@ -22,6 +22,7 @@ in
 
     environment.systemPackages = with pkgs; [
       xwayland-satellite
+      cave-niri-mirror
     ];
   };
 }

@@ -123,11 +123,6 @@
         gaming = {
           enable = true;
           minecraft.enable = true;
-          emulation = {
-            enable = true;
-            wiiu = true;
-            switch = true;
-          };
         };
       };
       zathura.enable = true;

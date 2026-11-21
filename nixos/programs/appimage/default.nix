@@ -22,6 +22,7 @@ in
             pkgs.libepoxy
             pkgs.zstd
             pkgs.squashfsTools
+            pkgs.libgpg-error
           ];
         };
       };

@@ -82,7 +82,6 @@
     security.enable = true;
     users.enable = true;
     xdg.enable = true;
-    nfs.enable = true;
     services = {
       avahi.enable = true;
       cockpit.enable = true;

@@ -10,6 +10,7 @@ binds {
 
     Mod+N { spawn-sh "$HOME/dotfiles/assets/scripts/focus.sh -2"; }
     Mod+M { spawn-sh "$HOME/dotfiles/assets/scripts/toggle-bar.sh"; }
+    Mod+P { spawn-sh "cave-niri-mirror"; }
 
     Mod+Shift+D { spawn-sh "cave-screenshot area"; }
     Mod+Ctrl+D { spawn-sh "cave-screenshot window"; }
